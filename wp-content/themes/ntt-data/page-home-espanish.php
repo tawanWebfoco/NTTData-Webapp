@@ -27,7 +27,7 @@
 
             <nav class="menu">
                 <a href="#txes">LA ACCIÓN</a>
-                <a href="#sves">a NTT DATA Team</a>
+                <a href="#sves">NTT DATA Team</a>
                 <form action="" method="post">
                 <select class="language" name="language">
                     <option name="espanish" id="espanish" selected >Español</option>
