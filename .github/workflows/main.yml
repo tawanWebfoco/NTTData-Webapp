@@ -14,4 +14,4 @@ jobs:
         server: ${{ secrets.ftp_host }}
         username: ${{ secrets.ftp_user }}
         password: ${{ secrets.ftp_pass }}
-        server-dir: public_html/tawan/
+        server-dir: public_html/
