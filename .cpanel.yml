@@ -1,4 +1,5 @@
 ---
 deployment:
   tasks:
-    - /bin/cp -r ./* /public_html  # Copia todos os arquivos do repositório para public_html
+    - export DEPLOYPATH=/home/webappwebfoco/public_html/
+    - /bin/cp -r ./* $DEPLOYPATH
