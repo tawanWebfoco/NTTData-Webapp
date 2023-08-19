@@ -7,11 +7,11 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /htdocs/Webfoco/nttdata/LP-site/
+RewriteBase /htdocs/Webfoco/nttdata/webapp/NTTData-Webapp/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /htdocs/Webfoco/nttdata/LP-site/index.php [L]
+RewriteRule . /htdocs/Webfoco/nttdata/webapp/NTTData-Webapp/index.php [L]
 </IfModule>
 
 # END WordPress
