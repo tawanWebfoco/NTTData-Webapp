@@ -1,0 +1,495 @@
+# CRIANDO TEMAS WORDPRESS
+   * Para criar temas Wordpress é necessario seguir alguns padrões já definidos
+      - criar uma pasta com o nome do seu tema dentro da instalação wordpress
+         - wp-content > themes > seu-tema
+
+   * ## Dentro da pasta do tema é necessario no mínimo 3 arquivos:
+      - index.php
+         - responsavel por carregar a pagina inicial do tema
+      
+      - style.css
+         - responsavel pelos estilos do tema
+      
+      - screenshot.png
+         - responsavel pela capa apresentada na escolhado tema
+      
+      * ## *porém é utilizado mais arquivos para:*
+         - configuração do dashborad : 'function.php'
+
+         - criação de templates:
+            - general-template.php
+            - page.php
+            - page-home.php
+
+         - criação de sidebar:
+            - sidebar.php
+            - sidebar-page.php
+
+# O WORDPRESS TRABALHA COM UMA ESPECIE DE LOOP 
+   * é como se todos os dados  **(nome do site, midia, informações, menus, paginas, posts...)** 
+   que criassemos no dashboard fosse colocados dentro de um array e o wordpress usasse loop's  **(while, do while, foreach)** 
+   para exibir
+   ```php
+         <!-- 
+           if(have_posts()):
+               while(have_posts()) : the_post();
+                  ?>
+                     <article>
+                        <h1><?php the_title(); ?></h1>
+                        <?php the_content() ?>
+                     </article>
+                  <?php
+               endwhile; 
+      -->
+   ```
+   
+   * é possivel criar um loop customizados
+      - podemos fazer isto de algumas maneiras, porem
+      devemos evitar usar a função "query_posts()" 
+
+      - podemos usar a função "WP_Query()"
+         ```php
+            $args = array(
+                     'post_type' => 'post',
+                     'post_per_page' => 3, // quantidade de post por pagina
+                     'category__in' => array( 6, 5 ,7), //atencao no nome abaixo possuí ( 2 underline )
+                                                         /*
+                                                         dentro deste array devemos passar o id das categorias que queremos adicionar.
+
+                                                         para obter o id, devemos ir no dashboard > categorias e passar o mouse sobre os 
+                                                         nomes, e no rodapé da pagina aparecerá o id
+                                                         */
+                     'category__not_in' => array(18) // aqui passamos as categorias que não queremos no loop
+                  );
+
+                  $postlist = new WP_Query( $args );
+                     /*
+                     if( $postlist->have_posts()):
+                        while($postlist->have_posts()) : $postlist->the_post();
+                           ?>
+                              <article>
+                                 <h1><?php the_title(); ?></h1>
+                                 <?php the_content() ?>
+                              </article>
+                           <?php
+                        endwhile; 
+                        wp_reset_postdata(); //devemos sempre adicionar essa função para fechar o loop customizado, para evitar erros 
+                     */
+         ```
+      
+      - tambem podemos usar a função "get_posts()"
+         - funciona de forma pareceida a "WP_Query()" mas alguns parametros ja vem com valores padronizados
+
+   * USANDO get_post()
+      ```php
+            $my_posts =  get_posts( array(
+               'post_type' => 'produtos-person',
+               'posts_per_page' => 1
+            ) );
+
+            if(count( $my_posts)){
+               foreach($my_posts as $posts){
+                  ?>
+                     // codigo HTML aqui
+               <?php
+               }
+            }
+      ```
+
+# ARQUIVO FUNCTION.PHP
+  * ## *existem varias funções/metodos padrões do WP, algumas para chamar o titulo, subtitulo, comentario, pagina, enfileirar, posts e muito mais*
+
+   * Este arquivo é muito importante na criação de temas pois é nele em que adicionamos as ferramentas de edição ao dashboard do wordpress
+
+   * nele é usado um sistema de "enfileiramento / pilhas de comando"
+   
+   * é com ele que inserimos também o nosso arquivo de estilo (css), e as interações (javascript)
+
+
+   * utilizamos nesse arquivo uma função de nome add_action() que adiciona os nossos codigos a "fila" do tema
+      - devemos passar pelo menos dois parametros
+         - o primeiro se refere ao momento em que nosso codigo deve ser executado
+
+            - devemos olhar na documentação do wordpress pois já existem esses momentos pré estabelecidos ( ou o arquivo script-loader.php)
+
+            - os momentos mais utilizados são:
+               ```php
+                  wp_enqueue_scripts() // carregar o css e js
+                  after_setup_theme() // adicionar algumas ferramentas de suporte ao tema
+                  widgets_init() // adicionar os sidebar no tema
+               ```
+            
+
+         - o segundo passamos o nosso codigo que encapsulamos em uma outra função
+            - aqui neste exemplo irei associalos como uma classe ( pois possuí funções dentro dela )
+            
+            - como boas praticas nosso codigo leva o nome do tema no inicio e seu objetivo (resumido) por exemplo:
+
+               ```php
+                  function wptema_config()
+                  function wptema_load_scripts()
+                  function wptema_sidebars()
+                  function wptema_config()
+
+                  function wptema_codigo_encapsulado(){
+                     //codigos aqui...
+                  }
+               ``` 
+            - e chamamos ele assim
+               ```php
+                  add_action('momento_da_execução', 'wptema_codigo_encapsulado');
+               ```
+
+   
+# INSERIR O CSS E O JAVASCRIPT
+   *  inserir o CSS e os JavaScript no tema é feito de forma diferente;
+      - Primeiro devemos criar uma 'CLASSE' e inserir alguns 'METODOS'
+         - o nome desta classe deve seguir a boas praticas.. ex:
+            ```php
+               function wptema_load_scripts()
+            ```
+
+      - Segundo devemos enfileirar ele no 'momento'  wp_enqueue_scripts() 
+   
+      * inserindo o style.css
+         - é necessario criar um METODO padrão do wordpress que chama " wp_enqueue_style() " e passar alguns parametros
+
+         ```php
+               wp_enqueue_style( 'wptema-style', get_stylesheet_uri(), array(), filemtime(
+                  get_template_directory() . '/style.css'), 'all');
+         ```
+      
+      * inserindo o script.js
+         - é necessario criar um METODO padrão do wordpress que chama " wp_enqueue_script() " e passar alguns parametros
+
+         ```php
+            wp_enqueue_script( 'dropdown', get_template_directory_uri() . '/js/dropdown.js', array(), '1.0', true);
+            // para que o script seja inserido no final da pagina e não no <head> é necessario passar o parametro true 
+         ```
+
+   * depois de criar nossos metodos do CSS e JS devemos colocar nossa 'CLASSE' na fila do wordpress
+      ```php
+         add_action('wp_enqueue_scripts', 'wptema_load_scripts');
+      ``` 
+
+
+# CRIANDO MENU
+   * para criar o menu é necessario criar uma 'CLASSE'
+      - também utilizaremos essa classe para configurar ferramentas do tema por isso chamaremos ela de:
+      ```php
+         wptema_configs()
+      ```
+
+   * após criar a 'CLASSE' precisamos inserir um 'METODO' padrão do WP, e nela passar um array como parametro sendo cada indice um menu
+      ```php
+         register_nav_menus(
+            array(
+               'wp_tema_main_menu' => 'Main Menu',
+               'wp_tema_footer_menu' => 'Footer Menu'
+            )
+         );    
+      ```
+
+   * após criar esse array nosso menu já aparecerá no dashboard do WP
+
+
+# CRIANDO CABECALHO COM IMAGEM
+   * para adicionar uma imagem ou banner no cabecalho devemos inserir o 'METODO' add_theme_support() dentro da 'CLASSE' wptema_configs()
+      ```php
+         $args = array(
+            'height' => 225,
+            'width' => 1920
+         );
+         
+         add_theme_support( 'custom-header', $args );
+      ```
+   * após isso será habilitado uma sessão na parte de customização do dashboard
+      - dashboard > aparencia > customização
+
+
+# CRIANDO PAGINAS
+   * para criar paginas com template diferentes é necessario criar um arquivo .php diferente
+      - este deve seguir o padrão " page-{nome}.php " ex:
+         - page-home.php 
+         - page-contact.php
+      
+      - existe também outras paginas para exibição de templates
+         - single.php
+            - usado na visualização de post individual
+         
+         - search.php
+            - usado na visualização da resposta de busca
+
+         - archive.php
+            - usado na visualização de arquivos de: autores, datas, categorias
+            - ex: quando quisermos visualizar todos os post de um determinado autor
+
+   * TAMBÉM PODEMOS CRIAR MODELOS DE PAGINAS
+      - devemos criar um arquivo .php com qualquer nome
+         "usar algum nome preferencialmente que remeta a tema ou template" ex:
+            - general-template.php
+
+      - dentro deste arquivo devemos abrir um comentario de multiplas linhas " /* */ " e colocar "Template Name: nome do template"
+      ```php
+      /* 
+         Template Name: General Template
+      */
+      ```
+   
+
+# CRIANDO MINIATURAS ( THUMBNAILS )
+   * para criar miniaturas é necessario adicionar o 'METODO' add_theme_suppor() dentro da 'CLASSE' wptema_configs()
+      ```php
+         add_theme_support( 'post-thumbnails' );
+      ```
+   
+   * depois precisamos informar onde queremos que seja exibido essas miniaturas no nosso tema
+      - para isso devemos ir em nosso template e inserir o codigo
+         ```php
+         <?php the_post_thumbnail( array(275,275) ); ?>
+         ```
+      - este parametro é opcional e informa qual sera o tamanho da miniatura
+      - caso não informe nenhum parametro ele recebera algum valor padrão pre-estabelecido no dashboard.
+
+# CRIANDO LOGO
+   * para criar o logo também adicionar o 'METODO' add_theme_suppor() dentro da 'CLASSE' wptema_configs()
+      ```php
+         add_theme_support( 'custom-logo',array(
+            'width' => 200,
+            'height' => 110,
+            'flex-height' => true,
+            'flex-width' => true
+         ));
+      ```
+      - estes parametros indica o tamanho ideal do logo, porem permitem alteração.
+
+   * após isso será habilitado uma sessão na parte de customização do dashboard
+      - dashboard > aparencia > customização > identificação do site
+
+# SIDEBAR / WIDGETS
+   * para criar a area de sidebar devemos criar uma nova 'CLASSE' e colocar todos os widgets como 'METODOS' dentro
+      ```php
+         function wptema_sidebars(){ // classe
+            register_sidebar( // metodo
+               array(
+                  'name' => 'Blog Sidebar',
+                  'id' => 'sidebar-blog',
+                  'description' => 'This is the blog Sidebar, You can add your widgets here.',
+                  'before_widget' => '<div class="widget-wrapper">',
+                  'after_widget' => '</div>',
+                  'before_title' => '<h4 class="widget-title">',
+                  'after_title' => '</h4>',
+               )
+            )
+            // para acrescentar mais widgets basta copiar o metodo acima e modificar as informações
+         }
+      ``` 
+   * após isso colocaremos nossa 'CLASSE' na fila do wordpress no 'momento' widgets_ini()
+      ```php
+         add_action( 'widgets_init', 'wptema_sidebars' );
+      ```
+
+# COMENTARIOS
+   * para incluir comentarios nos posts é necessario um arquivo chamado 'comments.php'
+      -  normalmente este arquivo é copiada de temas já pronto
+
+      -  deve se tomar cuidado para não pegar algum tema com personalizações especificas do tema
+
+   * após obter o arquivo 'comments.php', incluir o codigo abaixo onde quer exibir os comentarios
+      ```php
+         if(comments_open() || get_comments_number()){
+            comments_template();
+         }
+      ```
+
+# PAGINAÇÃO
+   * existe algumas formas de criar paginação, aqui vou listar duas (para mais formas consultar documentação)
+
+   * paginação no posts do blog  só com ( < antes    e    depois > )
+      - utilizar a função 
+         ```php
+            previous_posts_link( "<< Novos " ); // atençao post está no plural
+            next_posts_link( 'Antigos >>' );    // atençao post está no plural
+
+         ```
+      - exemplo de como montar a estrutura html
+         ```php
+            <!-- <div>
+                     <div>
+                        <?php previous_posts_link( "<< Novos " ) ;?>
+                     </div>
+
+                     <div>
+                        <?php next_posts_link( 'Antigos >>' ) ;?>
+                     </div>
+                  </div> -->
+         ```
+
+   * paginação no posts do blog  com numeração das paginas
+     - utilizar a função no local onde deseja inserir a paginação
+      ```php
+         the_posts_pagination();
+      ```
+   
+   * paginação entre os posts (dentro do post)  só com ( < antes    e    depois > )
+      - utilizar a função 
+         ```php
+            previous_post_link( "<< Novos " ); // atençao post está no singular
+            next_post_link( 'Antigos >>' );    // atençao post está no singular
+         ```
+
+      - exemplo de como montar a estrutura html
+         ```php
+            <!--
+               <div>
+                  <div>
+                     <?php next_post_link( '&laquo; %link' ) ;?>
+                  </div>
+
+                  <div>
+                     <?php previous_post_link( '%link &raquo;' ) ;?>
+                  </div>
+               </div> -->
+         ```
+   * paginação do conteudo dentro do post
+      - utilizar a função 
+         ```php
+           wp_link_pages();
+         ```
+
+   
+# PESQUISA / BUSCA / SEARCH
+   * para criar o local de pesquisa é necessario inserir o codigo abaixo em algum lugar do template
+      ```php
+         get_search_form()
+      ```
+   * ao clicar em pesquisar o wordpress vai procurar o arquivo 'search.php' para carregar o template, caso não ache ele ira
+   procurar outros.. caso não ache nenhum na lista de prioridade ira utilizar o template do index.php 
+
+   * o wordpress já possuí um formulario padrão pré-estabelecido, porém é possivel alterar criando o arquivo 'searchform.php'
+      
+# 404 - PAGINA DE ERRO
+   * se não for criado uma pagina especifica de erro, o wordpress ira exibir o index.php
+
+   * por isso é muito importante criar uma pagina para exibir caso haja algum erro
+      - url errado
+      - link quebrado
+
+   * precisamos de um arquivo chamado 404.php
+      - neste arquivo iremos criar a estrutura do template que queremos exibir
+
+
+# TEMPLATE PARTS / INCLUDES
+   * é basicamente a forma que o wordpress realiza os include e require do PHP
+
+   * é bastante util na organização e separar o materal HTML do PHP
+
+   * para utilizar basta chamar a função "get_template_parts()" passando pelo menos 1 parametro ( local do arquivo)
+      - o segundo parametro é a continuação do nome do arquivo seguido de um " - " (trasso)
+
+      - suponhamos que temos uma pasta de nome " parts " e dentro dela dois arquivo, " content.php " e "content-search.php"
+      
+      - segue forma de chamar os dois arquivos respectivamente 
+         ```php
+            get_template_parts( 'parts/content' ) // chama o arquivo content.php
+
+            get_template_parts( 'parts/content', 'search' ) // chama o arquivo content-search.php
+         ```
+      - caso não encontre o segundo parametro a função ira buscar e exibir o primeiro
+
+# TAGS CONDICIONAIS / EXIBIR CONTEUDOS DIFERENTE CONDICIONAL
+   * para exibir( ou não ) um conteudo de forma diferente existe as " TAGS CONDICIONAIS "
+
+   * basicamente elas retornam um booleano para a questão, existe diversas tags e muitas possibilidades consulte a documentação WP para saber mais,
+   segue apenas um exemplo
+
+   * caso eu queira ocultar o menu na minha pagina " Landing Page " eu poderia entrar no arquivo que monta o menu e perguntar se a pagina que estou
+   é a " landing-page "
+      - exemplo:
+         ```php   
+            if(! is_page( 'landing-page' )){ // Um if com uma negação caso esteja na pagina " landing-page "
+               // conteudo do menu
+            }
+         ```
+      
+# CUSTOMIZAÇÃO / CUSTOMIZING 
+   * a área de customização do tema permite o usuário fazer edições sem conhecer programação, podemos adicionar sessões para o usuario trocar:
+      - titulo, subtitulo, textos, cores, banner, imagem, editar tamanhos de widgets, formatar visualização de blog, e mais...
+      
+   * para criar estas áreas será necessario criar um novo arquivo, por questão de boas praticas vamos chama-lo de ' customizer.php '
+   
+   * este arquivo ficará em uma pasta chamada ' inc ' dentro do tema
+
+   * o wordpress não faz a leitura deste arquivo de forma automatica por isso precisaremos fazer o include dele em  'function.php'
+      ```php
+         require get_template_directory() . '/inc/customizer.php';
+      ```
+   * no arquivo customizer.php, precisaremos criar uma função e depois adiciona-la a fila do WP atravez do add_action()
+
+   * chamarei esta função de  ' wptema_customizer ', e ela recebe um parametro obrigatório : ' $wp_customize ' 
+      ```php
+         function wptema_customizer( $wp_customize ){}
+      ```
+
+   * **SOBRE O CUSTOMIZER**
+      * basicamente é um menu em que cada botão é referente a uma sessão
+
+      * em cada sessão existe um ou mais campos de edição, o wordpress chama este campo de ' CONTROLER ' e é nele 
+      onde é feita a alteração do tema
+
+      * então temos a 'section', o 'control' e temos tambem o 'setting'
+         - o setting é o responsavel em enviar para o banco de dados as informações que o usuario enviou
+
+      * segue abaixo um codigo para alterar o copyright de um tema
+         ```php
+            //  Copyright Section
+            // aqui nos adicionamos a sessão no customizer do WP
+            $wp_customize->add_section(
+               'sec_copyright',
+               array(
+                  'title' => 'Copyright Settings',
+                  'description' => 'Copyright Settings'
+               )
+            );
+
+            // essa parte realiza o tratamento dos dados que o usuario enviar
+            // atenção ao parametro sanitize pois ele impede que o usario envio algum dado invalido que possa quebrar seu tema
+            $wp_customize->add_setting(
+               'set_copyright',
+               array(
+                  'type' => 'theme_mod',
+                  'default' => 'Copyright X - All Rights Reserved',
+                  'sanitize_callback' => 'sanitize_text_field'
+               )
+            );
+
+            //aqui é a parte visual que ira aparecer para o usuário
+            $wp_customize->add_control(
+               'set_copyright',
+               array(
+                  'label' => 'Copyright Information',
+                  'description' => 'Please, type your copyright here',
+                  'section' => 'sec_copyright',
+                  'type' => 'text'
+               )
+         );
+         ```
+      * após criar todos os campos precisamos adicionar a fila como antes mencionado.
+         ```php
+            add_action( 'customize_register', 'wptema_customizer' );
+         ```
+
+      * estes passos apenas capturam os dados do usuario e enviam para o banco de dados,
+      para exibir é necessario fazer o tratamento no template 
+
+      * para exibir precimamos chamar e exibir a função 'get_theme_mod()'
+         - o primeiro parametro desta função é o mesmo do primeiro parametro da 'add_setting()'
+
+         - o segundo parametro é opcional, e serve para dados default.
+
+      * no arquivo footer.php iremos exibir o copyright enviado pelo usuário com o seguinte codigo:
+         ```php   
+            echo get_theme_mod( 'set_copyright', 'Copyright X - All Rights Reserved' )
+         ```      
+      
+      * **Existe diversas possibilidades, leia a documentação para aprender mais sobre elas.**

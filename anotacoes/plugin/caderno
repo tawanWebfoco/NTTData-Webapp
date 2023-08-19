@@ -1,0 +1,393 @@
+# COMO CRIAR PLUGINS WORDPRESS
+ * para criar um plugin basta apenas criar um arquivo dentro do diretório: wp-content -> plugins
+
+ * mas para plugins mais organizados e estruturados é criado uma pasta seguindo uma estrutura com conceitos de MVC
+
+ * a pasta leva o nome do plugin assim como o arquivo principal
+
+ * este arquivo deve conter o bloco de comentario abaixo, que serve para wordpress obtenha as informações necessarias do seu plugin
+   ```php
+         /**
+       * Plugin Name: TR Slider
+      * Plugin URI: https://www.wordpress.org/
+      * Description: My first plugin
+      * Requires at least: 5.6
+      * Author: Tawan rio
+      * Author URI: https://tawanrio.com/
+      * License: GPL v2 or later
+      * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+      * Text Domain: tr-slider
+      * Domain Path: /languages
+      */
+
+      /*
+      TR Slider is free software: you can redistribute it and/or modify
+      it under the terms of the GNU General Public License as published by
+      the Free Software Foundation, either version 2 of the License, or
+      any later version.
+      
+      TR Slider is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+      GNU General Public License for more details.
+      
+      You should have received a copy of the GNU General Public License
+      along with TR Slider. If not, see http://www.gnu.org/licenses/gpl-2.0.html.
+      */
+   ```
+
+# ATIVAR , DESATIVAR E DESINSTALAR
+   * para realizar estas ações devemos registrar seus repectivos ganchos
+
+   ```php
+       public static function activate(){
+         // refaz os links permanentes do WP, limpar o campo rewrite_rules é mais eficaz
+         // flush_rewrite_rules();
+         update_option( 'rewrite_rules', '' );
+      }
+      
+      public static function deactivate(){
+         // refaz os links permanentes do WP,
+         flush_rewrite_rules();
+
+      }
+
+      public static function uninstall(){
+
+      }
+
+       register_activation_hook( __FILE__, array( 'PLUGIN_NOME', 'activate' ));
+      register_deactivation_hook( __FILE__, array( 'PLUGIN_NOME', 'deactivate' ));
+      register_uninstall_hook( __FILE__, array( 'PLUGIN_NOME', 'uninstall' ));
+   ```
+
+# CRIANDO NOVOS POST_TYPE " CPT "
+   * o wordpress nos permite criar novos tipos de post_type, para facilitar o uso de nossos plugins 
+
+   * existem muito outros parametros, # veja Documentação
+   ```php
+   register_post_type(
+            'CPT_NOME',
+            array(
+               'label' => 'NOME',
+               'description' => 'NOME PLURAL',
+               'labels' => array(
+                  'name' => 'NOME PLURAL',
+                  'singular_name' => 'NOME'
+               ),
+               'public' => true,
+            )
+   );
+   ```
+
+   ## COLUNA DE INFORMAÇÃO DO POST NO CPT
+      * para adicionar colunas de informação no cpt utilizamos o codigo
+         ```php
+            // cria as colunas
+            CPT_NOME_cpt_columns( $columns){
+            $columns['CPT_NOME_NOME_INFO'] = 'NOME DA COLUNA';
+            $columns['CPT_NOME_NOME_INFO2'] = 'NOME DA COLUNA 2';
+            return $columns;
+            }
+             add_filter( 'manage_CPT_NOME_posts_columns', array( $this, 'CPT_NOME_cpt_columns'));
+
+            /** acrescenta as informações */
+            CPT_NOME_custom_columns( $column, $post_id){
+               switch( $column){
+                  case 'CPT_NOME_NOME_INFO':
+                     echo get_post_meta($post_id, 'CPT_NOME_NOME_INFO', true);
+                     break;
+                  case 'CPT_NOME_NOME_INFO2':
+                     echo get_post_meta($post_id, 'CPT_NOME_NOME_INFO2', true);
+                     break;
+               }
+            }
+            add_action( 'manage_CPT_NOME_posts_custom_column', array( $this, 'CPT_NOME_custom_columns'), 10, 2);
+         ```
+
+# META BOX 
+   * metabox são aquelas 'caixinhas/widgets' que permitem guardar algum tipo de informação
+
+   * podemos criar as nossas proprias metaboxs para guardar nossas informações do CPT
+
+   * para adicionar o metabox precisamos inseri-lo no gancho 'add-meta_boxes'
+      ```php
+            /** cria o meta box */
+            add_meta_boxes(){
+               add_meta_box(
+                  'NOME_meta_box',
+                  'TITULO',
+                  array( $this, 'add_inner_meta_boxes'),
+                  'NOME',
+                  'normal',
+                  'high',
+               );
+            }
+            add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes'));
+
+
+            /** salva os dados do meta box */
+            save_post(){
+               $old_link_text = get_post_meta($post_id, 'CPT_NOME_NOME_INFO', true);
+               $new_link_text = $_POST['CPT_NOME_NOME_INFO'];
+
+               $old_link_url = get_post_meta( $post_id, 'CPT_NOME_NOME_INFO2', true);
+               $new_link_url =  $_POST['CPT_NOME_NOME_INFO2'] ;
+
+               update_post_meta( $post_id, 'CPT_NOME_NOME_INFO', $new_link_text, $old_link_text);
+               update_post_meta( $post_id, 'CPT_NOME_NOME_INFO2', $new_link_url, $old_link_url);
+            }
+            add_action( 'save_post', array( $this, 'save_post'), 10, 2);
+
+      ```
+
+# META DADO
+   * é um dado que fornece informação sobre outro dado
+
+   * serve para adicionar informações que não possui um campo padrao no banco de dados
+
+   * exemplo: no banco de dados temos um padrao, wp_posts => wp_postmeta, wp_comments -> wp_commentmeta
+      - isso acontece por que, quando nós criamos uma informação que não tem um campo especifico na tabela para ser guardado, **nos NÃO podemos criar uma coluna a mais**
+      
+      - devemos a tabela  wp_****meta para guardar estas informações adicionais
+
+# TRABALHANDO COM BANCO DE DADOS
+   * o wordpress já possuí algumas funções que facilitam o CRUD
+      - add_**tabela**_meta()   
+      - get_**tabela**_meta()
+      - update_**tabela**_meta()
+      - delete_**tabela**_meta()
+
+      ex: add_post_meta() , get_user_meta(), delete_term_meta()
+
+
+# SEGURANÇA
+   ## SANITIZE E ESCAPE
+   * devemos tomar o maximo de cuidado com as informações, para isso temos sempre que sanitizar e escapar as informações
+      - sanitizar
+         - basicamente é tratar a informação que será enviada pelo usuario
+         - existe algumas funções do WP que ajudam com isso
+            ```php
+               sanitize_text_field()
+               sanitize_email()
+               esc_url_raw()
+            ```
+      - escapar
+         - quando nós vamos exibir uma informação na tela que pode ter vindo do usuário ou banco de dados , devemos tambem tomar cuidado para não executar algo que não deveria
+
+         - existe algumas funções do WP que ajudam com isso
+            ```php
+               esc_html() //conteudo html
+               esc_attr() // atributos de elementos html
+               esc_js() // codigo js
+               esc_textarea() // conteudo usado em textarea
+               esc_url() // url, href, src, links
+               ```
+
+   ## NONCE
+      * é uma especie de token que pode ser usada apenas uma vez e serve para a aplicação ter certeza que a informação esta vindo de onde deveria vir
+
+      * devemos criar um input do tipo hidden, criar o nonce e enviar junto com os dados de um formulario, na captura de dados validamos o nonce
+
+# MENU ADMIN
+   * é possivel adicionar um menu de configuração do plugin, o local de acesso pode variar mas normalmente fica no dashboard com um botao principal ou um submenu de um botao
+
+   * para adicionar a fila usamos um gancho especifico add_action( 'admin_menu', 'add_menu');
+
+   ```php
+       public function add_menu(){
+      // add_options_page()
+      // add_plugins_page()
+      // add_theme_page()
+      // add_menu_page()
+
+         // adiciona o menu
+         // essa função pode reseber até 7 parametros
+         add_menu_page(
+            'titulo da pagina',
+            'titulo do menu',
+            // permissão do usuario para acessar
+            'manage_options',
+            'slug/url',
+            // função Callback para mostra o conteudo da pag
+            array($this,'function'),
+            'icone',
+            // posição do menu no dashboard
+            10,
+         );
+
+         // adiciona o submenu
+         // essa função pode reseber até 7 parametros
+         add_submenu_page(
+            // slug do menu que deseja inserir o submenu / url final da pagina 
+            'slug/url',
+            'titulo da pagina',
+            'titulo do menu',
+            // permissão do usuario para acessasr
+            'manage_options',
+            // slug no submenu / url final da pagina
+            // se ja existe uma pagina copiar o url final da pag
+            'edit-comments.php',
+            // conteudo do submenu, ou passar um CB
+            null,
+            //posição
+            null
+         );
+      }
+
+      public function PLUGIN_NAME_settings_page(){
+         // corpo da pagina
+      }
+   ```
+   
+# PAGINA DO MENU
+   * para criar a pagina do menu devemos criar um arquivo novo e uma classe especifica para ele, opção de nome: 'class.NOME-PLUGIN-settings.php' e 'NOME_PLUGIN_Settings{}'
+
+   * criaremos uma variavel estatica para armazenar os dados dos campos: $options
+      - no contrutor da classe atribuiremos um valor a essa variavel com a função WP
+         ```php
+            self::$options = get_option( 'NOME_PLUGIN_options' )
+         ```
+
+   * adicionaremos ao gancho 'admin_init', o metodo que ira exibir o conteudo na pagina
+      ```php
+         add_action( 'admin_init', array( $this, 'admin_init'));
+      ```
+
+   * criaremos o metodo que exibe o conteudo
+      ```php
+         public function admin_init(){}
+      ```
+# CRIANDO AS SEÇÕES E CAMPOS DO MENU
+   * SEÇÕES E CAMPOS DEVEM SER CRIADOS DENTRO DO METODO QUE EXIBE O CONTEUDO 'admin_init()'
+
+   * SEÇÕES
+      - para criar as seções usamos a função 
+         ```php
+            // aceita até 4 parametros 
+            add_settings_section(
+               // id para seção
+               'NOME_PLUGIN_SEÇÃO',
+               // titulo da seção
+               'TITULO',
+               // metodo CB com texto explicativo abaixo do  titulo da seção
+               array($this, ''),
+               // pagina em que a seção ira aparecer
+               'NOME_PLUGIN_PAGE',
+            )
+         ```
+
+   * CAMPOS
+      - para criar os campos usamos a função
+         ```php
+            // aceita até 6 parametros
+               add_settings_field(
+                  // id do campo
+               'NOME_PLUGIN_CAMPO',
+               // titulo do campo
+               'CAMPO',
+               // metodo CB que cria o conteudo
+               array( $this, 'NOME_PLUGIN_CAMPO_callback'),
+               // id da pagina que ira aparecer
+               'NOME_PLUGIN_PAGE',
+               // id da seção que ira aparecer
+               'NOME_PLUGIN_SEÇÃO'
+               // array de itens / label_for
+               )
+         ```
+
+         * CONTEUDO DO CAMPO
+            - criamos o metodo callback e nele o conteudo html
+               ```php
+                  public function NOME_PLUGIN_CAMPO_callback(){
+                     ?>
+                        // codigo html aqui, inputs, span..
+                        
+                        <input 
+                        type="text"
+                        name="NOME_PLUGIN_options[NOME_PLUGIN_CAMPO]" 
+                        id="NOME_PLUGIN_CAMPO" 
+                        value="<?php echo isset( self::$options['NOME_PLUGIN_CAMPO']) ? esc_attr( self::$options['NOME_PLUGIN_CAMPO']) : '' ;?>">
+                        <?php
+
+                     <?php
+                  }
+               ```
+   * VALIDAR CONTEÚDO 
+      - é importante sempre validar o conteudo e sanitizar para maior segurança
+      
+      - devemos criar um novo metodo que ira realizar a sanitização 
+         ```php
+            public function NOME_PLUGIN_validate( $input ){
+               $new_input = array();
+               foreach( $input as $key => $value ){
+                  $new_input[$key] = sanitize_text_field( $value );
+               }
+
+               return $new_input;
+            }
+         ```
+   
+   * REGISTRANDO O CONTEUDO NO BANCO
+      - para registrar o conteudo recebido dos campos no banco de dados, devemos adicionar uma função WP no metodo que exibe o conteudo 'admin_init()'
+         ```php
+            register_setting(
+            // agrupa as opções da pagina
+            'NOME_PLUGIN_group',
+            // nome da setting
+            'NOME_PLUGIN_options',
+            // array CB usado para validar o campo das paginas
+            array( $this, 'NOME_PLUGIN_validate')
+         );
+         ```
+# INSERINDO CSS E JS 
+   * podemos adicionar arquivo CSS tanto para estilizar o front-end como o back-end(admin do WP)
+
+   * para adicionar um arquivo no front-end ( CSS / JS ) 
+      - devemos utilizar o gancho wp_enqueue_scripts
+
+      - podemos adicionar diretamente na fila e deixar disponivel em toda aplicação, atravez da função wp_enqueue_ARQUIVO()
+         ```php
+            wp_enqueue_style()
+            wp_enqueue_scripts()
+         ```
+      - para adicionar em paginas espeficas devemos registrar o arquivo atravez da função wp_register_ARQUIVO() e depois chamar no arquivo que exibe o conteudo com a função wp_enqueue_ARQUIVO( 'ID' ) passando o ID como parametro
+         ```php
+            wp_register_script( 'ID-ARQUIVO', 'CAMINHO-DO-ARQUIVO', array( 'DEPENDENCIA'/**se não possuir dependencia como JQUERY deixar vazio*/ ), 'VERSÃO', 'true/false' ); /** true para add o arquivo no final da pagina / false para add no head */
+            
+             wp_enqueue_style( 'ID-ARQUIVO' );
+         ```
+   
+   * para adicionar um arquivo CSS no back-end
+      - devemos utilizar o gancho admin_enqueue_scripts
+
+      - e carregar o arquivo com a função wp_enqueue_ARQUIVO()
+         ```php
+            wp_enqueue_style( 'ID-ARQUIVO', 'CAMINHO-DO-ARQUIVO' );
+         ```
+
+      - para evitar que nosso arquivo seja carregado em toda aplicação utilizaremos um mecanismo com uma variavel GLOBAL para verificar qual id do post-type
+         ```php
+            global $typenow;
+            if($typenow == 'tr-slider'){
+                wp_enqueue_style( 'ID-ARQUIVO', 'CAMINHO-DO-ARQUIVO' );
+            }
+         ```
+
+# ALTERAR ARQUIVO JS COM WORDPRESS
+   * o WP possui algumas formas de realizar alterações no arquivo js dinamicamente
+
+   * uma delas é utilizando a função wp_localize_script();
+      ```php
+         function tr_slider_options(){
+            // captura valor do dashboard e insere um boleano na variavel
+         $show_bullets = (isset( TR_Slider_Settings::$options['tr_slider_bullets'] ) && TR_Slider_Settings::$options['tr_slider_bullets']) == 1 ?  true : false;
+         
+
+         // adciona o arquivo a fila do wordpress
+         wp_enqueue_script( 'tr-slider-options-js', TR_SLIDER_URL . 'vendor/flexslider/flexslider.js', array( 'jquery' ), TR_SLIDER_VERSION, true );
+
+         //localiza o arquivo e insere o valor do $show_bullets no objeto SLIDER_OPTIONS 
+         wp_localize_script( 'tr-slider-options-js', 'SLIDER_OPTIONS', array('controlNav' => $show_bullets));
+      }
+      ```

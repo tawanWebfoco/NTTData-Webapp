@@ -1,0 +1,232 @@
+:root{
+  --blue-primary: #070F26;
+  --blue-secundary: #6785C1;
+  --black:#000;
+  --text-silver-dark:#636363;
+  --text-silver-light:#A6A6A6;
+  --background-gray:#F2F2F2;
+  --text-dark: #000;
+  --text-light: #fff;
+}
+html {
+  font-size: 14px;
+  overflow: hidden;
+}
+
+* {
+  font-family: 'Noto Sans', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+/* SITE */
+body {
+  display: grid;
+  grid-template-areas: 'header' 'main' 'footer';
+  grid-template-rows: 6vh 86vh 8vh;
+}
+section{
+  margin: 20px 0;
+}
+
+/* HEADER */
+body .header {
+  grid-area: header;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px #eee solid;
+}
+
+/* MAIN */
+body .main {
+  grid-area: main;
+  overflow: scroll;
+}
+
+/* FOOTER */
+footer.footer {
+  color: white;
+  grid-area: footer;
+  background-color: #070F26;
+  display: flex;
+  align-items: center;
+}
+
+footer.footer .menu {
+  width: 100%;
+}
+
+footer.footer .menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer.footer .menu ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  height: 8vh;
+  border-radius: 10px;
+  width: 20%;
+}
+
+footer.footer .menu ul li.active {
+  background-color: #eee;
+  color: #070F26;
+}
+
+footer.footer .menu ul li.active i {
+  font-size: 1.9rem;
+}
+
+footer.footer .menu ul li i {
+  font-size: 1.7rem;
+  margin-bottom: -1vh;
+}
+
+/* MAIN */
+body > .main {
+  margin: 1vh 4vw;
+}
+
+.main > h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: red;
+  margin: 5px 0 25px 0;
+}
+
+/* SEND PUB BOX */
+.main .sendpubbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.main .sendpubbox .top {
+  background-color: #eee;
+  height: 3vh
+}
+
+.main .sendpubbox .main {
+  background-color: #F7F7F7;
+  
+}
+.main .sendpubbox .main textarea{
+  height: 13vh;
+  resize: none;
+  width: 100%;
+  background-color: #fff0;
+  border: none;
+}
+.main .sendpubbox .bottom {
+  background-color: #eee;
+  display: flex;
+  padding: 0 20px;
+  height: 5.5vh;
+  text-align: center;
+  border-radius: 15px 15px 0 0;
+}
+
+.main .sendpubbox .bottom div {
+  margin: auto 5px;
+}
+
+.main .sendpubbox .bottom div input,
+.main .sendpubbox .bottom div button {
+  font-size: .9rem;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #070F26;
+  padding: 4px 18px;
+}
+
+.main .sendpubbox .bottom div button {
+  background-color: #BBCBF8;
+}
+
+.main .sendpubbox .bottom div img {
+  position: relative;
+    bottom: -0.4vw;
+    width: 6vw;
+}
+/* END SEND PUB BOX */
+
+
+/* RECEIVE PUB BOX */
+
+.main .receivepubbox .container , .commentsArea{
+  display: flex;
+  padding: 0 15px;
+}
+.commentsArea{
+  padding: 0 0 0 15px  ;
+}
+.main .receivepubbox .imgPerfil {
+  width: 32%;
+}
+
+.main .receivepubbox .imgPerfil img {
+  margin-top: 6px;
+  width: 100%;
+}
+.main .receivepubbox .commentsArea .imgPerfil img{
+  margin-top: 18px;
+}
+.main .receivepubbox .content {
+  margin: 10px 0;
+}
+
+.main .receivepubbox .action {
+  display: flex;
+  margin-left: 10px;
+}
+
+.main .receivepubbox .action > div {
+  display: flex;
+  margin: 10px;
+  margin-left: 0;
+}
+
+.main .receivepubbox .action > div > * {
+  margin: 0 5px;
+}
+.main .receivepubbox .message {
+  margin: 0 15px;
+}
+.main .receivepubbox .message .seeMore{
+  color: #333;
+}
+.main .receivepubbox .seeMoreComments {
+  margin-top: -10px;
+  text-align: center;
+}
+.main .receivepubbox .seeMorePublish {
+  display: flex;
+  justify-content: center;
+}
+.main .receivepubbox .seeMorePublish span {
+  text-align: center;
+  color: black;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+.main .receivepubbox .seeMorePublish img {
+  margin: 2px 5px 0 10px;
+
+}
+
+.main .receivepubbox .message span{
+  height: 40px;
+  overflow: hidden;
+  display: block;
+}
+
+/* END RECEIVE PUB BOX */
