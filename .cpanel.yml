@@ -1,5 +1,4 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/public_html
-    - /bin/cp -r ./* $DEPLOYPATH
+    - /bin/cp -r ./* /public_html  # Copia todos os arquivos do repositório para public_html
