@@ -1,6 +1,6 @@
 <?php
 require_once(dirname(__FILE__) . '/app/src/config/config.php');
-
+print_r(dirname(__FILE__));
 
 // Carrega o arquivo wp-config.php do WordPress
 // require_once(dirname(__FILE__,4) . '/wp-config.php');
@@ -15,6 +15,6 @@ $uri = urldecode(
    }
  
 
-     require(CONTROLLER_PATH ."/$uri");
+    //  require(CONTROLLER_PATH ."/$uri");
 
 
