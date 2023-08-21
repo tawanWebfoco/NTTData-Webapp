@@ -19,4 +19,14 @@ class Database
         $result = $conn->query($sql);
         return $result;
     }
+    public static function executeSQL($sql) {
+        $conn = self::getConnection();
+        if(!mysqli_real_escape_string($conn, $sql)) {
+            throw new Exception(mysqli_error($conn));
+        }
+        $id = $conn->insert_id;
+        $conn->query($sql);
+        $conn->close();
+        return $id;
+    }
 }

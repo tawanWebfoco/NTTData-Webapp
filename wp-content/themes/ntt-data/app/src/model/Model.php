@@ -79,4 +79,16 @@
                  
             }
         }
+        public function update() {
+
+            $sql = "UPDATE " . static::$tableName . " SET ";
+            foreach($this->values as $col => $value ) {
+                if($col != 'id_user'){
+                $sql .= " `$col` = " . static::getFormatedValue($value) . ",";
+                }
+            }
+            $sql[strlen($sql) - 1] = ' ';
+            $sql .= "WHERE id_user = {$this->id_user}";
+            Database::executeSQL($sql);
+        }
     } 

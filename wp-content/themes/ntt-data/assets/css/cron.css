@@ -645,7 +645,10 @@ hr {
   color: var(--text-silver-dark);
 }
 .main .perfil  .perfilContainer .imgPerfil {
-  width: 30vw;
+  border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
 }
 
 .main .perfil  .perfilContainer a#uploadLink {
@@ -669,16 +672,19 @@ img#uploadedImage {
   padding: 5px 0;
 }
 
-.main .perfil  input {
+.main .perfil  input,
+.main .perfil  span  {
   border: none;
   color: var(--text-silver-light);
   flex-grow: 1;
-  text-transform: capitalize;
+}
+.main .perfil  span::first-letter{
+  text-transform: uppercase;
 }
 
 .main .perfil  .label {
   font-size: .9rem;
-  width: 11vw;
+  width: 13vw;
   color: var(--background-gray-dark);
 }
 

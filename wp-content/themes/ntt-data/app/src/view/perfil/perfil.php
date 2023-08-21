@@ -3,7 +3,15 @@
         <div class="perfilContainer">
             <div class="box">
                 <div class="photo">
-                    <img class="imgPerfil" src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\photos/perfil/img-perfil.svg" alt="Imagem">
+                    <?php
+                     $image_path = ABSPATH . str_replace(home_url(), '', $user->photo);
+                        if(file_exists($image_path)){
+                            $url_img = $user->photo; 
+                        }else{
+                            $url_img = get_stylesheet_directory_uri() . '/app/public\assets\img\photos/perfil/img-perfil.svg';
+                        }
+                    ?>
+                    <img class="imgPerfil" src="<?= $url_img;?>" alt="Imagem">
                     <span id="editImgPerfil">editar foto</span>
                 </div>
                 
@@ -13,7 +21,8 @@
                 </a>
 
                 <!-- Formulário de upload oculto -->
-                <form id="uploadImgPerfil" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" enctype="multipart/form-data">
+                <!-- <form id="uploadImgPerfil" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" enctype="multipart/form-data"> -->
+                <form id="uploadImgPerfil" action="#" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="upload_image">
                     <input type="hidden" name="upload" value="perfil">
                     <input type="file" name="imagem" id="imagem" style="display: none;">
@@ -26,23 +35,28 @@
                     <div class="field">
                         <label class="label" for="name">Nome</label>
                        
-                        <input type="text" name="name" value="<?= $user->full_name; ?>">
+                        <!-- <input type="text" name="name" value="<?= $user->full_name; ?>"> -->
+                        <span><?= $user->full_name; ?></span>
                     </div>
                     <div class="field">
                         <label class="label" for="email">Email</label>
-                        <input type="email" name="email" value="<?= $user->email; ?>">
+                        <!-- <input type="email" name="email" value="<?= $user->email; ?>"> -->
+                        <span><?= $user->email; ?></span>
                     </div>
                     <div class="field">
                         <label class="label" for="country">País</label>
-                        <input type="text" name="country" value="<?= $user->country; ?>">
+                        <!-- <input type="text" name="country" value="<?= $user->country; ?>"> -->
+                        <span><?= $user->country; ?></span>
                     </div>
                     <div class="field">
                         <label class="label" for="office">Cargo</label>
-                        <input type="text" name="office" value="<?= $user->office; ?>">
+                        <!-- <input type="text" name="office" value="<?= $user->office; ?>"> -->
+                        <span><?= $user->office; ?></span>
                     </div>
                     <div class="field">
                         <label class="label" for="username">Usuário</label>
-                        <input type="text" name="username" value="<?= $user->username; ?>">
+                        <!-- <input type="text" name="username" value="<?= $user->username; ?>"> -->
+                        <span><?= $user->username; ?></span>
                     </div>
                 </div>
                 <div class="btnAction">
