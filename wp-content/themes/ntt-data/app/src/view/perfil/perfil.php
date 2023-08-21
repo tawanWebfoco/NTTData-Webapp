@@ -13,8 +13,8 @@
                             $image_extension = pathinfo($url_img, PATHINFO_EXTENSION);
 
                             // Adiciona "-100x100" antes da extensão
-                            $new_image_url = preg_replace('/\.' . $image_extension . '$/', '-100x100.' . $image_extension, $url_img);
-                            $url_img = $new_image_url;
+                            // $new_image_url = preg_replace('/\.' . $image_extension . '$/', '-100x100.' . $image_extension, $url_img);
+                            // $url_img = $new_image_url;
                             
                         }else{
                             $url_img = get_stylesheet_directory_uri() . '/app/public\assets\img\photos/perfil/img-perfil.svg';
