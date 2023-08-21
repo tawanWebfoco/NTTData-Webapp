@@ -4,7 +4,7 @@
             <div class="box">
                 <div class="photo">
                     <?php
-                    print_r($user);
+                    // print_r($user);
                     if($user->photo){
                         $image_path = ABSPATH . str_replace(home_url(), '', $user->photo);
                         if(file_exists($image_path)){
