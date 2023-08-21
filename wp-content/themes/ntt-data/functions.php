@@ -40,7 +40,7 @@ function nttdata_configs(){
          'flex-height' => true,
          'flex-width' => true
       ));
-         // add_image_size('thumbnail-300x300', 300, 300, true); 
+         add_image_size('thumbnail-100x100', 100, 100, true); 
 
          remove_image_size('768x500'); 
          remove_image_size('1536x999'); 
