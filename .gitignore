@@ -1,3 +1,4 @@
-wp-config.php
-.htaccess
 env.ini
+wp-config.php
+env.ini
+.htaccess
