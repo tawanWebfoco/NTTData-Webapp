@@ -24,14 +24,11 @@ function loadTempalteView($viewName, $params = array()){
             }
         }
     }
-    // require_once(TEMPLATE_PATH . '/header.php');
-    // require_once(TEMPLATE_PATH . '/left.php');
 
     get_header(); 
-    require_once(VIEW_PATH . "/{$viewName}.php");
+    require_once(VIEW_PATH . "/{$viewName}/{$viewName}.php");
     get_footer();
 
-    // require_once(TEMPLATE_PATH . '/footer.php');
     
 }
 

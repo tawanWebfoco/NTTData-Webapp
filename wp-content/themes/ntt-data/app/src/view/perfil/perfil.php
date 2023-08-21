@@ -4,12 +4,25 @@
             <div class="box">
                 <div class="photo">
                     <?php
-                     $image_path = ABSPATH . str_replace(home_url(), '', $user->photo);
+                    print_r($user);
+                    if($user->photo){
+                        $image_path = ABSPATH . str_replace(home_url(), '', $user->photo);
                         if(file_exists($image_path)){
                             $url_img = $user->photo; 
+                            
+                            $image_extension = pathinfo($url_img, PATHINFO_EXTENSION);
+
+                            // Adiciona "-100x100" antes da extensão
+                            $new_image_url = preg_replace('/\.' . $image_extension . '$/', '-100x100.' . $image_extension, $url_img);
+                            $url_img = $new_image_url;
+                            
                         }else{
                             $url_img = get_stylesheet_directory_uri() . '/app/public\assets\img\photos/perfil/img-perfil.svg';
-                        }
+                        }   
+                    }else{
+                        $url_img = get_stylesheet_directory_uri() . '/app/public\assets\img\photos/perfil/img-perfil.svg';
+
+                    }
                     ?>
                     <img class="imgPerfil" src="<?= $url_img;?>" alt="Imagem">
                     <span id="editImgPerfil">editar foto</span>
@@ -24,44 +37,46 @@
                 <!-- <form id="uploadImgPerfil" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post" enctype="multipart/form-data"> -->
                 <form id="uploadImgPerfil" action="#" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="upload_image">
-                    <input type="hidden" name="upload" value="perfil">
+                    <input type="hidden" name="type" value="personalImg">
                     <input type="file" name="imagem" id="imagem" style="display: none;">
                     <input type="submit" value="Enviar" style="display: none;">
                 </form>
 
             </div>
             <div class="content">
-                <div class="personalInfor">
+            <form id="uploadPersonInfo" method="post" enctype="multipart/form-data" action="">
+                <input type="hidden" name="type" value="personalInfo">
+                <div class="personalInfo">
                     <div class="field">
-                        <label class="label" for="name">Nome</label>
+                        <label class="label" for="full_name">Nome</label>
                        
-                        <!-- <input type="text" name="name" value="<?= $user->full_name; ?>"> -->
-                        <span><?= $user->full_name; ?></span>
+                        <input type="text" name="full_name" disabled value="<?= $user->full_name; ?>">
                     </div>
                     <div class="field">
                         <label class="label" for="email">Email</label>
-                        <!-- <input type="email" name="email" value="<?= $user->email; ?>"> -->
+                        <!-- <input type="email" name="email" disabled value="<?= $user->email; ?>"> -->
                         <span><?= $user->email; ?></span>
                     </div>
                     <div class="field">
                         <label class="label" for="country">País</label>
-                        <!-- <input type="text" name="country" value="<?= $user->country; ?>"> -->
+                        <!-- <input type="text" name="country" disabled value="<?= $user->country; ?>"> -->
                         <span><?= $user->country; ?></span>
                     </div>
                     <div class="field">
                         <label class="label" for="office">Cargo</label>
-                        <!-- <input type="text" name="office" value="<?= $user->office; ?>"> -->
+                        <!-- <input type="text" name="office" disabled value="<?= $user->office; ?>"> -->
                         <span><?= $user->office; ?></span>
                     </div>
                     <div class="field">
                         <label class="label" for="username">Usuário</label>
-                        <!-- <input type="text" name="username" value="<?= $user->username; ?>"> -->
+                        <!-- <input type="text" name="username" disabled value="<?= $user->username; ?>"> -->
                         <span><?= $user->username; ?></span>
                     </div>
                 </div>
+                </form >
                 <div class="btnAction">
-                        <button class="button dark-blue">Editar</button>
-                        <button class="button light-blue">Salvar</button>
+                        <button id="btn-edit-perfil" class="button dark-blue">Editar</button>
+                        <button id="btn-save-perfil" class="button light-blue btn-disabled" >Salvar</button>
                 </div>
             </div>
         </div>
@@ -70,17 +85,15 @@
                 <h3>Convidar Amigo</h3>
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue magna in blandit. Phasellus at metus ut arcu mollis blandit. Aliquam sapien turpis.</span>
             </div>
-            <form class="inputs">
+            <form class="inputs" method="post" enctype="multipart/form-data" action="">
                 <div class="field">
                     <label class="label" for="email">e-mail</label>
                     <input type="email" name="email">
-                    <!-- <i class="addEmail"><b>|</b><b>|</b></i> -->
                     <img class="addEmail" src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/perfil/circle.svg" alt="Imagem">
                 </div>
                 <div class="field">
                     <label class="label" for="email">e-mail</label>
                     <input type="email" name="email">
-                    <!-- <i class="addEmail"><b>|</b><b>|</b></i> -->
                     <img class="addEmail" src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/perfil/add-circle.svg" alt="Imagem">
                 </div>
                 <div class="submit">
@@ -105,3 +118,4 @@
 </div>
 
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/uploadImg.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/updatatePersonInfo.js"></script>

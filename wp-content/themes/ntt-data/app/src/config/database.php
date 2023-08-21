@@ -24,9 +24,7 @@ class Database
         if(!mysqli_real_escape_string($conn, $sql)) {
             throw new Exception(mysqli_error($conn));
         }
-        $id = $conn->insert_id;
         $conn->query($sql);
         $conn->close();
-        return $id;
     }
 }

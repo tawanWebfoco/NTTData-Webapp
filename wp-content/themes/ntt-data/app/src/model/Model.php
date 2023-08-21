@@ -3,6 +3,7 @@
         protected static $tableName = 'wp_app_user';
         protected static $columns = [];
         protected $values = [];
+        protected $idTable = 'teste';
 
         function __construct($arr){
             $this->loadFromArray($arr);
@@ -21,6 +22,8 @@
             $this->values[$key] = $value;
         }
 
+        // captura um 
+        // ex: $user = User::getOne(['email' => $this->email]);
         public static function getOne($filters = [], $column = '*'){
             $class = get_called_class();
             $result = static::getResultSetFromSelect($filters,$column);
@@ -29,6 +32,8 @@
         }
          
 
+        // capturar todos
+        // ex: $users = User::get();
        public static function get($filters = [], $column = '*'){
            $objects = [];
            $result = static::getResultSetFromSelect($filters,$column);
@@ -79,16 +84,20 @@
                  
             }
         }
-        public function update() {
 
+        // atualiza
+        public function update() {
+            
+            $idTable = $this->idTable;
             $sql = "UPDATE " . static::$tableName . " SET ";
             foreach($this->values as $col => $value ) {
-                if($col != 'id_user'){
+                if($col != $idTable){
                 $sql .= " `$col` = " . static::getFormatedValue($value) . ",";
                 }
             }
             $sql[strlen($sql) - 1] = ' ';
-            $sql .= "WHERE id_user = {$this->id_user}";
+            $sql .= "WHERE $idTable = {$this->id_user}";
+
             Database::executeSQL($sql);
         }
     } 

@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     var uploadLink = document.getElementById('uploadLink');
     var uploadImage = document.getElementById('uploadedImage');
     var uploadImgPerfil = document.getElementById('uploadImgPerfil');

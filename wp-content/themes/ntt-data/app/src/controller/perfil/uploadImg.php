@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        // Verifica o tamanho do arquivo carregado
        if ($_FILES['imagem']['size'] <= $max_file_size) {
          // Resto do código para upload da imagem
-         // ...
    
        // Caminho para a pasta onde as imagens serão armazenadas
        $upload_dir = wp_upload_dir();
@@ -62,16 +61,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if($updateUser->id_user) {
                $updateUser->update();
                   // addSuccessMsg('Usuário alterado com sucesso!');
-
                   $image_path = ABSPATH . str_replace(home_url(), '', $user->photo);
-                  if (file_exists($image_path)) {
-                     unlink($image_path); // Exclui o arquivo fisicamente
+                  // Obtém o ID da imagem a partir da URL
+                  if($user->photo){
+                    $image_id = attachment_url_to_postid($user->photo);
+                    $attachments = get_attached_media('', $image_id);
+
+                  // Loop para excluir cada anexo
+                  foreach ($attachments as $attachment) {
+                      // Exclui o anexo e suas cópias
+                      wp_delete_attachment($attachment->ID, true);
+                  }
+
+                  // Exclui a imagem original
+                  wp_delete_attachment($image_id, true);
                   }
                   
                   $user->photo =  $image_info;
 
-                  // wp_redirect(get_permalink()); // Redireciona para a mesma página
-                  // exit();
+                  header('Location: app?perfil');
+                  exit();
             }
          }
 
