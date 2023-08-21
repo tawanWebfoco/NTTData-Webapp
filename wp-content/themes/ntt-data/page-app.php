@@ -1,8 +1,5 @@
 <?php
 require_once(dirname(__FILE__) . '/app/src/config/config.php');
-// echo '<br>';
-// print_r(dirname(__FILE__));
-// echo '<br>';
 
 // Carrega o arquivo wp-config.php do WordPress
 // require_once(dirname(__FILE__,4) . '/wp-config.php');
@@ -12,8 +9,8 @@ $uri = urldecode(
    );
  
    
-   if($uri === '/htdocs/Webfoco/nttdata/LP-site/app/index.php' || $uri === '/htdocs/Webfoco/nttdata/LP-site/app' || $uri === '/htdocs/Webfoco/nttdata/LP-site/app/'){
-  }
+  //  if($uri === '/htdocs/Webfoco/nttdata/LP-site/app/index.php' || $uri === '/htdocs/Webfoco/nttdata/LP-site/app' || $uri === '/htdocs/Webfoco/nttdata/LP-site/app/'){
+  // }
   $uri = 'app.php';
  
 
