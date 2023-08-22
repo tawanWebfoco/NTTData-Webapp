@@ -78,20 +78,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   }
                   
                   $user->photo =  $image_info;
-
                   header('Location: app?perfil');
                   exit();
             }
          }
 
        } else {
-           echo 'Erro ao enviar a imagem.';
+           $messageTemplate['update']['status'] = 'error';
+        $messageTemplate['update']['message'] = 'Erro ao enviar a imagem.';
        }
       } else {
-         echo 'O tamanho da imagem excede o limite permitido.';
+         $messageTemplate['update']['status'] = 'error';
+        $messageTemplate['update']['message'] = 'O tamanho da imagem excede o limite permitido.';
      }
    } else {
-       echo 'Campo de imagem não encontrado no formulário.';
+      $messageTemplate['update']['status'] = 'error';
+      $messageTemplate['update']['message'] = 'Campo de imagem não encontrado no formulário.';
    }
     
 }

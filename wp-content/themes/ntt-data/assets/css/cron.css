@@ -761,4 +761,11 @@ img#uploadedImage {
 .main .perfil .guest li {
   line-height: 24px;
   color: var(--text-silver-light);
+  width: 20vw;
+}
+.main .perfil .guest li#lineName {
+  width: 70vw;
+}
+.main .perfil .guest tr:nth-child(odd) {
+  background-color: var(--background-gray);
 }

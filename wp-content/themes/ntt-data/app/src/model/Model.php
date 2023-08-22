@@ -3,7 +3,6 @@
         protected static $tableName = 'wp_app_user';
         protected static $columns = [];
         protected $values = [];
-        protected $idTable = 'teste';
 
         function __construct($arr){
             $this->loadFromArray($arr);
@@ -43,6 +42,7 @@
                    array_push($objects, new $class($row));
                }
            }
+           return $objects;
        }
         
         public static function getResultSetFromSelect($filters = [], $columns = '*'){

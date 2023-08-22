@@ -14,4 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $updateUser->update();
             $user->full_name =  $full_name;
         }
+        header('Location: app?perfil');
+        exit();
 }

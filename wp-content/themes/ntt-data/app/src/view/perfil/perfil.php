@@ -26,7 +26,7 @@
                     ?>
                     <img class="imgPerfil" src="<?= $url_img;?>" alt="Imagem">
                     <span id="editImgPerfil">editar foto</span>
-                </div>
+                    </div>
                 
                 <!-- Imagem clicável -->
                 <a id="uploadLink" href="#">
@@ -43,6 +43,7 @@
                 </form>
 
             </div>
+            
             <div class="content">
             <form id="uploadPersonInfo" method="post" enctype="multipart/form-data" action="">
                 <input type="hidden" name="type" value="personalInfo">
@@ -80,35 +81,46 @@
                 </div>
             </div>
         </div>
+        <?php if(isset($message['update']['status'])):; ?>
+                        <div class="sendMessageReturn <?= $message['update']['status'];?>"><?= $message['update']['message']?></div>
+                <?php endif; ?>
         <div class="invite">
             <div class="text">
                 <h3>Convidar Amigo</h3>
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue magna in blandit. Phasellus at metus ut arcu mollis blandit. Aliquam sapien turpis.</span>
             </div>
-            <form class="inputs" method="post" enctype="multipart/form-data" action="">
-                <div class="field">
-                    <label class="label" for="email">e-mail</label>
-                    <input type="email" name="email">
-                    <img class="addEmail" src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/perfil/circle.svg" alt="Imagem">
+            <form id="formGuest" class="inputs" method="post" enctype="multipart/form-data" action="">
+                <div class="container">
+                    <div class="field">
+                        <label class="label" for="email[]">e-mail</label>
+                        <input type="email" name="email[]">
+                        <img id="addEmail" class="addEmail" src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/perfil/add-circle.svg" alt="Imagem">
+                    </div>
                 </div>
-                <div class="field">
-                    <label class="label" for="email">e-mail</label>
-                    <input type="email" name="email">
-                    <img class="addEmail" src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/perfil/add-circle.svg" alt="Imagem">
-                </div>
+                                <input type="hidden" name="type" value="guest">
                 <div class="submit">
                     <button type="submit" class="button convidar dark-blue">Convidar</button>
                 </div>
             </form>
+
+            <?php if(isset($message['sendEmail']['status'])):; ?>
+                <div class="sendMessageReturn <?= $message['sendEmail']['status'];?>"><?= $message['sendEmail']['message']?></div>
+           <?php endif; ?>
         </div>
         <div class="guest">
             <h4>Confira sua lista de convidado efetivadas</h4>
-            <ul>
-                <li>Alexandre Santos</li> 
-                <li>Fernando Oliveira</li>
-                <li>Viviane Siqueira</li> 
-                <li>Denise Silva</li>
-            </ul>
+            <table>
+                <?php 
+                    if(isset($guest))
+                    foreach ($guest as $key => $value) :  ?>
+                        <tr>
+                            <td><li id="lineName"><?= $value->full_name; ?></li><td>
+                            <td><li>Pontos: <?= $value->score; ?></td></li>
+                    </tr> 
+                    <?php endforeach; ?>
+
+                
+            </table>
         </div>
         <div class="regulation">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/cron/regulation.svg" alt="Icone Regulamento">
@@ -119,3 +131,4 @@
 
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/uploadImg.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/updatatePersonInfo.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/addRemoveEmail.js"></script>
