@@ -1,3 +1,16 @@
+:root{
+    --blue-primary: #070F26;
+    --blue-secundary: #6785C1;
+    --black:#000;
+    --text-silver-dark:#636363;
+    --text-silver-light:#A6A6A6;
+    --background-gray:#F2F2F2;
+    --background-gray-dark:#DFDFDF;
+    --text-dark: #000;
+    --text-light: #fff;
+    --transparent: #fff0;
+    --btn-danger: #ff365a;
+  }
 body{
     height: 95vh;
     display: flex;
@@ -6,7 +19,7 @@ body{
     background-color: #ddd;
 }
 .alert-danger {
-    background-color: #ff365a;
+    background-color:  var(--btn-danger);
     color: white;
     font-size: 1.2rem;
 }
@@ -15,6 +28,12 @@ body{
     text-align: center;
     border-radius: 10px;
 }
+
+input.is-invalid{
+    border: solid 2px var(--btn-danger);
+    
+  }
+
 
 .form-login{
     flex-basis:300px ;
@@ -40,10 +59,10 @@ body{
     border-radius: 10px;
 }
 .login-card .card-body .invalid-feedback {
-    color: #ff365a;
+    color:  var(--btn-danger);
 }
 .login-card .card-body .is-invalid {
-    border: solid #ff365a 2px;
+    border: solid  var(--btn-danger); 2px;
 }
 
 .login-card .card-footer{

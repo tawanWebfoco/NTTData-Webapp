@@ -1,10 +1,24 @@
 <?php 
+
+function generateUrl($user){
+   $url = $_SERVER['HTTP_HOST'];
+   $message = "$url/register?";
+   $message .= md5('invited') . "=$user->id_user&";
+   $message .= md5('email') . "=$user->email&";
+   $message .= md5('validationid') . time() .'&';
+   $message .= md5('regType'). "=colaborador";
+   return $message;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
    if(isset($_POST)):
       foreach ($_POST['email'] as $key => $email) {
          
          $subject = 'Participe da ODS junto com a NTT DATA';
+
          $message = 'Conteúdo do Email ';
+         $message .= generateUrl($user);
+
          $headers = array('Content-Type: text/html; charset=UTF-8');
    
          // Envia o email

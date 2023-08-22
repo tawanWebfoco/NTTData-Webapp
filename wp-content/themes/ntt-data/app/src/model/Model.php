@@ -100,4 +100,42 @@
 
             Database::executeSQL($sql);
         }
+        
+        public function insert() {
+            $idTable = $this->idTable;
+            $sql = "INSERT INTO " . static::$tableName . " ("
+                . implode(",", static::$columns) . ") VALUES (";
+                foreach($this->values as $col => $value ) {
+                    if($col == $idTable) continue;
+                        $sql .= static::getFormatedValue($value) . ",";
+                }
+            $sql[strlen($sql) - 1] = ')';
+        }
+        public function register() {
+            $idTable = $this->idTable;
+           
+            $sql = "INSERT INTO " . static::$tableName . " ("
+                . implode(",", static::$columns) . ") VALUES (";
+                foreach($this->values as $col => $value ) {
+                    if($col == $idTable) continue;
+                    if($col == 'regType') {
+                        if($value == 'colaborador') continue;
+                    }
+                    if($col == 'validationId') continue;
+                    if($col == 'confirmPassword') {
+                        $date = time();
+                        $sql .= static::getFormatedValue($date) . ",";
+                        continue;
+                    };
+                        $sql .= static::getFormatedValue($value) . ",";
+                    
+                }
+            $sql[strlen($sql) - 1] = ')';
+           
+           return Database::executeSQL($sql);
+           
+        }
+
+        
+        
     } 

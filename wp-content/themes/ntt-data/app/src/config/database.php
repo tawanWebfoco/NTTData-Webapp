@@ -24,7 +24,13 @@ class Database
         if(!mysqli_real_escape_string($conn, $sql)) {
             throw new Exception(mysqli_error($conn));
         }
-        $conn->query($sql);
+        $result = '';
+        if ($conn->query($sql) === TRUE) {
+            $result = $conn->insert_id; 
+        } else {
+           throw new AppException($conn->error);
+        }
         $conn->close();
+        return $result;
     }
 }

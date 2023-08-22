@@ -138,8 +138,14 @@ section.receivepubbox {
   cursor: default;
 }
 
-
 /* END BUTTONS */
+
+/* INPUTS */
+input.is-invalid{
+  background-color: var(--btn-danger);
+  
+}
+/* END INPUTS */
 
 /* END MULTIPLE SECTIONS */
 
