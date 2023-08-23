@@ -1,12 +1,12 @@
 <?php 
 
-function generateUrl($user){
-   $url = $_SERVER['HTTP_HOST'];
+function generateUrl($user, $email){
+   $url = home_url();
    $message = "$url/register?";
    $message .= md5('invited') . "=$user->id_user&";
-   $message .= md5('email') . "=$user->email&";
-   $message .= md5('validationid') . time() .'&';
-   $message .= md5('regType'). "=colaborador";
+   $message .= md5('email') . "=" . md5($email) . "&";
+   $message .= md5('validationId') . '='. time() .'&';
+   $message .= md5('regType') . "=" . md5('colaborador');
    return $message;
 }
 
@@ -17,7 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
          $subject = 'Participe da ODS junto com a NTT DATA';
 
          $message = 'Conteúdo do Email ';
-         $message .= generateUrl($user);
+         $message .= '<br>';
+         $message .= '<br>';
+         $message .= generateUrl($user, $email);
 
          $headers = array('Content-Type: text/html; charset=UTF-8');
    
@@ -27,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
          if ($result) {
             $messageTemplate['sendEmail']['status'] = 'success';
             $messageTemplate['sendEmail']['message'] = 'Email enviado com sucesso.';
+            Model::saveInvitationsSent([$email, date('Y-m-d'), $user->id_user, 'colaborador']);
          } else {
             $messageTemplate['sendEmail']['status'] = 'error';
             $messageTemplate['sendEmail']['message'] = 'Erro ao enviar o email.';
