@@ -20,15 +20,6 @@ $regType = sanitize_text_field($regType);
 
 $exception = null;
 
-echo $invited;
-echo '<br>';
-echo $email;
-echo '<br>';
-echo $validationId;
-echo '<br>';
-echo $register;
-echo '<br>';
-
 if(!$invited || !$email || !$validationId || !$regType) header("Location: app"); die('Error: Link not Found ');
 
 if(count($_POST) > 0){
