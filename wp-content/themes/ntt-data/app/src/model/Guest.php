@@ -1,16 +1,18 @@
 <?php
 class Guest extends Model{
     protected static $tableName = 'wp_app_guest';
-    protected static $columns = ['id_guest', 'country', 'date', 'email', 'full_name', 'id_user', 'password', 'photo', 'score', 'time', 'trash', 'username'];
+    protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country'];
     protected $idTable = 'id_guest';
 
     private function validate() {
         $errors = [];
 
-        $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email) : null;
+        $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
 
         if($this->validationId !== $validationDb) {
             $errors['validationId'] = 'Insira o mesmo endereço de email ao qual enviamos o link  ';
+            $errors['validationId'] .= $this->validationId;
+            $errors['validationId'] .= $validationDb;
         }
 
         if(!$this->full_name) {

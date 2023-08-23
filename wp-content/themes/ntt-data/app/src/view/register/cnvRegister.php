@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <form class="formRegisterClb" action="" method="post" autocomplete="off">
-        <input type="hidden" name="regType" value="colaborador">
+    <form class="formRegisterCnv" action="" method="post" autocomplete="off">
+        <input type="hidden" name="regType" value="convidado">
         <input type="hidden" name="id_user" value="<?= isset($invited) ? $invited : null ;?>">
         <input type="hidden" name="validationId" value="<?= isset($validationId) ? $validationId : null ;?>">
         <div class="register">

@@ -114,6 +114,12 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
                 }
             $sql[strlen($sql) - 1] = ')';
         }
+
+        public function cron(){
+            $sql = "INSERT INTO 'table' values ( static::getFormatedValue($value) )"
+
+            Database::executeSQL($sql);
+        }
         
         public function register() {
             $idTable = $this->idTable;
@@ -122,12 +128,10 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
                 . implode(",", static::$columns) . ") VALUES (";
                 foreach($this->values as $col => $value ) {
                     if($col == $idTable) continue;
-                    if($col == 'regType') {
-                        if($value == 'colaborador') continue;
-                    }
+                    if($col == 'regType') continue;
                     if($col == 'validationId') continue;
                     if($col == 'confirmPassword') {
-                        $date = time();
+                        $date = date('Y-m-d');
                         $sql .= static::getFormatedValue($date) . ",";
                         continue;
                     };
@@ -135,6 +139,8 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
                     
                 }
             $sql[strlen($sql) - 1] = ')';
+
+            print_r($sql);
            
            return Database::executeSQL($sql);
         }
@@ -155,7 +161,9 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
             $uniqueColumns = array_unique($columns);
             
             foreach ($uniqueColumns as $col => $value) {
-                if(!isset($post[$value])) continue; 
+                
+                if(!isset($post[$value]) && empty($post[$value])) continue; 
+
                 if(is_array($post[$value])){
 
                     foreach ($post[$value] as $colPostArr => $valPostAr){
@@ -191,20 +199,24 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
                     }
                     continue;
                 }
+
                 switch ($value) {
                     case 'email':
                         $_POST['email'] = isset($post['email']) ? sanitize_email($post['email']) : null;
                         break;
-    
                     case 'id_user':
-                    case 'id_guest':
-                    case 'id_time':
-                    case 'id_pub':
-                    case 'id_comment':
                         $_POST['id_user'] = isset($post['id_user']) ? intval($post['id_user']) : null;
+                        break;
+                    case 'id_guest':
                         $_POST['id_guest'] = isset($post['id_guest']) ? intval($post['id_guest']) : null;
+                        break;
+                    case 'id_time':
                         $_POST['id_time'] = isset($post['id_time']) ? intval($post['id_time']) : null;
+                        break;
+                    case 'id_pub':
                         $_POST['id_pub'] = isset($post['id_pub']) ? intval($post['id_pub']) : null;
+                        break;
+                    case 'id_comment':
                         $_POST['id_comment'] = isset($post['id_comment']) ? intval($post['id_comment']) : null;
                         break;
     

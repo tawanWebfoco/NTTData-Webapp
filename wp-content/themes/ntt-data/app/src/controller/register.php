@@ -4,7 +4,7 @@ Model::sanetizePost($_POST);
 
 // id do colaborador que convidou
 $invited = (isset($_GET[md5('invited')])) ? $_GET[md5('invited')] : null;
-$invited = sanitize_text_field($invited);
+$invited = intval($invited);
 
 // email do convidado
 $email = (isset($_GET[md5('email')])) ? $_GET[md5('email')] : null;
@@ -28,16 +28,18 @@ if(count($_POST) > 0){
     $_POST['validationId'] = $validationId;
     switch ($regType) {
         case md5('convidado'):
+            // print_r($_POST);
             $register = new Guest($_POST);
             break;
-
-        case md5('colaborador'):
+            
+            case md5('colaborador'):
             $register = new User($_POST);
             break;
     }
 
     try{
         $id_user = $register->register();
+        // print_r($id_user);
         $user = User::getOne(['id_user' => $id_user]);
         $_SESSION['user'] = $user;
         header("Location: app");
@@ -50,10 +52,10 @@ if(count($_POST) > 0){
 
 switch ($regType) {
     case md5('colaborador'):
-            loadView('register/clbRegister', $_POST  + ['exception' => $exception]);
+            loadView('register/clbRegister', $_POST  + ['exception' => $exception, 'invited' => $invited]);
         break;
         case md5('convidado'):
-            loadView('register/cnvRegister', $_POST  + ['exception' => $exception]);
+            loadView('register/cnvRegister', $_POST  + ['exception' => $exception, 'invited' => $invited]);
         # code...
         break;
 }
