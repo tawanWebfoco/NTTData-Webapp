@@ -1,6 +1,6 @@
 <?php
 
-$full_name = filter_var($_POST['full_name'], FILTER_SANITIZE_STRING);
+$full_name = sanitize_text_field($_POST['full_name']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $update = [

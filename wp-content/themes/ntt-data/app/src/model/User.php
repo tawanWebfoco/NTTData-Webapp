@@ -1,7 +1,7 @@
 <?php
 class User extends Model{
     protected static $tableName = 'wp_app_user';
-    protected static $columns = ['full_name', 'email', 'username', 'password', 'date_start','country', 'office'];
+    protected static $columns = ['full_name', 'email', 'username', 'password', 'date','country', 'office'];
     protected $idTable = 'id_user';
 
     public function insert() {
@@ -68,6 +68,7 @@ class User extends Model{
         $this->validate();
         return parent::register();
     }
+   
     
 }
 

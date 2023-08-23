@@ -24,5 +24,7 @@ require_once(realpath(dirname(__FILE__).'/session.php'));
 require_once(MODEL_PATH .'/Model.php');
 require_once(MODEL_PATH .'/User.php');
 require_once(MODEL_PATH .'/Guest.php');
+require_once(MODEL_PATH .'/Pub.php');
+require_once(MODEL_PATH .'/Comment.php');
 require_once(EXCEPTION_PATH .'/AppException.php');
 require_once(EXCEPTION_PATH .'/ValidationException.php');

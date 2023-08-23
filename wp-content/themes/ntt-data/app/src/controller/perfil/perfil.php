@@ -1,5 +1,7 @@
 <?php 
+Model::sanetizePost($_POST);
 $messageTemplate = [];
+
 $guest  = Guest::get(['id_user' => $user->id_user], 'full_name, score');
 
 // verifica se imagens de perfil e chama arquivo que realiza a troca
