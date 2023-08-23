@@ -51,12 +51,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             if ($image_info) {
 
+               if(get_class($user) === 'User'){ 
+                  $update = [
+                     'id_user' => $_SESSION['user']->id_user,
+                     'photo' => $image_info
+                  ];
+   
+                  $updateUser = new User($update);
+              }elseif( get_class($user) === 'Guest'){
                $update = [
-                  'id_user' => $_SESSION['user']->id_user,
+                  'id_user' => $_SESSION['user']->id_guest,
                   'photo' => $image_info
                ];
 
-               $updateUser = new User($update);
+               $updateUser = new Guest($update);
+              }
 
                if ($updateUser->id_user) {
                   $updateUser->update();
@@ -82,6 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   exit();
                }
             }
+            
          } else {
             $messageTemplate['update']['status'] = 'error';
             $messageTemplate['update']['message'] = 'Erro ao enviar a imagem.';

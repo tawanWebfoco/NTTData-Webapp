@@ -20,6 +20,8 @@ class Login extends Model{
     public function checkLogin(){
         $this->validate();
         $user = User::getOne(['email' => $this->email]);
+        $guest = Guest::getOne(['email' => $this->email]);
+        
         if($user){
             if($user->off_company){
                 throw new AppException('Usuário está desligado da empresa.');
@@ -29,7 +31,14 @@ class Login extends Model{
                 return $user;
 
             }
+        }elseif($guest){
+            
+            if($this->password === $guest->password){
+                return $guest;
+
+            }
         }
+        
         throw new AppException('Usuário ou Senha Inválidos.');
     }
 }

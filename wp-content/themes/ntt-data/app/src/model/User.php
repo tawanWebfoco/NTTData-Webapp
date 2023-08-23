@@ -10,7 +10,6 @@ class User extends Model{
     }
 
     
-    
     private function validate() {
         $errors = [];
 

@@ -3,15 +3,24 @@
 $full_name = sanitize_text_field($_POST['full_name']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $update = [
-        'id_user' => $_SESSION['user']->id_user,
-        'full_name' => $full_name
-       ];
+    if(get_class($user) === 'User'){ 
+        $update = [
+            'id_user' => $_SESSION['user']->id_user,
+            'full_name' => $full_name
+        ];
 
-       $updateUser = new User($update);
+        $update = new User($update);
+    }elseif( get_class($user) === 'Guest'){
+        $update = [
+            'id_user' => $_SESSION['user']->id_guest,
+            'full_name' => $full_name
+        ];
+
+        $update = new Guest($update);
+    }
        
-        if($updateUser->id_user) {
-            $updateUser->update();
+        if($update->id_user) {
+            $update->update();
             $user->full_name =  $full_name;
         }
         header('Location: app?perfil');
