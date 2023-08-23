@@ -11,8 +11,6 @@ class Guest extends Model{
 
         if($this->validationId !== $validationDb) {
             $errors['validationId'] = 'Insira o mesmo endereço de email ao qual enviamos o link  ';
-            $errors['validationId'] .= $this->validationId;
-            $errors['validationId'] .= $validationDb;
         }
 
         if(!$this->full_name) {

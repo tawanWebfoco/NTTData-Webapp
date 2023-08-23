@@ -14,7 +14,7 @@ class User extends Model{
     private function validate() {
         $errors = [];
 
-        $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email) : null;
+        $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
 
         if($this->validationId !== $validationDb) {
             $errors['validationId'] = 'Insira o mesmo endereço de email ao qual enviamos o link  ';

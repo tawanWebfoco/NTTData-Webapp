@@ -7,7 +7,7 @@ function generateUrl($user, $email, $validationId){
    $message .= md5('invited') . "=$user->id_user&";
    $message .= md5('email') . "=" . md5($email) . "&";
    $message .= md5('validationId') . "=$validationId&";
-   $message .= md5('regType') . "=" . md5('colaborador');
+   $message .= md5('regType') . "=" . md5('convidado');
    return $message;
 }
 
