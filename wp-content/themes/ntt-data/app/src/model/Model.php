@@ -115,12 +115,7 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
             $sql[strlen($sql) - 1] = ')';
         }
 
-        public function cron(){
-            $sql = "INSERT INTO 'table' values ( static::getFormatedValue($value) )"
-
-            Database::executeSQL($sql);
-        }
-        
+       
         public function register() {
             $idTable = $this->idTable;
            
