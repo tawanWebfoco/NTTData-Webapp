@@ -39,10 +39,9 @@ if(count($_POST) > 0){
 
     try{
         $id_user = $register->register();
-        // print_r($id_user);
         $user = User::getOne(['id_user' => $id_user]);
         $_SESSION['user'] = $user;
-        header("Location: app");
+        header("Location:app");
     }catch(AppException $e) {
         $exception=  $e;
     }

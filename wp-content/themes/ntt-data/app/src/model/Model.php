@@ -135,8 +135,6 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
                 }
             $sql[strlen($sql) - 1] = ')';
 
-            print_r($sql);
-           
            return Database::executeSQL($sql);
         }
 
