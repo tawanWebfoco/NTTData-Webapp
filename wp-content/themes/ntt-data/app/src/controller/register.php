@@ -20,9 +20,7 @@ $regType = sanitize_text_field($regType);
 
 $exception = null;
 
-// if(!$invited || !$email || !$validationId || !$regType) header("Location: app"); die('Error: Link not Found ');
-
-$regType = md5('convidado');
+if(!$invited || !$email || !$validationId || !$regType) header("Location: app"); die('Error: Link not Found ');
 
 if(count($_POST) > 0){
     $_POST['validationId'] = $validationId;
