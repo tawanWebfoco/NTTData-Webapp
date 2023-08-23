@@ -9,7 +9,7 @@
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "-03:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `webappwebfoco_nttdata`
+-- Banco de dados: `wp_lpnttdata`
 --
 
 -- --------------------------------------------------------
@@ -28,10 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `wp_app_unregistered` (
-  `email` varchar NOT NULL,
-  `data_start` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `data` varchar(200) NOT NULL,
   `id_user` int(200) NOT NULL,
-  `type` varchar(200) NOT NULL
+  `type` varchar(200) NOT NULL,
+`validationId` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 COMMIT;
 

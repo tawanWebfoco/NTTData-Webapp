@@ -1,4 +1,7 @@
 <?php
+
+use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
+
     class Model{
         protected static $tableName = 'wp_app_user';
         protected static $columns = [];
@@ -111,6 +114,7 @@
                 }
             $sql[strlen($sql) - 1] = ')';
         }
+        
         public function register() {
             $idTable = $this->idTable;
            
@@ -136,7 +140,7 @@
         }
 
         public static function saveInvitationsSent($values){
-            $sql = "INSERT INTO `wp_app_unregistered`(`email`, `date`, `id_user`, `type`) VALUES (";
+            $sql = "INSERT INTO `wp_app_unregistered`(`email`, `date`, `id_user`, `type`,`validationId`) VALUES (";
            
             foreach($values as $col => $value ) {
                     $sql .= static::getFormatedValue($value) . ",";
@@ -144,40 +148,10 @@
             $sql[strlen($sql) - 1] = ')';
             Database::executeSQL($sql);
         }
-        public static function sanitizeSwitch($value, $post){
-            switch ($value) {
-                case 'email':
-                    $_POST['email'] = isset($post['email']) ? sanitize_email($post['email']) : null;
-                    break;
-
-                case 'id_user':
-                case 'id_guest':
-                case 'id_time':
-                case 'id_pub':
-                case 'id_comment':
-                    $_POST['id_user'] = isset($post['id_user']) ? intval($post['id_user']) : null;
-                    $_POST['id_guest'] = isset($post['id_guest']) ? intval($post['id_guest']) : null;
-                    $_POST['id_time'] = isset($post['id_time']) ? intval($post['id_time']) : null;
-                    $_POST['id_pub'] = isset($post['id_pub']) ? intval($post['id_pub']) : null;
-                    $_POST['id_comment'] = isset($post['id_comment']) ? intval($post['id_comment']) : null;
-                    break;
-
-                case 'trash':
-                    $_POST['trash'] = (isset($post['trash'])) ? true : false;
-                    break;
-
-                case 'photo':
-                    $_POST['photo'] = isset($post['photo']) ? esc_url($post['photo']) : null;
-                    break;
-                    
-                    default:
-                    $_POST[$value] = isset($post[$value]) ? sanitize_text_field($post[$value]) : null;
-                    break;
-                }
-
-        }
+      
         public static function sanetizePost($post){
             $columns = User::$columns + Pub::$columns + Guest::$columns + Comment::$columns;
+            $columns = $columns + ['email', 'date', 'id_user', 'type'];
             $uniqueColumns = array_unique($columns);
             
             foreach ($uniqueColumns as $col => $value) {
@@ -248,6 +222,28 @@
                     }
                
                 }
+        }
+
+        public static function validationId($key){
+            $time = time();
+            $time = strval($time);
+            $id = $time . $key;
+            $id = md5($id);
+            return $id;
+        }
+        
+        public static function getValidationId($email){
+            $class = get_called_class();
+            $sql = "SELECT validationId FROM wp_app_unregistered WHERE 'email' = ";
+            $sql .= static::getFormatedValue($email);
+            
+            $result = Database::getResultFromQuery($sql);
+            
+            if($result->num_rows === 0){
+                return null;
+            }else{
+                return $result ? new $class($result->fetch_assoc()) : null;
+            }
         }
         
     } 

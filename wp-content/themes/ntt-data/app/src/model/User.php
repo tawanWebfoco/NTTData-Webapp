@@ -14,6 +14,10 @@ class User extends Model{
     private function validate() {
         $errors = [];
 
+        if($this->validationId !== Model::getValidationId($this->email)) {
+            $errors['validationId'] = 'Erro de validação';
+        }
+
         if(!$this->full_name) {
             $errors['full_name'] = 'Nome é um campo abrigatório.';
         }

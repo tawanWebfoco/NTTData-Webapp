@@ -21,6 +21,10 @@
             <div class="card-body">
                 <?php  include(TEMPLATE_PATH . '/messages.php'); 
                 ?>
+                 <div class="invalid-feedback">
+                        <?=  isset($errors['validationId']) ? $errors['validationId'] : '';
+                        ?>
+                    </div>
                 <div class="form-group">
                     <label for="full_name">Nome</label>
                     <input autocomplete="none" type="text" id="full_name" name="full_name"
@@ -83,11 +87,8 @@
                 </div>
                 <div class="form-group">
                     <label for="country">País</label>
-                    <!-- <input autocomplete="off" type="text" id="countru" name="countru" 
-                    class="form-control <?= isset($errors['countru']) ? 'is-invalid' : ''; ?>" 
-                    placeholder="Informe a Senha"> -->
 
-                    <select name="country" id="country">
+                    <select name="country" id="country" <?= isset($errors['country']) ? 'is-invalid' : ''; ?>>
                         <option value="">Selecione</option>
                         <option value="brasil" <?= isset($errors['country']) ? 'selected' : ''; ?>>Brasil</option>
                         <option value="mexico" <?= isset($errors['country']) ? 'selected' : ''; ?>>México</option>
@@ -100,10 +101,7 @@
                 </div>
                 <div class="form-group">
                     <label for="office">Cargo</label>
-                    <!-- <input autocomplete="off" type="text" id="office" name="office" 
-                    class="form-control <?= isset($errors['office']) ? 'is-invalid' : ''; ?>" 
-                    placeholder="Informe a Senha"> -->
-                    <select name="office" id="office">
+                    <select name="office" id="office" <?= isset($errors['office']) ? 'is-invalid' : ''; ?>>
                         <option value="">Selecione</option>
                         <option value="dev" <?= isset($errors['office']) ? 'selected' : ''; ?>>Dev</option>
                         <option value="sec" <?= isset($errors['office']) ? 'selected' : ''; ?>>sec</option>
