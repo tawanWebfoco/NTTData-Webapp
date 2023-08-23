@@ -234,16 +234,16 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
         
         public static function getValidationId($email){
             $class = get_called_class();
-            $sql = "SELECT validationId FROM wp_app_unregistered WHERE 'email' = ";
+            $sql = "SELECT `validationId` FROM `wp_app_unregistered` WHERE `email` = ";
             $sql .= static::getFormatedValue($email);
+            $sql .= ' ORDER BY id_unregistered DESC LIMIT 1';
             
             $result = Database::getResultFromQuery($sql);
             
-            if($result->num_rows === 0){
-                return null;
-            }else{
+            if($result->num_rows === 0)  return null;
+            
                 return $result ? new $class($result->fetch_assoc()) : null;
-            }
+        
         }
         
     } 

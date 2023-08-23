@@ -14,34 +14,36 @@ class User extends Model{
     private function validate() {
         $errors = [];
 
-        if($this->validationId !== Model::getValidationId($this->email)) {
-            $errors['validationId'] = 'Erro de validação';
+        $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email) : null;
+
+        if($this->validationId !== $validationDb) {
+            $errors['validationId'] = 'Insira o mesmo endereço de email ao qual enviamos o link  ';
         }
 
         if(!$this->full_name) {
-            $errors['full_name'] = 'Nome é um campo abrigatório.';
+            $errors['full_name'] = 'Nome é um campo obrigatório.';
         }
         
         if(!$this->email) {
-            $errors['email'] = 'Email é um campo abrigatório.';
+            $errors['email'] = 'Email é um campo obrigatório.';
         } elseif(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = 'Email inválido.';
         }
 
         if(!$this->username) {
-            $errors['username'] = 'Usuário é um campo abrigatório.';
+            $errors['username'] = 'Usuário é um campo obrigatório.';
         }
 
         if(!$this->country) {
-            $errors['country'] = 'País é um campo abrigatório.';
+            $errors['country'] = 'País é um campo obrigatório.';
         }
 
         if(!$this->office) {
-            $errors['office'] = 'Cargo é um campo abrigatório.';
+            $errors['office'] = 'Cargo é um campo obrigatório.';
         }
 
         // if(!$this->start_date) {
-        //     $errors['start_date'] = 'Data de Admissão é um campo abrigatório.';
+        //     $errors['start_date'] = 'Data de Admissão é um campo obrigatório.';
         // } elseif(!DateTime::createFromFormat('Y-m-d', $this->start_date)) {
         //     $errors['start_date'] = 'Data de Admissão deve seguir o padrão dd/mm/aaaa.';
         // }
@@ -51,11 +53,11 @@ class User extends Model{
         // }
 
         if(!$this->password) {
-            $errors['password'] = 'Senha é um campo abrigatório.';
+            $errors['password'] = 'Senha é um campo obrigatório.';
         }
 
         if(!$this->confirmPassword) {
-            $errors['confirm_password'] = 'Confirmação de Senha é um campo abrigatório.';
+            $errors['confirm_password'] = 'Confirmação de Senha é um campo obrigatório.';
         }
 
         if($this->password && $this->confirmPassword 

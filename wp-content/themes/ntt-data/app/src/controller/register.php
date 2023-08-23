@@ -12,7 +12,7 @@ $email = sanitize_text_field($email);
 
 // id validação do formulário
 $validationId = (isset($_GET[md5('validationId')])) ? $_GET[md5('validationId')] : null; 
-$validationId = sanitize_text_field($validationId);
+// $validationId = sanitize_text_field($validationId);
 
 // tipo registro colaborador / convidado 
 $regType = (isset($_GET[md5('regType')])) ? $_GET[md5('regType')] : null; 
@@ -22,11 +22,19 @@ $exception = null;
 
 // if(!$invited || !$email || !$validationId || !$regType) header("Location: app"); die('Error: Link not Found ');
 
-$regType = md5('colaborador');
+$regType = md5('convidado');
 
 if(count($_POST) > 0){
     $_POST['validationId'] = $validationId;
-    $register = new User($_POST);
+    switch ($regType) {
+        case md5('convidado'):
+            $register = new Guest($_POST);
+            break;
+
+        case md5('colaborador'):
+            $register = new User($_POST);
+            break;
+    }
 
     try{
         $id_user = $register->register();
@@ -42,7 +50,7 @@ if(count($_POST) > 0){
 
 switch ($regType) {
     case md5('colaborador'):
-        loadView('register/clbRegister', $_POST  + ['exception' => $exception]);
+            loadView('register/clbRegister', $_POST  + ['exception' => $exception]);
         break;
         case md5('convidado'):
             loadView('register/cnvRegister', $_POST  + ['exception' => $exception]);

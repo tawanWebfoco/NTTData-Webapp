@@ -21,10 +21,7 @@
             <div class="card-body">
                 <?php  include(TEMPLATE_PATH . '/messages.php'); 
                 ?>
-                 <div class="invalid-feedback">
-                        <?=  isset($errors['validationId']) ? $errors['validationId'] : '';
-                        ?>
-                    </div>
+                 
                 <div class="form-group">
                     <label for="full_name">Nome</label>
                     <input autocomplete="none" type="text" id="full_name" name="full_name"
@@ -47,6 +44,9 @@
                     <div class="invalid-feedback">
                         <?=  isset($errors['email']) ? $errors['email'] : '';
                         ?>
+                        <?=  isset($errors['validationId']) ? $errors['validationId'] : '';
+                        ?>
+                  
                     </div>
                 </div>
                 <div class="form-group">
@@ -90,9 +90,14 @@
 
                     <select name="country" id="country" <?= isset($errors['country']) ? 'is-invalid' : ''; ?>>
                         <option value="">Selecione</option>
-                        <option value="brasil" <?= isset($errors['country']) ? 'selected' : ''; ?>>Brasil</option>
-                        <option value="mexico" <?= isset($errors['country']) ? 'selected' : ''; ?>>México</option>
-                        <option value="peru" <?= isset($errors['country']) ? 'selected' : ''; ?>>Peru</option>
+                        <option value="Brasil" <?= isset($errors['country']) ? 'selected' : ''; ?>>Brasil</option>
+                        <option value="Mexico" <?= isset($errors['country']) ? 'selected' : ''; ?>>México</option>
+                        <option value="Peru" <?= isset($errors['country']) ? 'selected' : ''; ?>>Peru</option>
+                        <option value="Chile" <?= isset($errors['country']) ? 'selected' : ''; ?>>Chile</option>
+                        <option value="Colombia" <?= isset($errors['country']) ? 'selected' : ''; ?>>Colômbia</option>
+                        <option value="Argentina" <?= isset($errors['country']) ? 'selected' : ''; ?>>Argentina</option>
+                        <option value="Equador" <?= isset($errors['country']) ? 'selected' : ''; ?>>Equador</option>
+                        <option value="USA" <?= isset($errors['country']) ? 'selected' : ''; ?>>USA</option>
                     </select>
                     <div class="invalid-feedback">
                         <?=  isset($errors['country']) ? $errors['country'] : '';
@@ -101,12 +106,18 @@
                 </div>
                 <div class="form-group">
                     <label for="office">Cargo</label>
-                    <select name="office" id="office" <?= isset($errors['office']) ? 'is-invalid' : ''; ?>>
+                    <select name="office" id="office" <?= isset($errors['office']) ? 'class="is-invalid"' : ''; ?>>
                         <option value="">Selecione</option>
-                        <option value="dev" <?= isset($errors['office']) ? 'selected' : ''; ?>>Dev</option>
-                        <option value="sec" <?= isset($errors['office']) ? 'selected' : ''; ?>>sec</option>
-                        <option value="soc" <?= isset($errors['office']) ? 'selected' : ''; ?>>soc</option>
+                        <option value="Talent" <?= isset($errors['office']) ? 'selected' : ''; ?>>Talent</option>
+                        <option value="Leader" <?= isset($errors['office']) ? 'selected' : ''; ?>>Leader</option>
+                        <option value="Manager" <?= isset($errors['office']) ? 'selected' : ''; ?>>Manager</option>
+                        <option value="Director" <?= isset($errors['office']) ? 'selected' : ''; ?>>Director</option>
+                        <option value="Senior Manager" <?= isset($errors['office']) ? 'selected' : ''; ?>>Senior Manager</option>
+                        <option value="Executive Director" <?= isset($errors['office']) ? 'selected' : ''; ?>>Executive Director</option>
+                        <option value="Top Executive" <?= isset($errors['office']) ? 'selected' : ''; ?>>Top Executive</option>
+                        <option value="Partner" <?= isset($errors['office']) ? 'selected' : ''; ?>>Partner</option>
                     </select>
+
                     <div class="invalid-feedback">
                         <?=  isset($errors['office']) ? $errors['office'] : '';
                         ?>
