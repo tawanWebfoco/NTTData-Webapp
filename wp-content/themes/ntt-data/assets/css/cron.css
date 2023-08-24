@@ -40,6 +40,9 @@ section{
   margin: 20px 0;
   width: 100vw;
   padding: 0 15px;
+
+  display: flex;
+  flex-wrap: wrap;
 }
 section.receivepubbox {
     margin-bottom: 0px;
@@ -200,6 +203,7 @@ footer.footer .menu ul li {
   height: 8vh;
   border-radius: 10px;
   width: 20%;
+  cursor: pointer;
 }
 
 footer.footer .menu ul li.active {
@@ -224,17 +228,51 @@ body > .main {
 
 .main .feed > h2 {
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
   font-weight: 600;
   color: var(--blue-primary);
-  margin: 5px 0 25px 0;
+  margin: 19px 0;
   white-space: nowrap;
+  width: 100%;
+}
+
+section.feed .sendpubbox,
+section.feed .receivepubbox {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  section.feed .sendpubbox,
+  section.feed .receivepubbox {
+    width: 50%;
+    padding: 0 20px;
+  }
+
+  .sendpubbox {
+      position: relative;
+  }
+  .sendpubbox form {
+    position: sticky;
+    top: 40px;
+  }
+
+
+  .main .sendpubbox .boxMain textarea {
+    height: 20vh;
+    font-size: 1.2rem;
+  }
+  .button {
+    font-size: 1rem;
+  }
 }
 
 /* SEND PUB BOX */
 .main .sendpubbox {
   display: flex;
   flex-direction: column;
+}
+.main .sendpubbox form {
+  background: #f7f7f7;
 }
 
 .main .sendpubbox .top {
@@ -264,21 +302,36 @@ body > .main {
 .main .sendpubbox .bottom {
   background-color: var(--background-gray-dark);
   display: flex;
-  padding: 0 20px;
+  padding: 5px 20px;
   height: 5.5vh;
   text-align: center;
   border-radius: 15px 15px 0 0;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
-.main .sendpubbox .bottom div {
-  margin: auto 5px;
+
+.main .sendpubbox .bottom > div img {
+  width: auto;
+  height: 22px;
 }
 
+.sendpubbox .bottom button, .sendpubbox .bottom img {
+    min-height: 100%;
+    cursor: pointer;
+}
 
-.main .sendpubbox .bottom div img {
-  position: relative;
-    bottom: -0.4vw;
-    width: 6vw;
+.aneximg, .anexvid {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+@media (min-width: 769px) {
+  .main .sendpubbox .bottom > div > img {
+    min-height: 22px;
+  }
 }
 /* END SEND PUB BOX */
 
@@ -286,7 +339,7 @@ body > .main {
 /* RECEIVE PUB BOX */
 
 .main .receivepubbox {
-  margin-top: 10px;
+  margin-top: 19px;
 }
 .main .receivepubbox .container {
   border-bottom: solid #eee 2px;
@@ -358,6 +411,20 @@ body > .main {
   line-height: 22px;
   font-size: 1rem;
   color: var(--text-silver-dark);
+}
+
+
+.action > div {
+  cursor: pointer;
+}
+
+div.like:not(.liked):hover > svg > path {
+  fill: #ddd;
+  stroke: #ddd;
+}
+div.liked > svg > path {
+  fill: #DB0000;
+  stroke: none;
 }
 
 /* END RECEIVE PUB BOX */
