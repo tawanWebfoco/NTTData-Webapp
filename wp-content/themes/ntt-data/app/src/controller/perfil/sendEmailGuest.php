@@ -14,6 +14,18 @@ function generateUrl($user, $email, $validationId){
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
    if(isset($_POST)):
       foreach ($_POST['email'] as $key => $email) {
+         // if( User::getOne(['email' => $email]) ||  Guest::getOne(['email' => $email])){
+         //    $messageTemplate['sendEmail']['status'] = 'error';
+         //    $messageTemplate['sendEmail']['message'] = 'Email já está cadastrado.';
+         //    continue;
+         // }
+
+         $type = 'convidado';
+
+         if(Model::validarEmailNTTDataWebfoco($email)){
+           $type = 'colaborador';
+         }
+        
          $validationId = Model::validationId($email);
          $subject = 'Participe da ODS junto com a NTT DATA';
          
@@ -26,11 +38,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
          
          // Envia o email
          $result = wp_mail($email, $subject, $message, $headers);
+
+         
          
          if ($result) {
             $messageTemplate['sendEmail']['status'] = 'success';
             $messageTemplate['sendEmail']['message'] = 'Email enviado com sucesso.';
-            Model::saveInvitationsSent([$email, date('Y-m-d'), $user->id_user, 'colaborador',$validationId]);
+            Model::saveInvitationsSent([$email,  date('Y-m-d-H') . 'h', $user->id_user, $type ,$validationId]);
+            header('Location: app?p=perfil&invited');
+            $url = home_url();
+            $url .= '/app?p=perfil';
+            $url .= '&' . md5('invited') . '=true' ;
+            header("Location:$url");
          } else {
             $messageTemplate['sendEmail']['status'] = 'error';
             $messageTemplate['sendEmail']['message'] = 'Erro ao enviar o email.';

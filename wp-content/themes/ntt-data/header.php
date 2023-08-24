@@ -43,5 +43,8 @@
                </a>
    
             </div>
+
+            <div class="logout"><a href="<?= home_url() . '/logout';?> ">Sair</a></div>
+
         </div>
     </header>

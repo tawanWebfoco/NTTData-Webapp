@@ -20,6 +20,8 @@ $regType = sanitize_text_field($regType);
 
 $exception = null;
 
+$regType = md5('colaborador');
+
 if(!$invited || !$email || !$validationId || !$regType) {
     header("Location: app"); 
     die('Error: Link not Found ');
@@ -31,21 +33,36 @@ if(count($_POST) > 0){
         case md5('convidado'):
             // print_r($_POST);
             $register = new Guest($_POST);
+            try{
+        
+                $id_guest = $register->register();
+                $user = Guest::getOne(['id_guest' => $id_guest]);
+                
+                $_SESSION['user'] = $user;
+                header("Location:app");
+            }catch(AppException $e) {
+                $exception=  $e;
+            }
+            
             break;
             
             case md5('colaborador'):
             $register = new User($_POST);
+
+            try{
+        
+                $id_user = $register->register();
+                $user = User::getOne(['id_user' => $id_user]);
+                
+                $_SESSION['user'] = $user;
+                header("Location:app");
+            }catch(AppException $e) {
+                $exception=  $e;
+            }
             break;
     }
 
-    try{
-        $id_user = $register->register();
-        $user = User::getOne(['id_user' => $id_user]);
-        $_SESSION['user'] = $user;
-        header("Location:app");
-    }catch(AppException $e) {
-        $exception=  $e;
-    }
+
 }
 
 

@@ -47,7 +47,10 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
            }
            return $objects;
        }
-        
+       public function getValues() {
+        return $this->values;
+    }
+    
         public static function getResultSetFromSelect($filters = [], $columns = '*'){
             $sql = "SELECT $columns FROM "
                 . static::$tableName
@@ -249,6 +252,19 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
             
                 return $result ? new $class($result->fetch_assoc()) : null;
         
+        }
+
+        public static function validarEmailNTTDataWebfoco($email) {
+            // Expressão regular para verificar se o email pertence aos domínios desejados
+            $webfoco = '/^(.+)@(webfoco\.com)$/i';
+            $nttdata = '/^(.+)@(nttdata\.com|emeal\.nttdata\.com)$/i';
+        
+            // Executa a verificação usando a expressão regular
+            if (preg_match($nttdata, $email) || preg_match($webfoco, $email)) {
+                return true; // O email é válido
+            } else {
+                return false; // O email não é válido
+            }
         }
         
     } 

@@ -87,7 +87,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   }
 
                   $user->photo =  $image_info;
-                  header('Location: app?perfil');
+                  $url = home_url();
+                  $url .= '/app?p=perfil';
+                  header("Location:$url");
                   exit();
                }
             }

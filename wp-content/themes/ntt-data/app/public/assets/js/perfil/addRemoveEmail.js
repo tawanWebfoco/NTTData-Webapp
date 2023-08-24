@@ -17,6 +17,7 @@ function fnAddEmail(){
     const boxInput = document.createElement('input');
     boxInput.setAttribute('type', 'email[]')
     boxInput.setAttribute('name', 'email[]')
+    boxInput.setAttribute('required','')
     
     const boxImg = document.createElement('img');
     boxImg.className = 'addEmail';

@@ -2,7 +2,7 @@
     <h4>Confira sua lista de convidado efetivadas</h4>
     <table>
         <?php
-        if (isset($guest))
+        if ($guest):
             foreach ($guest as $key => $value) :  ?>
             <tr>
                 <td>
@@ -14,7 +14,15 @@
                 </li>
             </tr>
         <?php endforeach; ?>
-
+        <?php else:; ?>
+        <tr>
+                <td>
+                    <li id="lineName">Que pena, nenhum de seus convidados efetivaram o cadastro</li>
+                <td>
+                
+                </li>
+            </tr>
+            <?php endif; ?>
 
     </table>
 </div>

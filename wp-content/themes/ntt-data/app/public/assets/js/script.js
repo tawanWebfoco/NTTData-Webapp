@@ -15,7 +15,7 @@
              currentUrl = currentUrl.split('?')[0];
             console.log(currentUrl);
 
-            window.location.href = currentUrl + '?' + page;
+            window.location.href = currentUrl + '?p=' + page;
             
         })
     });

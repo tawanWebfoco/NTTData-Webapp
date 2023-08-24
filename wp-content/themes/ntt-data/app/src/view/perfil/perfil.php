@@ -18,3 +18,4 @@
 
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/uploadImg.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/updatatePersonInfo.js"></script>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/addRemoveEmail.js"></script>

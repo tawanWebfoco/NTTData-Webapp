@@ -159,6 +159,10 @@ body .header {
   border-bottom: 2px var(--background-gray) solid;
   width: 100vw;
 }
+body .header div.logout {
+  position: absolute;
+  right: 5vw;
+}
 
 /* MAIN */
 body .view {
@@ -772,6 +776,6 @@ img#uploadedImage {
 .main .perfil .guest li#lineName {
   width: 70vw;
 }
-.main .perfil .guest tr:nth-child(odd) {
+.main .perfil .guest tr:nth-child(even) {
   background-color: var(--background-gray);
 }
