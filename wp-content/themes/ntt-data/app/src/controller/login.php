@@ -14,8 +14,9 @@ if(count($_POST) > 0){
 
     try{
         $user = $login->checkLogin();
+        session_regenerate_id();
         $_SESSION['user'] = $user;
-        header("Location: app");
+        header("Location:app");
     }catch(AppException $e) {
         $exception=  $e;
     }

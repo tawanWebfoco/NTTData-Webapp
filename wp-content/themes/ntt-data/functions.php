@@ -40,14 +40,31 @@ function nttdata_configs(){
          'flex-height' => true,
          'flex-width' => true
       ));
-         add_image_size('thumbnail-300x300', 300, 300, true); // Define a miniatura de 300x300 pixels
+         add_image_size('thumbnail-100x100', 100, 100, true); 
 
-      
+         remove_image_size('768x500'); 
+         remove_image_size('1536x999'); 
             
 }
 add_action('after_setup_theme', 'nttdata_configs', 0);
 
+function remove_additional_image_sizes() {
+   // Lista dos tamanhos de imagem que você deseja manter
+   $sizes_to_keep = array(
+       'thumbnail',
+       'medium',
+       'large',
+   );
 
+   global $_wp_additional_image_sizes;
+
+   foreach ($_wp_additional_image_sizes as $size => $data) {
+       if (!in_array($size, $sizes_to_keep)) {
+           remove_image_size($size);
+       }
+   }
+}
+add_action('init', 'remove_additional_image_sizes');
 
 if( ! function_exists( 'wp_body_open' ) ){
    function wp_body_open(){

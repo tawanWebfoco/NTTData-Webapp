@@ -3,14 +3,16 @@ session_start();
 requireValidSession();
 
 $user = ($_SESSION) ? $_SESSION['user'] : null;
-$date = (new DateTime())->getTimeStamp();
-$today = strftime('%d de %B de %Y', $date);
 
-// verifica se imagens de perfil foi trocada
-if(isset($_POST['upload'])  == 'perfil'){
-   require(CONTROLLER_PATH . '/uploadImg.php');
+// $page = isset(parse_url($_SERVER['REQUEST_URI'])['query']) ? parse_url($_SERVER['REQUEST_URI'])['query'] : 'feed';
+$page = isset($_GET['p']) ? $_GET['p'] : 'feed';
+switch ($page) {
+   case !'feed':
+   case !'cron':
+   case !'perfil':
+   case !'rank':
+      # code...
+      break;
 }
 
-
-
-loadTempalteView('app',  ['user' => $user, 'today' => $today]);
+require(CONTROLLER_PATH . "/$page/$page.php");

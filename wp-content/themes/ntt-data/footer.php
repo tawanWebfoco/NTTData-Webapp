@@ -12,10 +12,12 @@
     
     <nav class="menu">
         <ul>
-            <li id="navHome" class="active"><i class="fi fi-rr-home"></i></li>
-            <li id="navRank" ><i class="fi fi-rr-trophy"></i></li>
-            <li id="navCron" ><i class="fi fi-rr-clock-three"></i></li>
-            <li id="navPerfil" ><i class="fi fi-rr-user"></i></li>
+            <?php 
+            $page = isset(parse_url($_SERVER['REQUEST_URI'])['query']) ? parse_url($_SERVER['REQUEST_URI'])['query'] : 'feed'; ?>
+            <li id="navfeed" class=" <?= ($page === 'feed') ? 'active': ''; ?>" ><i class="fi fi-rr-home"></i></li>
+            <li id="navrank" class=" <?= ($page === 'rank') ? 'active': ''; ?>" ><i class="fi fi-rr-trophy"></i></li>
+            <li id="navcron" class=" <?= ($page === 'cron') ? 'active': ''; ?>" ><i class="fi fi-rr-clock-three"></i></li>
+            <li id="navperfil" class=" <?= ($page === 'perfil') ? 'active': ''; ?>" ><i class="fi fi-rr-user"></i></li>
         </ul>
     </nav>
         <!-- <div class="footer-bottom">
@@ -23,7 +25,7 @@
         </div> -->
     </footer>
 
-    
+    <script src="<?= get_stylesheet_directory_uri(); ?>/app/public/assets/js/script.js"></script>
 
     
 <?php wp_footer() ;?>

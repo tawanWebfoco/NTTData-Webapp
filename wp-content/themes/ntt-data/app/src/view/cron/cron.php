@@ -37,10 +37,9 @@
             <div class="text">
                 <span>LIMITE DIÁRIO DE 2 HORAS EXERCÍCIOS</span>
             </div>
-            <div class="regulation">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/cron/regulation.svg" alt="Icone Regulamento">
-                <span>Leia o regulamento</span>
-            </div>
+            
+            <?php   require_once(dirname(__FILE__,2) .'/template/regulation.php'); ?> 
+
             <!-- <div class="ilust">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\ilust/cron-hand.png" alt="Ilustração Mão com cronometro">
             </div> -->
