@@ -20,12 +20,33 @@ $regType = sanitize_text_field($regType);
 
 $exception = null;
 
+$user = $_SESSION['user'];
+print_r($user->country);
+
+switch ($user->country) {
+    case 'brasil':
+        echo 'Publicar';
+        break;
+        case 'eua':
+            # code...
+            echo 'publish';
+            break;
+
+            default:
+            echo 'publicar';
+        # code...
+        break;
+}
+// $regType = md5('colaborador');
+
+$regType = md5('convidado');
 $regType = md5('colaborador');
 
-if(!$invited || !$email || !$validationId || !$regType) {
-    header("Location: app"); 
-    die('Error: Link not Found ');
-}
+
+// if(!$invited || !$email || !$validationId || !$regType) {
+//     header("Location: app"); 
+//     die('Error: Link not Found ');
+// }
 
 if(count($_POST) > 0){
     $_POST['validationId'] = $validationId;

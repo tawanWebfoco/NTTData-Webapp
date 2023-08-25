@@ -71,7 +71,7 @@ btnComment.forEach(button => {
 
 
         // Enviar a requisição usando o Fetch API
-        fetch('wp-content/themes/ntt-data/app/src/controller/feed/comment.php', {
+        fetch('../wp-content/themes/ntt-data/app/src/controller/feed/comment.php', {
             method: 'POST',
             body: formData
         })
