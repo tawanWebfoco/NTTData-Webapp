@@ -14,11 +14,11 @@ function generateUrl($user, $email, $validationId){
 if ($_SERVER['REQUEST_METHOD'] === 'POST') :
    if(isset($_POST)):
       foreach ($_POST['email'] as $key => $email) {
-         // if( User::getOne(['email' => $email]) ||  Guest::getOne(['email' => $email])){
-         //    $messageTemplate['sendEmail']['status'] = 'error';
-         //    $messageTemplate['sendEmail']['message'] = 'Email já está cadastrado.';
-         //    continue;
-         // }
+         if( User::getOne(['email' => $email]) ||  Guest::getOne(['email' => $email])){
+            $messageTemplate['sendEmail']['status'] = 'error';
+            $messageTemplate['sendEmail']['message'] = 'Email já está cadastrado.';
+            continue;
+         }
 
          $type = 'convidado';
 

@@ -2,7 +2,7 @@
 class User extends Model{
     protected static $tableName = 'wp_app_user';
     protected static $columns = ['full_name', 'email', 'username', 'password', 'date','country', 'office'];
-    protected $idTable = 'id_user';
+    protected static $idTable = 'id_user';
 
     public function insert() {
         $this->validate();
