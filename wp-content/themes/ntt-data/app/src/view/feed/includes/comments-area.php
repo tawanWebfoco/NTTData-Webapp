@@ -15,10 +15,9 @@ if ($hasComment) {
             $url_img = get_stylesheet_directory_uri() . '/app/public\assets\img\photos/perfil/img-perfil.svg';
         }
 ?>
-<div class="commentsArea">
+<div class="comments">
         <div class="imgPerfil">
             <img src="<?= $url_img; ?>" alt="Imagem">
-            <!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\photos/img-perfil2.jpg" alt="Imagem"> -->
         </div>
         <div class="content">
         <div class="person">
@@ -26,7 +25,6 @@ if ($hasComment) {
                 </div>
             <div class="message">
             <span><?= $comment->message; ?></span>
-                <!-- <span>lOrem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue.</span> -->
             </div>
             <div class="action">
                 <div class="like">
@@ -39,6 +37,6 @@ if ($hasComment) {
 <?php 
   }
   ?>
-  <div class="seeMoreComments">Ver mais comentários</div>
+  <!-- <div class="seeMoreComments">Ver mais comentários</div> -->
   <?php
 }

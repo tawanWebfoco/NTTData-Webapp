@@ -13,6 +13,8 @@ function nttdata_load_scripts(){
    //insere o js
    wp_enqueue_script( 'sendmessage', get_template_directory_uri() . '/js/sendmessage.js', array(), '1.0', true);
 
+   // insere o jquery
+   wp_enqueue_script('jquery');
 
    // // JS do carrossel
    // wp_enqueue_script( 'tr-slider-options-js', TR_SLIDER_URL . 'vendor/flexslider/flexslider.js', array( 'jquery' ), TR_SLIDER_VERSION, true );
@@ -48,6 +50,7 @@ function nttdata_configs(){
 }
 add_action('after_setup_theme', 'nttdata_configs', 0);
 
+
 function remove_additional_image_sizes() {
    // Lista dos tamanhos de imagem que você deseja manter
    $sizes_to_keep = array(
@@ -71,4 +74,5 @@ if( ! function_exists( 'wp_body_open' ) ){
       do_action( 'wp_body_open' );
    }
 }
+
 

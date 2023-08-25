@@ -37,34 +37,36 @@
         <div class="container">
             <div class="imgPerfil">
                 <img src="<?= $url_img; ?>" alt="Imagem">
-                <!-- <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\photos/img-perfil.jpg" alt="Imagem"> -->
             </div>
 
            
             <div class="content">
                 <div class="person">
                     <h2><?= $userPub->full_name; ?></h2>
-                    <p><?= $diffDate; ?></p>
+                    <span><?= $diffDate; ?></span>
                 </div>
                 <div class="message">
-                    <!-- <span>lOrem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue.</span> -->
-                    <span><?= $pub->message; ?></span>
-                    <!-- <div class="seeMore">Ver mais.</div> -->
+                    <p><?= $pub->message; ?></p>
                     <img src="<?= $pub->file; ?>" alt="Imagem">
                 </div>
                 <div class="action">
-                    <div class="like">
+                    <div id="like">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/feed/heart.svg" alt="Imagem">
                         <div class="desc">Curtir</div>
                     </div>
-                    <div class="comment">
+                    <div id="comment">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/feed/comment.svg" alt="Imagem">
                         <div class="desc">Comentar</div>
                     </div>
                 </div>
                 <?php
-                    require('comments-area.php');
+                    require('send-comment.php');
                 ?>
+                <div class="commentsArea">
+                    <?php
+                    require('comments-area.php');
+                    ?>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>

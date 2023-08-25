@@ -287,6 +287,7 @@ body > .main {
 .main .sendpubbox .boxMain textarea::placeholder{
   text-align: center;
 }
+
 .sendpubbox img#thumbnail {
   width: 70px;
   height: 50px;
@@ -320,6 +321,50 @@ body > .main {
 }
 /* END SEND PUB BOX */
 
+/* SEND COMMENT BOX */
+
+.main .sendcommentbox {
+  background-color: var(--background-gray);
+  border-radius: 20px;
+  width: 93%;
+  display: none;
+}
+.main .sendcommentbox.active {
+  display: flex;
+
+}
+
+.main .sendcommentbox form#sendComment {
+  display: flex;
+  align-items: center;
+  
+} 
+.main .sendcommentbox .boxMain {
+  flex-grow: 1;
+}
+.main .sendcommentbox textarea#textareaComment {
+  border-radius: 20px;
+  height: 38px;
+  margin: 0 2px;
+}
+.main .sendcommentbox .boxMain textarea::placeholder{
+  text-align: start;
+}
+
+.main .sendcommentbox .bottom {
+  background-color: var(--background-gray);
+  display: flex;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0 5px;
+}
+
+.main .sendcommentbox button {
+  min-width: 15vw;
+}
+
+/* END SEND COMMENT BOX */
+
 
 /* RECEIVE PUB BOX */
 
@@ -343,6 +388,12 @@ body > .main {
 }
 .receivepubbox .person h2 {
   font-size: 1.2rem;
+  margin-bottom: -3px;
+}
+.receivepubbox .person span {
+  margin-top: -10px;
+  font-size: .8rem;
+  color: var(--text-silver-dark);
 }
 .receivepubbox .commentsArea .person h2 {
   font-size: 1rem;
@@ -374,7 +425,7 @@ body > .main {
 }
 .main .receivepubbox .action img {
   width: 22px;
-
+  
 }
 
 .main .receivepubbox .action > div {
@@ -382,6 +433,10 @@ body > .main {
   margin: 10px;
   margin-left: 0;
   align-items: center;
+}
+.main .receivepubbox .action #like,
+.main .receivepubbox .action #comment{
+  cursor: pointer;
 }
 
 .main .receivepubbox .action > div > * {
@@ -416,6 +471,19 @@ body > .main {
 }
 
 /* END RECEIVE PUB BOX */
+
+/* COMMENTS AREA */
+
+.main .content .commentsArea {
+  padding: 0 0 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+.main .content .commentsArea .comments {
+  display: flex;
+}
+
+/*  */
 
 /* CRON */
 div.main#cron {
