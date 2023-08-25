@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    if (isset($_FILES['imagem'])) {
 
       // Verifica o tamanho máximo permitido (em bytes)
-      $max_file_size = 1.5 * 1024 * 1024; // 2 MB
+      $max_file_size = 1 * 1024 * 1024; // 1 MB
       // Verifica o tamanho do arquivo carregado
       if ($_FILES['imagem']['size'] <= $max_file_size) {
          // Resto do código para upload da imagem

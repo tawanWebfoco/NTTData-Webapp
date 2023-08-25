@@ -2,7 +2,7 @@
 class Guest extends Model{
     protected static $tableName = 'wp_app_guest';
     protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country'];
-    protected $idTable = 'id_guest';
+    protected static $idTable = 'id_guest';
 
     private function validate() {
         $errors = [];

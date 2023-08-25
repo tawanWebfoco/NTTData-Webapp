@@ -1,11 +1,10 @@
 <?php
 
-use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
-
     class Model{
         protected static $tableName = 'wp_app_user';
         protected static $columns = [];
         protected $values = [];
+        protected static $idTable;
 
         function __construct($arr){
             $this->loadFromArray($arr);
@@ -36,9 +35,9 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
 
         // capturar todos
         // ex: $users = User::get();
-       public static function get($filters = [], $column = '*'){
+       public static function get($filters = [], $column = '*', $order = '', $offset = '', $limit = ''){
            $objects = [];
-           $result = static::getResultSetFromSelect($filters,$column);
+           $result = static::getResultSetFromSelect($filters,$column,$order, $offset, $limit);
            if($result){
                $class = get_called_class();
                while($row = $result->fetch_assoc()){
@@ -47,14 +46,19 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
            }
            return $objects;
        }
+
        public function getValues() {
         return $this->values;
     }
     
-        public static function getResultSetFromSelect($filters = [], $columns = '*'){
+        public static function getResultSetFromSelect($filters = [], $columns = '*', $order = '', $offset = '', $limit = ''){
             $sql = "SELECT $columns FROM "
                 . static::$tableName
-                . static::getFilters($filters);
+                . static::getFilters($filters)
+                . static::getOrder($order)
+                . static::getLimit($limit)
+                . static::getOffset($offset);
+
             $result = Database::getResultFromQuery($sql);
             
             if($result->num_rows === 0){
@@ -63,6 +67,7 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
                 return $result;
             }
         }
+        
         private static function getFilters($filters){
             $sql = '';
             if(count($filters) > 0){
@@ -70,10 +75,36 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
                 foreach($filters as $column => $value) {
                     $sql .= " AND $column = ". static::getFormatedValue($value);
                 }
-                $sql .= ';';
             }
             return $sql;
         }
+
+        private static function getOrder($order){
+            $sql = '';
+            if(!empty($order)){
+                $sql = " ORDER BY ". static::$idTable .' '. $order;
+            }
+            return $sql;
+        }
+
+        private static function getLimit($limit){
+            $sql = '';
+            if(!empty($limit)){
+                $sql = " LIMIT ". static::getFormatedValue($limit);
+            }
+            return $sql;
+        }
+
+        private static function getOffset($offset){
+            $sql = '';
+            if(!empty($offset)){
+                $sql = " OFFSET ". static::getFormatedValue($offset);
+            }
+            $sql .= ';';
+            return $sql;
+        }
+
+
         private static function getFormatedValue($value){
             switch ($value){
                 case is_null($value):
@@ -93,8 +124,7 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
 
         // atualiza
         public function update() {
-            
-            $idTable = $this->idTable;
+            $idTable = static::$idTable;
             $sql = "UPDATE " . static::$tableName . " SET ";
             foreach($this->values as $col => $value ) {
                 if($col != $idTable){
@@ -108,20 +138,22 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
         }
         
         public function insert() {
-            $idTable = $this->idTable;
+            $idTable = static::$idTable;
             $sql = "INSERT INTO " . static::$tableName . " ("
                 . implode(",", static::$columns) . ") VALUES (";
                 foreach($this->values as $col => $value ) {
                     if($col == $idTable) continue;
                         $sql .= static::getFormatedValue($value) . ",";
                 }
-            $sql[strlen($sql) - 1] = ')';
+                $sql[strlen($sql) - 1] = ')';
+                
+            Database::executeSQL($sql);
         }
+
 
        
         public function register() {
-            $idTable = $this->idTable;
-           
+            $idTable = static::$idTable;
             $sql = "INSERT INTO " . static::$tableName . " ("
                 . implode(",", static::$columns) . ") VALUES (";
                 foreach($this->values as $col => $value ) {
@@ -134,7 +166,6 @@ use WPMailSMTP\Vendor\phpseclib3\Common\Functions\Strings;
                         continue;
                     };
                         $sql .= static::getFormatedValue($value) . ",";
-                    
                 }
             $sql[strlen($sql) - 1] = ')';
 
