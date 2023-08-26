@@ -11,6 +11,7 @@ define( 'DB_HOST', "127.0.0.1:3307" );
 // require_once(dirname(__FILE__,7) . '/../wp-config.php');
 Model::sanetizePost($_POST);
 
+
 $date = str_replace('=','T',date('Y-m-d=H:i:s'));
 $commentData = [
     'id_pub' => $_POST[md5('id_pub')],
@@ -21,11 +22,9 @@ $commentData = [
 
 $comment = new Comment($commentData);
 
-print_r($comment);
+$id_comment = $comment->insert();
 
-$comment->insert();
-
-
+echo($id_comment);
 
 // $url = home_url();
 // $url .= '/app?p=feed';

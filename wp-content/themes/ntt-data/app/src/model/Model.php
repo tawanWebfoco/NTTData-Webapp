@@ -127,13 +127,15 @@
             $idTable = static::$idTable;
             $sql = "UPDATE " . static::$tableName . " SET ";
             foreach($this->values as $col => $value ) {
+                if($col == 'primary_key')continue; 
                 if($col != $idTable){
                 $sql .= " `$col` = " . static::getFormatedValue($value) . ",";
                 }
             }
             $sql[strlen($sql) - 1] = ' ';
-            $sql .= "WHERE $idTable = {$this->id_user}";
+            $sql .= "WHERE $idTable = " . $this->values['primary_key'];
 
+            // printf($sql);
             Database::executeSQL($sql);
         }
         
@@ -146,8 +148,9 @@
                         $sql .= static::getFormatedValue($value) . ",";
                 }
                 $sql[strlen($sql) - 1] = ')';
-                
-            Database::executeSQL($sql);
+            
+                print_r($sql);
+           return Database::executeSQL($sql);
         }
 
 

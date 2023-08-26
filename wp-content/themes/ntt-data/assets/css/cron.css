@@ -264,7 +264,7 @@ footer.footer .menu ul li i {
 
 
 /* MAIN */
-body > .main {
+body  .main {
   /* margin: 1vh 4vw; */
 }
 
@@ -515,6 +515,12 @@ section.feed .receivepubbox {
   margin: 0 5px;
   color: var(--blue-primary);
   font-weight: 600;
+}
+.main  .peopleLiked {
+  margin: -10px 0 0 17px;
+}
+.main .peopleLiked p > *{
+  font-size: .7rem;
 }
 .main .receivepubbox .message {
   margin: 0 15px;

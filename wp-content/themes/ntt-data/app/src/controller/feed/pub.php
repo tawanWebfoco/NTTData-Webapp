@@ -13,10 +13,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
    $pubData = [];
    $imgData = [];
-
+   
    if (isset($files)) {
       // Verifica o tamanho máximo permitido (em bytes)
-      $max_file_size = 1 * 1024 * 1024; // 1 MB
+      $max_file_size = 3 * 1024 * 1024; // 3 MB
       // Verifica o tamanho do arquivo carregado
       if ($files['size'] <= $max_file_size) {
          // Resto do código para upload da imagem
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          $messageTemplate['insertFeed']['status'] = 'error';
          $messageTemplate['insertFeed']['message'] = 'O tamanho da imagem excede o limite permitido.';
       }
-   } 
+   }
 
 
    function sendImgForDb( $files, $upload_file, $original_filename, $upload_dir){  
@@ -83,12 +83,14 @@ if($_SESSION['user']->id_user){
     $pubData['id_user'] = $_SESSION['user']->id_user;
     $pubData['message'] = $_POST['textareaPub'];
     $pubData['date'] = str_replace('=','T',date('Y-m-d=H:i:s'));
+    $pubData['file'] = null;
     
 
-    if(isset($imgData['upload_file'])){
+    if(isset($files)){
         $pubData['file'] = sendImgForDb($files, $imgData['upload_file'], $imgData['original_filename'], $imgData['upload_dir']);
     }
 
+    print_r($pubData);
     $publication = new Pub($pubData);
 
     $publication->insert();
