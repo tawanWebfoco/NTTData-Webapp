@@ -96,7 +96,7 @@ get_header('login');
                     <div class="form-group">
                         <label for="country">País</label>
 
-                        <select name="country" id="country" <?= isset($errors['country']) ? 'is-invalid' : ''; ?>>
+                        <select name="country" id="country" class="<?= isset($errors['country']) ? 'is-invalid' : ''; ?>">
                             <option value=""></option>
                             <option value="Brasil" <?= isset($errors['country']) ? 'selected' : ''; ?>>Brasil</option>
                             <option value="Mexico" <?= isset($errors['country']) ? 'selected' : ''; ?>>México</option>
@@ -114,7 +114,7 @@ get_header('login');
                     </div>
                     <div class="form-group">
                         <label for="office">Cargo</label>
-                        <select name="office" id="office" <?= isset($errors['office']) ? 'class="is-invalid"' : ''; ?>>
+                        <select name="office" id="office" class="<?= isset($errors['office']) ? 'is-invalid' : ''; ?>">
                             <option value=""></option>
                             <option value="Talent" <?= isset($errors['office']) ? 'selected' : ''; ?>>Talent</option>
                             <option value="Leader" <?= isset($errors['office']) ? 'selected' : ''; ?>>Leader</option>
