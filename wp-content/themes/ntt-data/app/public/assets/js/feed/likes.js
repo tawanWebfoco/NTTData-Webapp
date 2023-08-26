@@ -2,6 +2,7 @@ btnLike = document.querySelectorAll('.action .like');
 
 btnLike.forEach(button => {
     button.addEventListener('click', ()=>{
+   
         liked(button)
     })
     
@@ -46,6 +47,7 @@ function liked(button){
         }else if(originalNumber.textContent > 2){
             likedNumb.textContent = likedNumb.textContent-1
         }
+        
         submitLike(data)
     }else{
         button.classList.toggle('liked')
@@ -74,7 +76,7 @@ function liked(button){
 
 function submitLike(data){
     const homeUrl = document.homePath
-    const pathComments = homeUrl+'/wp-content/themes/ntt-data/app/src/controller/feed/likes.php';
+    const pathComments = homeUrl +'/wp-content/themes/ntt-data/app/src/controller/feed/likes.php';
    const encode =  JSON.stringify(data)
     fetch(pathComments, {
                 method: 'POST',
@@ -90,7 +92,6 @@ function submitLike(data){
                 return response.text();
             })
             .then(data => {
-
             })
             .catch(error => {
                 console.error('Erro:', error);

@@ -3,10 +3,20 @@ require_once(dirname(__FILE__, 3) . '/config/config.php');
 session_start();
 requireValidSession();
 
-define('DB_NAME', "wp_lpnttdata");
-define('DB_USER', "root");
-define('DB_PASSWORD', "");
-define('DB_HOST', "127.0.0.1:3307");
+
+// LOCAL
+// define( 'DB_USER', 'root' );
+// define( 'DB_NAME', 'webappwebfoco_nttdata' );
+// define( 'DB_PASSWORD', '' );
+// define( 'DB_HOST', 'localhost' );
+
+
+// PRODUCAO
+define( 'DB_NAME', "wp_lpnttdata" );
+define( 'DB_USER', "root" );
+define( 'DB_PASSWORD', "" );
+define( 'DB_HOST', "127.0.0.1:3307" );
+
 
 // require_once(dirname(__FILE__,7) . '/../wp-config.php');
 

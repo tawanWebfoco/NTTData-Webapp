@@ -1,5 +1,4 @@
 btnComment = document.querySelectorAll('.action #comment');
-
 function atualizaPost(array,content,id_comment){
 
 let textArea = content.querySelector('#textareaComment')
@@ -119,6 +118,7 @@ function submitBtnComment(event){
 
 btnComment.forEach(button => {
     button.addEventListener('click', e =>{
+        
         const content = button.parentElement.parentElement;
         const boxComment = button.parentElement.parentElement.querySelector('.sendcommentbox')
         const formComment = button.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
