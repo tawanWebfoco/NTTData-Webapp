@@ -9,10 +9,13 @@ $type = isset($_POST['type']) ? $_POST['type'] : '';
 
 $invited = isset($_GET[md5('invited')]) ? $_GET[md5('invited')] : false;
 
+
+
 if($invited){
     $messageTemplate['sendEmail']['status'] = 'success';
     $messageTemplate['sendEmail']['message'] = 'Email enviado com sucesso.';
 }
+
 
 switch ($type) {
     case 'personalInfo':
