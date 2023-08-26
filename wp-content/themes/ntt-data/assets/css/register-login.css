@@ -1,4 +1,4 @@
-:root{
+:root {
     --blue-primary: #070F26;
     --blue-secundary: #6785C1;
     --black:#000;
@@ -10,7 +10,7 @@
     --text-light: #fff;
     --transparent: #fff0;
     --btn-danger: #ff365a;
-  }
+}
 body{
     height: 95vh;
     display: flex;
@@ -62,7 +62,7 @@ input.is-invalid{
     color:  var(--btn-danger);
 }
 .login-card .card-body .is-invalid {
-    border: solid  var(--btn-danger); 2px;
+    border: solid  var(--btn-danger);
 }
 
 .login-card .card-footer{

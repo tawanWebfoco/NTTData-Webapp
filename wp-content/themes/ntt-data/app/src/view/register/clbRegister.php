@@ -1,3 +1,4 @@
+<?php /*
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +12,11 @@
 </head>
 
 <body>
+    */
+get_header('login');    
+?>
+
+<section class="Conteúdo">
     <form class="formRegisterClb" action="" method="post" autocomplete="off">
         <input type="hidden" name="regType" value="colaborador">
         <input type="hidden" name="id_user" value="<?= isset($invited) ? $invited : null ;?>">
@@ -131,6 +137,11 @@
             </div>
         </div>
     </form>
+
+<?php    
+get_footer('login');
+/*
 </body>
 
-</html>
+</html>*/
+?>

@@ -20,6 +20,9 @@ $regType = sanitize_text_field($regType);
 
 $exception = null;
 
+/* 
+ * Exemplo para selecionar País
+ * 
 $user = $_SESSION['user'];
 print_r($user->country);
 
@@ -37,6 +40,8 @@ switch ($user->country) {
         # code...
         break;
 }
+ *
+*/
 // $regType = md5('colaborador');
 
 $regType = md5('convidado');
