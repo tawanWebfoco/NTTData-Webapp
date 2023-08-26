@@ -97,15 +97,15 @@ get_header('login');
                         <label for="country">País</label>
 
                         <select name="country" id="country" class="<?= isset($errors['country']) ? 'is-invalid' : ''; ?>">
-                            <option value=""></option>
-                            <option value="Brasil" <?= isset($errors['country']) ? 'selected' : ''; ?>>Brasil</option>
-                            <option value="Mexico" <?= isset($errors['country']) ? 'selected' : ''; ?>>México</option>
-                            <option value="Peru" <?= isset($errors['country']) ? 'selected' : ''; ?>>Peru</option>
-                            <option value="Chile" <?= isset($errors['country']) ? 'selected' : ''; ?>>Chile</option>
-                            <option value="Colombia" <?= isset($errors['country']) ? 'selected' : ''; ?>>Colômbia</option>
-                            <option value="Argentina" <?= isset($errors['country']) ? 'selected' : ''; ?>>Argentina</option>
-                            <option value="Equador" <?= isset($errors['country']) ? 'selected' : ''; ?>>Equador</option>
-                            <option value="USA" <?= isset($errors['country']) ? 'selected' : ''; ?>>USA</option>
+                            <option value="">Selecione</option>
+                            <option value="Brasil" <?php (isset($country) && $country == 'Brasil') ? 'selected' : ''; ?>>Brasil</option>
+                            <option value="Mexico" <?= (isset($country) && $country == 'Mexico') ? 'selected' : ''; ?>>México</option>
+                            <option value="Peru" <?= (isset($country) && $country == 'Peru') ? 'selected' : ''; ?>>Peru</option>
+                            <option value="Chile" <?= (isset($country) && $country == 'Chile') ? 'selected' : ''; ?>>Chile</option>
+                            <option value="Colombia" <?= (isset($country) && $country == 'Colombia') ? 'selected' : ''; ?>>Colômbia</option>
+                            <option value="Argentina" <?= (isset($country) && $country == 'Argentina') ? 'selected' : ''; ?>>Argentina</option>
+                            <option value="Equador" <?= (isset($country) && $country == 'Equador') ? 'selected' : ''; ?>>Equador</option>
+                            <option value="USA" <?= (isset($country) && $country == 'USA') ? 'selected' : ''; ?>>USA</option>
                         </select>
                         <div class="invalid-feedback">
                             <?=  isset($errors['country']) ? $errors['country'] : '';
@@ -115,15 +115,15 @@ get_header('login');
                     <div class="form-group">
                         <label for="office">Cargo</label>
                         <select name="office" id="office" class="<?= isset($errors['office']) ? 'is-invalid' : ''; ?>">
-                            <option value=""></option>
-                            <option value="Talent" <?= isset($errors['office']) ? 'selected' : ''; ?>>Talent</option>
-                            <option value="Leader" <?= isset($errors['office']) ? 'selected' : ''; ?>>Leader</option>
-                            <option value="Manager" <?= isset($errors['office']) ? 'selected' : ''; ?>>Manager</option>
-                            <option value="Director" <?= isset($errors['office']) ? 'selected' : ''; ?>>Director</option>
-                            <option value="Senior Manager" <?= isset($errors['office']) ? 'selected' : ''; ?>>Senior Manager</option>
-                            <option value="Executive Director" <?= isset($errors['office']) ? 'selected' : ''; ?>>Executive Director</option>
-                            <option value="Top Executive" <?= isset($errors['office']) ? 'selected' : ''; ?>>Top Executive</option>
-                            <option value="Partner" <?= isset($errors['office']) ? 'selected' : ''; ?>>Partner</option>
+                            <option value="">Selecione</option>
+                            <option value="Talent" <?= (isset($office) && $office == 'Talent') ? 'selected' : ''; ?>>Talent</option>
+                            <option value="Leader" <?= (isset($office) && $office == 'Leader') ? 'selected' : ''; ?>>Leader</option>
+                            <option value="Manager" <?= (isset($office) && $office == 'Manager') ? 'selected' : ''; ?>>Manager</option>
+                            <option value="Director" <?= (isset($office) && $office == 'Director') ? 'selected' : ''; ?>>Director</option>
+                            <option value="Senior Manager" <?= (isset($office) && $office == 'Senior Manager') ? 'selected' : ''; ?>>Senior Manager</option>
+                            <option value="Executive Director" <?= (isset($office) && $office == 'Executive Director') ? 'selected' : ''; ?>>Executive Director</option>
+                            <option value="Top Executive" <?= (isset($office) && $office == 'Top Executive') ? 'selected' : ''; ?>>Top Executive</option>
+                            <option value="Partner" <?= (isset($office) && $office == 'Partner') ? 'selected' : ''; ?>>Partner</option>
                         </select>
 
                         <div class="invalid-feedback">
