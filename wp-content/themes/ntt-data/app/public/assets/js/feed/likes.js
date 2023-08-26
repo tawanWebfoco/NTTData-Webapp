@@ -46,7 +46,6 @@ function liked(button){
         }else if(originalNumber.textContent > 2){
             likedNumb.textContent = likedNumb.textContent-1
         }
-        console.log(likedNumb);
         submitLike(data)
     }else{
         button.classList.toggle('liked')
@@ -54,7 +53,6 @@ function liked(button){
         let likedNumb = button.parentElement.parentElement.querySelector('.peopleLiked number');
         let likeText = button.parentElement.parentElement.querySelector('.peopleLiked text');
         let originalNumber = likedNumb
-        console.log(originalNumber);
 
     
         if(originalNumber.textContent == '' || originalNumber.textContent == 0){

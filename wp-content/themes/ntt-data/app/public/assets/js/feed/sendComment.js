@@ -71,8 +71,15 @@ comments.innerHTML = `
 commentsArea.insertAdjacentElement ('afterbegin', comments)
 
 document.getElementById('like').addEventListener('click', (button)=>{
-    console.log(button.target.parentElement);
-    liked(button.target.parentElement)
+    button = button.target
+    
+    while (button !== null) {
+        if (button.classList.contains('like')) {
+            liked(button)
+            return true;
+        }
+        button = button.parentElement;
+    }
 })
 
 
