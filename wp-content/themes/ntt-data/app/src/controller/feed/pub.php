@@ -90,7 +90,6 @@ if($_SESSION['user']->id_user){
         $pubData['file'] = sendImgForDb($files, $imgData['upload_file'], $imgData['original_filename'], $imgData['upload_dir']);
     }
 
-    print_r($pubData);
     $publication = new Pub($pubData);
 
     $publication->insert();

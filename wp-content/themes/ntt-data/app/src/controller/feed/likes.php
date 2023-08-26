@@ -4,18 +4,25 @@ session_start();
 requireValidSession();
 
 
-// LOCAL
+// LOCAL CASA TAWAN
 // define( 'DB_USER', 'root' );
 // define( 'DB_NAME', 'webappwebfoco_nttdata' );
 // define( 'DB_PASSWORD', '' );
 // define( 'DB_HOST', 'localhost' );
 
 
-// PRODUCAO
-define( 'DB_NAME', "wp_lpnttdata" );
-define( 'DB_USER', "root" );
-define( 'DB_PASSWORD', "" );
-define( 'DB_HOST', "127.0.0.1:3307" );
+// LOCAL AGENCIA TAWAN
+// define( 'DB_NAME', "wp_lpnttdata" );
+// define( 'DB_USER', "root" );
+// define( 'DB_PASSWORD', "" );
+// define( 'DB_HOST', "127.0.0.1:3307" );
+
+
+// PRODUCAO WEBAPP
+define( 'DB_NAME', 'webappwebfoco_nttdata' );
+define( 'DB_USER', 'webappwebfoco_nttdata' );
+define( 'DB_PASSWORD', 'qMg[iv2!n~#*' );
+define( 'DB_HOST', 'localhost' );
 
 
 // require_once(dirname(__FILE__,7) . '/../wp-config.php');
