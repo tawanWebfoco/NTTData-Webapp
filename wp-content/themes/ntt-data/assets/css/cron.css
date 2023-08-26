@@ -862,8 +862,10 @@ hr {
   .main .rank .content .otherCountryRank {
     width: 100%;
   }
-  .main .rank .content .otherCountryRank .cards::-webkit-scrollbar {
-    display: inherit !important;
+
+  .main .rank .content .otherCountryRank .cards {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .main .rank .content .allRank{
