@@ -27,12 +27,15 @@ function requestMorePub(data) {
          return response.text();
       })
       .then((data) => {
+         const divHasPub = document.getElementById('divHasPub') || null
+         divHasPub.classList.remove('active');
          // console.log(data);
          receivepubbox.innerHTML += data
          updateJsActionButton()
          const hasPub = document.getElementById('hasPub') || null
          if(hasPub){
-            hasPub.innerHTML = 'Que pena, Não há mais publicações';
+            hasPub.parentElement.removeChild(hasPub)
+               divHasPub.classList.add('active');
             // btnSeeMorePub.style.display = 'none';
             
          }

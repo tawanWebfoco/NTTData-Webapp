@@ -10,11 +10,11 @@
             <!-- PUBLICAÇÃO DOS USUÁRIOS -->
             <div class="receivepubbox">
                 <?php require(dirname(__FILE__, 2) . '/feed/includes/pub-area.php'); ?>
+                <div id="divHasPub" class="invalid-feedback">Que pena, Não há mais publicações</div>
                 <div id="seeMorePublish" <?php ;// echo md5('lastPub') . '="' . $idPubLastString . '"'; ?>>
                     <span>Ver Mais</span>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/feed/arrow-down.svg" alt="Icon Arrow Down">
                 </div>
-                <!-- <div id='allpub' style='display:none' d3dced1562000bb411b8ae4e4f3efab0='0'></div> -->
             </div>
             
 
