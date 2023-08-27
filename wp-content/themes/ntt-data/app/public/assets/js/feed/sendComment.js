@@ -1,5 +1,27 @@
 btnComment = document.querySelectorAll('.action #comment');
-function atualizaPost(array,content,id_comment){
+
+btnComment.forEach(button => {
+    button.addEventListener('click', ()=>{
+        callJsComment(button)
+    })
+});
+
+function callJsComment(button){
+    const content = button.parentElement.parentElement;
+   const boxComment = button.parentElement.parentElement.querySelector('.sendcommentbox')
+   const formComment = button.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
+
+   boxComment.classList.toggle('active')
+
+   formComment.removeEventListener('submit', submitBtnComment);
+   
+   formComment.addEventListener('submit', (event)=>{
+    submitBtnComment(event)
+   });
+}
+
+
+function updateComment(array,content,id_comment){
 
 let textArea = content.querySelector('#textareaComment')
 let commentsArea = content.querySelector('.commentsArea')
@@ -13,12 +35,15 @@ const id_user = array.get('f49c3c8440f6e6d19158446f7262c7e4');
 textArea.value = '';
 sendcommentbox.classList.toggle('active');
 
+
 var dataAtual = new Date();
 var dataPublicacao = new Date(comment.date);
 
 var diferenca = dataAtual - dataPublicacao;
 
 var diffDate = "Recente";
+
+
 
 // Converter a diferença para segundos
 diferenca = diferenca / 1000;
@@ -81,20 +106,21 @@ document.getElementById('like').addEventListener('click', (button)=>{
     }
 })
 
-
 }
+
 function submitBtnComment(event){   
     const content = event.target.parentElement.parentElement;
     const boxComment = event.target.parentElement.parentElement.querySelector('.sendcommentbox')
     const formComment = event.target.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
     
-        event.preventDefault(); // Impedir o envio normal do formulário
-        // Obter os dados do formulário
-        var formData = new FormData(formComment);
+    event.preventDefault(); // Impedir o envio normal do formulário
+    // Obter os dados do formulário
+    var formData = new FormData(formComment);
+    console.log(formData);
 
 
     const homeUrl = document.homePath
-    const pathComments = homeUrl+'/wp-content/themes/ntt-data/app/src/controller/feed/comment.php';
+    const pathComments = homeUrl+'/wp-content/themes/ntt-data/app/src/controller/feed/request/comment.php';
    
     fetch(pathComments, {
         method: 'POST',
@@ -107,7 +133,8 @@ function submitBtnComment(event){
         return response.text();
     })
     .then(data => {
-        atualizaPost(formData,content,data)
+        console.log(data);
+        updateComment(formData,content,data)
     })
     .catch(error => {
         console.error('Erro:', error);
@@ -116,18 +143,3 @@ function submitBtnComment(event){
 }
 
 
-btnComment.forEach(button => {
-    button.addEventListener('click', e =>{
-        
-        const content = button.parentElement.parentElement;
-        const boxComment = button.parentElement.parentElement.querySelector('.sendcommentbox')
-        const formComment = button.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
-
-        boxComment.classList.toggle('active')
-
-        formComment.removeEventListener('submit', submitBtnComment);
-        formComment.addEventListener('submit', submitBtnComment);
-
-    })
-    
-});

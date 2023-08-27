@@ -3,6 +3,9 @@ $hasComment = Comment::get(['id_pub' => $pub->id_pub], '*', 'DESC');
 if ($hasComment) {
     foreach ($hasComment as $key => $comment) {
         $userComment = User::getOne(['id_user' => $comment->id_user]);
+        
+     
+
 
         $arrayCommentLikes = explode(',', $comment->likes);
         $countCommentLikes = $arrayCommentLikes[0] == '' ? 0 : count($arrayCommentLikes);
@@ -16,14 +19,11 @@ if ($hasComment) {
             $classLiked = 'liked';
         }
 
+        // VERIFICA SE EXISTE IMAGEM NO BANCO DE DADOS
         if ($userComment->photo) {
             $image_path = ABSPATH . str_replace(home_url(), '', $userComment->photo);
-            if (file_exists($image_path)) {
-                $url_img = $userComment->photo;
-                $image_extension = pathinfo($url_img, PATHINFO_EXTENSION);
-            } else {
-                $url_img = get_stylesheet_directory_uri() . '/app/public\assets\img\photos/perfil/img-perfil.svg';
-            }
+            if (file_exists($image_path)) $url_img = $userComment->photo;
+            if (!file_exists($image_path)) $url_img = get_stylesheet_directory_uri() . '/app/public\assets\img\photos/perfil/img-perfil.svg';
         } else {
             $url_img = get_stylesheet_directory_uri() . '/app/public\assets\img\photos/perfil/img-perfil.svg';
         }

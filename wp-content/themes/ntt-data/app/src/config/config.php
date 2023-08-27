@@ -2,6 +2,8 @@
 date_default_timezone_set('America/Sao_Paulo');
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8','portuguese');
 
+
+
 // Constantes gerais
 // define('DAILY_TIME', 60*60*8);
 
@@ -12,7 +14,6 @@ define('VIEW_PATH', (dirname(__FILE__,2).'/view'));
 define('TEMPLATE_PATH', (dirname(__FILE__,2).'/view/template'));
 define('CONTROLLER_PATH', (dirname(__FILE__,2).'/controller'));
 define('EXCEPTION_PATH', (dirname(__FILE__,2).'/exceptions'));
-
 
 
 // Arquivos

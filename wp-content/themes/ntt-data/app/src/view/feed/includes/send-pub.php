@@ -46,4 +46,10 @@
             </div>
         </div>
     </form>
+    <?php include(TEMPLATE_PATH . '/messages.php'); 
+    ?>
+    <div class="invalid-feedback">
+        <?=  isset($errors['arquivo']) ? $errors['arquivo'] : '';
+        ?>
+    </div>
 </div>
