@@ -254,7 +254,8 @@ footer.footer {
   background-color: #070F26;
   position: fixed;
   width: 100vw;
-  top: 92vh;
+  /* top: 92vh; */
+  bottom: 0;
 }
 
 footer.footer .menu {
