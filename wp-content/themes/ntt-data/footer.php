@@ -14,10 +14,22 @@
         <ul>
             <?php 
             $page = isset(parse_url($_SERVER['REQUEST_URI'])['query']) ? parse_url($_SERVER['REQUEST_URI'])['query'] : 'feed'; ?>
-            <li id="navfeed" class=" <?= ($page === 'feed') ? 'active': ''; ?>" ><i class="fi fi-rr-home"></i><span>Início</span></li>
-            <li id="navrank" class=" <?= ($page === 'rank') ? 'active': ''; ?>" ><i class="fi fi-rr-trophy"></i><span>Ranking</span></li>
-            <li id="navcron" class=" <?= ($page === 'cron') ? 'active': ''; ?>" ><i class="fi fi-rr-clock-three"></i><span>Crônometro</span></li>
-            <li id="navperfil" class=" <?= ($page === 'perfil') ? 'active': ''; ?>" ><i class="fi fi-rr-user"></i><span>Perfil</span></li>
+            <li id="navfeed" class=" <?= ($page === 'feed') ? 'active': ''; ?>" >
+                <i class="fi fi-rr-home"></i>
+                <span>Início</span>
+            </li>
+            <li id="navrank" class=" <?= ($page === 'rank') ? 'active': ''; ?>" >
+                <i class="fi fi-rr-trophy"></i>
+                <span>Ranking</span>
+            </li>
+            <li id="navcron" class=" <?= ($page === 'cron') ? 'active': ''; ?>" >
+                <i class="fi fi-rr-clock-three"></i>
+                <span>Crônometro</span>
+            </li>
+            <li id="navperfil" class=" <?= ($page === 'perfil') ? 'active': ''; ?>" >
+                <i class="fi fi-rr-user"></i>
+                <span>Perfil</span>
+            </li>
         </ul>
     </nav>
         <!-- <div class="footer-bottom">

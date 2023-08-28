@@ -20,13 +20,13 @@ get_header('login');
         <form class="form-login" action="" method="post" autocomplete="off">
             <div class="login-card">
                 <div class="card-header">
-                    <h1><?=__('Entre na sua Conta')?></h1>
+                    <h1><?=_t['login_h1']?></h1>
                 </div>
                 <div class="card-body">
                     <?php include(TEMPLATE_PATH . '/messages.php'); 
                     ?>
                     <div class="form-group">
-                        <label for="email"><?=__('E-mail')?></label>
+                        <label for="email"><?=_t['login_email']?></label>
                         <div><input autocomplete="none" type="text" id="email" name="email"
                         class="form-control 
                         <?= isset($errors['email']) ? 'is-invalid' : ''; ?>" 
@@ -38,7 +38,7 @@ get_header('login');
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password"><?=__('Senha')?></label>
+                        <label for="password"><?=_t['login_senha']?></label>
                         <div><input autocomplete="off" type="text" id="password" name="password" 
                         class="form-control <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" 
                         placeholder=""></div>
@@ -52,10 +52,10 @@ get_header('login');
                     <div class="form-group">
                         <label></label>
                         <div class="linha-links-login">
-                            <button class="btn btn-login"><?=__('Entrar')?></button>
+                            <button class="btn btn-login"><?=_t['login_entrar']?></button>
                             <p>
-                                <a href="#"><?=__('Esqueceu Senha')?></a>
-                                <a href="#"><?=__('Cadastre-Se')?></a>
+                                <a href="#"><?=_t['login_esquecisenha']?></a>
+                                <a href="#"><?=_t['login_cadastrese']?></a>
                             </p>
                         </div>
                     </div>

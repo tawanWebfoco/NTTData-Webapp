@@ -1,3 +1,7 @@
+<?php
+/* Incluir Linguagens */
+include_once 'languages/common.php';
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
