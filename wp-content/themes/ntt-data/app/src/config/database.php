@@ -12,6 +12,7 @@ class Database
         if ($conn->connect_error) {
             die('Erro: ' . $conn->connect_error);
         }
+        $conn->set_charset("utf8");
         return $conn;
     }
     public static function getResultFromQuery($sql)

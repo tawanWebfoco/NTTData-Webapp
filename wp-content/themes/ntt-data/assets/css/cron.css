@@ -173,7 +173,8 @@ input.is-invalid,select.is-invalid{
 }
 .button.btn-disabled {
   background-color: var(--text-silver-light);
-  cursor: default;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* END BUTTONS */
