@@ -264,9 +264,9 @@ footer.footer .menu ul li i {
 
 
 /* MAIN */
-body > .main {
-  /* margin: 1vh 4vw; */
-}
+/*body > .main {
+  margin: 1vh 4vw;
+}*/
 
 .main .feed > h2 {
   text-align: center;
@@ -290,7 +290,7 @@ section.feed .receivepubbox {
   }
   section.feed .sendpubbox,
   section.feed .receivepubbox {
-    width: 50%;
+    /*width: 50%;*/
     padding: 0 20px;
   }
 
@@ -1013,7 +1013,37 @@ img#uploadedImage {
   background-color: var(--background-gray);
 }
 
+
+
 @media (min-width: 1024px) {
+  body {
+    grid-template-areas:
+        'footer header'
+        'footer main';
+    grid-template-rows: none;
+    grid-template-columns: 120px calc(100vw - 120px);
+  }
+
+  body .header {
+    width: auto;
+  }
+  footer.footer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 100vh;
+  }
+  body .main {
+    grid-area: main;
+    overflow-y: visible;
+  }
+  body section {
+    width: auto;
+  }
+
+
+
   section.perfil .perfilContainer,
   section.perfil .invite {
     width: 50%;
