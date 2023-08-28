@@ -327,6 +327,8 @@ section.feed .receivepubbox {
   section.feed {
     display: flex;
     flex-wrap: wrap;
+    max-width: 992px;
+    margin: 0 auto;
   }
   section.feed .sendpubbox,
   section.feed .receivepubbox {
@@ -471,7 +473,7 @@ div#imageContent > button {
 }
 .main .sendcommentbox textarea#textareaComment {
   border-radius: 20px;
-  height: 38px;
+  height: 40px;
   margin: 0 2px;
 }
 .main .sendcommentbox .boxMain textarea::placeholder{
@@ -777,6 +779,12 @@ hr {
   .main .cron .content .buttons .button {
     margin: 0 10px;
     width: 22%;
+  }
+
+
+
+  section.feed .sendpubbox {
+    max-width: 768px;
   }
 }
 

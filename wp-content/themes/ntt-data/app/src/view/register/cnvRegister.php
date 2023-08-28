@@ -30,7 +30,7 @@ get_header('login');
                     ?>
                     
                     <div class="form-group">
-                        <label for="full_name">Nome</label>
+                        <label for="full_name"><?=_t['registro_frm_nome']?></label>
                         <div><input autocomplete="none" type="text" id="full_name" name="full_name"
                         class="form-control 
                         <?= isset($errors['full_name']) ? 'is-invalid' : ''; ?>" 
@@ -42,7 +42,7 @@ get_header('login');
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="email">E-mail</label>
+                        <label for="email"><?=_t['registro_frm_email']?></label>
                         <div><input autocomplete="none" type="text" id="email" name="email"
                         class="form-control 
                         <?= isset($errors['email']) ? 'is-invalid' : ''; ?>" 
@@ -57,7 +57,7 @@ get_header('login');
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="username">Usuário</label>
+                        <label for="username"><?=_t['registro_frm_usuario']?></label>
                         <div><input autocomplete="none" type="text" id="username" name="username"
                         class="form-control 
                         <?= isset($errors['username']) ? 'is-invalid' : ''; ?>" 
@@ -71,7 +71,7 @@ get_header('login');
                 
 
                     <div class="form-group">
-                        <label for="password">Senha</label>
+                        <label for="password"><?=_t['registro_frm_senha']?></label>
                         <div><input autocomplete="none" type="text" id="password" name="password"
                         class="form-control 
                         <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" 
@@ -83,7 +83,7 @@ get_header('login');
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="confirmPassword">Confirme a Senha</label>
+                        <label for="confirmPassword"><?=_t['registro_frm_confirmesenha']?></label>
                         <div><input autocomplete="off" type="text" id="confirmPassword" name="confirmPassword" 
                         class="form-control <?= isset($errors['confirmPassword']) ? 'is-invalid' : ''; ?>" 
                         placeholder=""></div>
@@ -93,18 +93,18 @@ get_header('login');
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="country">País</label>
+                        <label for="country"><?=_t['registro_frm_pais']?></label>
 
                         <select name="country" id="country" class="<?= isset($errors['country']) ? 'is-invalid' : ''; ?>">
-                            <option value=""></option>
-                            <option value="Brasil" <?= isset($errors['country']) ? 'selected' : ''; ?>>Brasil</option>
-                            <option value="Mexico" <?= isset($errors['country']) ? 'selected' : ''; ?>>México</option>
-                            <option value="Peru" <?= isset($errors['country']) ? 'selected' : ''; ?>>Peru</option>
-                            <option value="Chile" <?= isset($errors['country']) ? 'selected' : ''; ?>>Chile</option>
-                            <option value="Colombia" <?= isset($errors['country']) ? 'selected' : ''; ?>>Colômbia</option>
-                            <option value="Argentina" <?= isset($errors['country']) ? 'selected' : ''; ?>>Argentina</option>
-                            <option value="Equador" <?= isset($errors['country']) ? 'selected' : ''; ?>>Equador</option>
-                            <option value="USA" <?= isset($errors['country']) ? 'selected' : ''; ?>>USA</option>
+                            <option value=""><?=_t['registro_frm_selecione']?></option>
+                            <option value="Brasil" <?php (isset($country) && $country == 'Brasil') ? 'selected' : ''; ?>><?=_t['registro_frm_bra']?></option>
+                            <option value="Mexico" <?= (isset($country) && $country == 'Mexico') ? 'selected' : ''; ?>><?=_t['registro_frm_mex']?></option>
+                            <option value="Peru" <?= (isset($country) && $country == 'Peru') ? 'selected' : ''; ?>><?=_t['registro_frm_per']?></option>
+                            <option value="Chile" <?= (isset($country) && $country == 'Chile') ? 'selected' : ''; ?>><?=_t['registro_frm_chi']?></option>
+                            <option value="Colombia" <?= (isset($country) && $country == 'Colombia') ? 'selected' : ''; ?>><?=_t['registro_frm_col']?></option>
+                            <option value="Argentina" <?= (isset($country) && $country == 'Argentina') ? 'selected' : ''; ?>><?=_t['registro_frm_arg']?></option>
+                            <option value="Equador" <?= (isset($country) && $country == 'Equador') ? 'selected' : ''; ?>><?=_t['registro_frm_equ']?></option>
+                            <option value="USA" <?= (isset($country) && $country == 'USA') ? 'selected' : ''; ?>><?=_t['registro_frm_usa']?></option>
                         </select>
                         <div class="invalid-feedback">
                             <?=  isset($errors['country']) ? $errors['country'] : '';
@@ -116,21 +116,21 @@ get_header('login');
                 <div class="card-footer">
                     <div class="form-group">
                         <label></label>
-                        <div style="gap: 15px;"><button class="btn btn-login">Enviar</button> <button id="btn-clean-pub" class="btn light-blue">Limpar</button></div>
+                        <div style="gap: 15px;"><button class="btn btn-login"><?=_t['registro_frm_enviar']?></button> <button id="btn-clean-pub" class="btn light-blue"><?=_t['registro_frm_limpar']?></button></div>
                     </div>
                 </div>
             </div>
         </form>
 
         <div id="conteudo-pagina">
-            <h2>Sobre a ação</h2>
-            <p>Descubra o poder do movimento! Convidamos você para se juntar a NTT DATA em uma ação em prol dos Objetivos de Desenvolvimento Sustentável, da ONU. Nossa missão é simples: contribuir para uma sociedade melhor, onde a saúde e o bem-estar de todos importam.</p>
-            <p>Corra, dance, pule, medite, brinque com seus filhos, jogue pádel, vôlei, ou reúna-se com seus colegas de trabalho para uma partida de futebol, recicle, faça trabalho voluntário. Use a criatividade e divirta-se enquanto cuida do seu corpo e mente.</p>
-            <p>E lembre-se, cada movimento conta. Incentive seus amigos, familiares e colegas a se juntarem-se nessa jornada de bem-estar. Juntos, faremos a diferença!</p>
-            <p>Saiba mais e acompanhe todas as atualizações no nosso site oficial: <a href="https://moveforthesdg.com/">https://moveforthesdg.com/</a></p>
+            <h2><?=_t['registro_h2']?></h2>
+            <p><?=_t['registro_cnv_p_1']?></p>
+            <p><?=_t['registro_cnv_p_2']?></p>
+            <p><?=_t['registro_cnv_p_3']?></p>
+            <p><?=_t['registro_cnv_p_4']?><a href="https://moveforthesdg.com/">https://moveforthesdg.com/</a></p>
             
             <div class="bottom-conteudo">
-                <a target="_blank" href="https://moveforthesdg.com/"><button class="btn btn-login">Acessar</button></a>
+                <a target="_blank" href="https://moveforthesdg.com/"><button class="btn btn-login"><?=_t['registro_btn_cta']?></button></a>
                 <img src="<?=get_template_directory_uri()?>/assets/img/Logo_ODS.png" width="115" height="78" />
             </div>
         </div>
