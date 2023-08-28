@@ -74,6 +74,7 @@
                 <div class="btnAction">
                     <button id="btn-edit-perfil" class="button dark-blue">Editar</button>
                     <button id="btn-save-perfil" class="button light-blue btn-disabled">Salvar</button>
+                    <button id="btn-logout-perfil" class="button light-blue logout"><a href="<?= home_url() . '/logout';?> ">Sair</a></button>
                 </div>
             </div>
         </div>

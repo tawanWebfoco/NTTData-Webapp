@@ -65,6 +65,7 @@ if(count($_POST) > 0){
                 $user = Guest::getOne(['id_guest' => $id_guest]);
                 
                 $_SESSION['user'] = $user;
+                usleep(500000); // 500000 microssegundos = 500 milissegundos
                 header("Location:app");
             }catch(AppException $e) {
                 $exception=  $e;
@@ -81,6 +82,7 @@ if(count($_POST) > 0){
                 $user = User::getOne(['id_user' => $id_user]);
                 
                 $_SESSION['user'] = $user;
+                usleep(500000); // 500000 microssegundos = 500 milissegundos
                 header("Location:app");
             }catch(AppException $e) {
                 $exception=  $e;

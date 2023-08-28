@@ -4,6 +4,7 @@
         protected static $columns = ['id_user','message', 'date','file','type_file'];
         protected static $idTable = 'id_pub';
         public $arrayIdPubView = [];
+        protected $pointsForPub = 10;
 
         public function setArrayIdPubView($value) {
             $this->arrayIdPubView = array_merge($this->arrayIdPubView, $value);
@@ -20,6 +21,42 @@
         public static function getIdPubForMap($array){
             return $array->id_pub;
         }
+
+        public function insert() {
+            if(parent::insert()){
+                // ATUALIZA TABELA DE ENGAJAMENTO
+                $user = User::getOne(['id_user' => $this->id_user]);
+                date_default_timezone_set('America/Sao_Paulo');
+                $date = str_replace('=','T',date('Y-m-d=H:i:s'));
+                
+                $engagedData = [
+                    'country' => $user->country,
+                    'date' => $date,
+                    'id_user' => $this->id_user,
+                    'type' => 'pub'
+                    ];
+
+                $engaged = new Engaged($engagedData);
+                $engaged->insert();
+
+                // ATUALIZA SCORE
+                $score = intval($user->score);
+                $score = $score + $this->pointsForPub;
+
+                $updateScore = [
+                    'id_user' => $user->id_user,
+                    'primary_key' => $user->id_user,
+                    'score' => $score
+                    ];
+              
+                    $updateScore = new User($updateScore);
+                    if($updateScore->id_user) {
+                          $updateScore->update();
+                    }
+            }
+        }
+
+        
         
     }
 

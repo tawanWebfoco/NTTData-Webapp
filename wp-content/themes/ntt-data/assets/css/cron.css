@@ -210,9 +210,7 @@ body .header div.logout {
 
 .logout a {
     display: block;
-    background: var(--text-silver-light);
     color: #fff;
-    padding: 5px 10px;
     text-decoration: none;
     border-radius: 5px;
     border-bottom-right-radius: 0;
@@ -1009,7 +1007,7 @@ img#uploadedImage {
 }
 
 .main .perfil  .perfilContainer button.button {
-  padding: 10px 8vw;
+  padding: 10px 6vw;
   margin-right: 4vw;
 }
 .main .perfil .text{

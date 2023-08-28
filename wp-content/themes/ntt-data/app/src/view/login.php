@@ -17,7 +17,7 @@ get_header('login');
 ?>
 <section class="conteudo">
     <div class="conteudo-container">
-        <form class="form-login" action="#" method="post" autocomplete="off">
+        <form class="form-login" action="" method="post" autocomplete="off">
             <div class="login-card">
                 <div class="card-header">
                     <h1>Lorem Ipsom Dolor</h1>
@@ -64,6 +64,7 @@ get_header('login');
         </form>
     </div>
 </section>
+
 <?php    
 get_footer('login');
 /*

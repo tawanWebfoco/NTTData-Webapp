@@ -1,6 +1,8 @@
 <?php 
 
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/routes.php';
+require get_template_directory() . '/inc/utils.php';
 
 function nttdata_load_scripts(){
    //inser style.css
@@ -11,10 +13,10 @@ function nttdata_load_scripts(){
    wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,700;0,900;1,300;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap', array(), null);
 
    //insere o js
-   wp_enqueue_script( 'sendmessage', get_template_directory_uri() . '/js/sendmessage.js', array(), '1.0', true);
+   // wp_enqueue_script( 'userStorage', get_template_directory_uri() . '/app/public/assets/js/components/userStorage.js', array(), '1.0', true);
 
    // insere o jquery
-   wp_enqueue_script('jquery');
+   // wp_enqueue_script('jquery');
 
    // // JS do carrossel
    // wp_enqueue_script( 'tr-slider-options-js', TR_SLIDER_URL . 'vendor/flexslider/flexslider.js', array( 'jquery' ), TR_SLIDER_VERSION, true );

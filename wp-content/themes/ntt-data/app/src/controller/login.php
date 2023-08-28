@@ -3,24 +3,26 @@ session_start();
 loadModel('Login');
 
 $user = ($_SESSION) ? $_SESSION['user'] : null;
-if(isset($user)){
+if (isset($user)) {
     header('Location: app');
     exit();
-}else{
+} else {
 
     $exception = null;
-if(count($_POST) > 0){
-    $login = new Login($_POST);
+    if (count($_POST) > 0) {
+        $login = new Login($_POST);
 
-    try{
-        $user = $login->checkLogin();
-        session_regenerate_id();
-        $_SESSION['user'] = $user;
-        header("Location:app");
-    }catch(AppException $e) {
-        $exception=  $e;
+        try {
+            $user = $login->checkLogin();
+            $_SESSION['user'] = $user;
+            userLoginJS($user);
+            session_regenerate_id();
+            // usleep(1000000); // 500000 microssegundos = 500 milissegundos
+            header("Location: app");
+        } catch (AppException $e) {
+            $exception = $e;
+        }
     }
-}
 
-loadView('login', $_POST  + ['exception' => $exception]);
+    loadView('login', $_POST + ['exception' => $exception]);
 }
