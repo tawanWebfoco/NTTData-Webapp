@@ -7,7 +7,7 @@
  $html = <<<HTML
  <script>
   //  const home =  'http://localhost/webfoco/nttdata/NTTData-Webapp/';
-   const home =  'https://webapp.webfoco.com/';
+   const home =  'https://webapp.webfoco.com';
    console.log(home);
    localStorage.clear(); // Isso limpará todos os dados armazenados no localStorage
    window.location.href = home;

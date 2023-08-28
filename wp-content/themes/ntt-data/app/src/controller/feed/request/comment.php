@@ -19,8 +19,8 @@ $commentData = [
 $comment = new Comment($commentData);
 
 $id_comment = $comment->insert();
-die;
 
-// $url = home_url();
-// $url .= '/app?p=feed';
-// header("Location:$url");
+$url = home_url();
+$url .= '/app?p=feed';
+header("Location:$url");
+die;
