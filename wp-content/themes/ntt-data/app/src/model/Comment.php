@@ -6,7 +6,8 @@
         protected $pointsForComment = 10;
 
         public function insert() {
-            if(parent::insert()){
+            $id_comment = parent::insert();
+            if($id_comment){
                 $user = User::getOne(['id_user' => $this->id_user]);
                 date_default_timezone_set('America/Sao_Paulo');
                 $date = str_replace('=','T',date('Y-m-d=H:i:s'));
@@ -36,5 +37,6 @@
                           $updateScore->update();
                     }
             }
+            return $id_comment;
         }
     }
