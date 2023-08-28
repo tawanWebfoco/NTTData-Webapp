@@ -203,6 +203,7 @@ body .header {
 .main-header {
     display: grid;
     width: 100%;
+    padding: 20px;
 }
 
 body .header div.logout {
@@ -282,7 +283,6 @@ footer.footer .menu ul li {
   cursor: pointer;
   border-radius: 10px;
   width: 20%;
-  display: flex;
   flex-direction: column;
   gap: 7px;
 }
@@ -751,12 +751,17 @@ hr {
   .main section.cron {
     max-width: 70%;
     margin: 0 auto;
-    padding: 10vh 0;
+    padding: 6vh 0;
     height: auto;
   }
 
   .main .cron .content {
     gap: 15px;
+  }
+
+  .main .cron .content .numberCenter {
+    width: 250px;
+    height: 250px;
   }
 
   .cron .text,
@@ -1166,6 +1171,8 @@ img#uploadedImage {
   }
   footer.footer .menu ul li {
     width: 100%;
+    height: auto;
+    padding: 6px;
   }
   footer.footer .menu ul li > span {display: inherit}
 
