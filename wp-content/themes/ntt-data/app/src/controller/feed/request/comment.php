@@ -20,7 +20,10 @@ $comment = new Comment($commentData);
 
 $id_comment = $comment->insert();
 
-$url = home_url();
-$url .= '/app?p=feed';
-header("Location:$url");
+// NÃO APAGAR ESTE PRINT_R
+print_r($id_comment);
 die;
+
+// $url = home_url();
+// $url .= '/app?p=feed';
+// header("Location:$url");

@@ -48,11 +48,8 @@ function requestMorePub(data) {
 function updateJsActionButton(){
    // comment
    btnComment = document.querySelectorAll('.action #comment');
-
    btnComment.forEach(button => {
-       button.addEventListener('click', ()=>{
-         callJsComment(button)
-       })
+       button.addEventListener('click',callJsComment)
    });
 
    // like

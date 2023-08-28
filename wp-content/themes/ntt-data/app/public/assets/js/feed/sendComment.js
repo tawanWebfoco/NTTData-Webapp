@@ -10,14 +10,10 @@ btnComment.forEach(button => {
 
 
 function callJsComment(){
-    console.log('calljs', this);
-
     const content = this.parentElement.parentElement;
     const boxComment = this.parentElement.parentElement.querySelector('.sendcommentbox')
     const formComment = this.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
 
-    console.log(boxComment);
-    console.log(formComment);
 
    boxComment.classList.toggle('active')
 
@@ -126,8 +122,6 @@ document.getElementById('like').addEventListener('click', (button)=>{
 }
 
 function submitBtnComment(formComment,content){   
-    console.log('submitBtn',formComment);
-    console.log('content',content);
     // const content = this.target.parentElement.parentElement;
     // const boxComment = this.target.parentElement.parentElement.querySelector('.sendcommentbox')
     // const formComment = this.target.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
@@ -135,7 +129,6 @@ function submitBtnComment(formComment,content){
     // formComment.preventDefault(); // Impedir o envio normal do formulário
     // Obter os dados do formulário
     var formData = new FormData(formComment);
-    console.log(formData);
 
     const homeUrl = document.homePath
     const pathComments = homeUrl+'/wp-content/themes/ntt-data/app/src/controller/feed/request/comment.php';
@@ -151,7 +144,6 @@ function submitBtnComment(formComment,content){
         return response.text();
     })
     .then(data => {
-        console.log(data);
         updateComment(formData,content,data)
     })
     .catch(error => {
