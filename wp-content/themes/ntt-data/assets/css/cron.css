@@ -36,8 +36,7 @@ body {
         'header'
         'main'
         'footer';
-    /* grid-template-rows: 7vh 1fr 8vh; */
-    grid-template-rows: 7vh 85vh 8vh;
+    grid-template-rows: 7vh 1fr 8vh;
     /*overflow: scroll;*/
 }
 section{
@@ -235,8 +234,7 @@ body .main {
   overflow-x: visible;
 }
 body .main#feed {
-  overflow-y: scroll;
-    overflow-x: hidden;
+  overflow-y: hidden;
 }
 body .main#cron {
   overflow: hidden;
