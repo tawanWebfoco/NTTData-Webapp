@@ -15,8 +15,8 @@ if (isset($user)) {
         try {
             $user = $login->checkLogin();
             $_SESSION['user'] = $user;
-            session_regenerate_id();
-            // usleep(700000); // 500000 microssegundos = 500 milissegundos
+            // session_regenerate_id();
+            usleep(500000); // 500000 microssegundos = 500 milissegundos
             header("Location: app");
         } catch (AppException $e) {
             $exception = $e;

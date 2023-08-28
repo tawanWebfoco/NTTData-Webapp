@@ -1,23 +1,40 @@
 btnComment = document.querySelectorAll('.action #comment');
 
 btnComment.forEach(button => {
-    button.addEventListener('click', ()=>{
-        callJsComment(button)
-    })
+    // button.removeEventListener('click', callJsComment);
+  
+
+    button.addEventListener('click', callJsComment);
+
 });
 
-function callJsComment(button){
-    const content = button.parentElement.parentElement;
-   const boxComment = button.parentElement.parentElement.querySelector('.sendcommentbox')
-   const formComment = button.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
+
+function callJsComment(){
+    console.log('calljs', this);
+
+    const content = this.parentElement.parentElement;
+    const boxComment = this.parentElement.parentElement.querySelector('.sendcommentbox')
+    const formComment = this.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
+
+    console.log(boxComment);
+    console.log(formComment);
 
    boxComment.classList.toggle('active')
 
-   formComment.removeEventListener('submit', submitBtnComment);
+   if (!formComment.classList.contains('eventSubmit')) {
+    // Adicionar o evento
+    formComment.addEventListener('submit', function(e) {
+        e.preventDefault()
+        submitBtnComment(formComment,content)
+    });
+  
+    // Adicionar a classe para marcar que o evento foi adicionado
+    formComment.classList.add('eventSubmit');
+  }
+
+//    formComment.removeEventListener('submit', submitBtnComment);
    
-   formComment.addEventListener('submit', (event)=>{
-    submitBtnComment(event)
-   });
+//    formComment.addEventListener('submit', submitBtnComment);
 }
 
 
@@ -108,16 +125,17 @@ document.getElementById('like').addEventListener('click', (button)=>{
 
 }
 
-function submitBtnComment(event){   
-    const content = event.target.parentElement.parentElement;
-    const boxComment = event.target.parentElement.parentElement.querySelector('.sendcommentbox')
-    const formComment = event.target.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
+function submitBtnComment(formComment,content){   
+    console.log('submitBtn',formComment);
+    console.log('content',content);
+    // const content = this.target.parentElement.parentElement;
+    // const boxComment = this.target.parentElement.parentElement.querySelector('.sendcommentbox')
+    // const formComment = this.target.parentElement.parentElement.querySelector('.sendcommentbox form#sendComment')
     
-    event.preventDefault(); // Impedir o envio normal do formulário
+    // formComment.preventDefault(); // Impedir o envio normal do formulário
     // Obter os dados do formulário
     var formData = new FormData(formComment);
     console.log(formData);
-
 
     const homeUrl = document.homePath
     const pathComments = homeUrl+'/wp-content/themes/ntt-data/app/src/controller/feed/request/comment.php';
