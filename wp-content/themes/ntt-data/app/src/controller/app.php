@@ -4,14 +4,15 @@ requireValidSession();
 $user = ($_SESSION) ? $_SESSION['user'] : null;
 
 
-// $page = isset(parse_url($_SERVER['REQUEST_URI'])['query']) ? parse_url($_SERVER['REQUEST_URI'])['query'] : 'feed';
-$page = isset($_GET['p']) ? $_GET['p'] : 'feed';
+$page = isset($_GET['p']) ? $_GET['p'] : 'cron';
+
 switch ($page) {
    case !'feed':
    case !'cron':
    case !'perfil':
    case !'rank':
       # code...
+      $page = 'cron';
       break;
 }
 

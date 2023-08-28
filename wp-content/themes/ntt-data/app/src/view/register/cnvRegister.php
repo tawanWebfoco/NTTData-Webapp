@@ -35,7 +35,7 @@ get_header('login');
                         class="form-control 
                         <?= isset($errors['full_name']) ? 'is-invalid' : ''; ?>" 
                         value="<?=  isset($full_name) ? $full_name : ''; ?>" 
-                        placeholder="" autofocus></div>
+                        placeholder="nome completo" autofocus></div>
                         <div class="invalid-feedback">
                             <?=  isset($errors['full_name']) ? $errors['full_name'] : '';
                             ?>
@@ -47,7 +47,7 @@ get_header('login');
                         class="form-control 
                         <?= isset($errors['email']) ? 'is-invalid' : ''; ?>" 
                         value="<?=  isset($email) ? $email : ''; ?>" 
-                        placeholder="" autofocus></div>
+                        placeholder="large.user@nttdata.com" autofocus></div>
                         <div class="invalid-feedback">
                             <?=  isset($errors['email']) ? $errors['email'] : '';
                             ?>
@@ -62,7 +62,7 @@ get_header('login');
                         class="form-control 
                         <?= isset($errors['username']) ? 'is-invalid' : ''; ?>" 
                         value="<?=  isset($username) ? $username : ''; ?>" 
-                        placeholder="" autofocus></div>
+                        placeholder="nome de usuário" autofocus></div>
                         <div class="invalid-feedback">
                             <?=  isset($errors['username']) ? $errors['username'] : '';
                             ?>

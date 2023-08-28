@@ -31,7 +31,7 @@ get_header('login');
                         class="form-control 
                         <?= isset($errors['email']) ? 'is-invalid' : ''; ?>" 
                         value="<?=  isset($email) ? $email : ''; ?>" 
-                        placeholder="" autofocus></div>
+                        placeholder="large.user@nttdata.com" autofocus></div>
                         <div class="invalid-feedback">
                             <?=  isset($errors['email']) ? $errors['email'] : '';
                             ?>
