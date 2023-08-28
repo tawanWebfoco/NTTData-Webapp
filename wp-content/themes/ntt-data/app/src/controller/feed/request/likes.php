@@ -23,7 +23,7 @@ if(in_array($data['id_user'], $arrayLikes)){
         $arrayLikes[0] = $data['id_user'];
     }else{
 
-        print_r(count($arrayLikes) );
+        // print_r(count($arrayLikes) );
         array_push($arrayLikes,$data['id_user']);
     }
 }

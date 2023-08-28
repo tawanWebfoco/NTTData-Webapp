@@ -15,7 +15,6 @@ if (isset($user)) {
         try {
             $user = $login->checkLogin();
             $_SESSION['user'] = $user;
-            userLoginJS($user);
             session_regenerate_id();
             // usleep(1000000); // 500000 microssegundos = 500 milissegundos
             header("Location: app");

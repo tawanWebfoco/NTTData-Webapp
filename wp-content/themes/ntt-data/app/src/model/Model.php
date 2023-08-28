@@ -163,7 +163,7 @@
             $sql[strlen($sql) - 1] = ' ';
             $sql .= "WHERE $idTable = " . $this->values['primary_key'];
 
-            printf($sql);
+            // printf($sql);
             Database::executeSQL($sql);
         }
         
