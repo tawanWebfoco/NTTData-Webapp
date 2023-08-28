@@ -1002,15 +1002,18 @@ img#uploadedImage {
 }
 
 .main .perfil  .perfilContainer .btnAction {
-  margin-top: 35px;
+  margin-top: 25px;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 
 .main .perfil  .perfilContainer button.button {
   padding: 10px 6vw;
   margin-right: 4vw;
+  flex-grow: 1;
+  margin: 4px 4vw 4px 0;
 }
+
 .main .perfil .text{
   margin-top: 25px;
 }
