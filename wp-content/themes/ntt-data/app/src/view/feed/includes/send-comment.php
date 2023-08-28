@@ -7,12 +7,12 @@
         <input type="hidden" name="<?= md5('photo');?>" value="<?= $user->photo?>">
 
         <div class="boxMain">
-            <textarea name="textareaComment" id="textareaComment" maxlength="140" placeholder="Escreve seu comentário" rows="4" required></textarea>
+            <textarea name="textareaComment" id="textareaComment" maxlength="140" placeholder="<?=_t['feed_escreva_comentario']?>" rows="4" required></textarea>
         </div>
 
         <div class="bottom">
             <div>
-                <button id="btnSendComment" class="button dark-blue">Comentar</button>
+                <button id="btnSendComment" class="button dark-blue"><?=_t['feed_comentar']?></button>
             </div>
         </div>
     </form>

@@ -46,6 +46,34 @@ define('_t', [
     'registro_p_3' => 'E lembre-se, cada movimento conta. Incentive seus amigos, familiares e colegas a se juntarem-se nessa jornada de bem-estar. Juntos, faremos a diferença!',
     'registro_p_4' => 'Saiba mais e acompanhe todas as atualizações no nosso site oficial: ',
     'registro_btn_cta' => 'Acessar',
-
     
+
+    /* Página Feed */
+    'feed_h1' => 'Compartilhe sua atividade',
+
+    'feed_pub_caixa' => 'CAIXA DE PUBLICAÇÃO',
+    'feed_pub_apagararq' => 'Apagar Arquivo',
+    'feed_pub_alt_imagem' => 'Imagem',
+    'feed_pub_alt_video' => 'Vídeo',
+    'feed_pub_imagem_title' => 'Adicionar Imagem',
+    'feed_pub_video_title' => 'Adicionar Vídeo',
+    'feed_pub_publicar' => 'Publicar',
+    'feed_pub_limpar' => 'Limpar',
+
+    'feed_curtida' => 'Curtida',
+    'feed_curtidas' => 'Curtidas',
+    'feed_anos' => ' anos atrás',
+    'feed_meses' => ' meses atrás',
+    'feed_dias' => ' dias atrás',
+    'feed_horas' => ' horas atrás',
+    'feed_minutos' => ' minutos atrás',
+    'feed_descurtir' => 'Descurtir',
+    'feed_curtir' => 'Curtir',
+    'feed_comentar' => 'Comentar',
+    'feed_escreva_comentario' => 'Comentar',
+    'feed_sem_publicacoes' => 'Que pena, Não há mais publicações',
+    'feed_ver_mais' => 'Ver Mais',
+    'feed_' => '',
+    'feed_' => '',
+
 ]);

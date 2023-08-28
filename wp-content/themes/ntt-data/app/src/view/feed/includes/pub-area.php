@@ -6,8 +6,8 @@
         $countpubLikes = $arrayPubLikes[0] == '' ? 0 : count($arrayPubLikes) ;
 
         if ($countpubLikes == 0)  $textLikes = '<number></number>' . '<text></text>';
-        if ($countpubLikes === 1) $textLikes = '<number>'.$countpubLikes .'</number>' . ' <text>Curtida</text>';
-        if ($countpubLikes > 1) $textLikes = '<number>'.$countpubLikes .'</number>' . ' <text>Curtidas</text>';
+        if ($countpubLikes === 1) $textLikes = '<number>'.$countpubLikes .'</number>' . ' <text>'. _t['feed_curtida'] .'</text>';
+        if ($countpubLikes > 1) $textLikes = '<number>'.$countpubLikes .'</number>' . ' <text>'. _t['feed_curtidas'] .'</text>';
 
         // $posicao = array_search($user->id_user, $pubLikes);
 
@@ -33,11 +33,11 @@
         $diferenca = $dataAtual->diff($dataPublicacao);
 
         $diffDate = "Recente";
-        if ($diferenca->y > 0) $diffDate = $diferenca->y . " anos atrás";
-        if ($diferenca->m > 0) $diffDate = $diferenca->m . " meses atrás";
-        if ($diferenca->d > 0) $diffDate = $diferenca->d . " dias atrás";
-        if ($diferenca->h > 0) $diffDate = $diferenca->h . " horas atrás";
-        if ($diferenca->i > 0) $diffDate = $diferenca->i . " minutos atrás";
+        if ($diferenca->y > 0) $diffDate = $diferenca->y . _t['feed_anos'];
+        if ($diferenca->m > 0) $diffDate = $diferenca->m . _t['feed_meses'];
+        if ($diferenca->d > 0) $diffDate = $diferenca->d . _t['feed_dias'];
+        if ($diferenca->h > 0) $diffDate = $diferenca->h . _t['feed_horas'];
+        if ($diferenca->i > 0) $diffDate = $diferenca->i . _t['feed_minutos'];
          
 
     ?>
@@ -73,11 +73,11 @@
                         <svg width="22" height="19" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.08079 7.45061L5.35365 10.8021C6.53072 12.0074 8.46928 12.0074 9.64635 10.8021L12.9192 7.45061C14.3603 5.97494 14.3603 3.58242 12.9192 2.10675C11.4782 0.631083 9.14176 0.631084 7.70071 2.10675V2.10675C7.59064 2.21946 7.40936 2.21946 7.29929 2.10675V2.10675C5.85824 0.631084 3.52184 0.631083 2.08079 2.10675C0.639737 3.58242 0.639738 5.97494 2.08079 7.45061Z" stroke="#999999" />
                         </svg>
-                        <div class="desc"><?=  isset($classLiked) ? 'Descurtir' : 'Curtir' ?></div>
+                        <div class="desc"><?=  isset($classLiked) ? _t['feed_descurtir'] : _t['feed_curtir'] ?></div>
                     </div>
                     <div id="comment">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/feed/comment.svg" alt="Imagem">
-                        <div class="desc">Comentar</div>
+                        <div class="desc"><?=_t['feed_comentar']?></div>
                     </div>
                 </div>
                 
