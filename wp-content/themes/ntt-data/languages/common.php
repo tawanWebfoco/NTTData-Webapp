@@ -20,17 +20,5 @@ if ( empty($user) || $user == null ) {
             break;
     }
 }
-/* Escolher artquivo de língua */
-/*switch ($lang) {
-    case 'pt':
-        $lang_arq = 'lang.pt.php';
-        break;
-    case 'en':
-        $lang_arq = 'lang.en.php';
-        break;
-    default:
-        $lang_arq = 'lang.es.php';
-        break;
-}*/
 /* Incluir arquivo com Strings na linguagem do país */
 include_once 'lang.'.$lang.'.php';
