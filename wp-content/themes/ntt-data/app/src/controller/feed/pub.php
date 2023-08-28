@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
      
       // Verifica o tamanho máximo permitido (em bytes)
       if($files['typeFile'] === 'Vídeo') $max_file_size = 15 * 1024 * 1024;
-      if($files['typeFile'] === 'Imagem') $max_file_size = 3 * 1024 * 1024;
+      if($files['typeFile'] === 'Imagem') $max_file_size = 5 * 1024 * 1024;
 
       // Verifica o tamanho do arquivo carregado
       if ($files['size'] <= $max_file_size) {

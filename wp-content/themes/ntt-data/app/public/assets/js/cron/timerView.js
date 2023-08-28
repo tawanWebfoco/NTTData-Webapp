@@ -246,11 +246,11 @@ class TimerView {
 
   configureEventStopTimer(onSaveTimer) {
     this.stopButton.addEventListener('click', async () => {
-      // if (confirm('Deseja parar e salvar o tempo?')) {
+      if (confirm('Deseja parar e salvar o tempo?')) {
         this._stopTimer();
         await onSaveTimer();
         this._resetTimer();
-      // }
+      }
     });
   }
 
