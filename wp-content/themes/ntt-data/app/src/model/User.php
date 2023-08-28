@@ -32,7 +32,7 @@ class User extends Model{
         }
 
         if(!$this->validarEmailNTTDataWebfoco($this->email)) {
-            $errors['email'] = 'Cadastro permitido apenas para colaboradores NTTDATA.<br>';
+            $errors['email'] = 'Cadastro permitido apenas para colaboradores NTT DATA.<br>';
         } 
 
         if(User::getOne(['email' => $this->email]) || Guest::getOne(['email' => $this->email])){

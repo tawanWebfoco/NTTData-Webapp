@@ -184,16 +184,15 @@ section.conteudo {
     padding: 5px 15px;
     border: none;
     border-radius: 5px;
-    background: #EAEAEA;
-    
-    color: #898989;
+    background-color: #EAEAEA;
+    color: var(--blue-primary);
     font-family: 'Noto Sans';
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
 }
 .form-group input::placeholder {
-    color: #bababa;
+    color: var(--text-silver-dark);
     font-weight: 300;
 }
 

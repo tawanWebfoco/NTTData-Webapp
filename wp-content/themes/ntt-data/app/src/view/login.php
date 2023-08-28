@@ -31,7 +31,7 @@ get_header('login');
                         class="form-control 
                         <?= isset($errors['email']) ? 'is-invalid' : ''; ?>" 
                         value="<?=  isset($email) ? $email : ''; ?>" 
-                        placeholder="" autofocus></div>
+                        placeholder="large.user@nttdata.com" autofocus></div>
                         <div class="invalid-feedback">
                             <?=  isset($errors['email']) ? $errors['email'] : '';
                             ?>
@@ -41,7 +41,7 @@ get_header('login');
                         <label for="password"><?=_t['login_senha']?></label>
                         <div><input autocomplete="off" type="text" id="password" name="password" 
                         class="form-control <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" 
-                        placeholder=""></div>
+                        placeholder="Password"></div>
                         <div class="invalid-feedback">
                             <?=  isset($errors['password']) ? $errors['password'] : '';
                             ?>

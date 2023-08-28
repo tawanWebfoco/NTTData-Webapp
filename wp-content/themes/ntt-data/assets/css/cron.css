@@ -879,7 +879,7 @@ hr {
  {
   width: 183px;
   height: 170px;
-  border: solid rgb(94, 93, 93) 20px;
+  border: solid var(--blue-secundary) 20px;
   display: flex;
   border-radius: 100%;
   justify-content: center;
