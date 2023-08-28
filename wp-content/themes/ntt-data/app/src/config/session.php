@@ -6,4 +6,5 @@ function requireValidSession(){
         header('Location: login');
         exit();
     }
+    
 }

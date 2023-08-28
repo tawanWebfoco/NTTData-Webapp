@@ -1,4 +1,6 @@
-    // const pageView = document.querySelector('.overflow .view')
+document.addEventListener('DOMContentLoaded', function() {
+
+// const pageView = document.querySelector('.overflow .view')
     let arrayNavMenu = document.querySelectorAll('nav.menu li');
     arrayNavMenu = Array.from(arrayNavMenu);
 
@@ -20,3 +22,4 @@
         })
     });
 
+});

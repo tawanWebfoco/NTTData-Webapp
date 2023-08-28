@@ -214,7 +214,7 @@ button.btn {
 }
 
 /* Validação de Formulário*/
-input.is-invalid{
+input.is-invalid,select.is-invalid{
     border: solid 2px var(--btn-danger);
 }
 .invalid-feedback {

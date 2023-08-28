@@ -7,7 +7,7 @@
             </div>
             <div class="yourRank">
                 <div class="score">
-                    <div class="number">1550</div>
+                    <div class="number"><?= $user->score ?></div>
                     <div class="text">PONTOS</div>
                 </div>
                 <div class="desc">Sua Pontuação Total</div>
@@ -71,54 +71,18 @@
             <div class="allRank">
                 <h3>Ranking Geral</h3>
                 <ul>
+                    <?php foreach ($RankTopUser as $key => $userInfo) : ;?>
+                       
                     <li>
-                        <div class="ordinary">1º</div>
-                        <div class="name">Amanda Nunes</div>
+                        <div class="ordinary"><?= $key+1 ?>º</div>
+                        <div class="name"><?= $userInfo->full_name ?></div>
                         <div class="score">
-                            <div class="number">21.245</div>
+                            <div class="number"><?= $userInfo->score ?></div>
                             <div class="text">pontos</div>
                         </div>
                     </li>
-                    <li>
-                        <div class="ordinary">2º</div>
-                        <div class="name">Victor Fonseca</div>
-                        <div class="score">
-                            <div class="number">21.245</div>
-                            <div class="text">pontos</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordinary">3º</div>
-                        <div class="name">Alex dos Santos</div>
-                        <div class="score">
-                            <div class="number">21.245</div>
-                            <div class="text">pontos</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordinary">4º</div>
-                        <div class="name">Alex dos Santos</div>
-                        <div class="score">
-                            <div class="number">21.245</div>
-                            <div class="text">pontos</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordinary">5º</div>
-                        <div class="name">Alex dos Santos</div>
-                        <div class="score">
-                            <div class="number">21.245</div>
-                            <div class="text">pontos</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="ordinary">6º</div>
-                        <div class="name">Alex dos Santos</div>
-                        <div class="score">
-                            <div class="number">21.245</div>
-                            <div class="text">pontos</div>
-                        </div>
-                    </li>
+                    <?php endforeach ; ?>
+                   
                 </ul>
                 
                 <div class="seeMorePublish">

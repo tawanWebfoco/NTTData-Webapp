@@ -17,16 +17,16 @@ get_header('login');
 ?>
 <section class="conteudo">
     <div class="conteudo-container">
-        <form class="form-login" action="#" method="post" autocomplete="off">
+        <form class="form-login" action="" method="post" autocomplete="off">
             <div class="login-card">
                 <div class="card-header">
-                    <h1>Lorem Ipsom Dolor</h1>
+                    <h1><?=__('Entre na sua Conta')?></h1>
                 </div>
                 <div class="card-body">
                     <?php include(TEMPLATE_PATH . '/messages.php'); 
                     ?>
                     <div class="form-group">
-                        <label for="email">E-mail</label>
+                        <label for="email"><?=__('E-mail')?></label>
                         <div><input autocomplete="none" type="text" id="email" name="email"
                         class="form-control 
                         <?= isset($errors['email']) ? 'is-invalid' : ''; ?>" 
@@ -38,7 +38,7 @@ get_header('login');
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="password">Senha</label>
+                        <label for="password"><?=__('Senha')?></label>
                         <div><input autocomplete="off" type="text" id="password" name="password" 
                         class="form-control <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" 
                         placeholder=""></div>
@@ -52,10 +52,10 @@ get_header('login');
                     <div class="form-group">
                         <label></label>
                         <div class="linha-links-login">
-                            <button class="btn btn-login">Entrar</button>
+                            <button class="btn btn-login"><?=__('Entrar')?></button>
                             <p>
-                                <a href="#">Esqueceu Senha</a>
-                                <a href="#">Cadastre-Se</a>
+                                <a href="#"><?=__('Esqueceu Senha')?></a>
+                                <a href="#"><?=__('Cadastre-Se')?></a>
                             </p>
                         </div>
                     </div>
@@ -64,6 +64,7 @@ get_header('login');
         </form>
     </div>
 </section>
+
 <?php    
 get_footer('login');
 /*

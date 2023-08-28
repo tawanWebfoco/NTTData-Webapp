@@ -1,8 +1,8 @@
 <?php 
 session_start();
 requireValidSession();
-
 $user = ($_SESSION) ? $_SESSION['user'] : null;
+
 
 // $page = isset(parse_url($_SERVER['REQUEST_URI'])['query']) ? parse_url($_SERVER['REQUEST_URI'])['query'] : 'feed';
 $page = isset($_GET['p']) ? $_GET['p'] : 'feed';

@@ -49,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
             $url = home_url();
             $url .= '/app?p=perfil';
             $url .= '&' . md5('invited') . '=true' ;
+            usleep(500000); // 500000 microssegundos = 500 milissegundos
             header("Location:$url");
          } else {
             $messageTemplate['sendEmail']['status'] = 'error';

@@ -63,7 +63,7 @@ class User extends Model{
         }
 
         if(!$this->confirmPassword) {
-            $errors['confirm_password'] = 'Confirmação de Senha é um campo obrigatório.<br>';
+            $errors['confirmPassword'] = 'Confirmação de Senha é um campo obrigatório.<br>';
         }
 
         if($this->password && $this->confirmPassword 

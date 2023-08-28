@@ -2,7 +2,6 @@
             <div class="box">
                 <div class="photo">
                     <?php
-                    // print_r($user);
                     if ($user->photo) {
                         $image_path = ABSPATH . str_replace(home_url(), '', $user->photo);
                         if (file_exists($image_path)) {
@@ -75,6 +74,7 @@
                 <div class="btnAction">
                     <button id="btn-edit-perfil" class="button dark-blue">Editar</button>
                     <button id="btn-save-perfil" class="button light-blue btn-disabled">Salvar</button>
+                    <button id="btn-logout-perfil" class="button light-blue logout"><a href="<?= home_url() . '/logout';?> ">Sair</a></button>
                 </div>
             </div>
         </div>

@@ -22,6 +22,7 @@
         public function __set($key, $value){
             $this->values[$key] = $value;
         }
+       
 
         // captura um 
         // ex: $user = User::getOne(['email' => $this->email]);
@@ -35,9 +36,9 @@
 
         // capturar todos
         // ex: $users = User::get();
-       public static function get($filters = [], $column = '*', $order = '', $offset = '', $limit = ''){
+       public static function get($filters = [], $column = '*', $order = '', $offset = '', $limit = '', $exeption = [], $join = ''){
            $objects = [];
-           $result = static::getResultSetFromSelect($filters,$column,$order, $offset, $limit);
+           $result = static::getResultSetFromSelect($filters,$column,$order, $offset, $limit,$exeption, $join);
            if($result){
                $class = get_called_class();
                while($row = $result->fetch_assoc()){
@@ -47,18 +48,25 @@
            return $objects;
        }
 
+
        public function getValues() {
         return $this->values;
     }
     
-        public static function getResultSetFromSelect($filters = [], $columns = '*', $order = '', $offset = '', $limit = ''){
+        public static function getResultSetFromSelect($filters = [], $columns = '*', $order = '', $offset = '', $limit = '',$exeption = [], $join = ''){
             $sql = "SELECT $columns FROM "
                 . static::$tableName
+                . static::getJoin($join)
                 . static::getFilters($filters)
+                . static::getExeptionFilter($exeption)
                 . static::getOrder($order)
                 . static::getLimit($limit)
                 . static::getOffset($offset);
 
+                if(static::$tableName == 'wp_app_pub'){
+
+                    // print_r($sql);
+                }
             $result = Database::getResultFromQuery($sql);
             
             if($result->num_rows === 0){
@@ -67,13 +75,33 @@
                 return $result;
             }
         }
+
+        private static function getJoin($join){
+            $sql = '';
+            if(!empty($join)){
+                $sql = " " . $join;
+            }
+            return $sql;
+        }
         
+
         private static function getFilters($filters){
             $sql = '';
             if(count($filters) > 0){
                 $sql .= " WHERE 1 = 1";
                 foreach($filters as $column => $value) {
                     $sql .= " AND $column = ". static::getFormatedValue($value);
+                }
+            }
+            return $sql;
+        }
+
+        private static function getExeptionFilter( $exeption = [], $filters = []){
+            $sql = '';
+            if(count($exeption) > 0){
+                if(count($filters) < 1)$sql .= " WHERE 1 = 1";
+                foreach($exeption as $column => $value) {
+                    $sql .= " AND ". static::$idTable ." != ". static::getFormatedValue($value);
                 }
             }
             return $sql;
@@ -127,13 +155,15 @@
             $idTable = static::$idTable;
             $sql = "UPDATE " . static::$tableName . " SET ";
             foreach($this->values as $col => $value ) {
+                if($col == 'primary_key')continue; 
                 if($col != $idTable){
                 $sql .= " `$col` = " . static::getFormatedValue($value) . ",";
                 }
             }
             $sql[strlen($sql) - 1] = ' ';
-            $sql .= "WHERE $idTable = {$this->id_user}";
+            $sql .= "WHERE $idTable = " . $this->values['primary_key'];
 
+            // printf($sql);
             Database::executeSQL($sql);
         }
         
@@ -146,8 +176,8 @@
                         $sql .= static::getFormatedValue($value) . ",";
                 }
                 $sql[strlen($sql) - 1] = ')';
-                
-            Database::executeSQL($sql);
+                // print_r($sql);
+           return Database::executeSQL($sql);
         }
 
 

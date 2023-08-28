@@ -3553,6 +3553,7 @@ function wp_add_id3_tag_data( &$metadata, $data ) {
  * @return array|false Returns array of metadata, if found.
  */
 function wp_read_video_metadata( $file ) {
+	print_r($file);
 	if ( ! file_exists( $file ) ) {
 		return false;
 	}

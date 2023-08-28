@@ -95,7 +95,7 @@ get_header('login');
                     <div class="form-group">
                         <label for="country">País</label>
 
-                        <select name="country" id="country" <?= isset($errors['country']) ? 'is-invalid' : ''; ?>>
+                        <select name="country" id="country" class="<?= isset($errors['country']) ? 'is-invalid' : ''; ?>">
                             <option value=""></option>
                             <option value="Brasil" <?= isset($errors['country']) ? 'selected' : ''; ?>>Brasil</option>
                             <option value="Mexico" <?= isset($errors['country']) ? 'selected' : ''; ?>>México</option>
