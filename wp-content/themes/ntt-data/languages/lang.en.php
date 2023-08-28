@@ -52,6 +52,31 @@ define('_t', [
     'registro_cnv_p_4' => 'Learn more and stay updated on all the news on our website: ',
 
     'registro_btn_cta' => 'Access',
-
     
+
+    /* Página Feed */
+    'feed_h1' => 'Share your activity',
+
+    'feed_pub_caixa' => 'PUBLISHING BOX',
+    'feed_pub_apagararq' => 'Delete file',
+    'feed_pub_alt_imagem' => 'Image',
+    'feed_pub_alt_video' => 'Video',
+    'feed_pub_imagem_title' => 'Add Image',
+    'feed_pub_video_title' => 'Add Video',
+    'feed_pub_publicar' => 'Publish',
+    'feed_pub_limpar' => 'Clean',
+
+    'feed_curtida' => 'Like',
+    'feed_curtidas' => 'Likes',
+    'feed_anos' => 'years ago',
+    'feed_meses' => 'months ago',
+    'feed_dias' => ' days ago',
+    'feed_horas' => ' hours ago',
+    'feed_minutos' => 'minutes ago',
+    'feed_descurtir' => 'Dislike',
+    'feed_curtir' => 'Like',
+    'feed_comentar' => 'Comment',
+    'feed_escreva_comentario' => 'Write your comment',
+    'feed_sem_publicacoes' => 'Too bad, there are no more publications',
+    'feed_ver_mais' => 'See More',
 ]);

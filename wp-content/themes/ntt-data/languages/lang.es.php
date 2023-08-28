@@ -52,4 +52,31 @@ define('_t', [
     'registro_cnv_p_4' => 'Obtén más información y sigue todas las novedades en nuestro sitio web: ',
 
     'registro_btn_cta' => 'Acceso',
+    
+
+    /* Página Feed */
+    'feed_h1' => 'Comparte tu actividad',
+
+    'feed_pub_caixa' => 'CAJA DE PUBLICACIÓN',
+    'feed_pub_apagararq' => 'Eliminar archivo',
+    'feed_pub_alt_imagem' => 'Imagen',
+    'feed_pub_alt_video' => 'Vídeo',
+    'feed_pub_imagem_title' => 'Agregar imagen',
+    'feed_pub_video_title' => 'Agregar vídeo',
+    'feed_pub_publicar' => 'Publicar',
+    'feed_pub_limpar' => 'Limpiar',
+
+    'feed_curtida' => 'Me gusta',
+    'feed_curtidas' => 'Me gusta',
+    'feed_anos' => 'hace años',
+    'feed_meses' => 'hace meses',
+    'feed_dias' => 'hace días',
+    'feed_horas' => 'hace horas',
+    'feed_minutos' => 'hace minutos',
+    'feed_descurtir' => 'No me gusta',
+    'feed_curtir' => 'Me gusta',
+    'feed_comentar' => 'Comentario',
+    'feed_escreva_comentario' => 'Escribe tu comentario',
+    'feed_sem_publicacoes' => 'Que lástima, no hay más publicaciones',
+    'feed_ver_mais' => 'Ver más',
 ]);

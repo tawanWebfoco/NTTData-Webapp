@@ -70,10 +70,8 @@ define('_t', [
     'feed_descurtir' => 'Descurtir',
     'feed_curtir' => 'Curtir',
     'feed_comentar' => 'Comentar',
-    'feed_escreva_comentario' => 'Comentar',
+    'feed_escreva_comentario' => 'Escreva seu Comentário',
     'feed_sem_publicacoes' => 'Que pena, Não há mais publicações',
     'feed_ver_mais' => 'Ver Mais',
-    'feed_' => '',
-    'feed_' => '',
 
 ]);
