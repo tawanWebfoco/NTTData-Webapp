@@ -33,11 +33,11 @@
         $diferenca = $dataAtual->diff($dataPublicacao);
 
         $diffDate = "Recente";
-        if ($diferenca->y > 0) $diffDate = $diferenca->y . _t['feed_anos'];
-        if ($diferenca->m > 0) $diffDate = $diferenca->m . _t['feed_meses'];
-        if ($diferenca->d > 0) $diffDate = $diferenca->d . _t['feed_dias'];
-        if ($diferenca->h > 0) $diffDate = $diferenca->h . _t['feed_horas'];
-        if ($diferenca->i > 0) $diffDate = $diferenca->i . _t['feed_minutos'];
+        if ($diferenca->y > 0) $diffDate = _t['feed_anosantes'] . $diferenca->y . _t['feed_anos'];
+        if ($diferenca->m > 0) $diffDate = _t['feed_mesesantes'] . $diferenca->m . _t['feed_meses'];
+        if ($diferenca->d > 0) $diffDate = _t['feed_diasantes'] . $diferenca->d . _t['feed_dias'];
+        if ($diferenca->h > 0) $diffDate = _t['feed_horasantes'] . $diferenca->h . _t['feed_horas'];
+        if ($diferenca->i > 0) $diffDate = _t['feed_minutosantes'] . $diferenca->i . _t['feed_minutos'];
          
 
     ?>

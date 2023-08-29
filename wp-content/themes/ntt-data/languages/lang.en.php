@@ -1,6 +1,13 @@
 <?php
 define('_t', [
 
+    /* Menu */
+    'menu_cron' => 'Cronometer',
+    'menu_feed' => 'Feed',
+    'menu_rank' => 'Ranking',
+    'menu_perfil' => 'Profile',
+
+
     /* Página Login */
     'login_h1' => 'Login to your Account',
     'login_email' => 'Email',
@@ -68,11 +75,16 @@ define('_t', [
 
     'feed_curtida' => 'Like',
     'feed_curtidas' => 'Likes',
-    'feed_anos' => 'years ago',
-    'feed_meses' => 'months ago',
-    'feed_dias' => ' days ago',
+    'feed_anosantes' => '',
+    'feed_mesesantes' => '',
+    'feed_diasantes' => '',
+    'feed_horasantes' => '',
+    'feed_minutosantes' => '',
+    'feed_anos' => ' years ago',
+    'feed_meses' => ' months ago',
+    'feed_dias' => '  days ago',
     'feed_horas' => ' hours ago',
-    'feed_minutos' => 'minutes ago',
+    'feed_minutos' => ' minutes ago',
     'feed_descurtir' => 'Dislike',
     'feed_curtir' => 'Like',
     'feed_comentar' => 'Comment',
@@ -94,7 +106,7 @@ define('_t', [
     'rank_entendapontos' => 'Understand the score',
     'rank_entenda1min' => '1 Minute Exercise',
     'rank_entenda1pub' => '1 Publication',
-    'rank_entenda1ind' => '1 Rank completed',
+    'rank_entenda1ind' => '1 Registered Guest',
     
 
     /* Página Perfil */
@@ -106,13 +118,13 @@ define('_t', [
     'perfil_btnsalvar' => 'Save',
     'perfil_btnsair' => 'Exit',
 
-    'perfil_convtitulo' => 'Invite a friend',
-    'perfil_convtexto' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue magna in blandit. Phasellus at metus ut arcu mollis blandit. Aliquam sapien turpis.',
+    'perfil_convtitulo' => 'Invite Participants',
+    'perfil_convtexto' => 'Bring your family and friends on this journey! For each accepted invitation, accumulate points. Encourage health and well-being for all and promote a more sustainable society and the preservation of the environment.',
     'perfil_convemail' => 'e-mail',
     'perfil_convbotao' => 'Invite',
     'perfil_addemailalt' => 'Add email',
 
-    'perfil_convidadostitulo' => 'Check your effective guest list',
+    'perfil_convidadostitulo' => 'Check your list of registered guests',
     'perfil_convidadospontos' => 'Points',
     'perfil_convidadosnenhum' => 'Too bad, none of your guests registered',
 
@@ -125,4 +137,12 @@ define('_t', [
 
 
     'regulamento_leia' => 'Read the regulation',
+
+
+    /* Cronômetro */
+    'cron_h1' => 'Cronometer',
+    'cron_minutos' => 'Minutes',
+    'cron_hora' => 'hour',
+    'cron_addtempo' => 'Add Time',
+    'cron_limitedia' => 'DAILY LIMIT OF 2 HOURS EXERCISES',
 ]);

@@ -2,7 +2,7 @@
     <section class="cron">
         <div class="content">
             <div class="top">
-                <h2>Cronometro</h2>
+                <h1><?=_t['cron_h1']?></h1>
             </div>
             <hr>
             <div class="numberCenter">
@@ -27,28 +27,26 @@
                     src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/img/icons/cron/play.svg"
                     alt="Imagem">
                 <img id="cron-pause" class="actionIcon hidden"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/img/icons/cron/stop.svg"
+                    src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/img/icons/cron/pause.svg"
                     alt="Imagem">
                 <img id="cron-stop" class="actionIcon"
                     src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/img/icons/cron/stop.svg"
                     alt="Imagem">
             </div>
 
-            <div class="title">Lorem ipsum dolor</div>
+            <div class="title"><?=_t['cron_addtempo']?></div>
 
             <div class="buttons">
-                <button class="button dark-blue btn-disabled" id="btn-add-10-minutes">10 Minutos</button>
-                <button class="button dark-blue btn-disabled" id="btn-add-30-minutes">30 Minutos</button>
-                <button class="button dark-blue btn-disabled" id="btn-add-1-hour">1 Hora</button>
+                <button class="button dark-blue btn-disabled" id="btn-add-10-minutes">10 <?=_t['cron_minutos']?></button>
+                <button class="button dark-blue btn-disabled" id="btn-add-30-minutes">30 <?=_t['cron_minutos']?></button>
+                <button class="button dark-blue btn-disabled" id="btn-add-1-hour">1 <?=_t['cron_hora']?></button>
             </div>
             <div class="text">
-                <span>LIMITE DIÁRIO DE 2 HORAS EXERCÍCIOS</span>
+                <span><?=_t['cron_limitedia']?></span>
             </div>
-            <div class="regulation">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/cron/regulation.svg"
-                    alt="Icone Regulamento">
-                <span>Leia o regulamento</span>
-            </div>
+
+            <?php   require_once(dirname(__FILE__,2) .'/template/regulation.php'); ?> 
+
             <!-- <div class="ilust">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\ilust/cron-hand.png" alt="Ilustração Mão com cronometro">
             </div> -->

@@ -11,7 +11,7 @@
 
 - Tawan precisa deixar um limite de até 5MB para upload de fotos;
 
-- Adicionar um mouse viewer de “Image” e “Video” em cima de cada ícone do Feed de publicações;
+# Adicionar um mouse viewer de “Image” e “Video” em cima de cada ícone do Feed de publicações;
 
 - Tawan vai realizar um ajuste durante a semana para expandir as fotos, igual como com os vídeos;
 
@@ -19,7 +19,7 @@
 
 - Wendell informou que eles não conseguiram montar um regulamento para incluirmos na pág., por isso, ele solicitou a exclusão desse campo com hiperlink;
 
-- Trocar “1 Indicação Concretizada” por “1 Convidado Registrado”;
+# Trocar “1 Indicação Concretizada” por “1 Convidado Registrado”;
 
 - Precisamos validar o campo “Ranking Geral” top 10, pois está com erros;
 
@@ -29,13 +29,13 @@
 
 - Wendell solicitou que no campo “Contate-nos” precisamos adicionar o e-mail para redirecionamento Connect.Americas@emeal.nttdata.com;
 
-- Adicionar o botão quadrado “Stop” no cronômetro;
+# Adicionar o botão quadrado “Stop” no cronômetro;
 
 - Retirar do cronômetro o “milésimo de segundo”;
 
 - Wendell solicitou que o botão de inserção do e-mail tenha opção de edição, caso o usuário tenha digitado algo errado;
 
-- Na página inicial do perfil Convidado, deixar a página “Cronômetro” em primeiro, ao invés do “Feed”;
+# Na página inicial do perfil Convidado, deixar a página “Cronômetro” em primeiro, ao invés do “Feed”;
 
 - Na pág. do perfil Convidado, no “Ranking Geral” para baixo não há necessidade do usuário visualizar as demais informações.
 

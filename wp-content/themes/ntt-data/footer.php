@@ -17,19 +17,19 @@
                 ?>
               <li id="navcron" class=" <?= ($page === 'cron') ? 'active' : ''; ?>">
                   <i class="fi fi-rr-clock-three"></i>
-                  <span>Crônometro</span>
+                  <span><?=_t['menu_cron']?></span>
               </li>
               <li id="navfeed" class=" <?= ($page === 'feed') ? 'active' : ''; ?>">
                   <i class="fi fi-rr-home"></i>
-                  <span>Feed</span>
+                  <span><?=_t['menu_feed']?></span>
               </li>
               <li id="navrank" class=" <?= ($page === 'rank') ? 'active' : ''; ?>">
                   <i class="fi fi-rr-trophy"></i>
-                  <span>Ranking</span>
+                  <span><?=_t['menu_rank']?></span>
               </li>
               <li id="navperfil" class=" <?= ($page === 'perfil') ? 'active' : ''; ?>">
                   <i class="fi fi-rr-user"></i>
-                  <span>Perfil</span>
+                  <span><?=_t['menu_perfil']?></span>
               </li>
           </ul>
       </nav>

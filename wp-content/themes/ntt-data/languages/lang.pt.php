@@ -1,6 +1,13 @@
 <?php
 define('_t', [
 
+    /* Menu */
+    'menu_cron' => 'Cronômetro',
+    'menu_feed' => 'Feed',
+    'menu_rank' => 'Ranking',
+    'menu_perfil' => 'Perfil',
+
+
     /* Página Login */
     'login_h1' => 'Entre na sua Conta',
     'login_email' => 'E-mail',
@@ -62,6 +69,11 @@ define('_t', [
 
     'feed_curtida' => 'Curtida',
     'feed_curtidas' => 'Curtidas',
+    'feed_anosantes' => '',
+    'feed_mesesantes' => '',
+    'feed_diasantes' => '',
+    'feed_horasantes' => '',
+    'feed_minutosantes' => '',
     'feed_anos' => ' anos atrás',
     'feed_meses' => ' meses atrás',
     'feed_dias' => ' dias atrás',
@@ -88,7 +100,7 @@ define('_t', [
     'rank_entendapontos' => 'Entenda a Pontuação',
     'rank_entenda1min' => '1 Minuto de Exercício',
     'rank_entenda1pub' => '1 Publicação',
-    'rank_entenda1ind' => '1 Indicação concretizada',
+    'rank_entenda1ind' => '1 Convidado Registrado',
     
     /* Página Perfil */
     'perfil_editarfoto' => 'editar foto',
@@ -100,12 +112,12 @@ define('_t', [
     'perfil_btnsair' => 'Sair',
 
     'perfil_convtitulo' => 'Convidar Amigo',
-    'perfil_convtexto' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue magna in blandit. Phasellus at metus ut arcu mollis blandit. Aliquam sapien turpis.',
+    'perfil_convtexto' => 'Junte-se à sua família e amigos nesta jornada! A cada convite aceito você acumulará pontos. Promova saúde e bem-estar para todos e promova a construção de uma sociedade mais sustentável e a preservação do meio ambiente.',
     'perfil_convemail' => 'e-mail',
     'perfil_convbotao' => 'Convidar',
     'perfil_addemailalt' => 'Add email',
 
-    'perfil_convidadostitulo' => 'Confira sua lista de convidado efetivadas',
+    'perfil_convidadostitulo' => 'Confira sua lista de convidados registrados',
     'perfil_convidadospontos' => 'Pontos',
     'perfil_convidadosnenhum' => 'Que pena, nenhum de seus convidados efetivaram o cadastro',
 
@@ -118,4 +130,12 @@ define('_t', [
 
 
     'regulamento_leia' => 'Leia o regulamento',
+
+
+    /* Cronômetro */
+    'cron_h1' => 'Cronômetro',
+    'cron_minutos' => 'Minutos',
+    'cron_hora' => 'Hora',
+    'cron_addtempo' => 'Adicionar Tempo',
+    'cron_limitedia' => 'LIMITE DIÁRIO DE 2 HORAS EXERCÍCIOS',
 ]);

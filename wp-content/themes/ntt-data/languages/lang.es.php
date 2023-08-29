@@ -1,6 +1,13 @@
 <?php
 define('_t', [
 
+    /* Menu */
+    'menu_cron' => 'Cronómetro',
+    'menu_feed' => 'Feed',
+    'menu_rank' => 'Clasificación',
+    'menu_perfil' => 'Perfil',
+
+
     /* Página Login */
     'login_h1' => 'Inicia sesión en tu cuenta',
     'login_email' => 'Correo electrónico',
@@ -68,11 +75,16 @@ define('_t', [
 
     'feed_curtida' => 'Me gusta',
     'feed_curtidas' => 'Me gusta',
-    'feed_anos' => 'hace años',
-    'feed_meses' => 'hace meses',
-    'feed_dias' => 'hace días',
-    'feed_horas' => 'hace horas',
-    'feed_minutos' => 'hace minutos',
+    'feed_anosantes' => 'hace ',
+    'feed_mesesantes' => 'hace ',
+    'feed_diasantes' => 'hace ',
+    'feed_horasantes' => 'hace ',
+    'feed_minutosantes' => 'hace ',
+    'feed_anos' => ' años',
+    'feed_meses' => ' meses',
+    'feed_dias' => ' días',
+    'feed_horas' => ' horas',
+    'feed_minutos' => ' minutos',
     'feed_descurtir' => 'No me gusta',
     'feed_curtir' => 'Me gusta',
     'feed_comentar' => 'Comentario',
@@ -94,7 +106,7 @@ define('_t', [
     'rank_entendapontos' => 'Comprender la partitura',
     'rank_entenda1min' => 'Ejercicio de 1 minuto',
     'rank_entenda1pub' => '1 Publicación',
-    'rank_entenda1ind' => '1 rango alcanzado',
+    'rank_entenda1ind' => '1 Invitado Registrado',
     
 
     /* Página Perfil */
@@ -106,13 +118,13 @@ define('_t', [
     'perfil_btnsalvar' => 'Guardar',
     'perfil_btnsair' => 'Salir',
 
-    'perfil_convtitulo' => 'Invitar a un amigo',
-    'perfil_convtexto' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue magna in blandit. Phasellus en metus ut arcu mollis blandit. Aliquam sapien turpis.',
+    'perfil_convtitulo' => 'Invitar Participantes',
+    'perfil_convtexto' => '¡Suma a tus familiares y amigos en esta jornada! Por cada invitación aceptada, acumularás puntos. Fomenta la salud y el bienestar para todos y promueve la construcción de una sociedad más sostenible y la preservación del medio ambiente.',
     'perfil_convemail' => 'correo electrónico',
     'perfil_convbotao' => 'Invitar',
     'perfil_addemailalt' => 'Agregar correo electrónico',
 
-    'perfil_convidadostitulo' => 'Consulta tu lista de invitados efectivos',
+    'perfil_convidadostitulo' => 'Consulta tu lista de invitados registrados',
     'perfil_convidadospontos' => 'Puntos',
     'perfil_convidadosnenhum' => 'Qué lástima, ninguno de tus invitados se registró',
 
@@ -125,4 +137,12 @@ define('_t', [
 
 
     'regulamento_leia' => 'Leer el reglamento',
+
+
+    /* Cronômetro */
+    'cron_h1' => 'Cronómetro',
+    'cron_minutos' => 'Minutos',
+    'cron_hora' => 'hora',
+    'cron_addtempo' => 'Agregar hora',
+    'cron_limitedia' => 'LÍMITE DIARIO DE 2 HORAS DE EJERCICIOS',
 ]);
