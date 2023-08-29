@@ -87,7 +87,7 @@ input.is-invalid,select.is-invalid{
 
 /* MULTIPLE SECTIONS */
 
-.main .cron div > h2, .main .rank div > h2{
+.main .cron div > h2, .main .rank div > h1{
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
@@ -1004,6 +1004,8 @@ hr {
 .main .perfil  .perfilContainer .photo {
   text-align: center;
   color: var(--text-silver-dark);
+  display: flex;
+  flex-direction: column;
 }
 .main .perfil  .perfilContainer .imgPerfil {
   border-radius: 100%;

@@ -4,6 +4,8 @@ session_start();
 requireValidSession();
 require_once(dirname(__FILE__,9) . '/wp-config.php');
 
+include_once get_template_directory() . '/languages/common.php';
+
 $dataJSON = file_get_contents("php://input");
 $data = json_decode($dataJSON, true);
 $pubView = unserialize($_SESSION['pubView']);

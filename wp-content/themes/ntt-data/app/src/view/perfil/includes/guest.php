@@ -1,5 +1,5 @@
 <div class="guest">
-    <h4>Confira sua lista de convidado efetivadas</h4>
+    <h4><?=_t['perfil_convidadostitulo']?></h4>
     <table>
         <?php
         if ($guest):
@@ -9,7 +9,7 @@
                     <li id="lineName"><?= $value->full_name; ?></li>
                 <td>
                 <td>
-                    <li>Pontos: <?= $value->score; ?>
+                    <li><?=_t['perfil_convidadospontos']?>: <?= $value->score; ?>
                 </td>
                 </li>
             </tr>
@@ -17,7 +17,7 @@
         <?php else:; ?>
         <tr>
                 <td>
-                    <li id="lineName">Que pena, nenhum de seus convidados efetivaram o cadastro</li>
+                    <li id="lineName"><?=_t['perfil_convidadosnenhum']?></li>
                 <td>
                 
                 </li>
