@@ -24,7 +24,7 @@ class TimerView {
   cronHoursElement = document.querySelector('#cron-hours');
   cronMinutesElement = document.querySelector('#cron-minutes');
   cronSecondsElement = document.querySelector('#cron-seconds');
-  cronMilisecondsElement = document.querySelector('#cron-milliseconds');
+  cronMilisecondsElement = document.querySelector('#cron-centseconds');
 
   startButton = document.querySelector('#cron-play');
   pauseButton = document.querySelector('#cron-pause');
@@ -57,7 +57,6 @@ class TimerView {
 
   _loadStorage() {
     const state = this.timerStorage.getStatesFromLocalStorage();
-    // console.log('state',state);
 
     if (state) {
       this.running = state.running;
@@ -73,6 +72,8 @@ class TimerView {
       if (this.paused) return;
 
       if (this.running) {
+        this.pauseButton.classList.remove('hidden')
+        this.startButton.classList.add('hidden')
         this.intervalId = setInterval(this._updateTimer.bind(this), 10);
         return;
       }
@@ -83,7 +84,7 @@ class TimerView {
     const hours = Math.floor(timestamp / 3600000);
     const minutes = Math.floor((timestamp % 3600000) / 60000);
     const seconds = Math.floor((timestamp % 60000) / 1000);
-    const milliseconds = timestamp % 1000; 
+    const milliseconds = timestamp % 100; 
 
     return {
       hours,
@@ -99,37 +100,21 @@ class TimerView {
   }
 
   _updateTimer() {
-    // console.log('_updateTimer - new Date:', new Date().getTime());
-    // console.log('_updateTimer - this.startTime:', this.startTime);
-    // console.log('_updateTimer - this.pauseTime:', this.pauseTime);
-    // console.log('_updateTimer - this.currentTime:', this.currentTime);
-
-    this.currentTime = (new Date().getTime() - this.startTime - this.pauseTime) + this.incrementTime;
-
-    this._showTimerValues();
-    this._disableButtons();
-    
-    if (this.currentTime >= this.limitTimePerDay && !this.hasExceededLimit) {
+    if(this.currentTime >= this.limitTimePerDay) this.hasExceededLimit = true;
+    if (this.hasExceededLimit) {
       this._pauseTimer();
       this.hasExceededLimit = true;
       alert('Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo');
       return;
     } 
+    this.currentTime = (new Date().getTime() - this.startTime - this.pauseTime) + this.incrementTime;
+
+    this._showTimerValues();
+    this._disableButtons();
+    
+  
   }
 
-  _disableButtons() {
-    if (this.currentTime >= this.time1hour) {
-      this.btnAdd1Hour.classList.add('btn-disabled');
-    }
-
-    if (this.currentTime >= (this.limitTimePerDay - this.time30minutes)) {
-      this.btnAdd30Minutes.classList.add('btn-disabled');
-    }
-
-    if (this.currentTime >= (this.limitTimePerDay - this.time10minutes)) {
-      this.btnAdd10Minutes.classList.add('btn-disabled');
-    }
-  }
 
   _enableButtons() {
     this.btnAdd1Hour.classList.remove('btn-disabled');
@@ -138,35 +123,50 @@ class TimerView {
   }
 
   _addPoints() {
-    // const currentTime = this._convertTimestampInObjectTime(this.currentTime);
-    // const limitTimePerDay = this._convertTimestampInObjectTime(this.limitTimePerDay);
-    // const currentTime = this._convertTimestampInObjectTime(new Date().getTime());
-    // const currentTime = Math.floor((this.currentTime % 3600000) / 60000); this.currentTime
     
     const currentTime = Math.floor(this.currentTime / (1000 * 60));
 
-    // const points = this.currentTime > this.limitTimePerDay 
     const points = currentTime > (this.limitTimePerDay - this.time1minute) 
     ? (this.limitTimePerDay - this.time1minute) 
     : currentTime;
 
     console.log('currentTIME', this.currentTime);
-    // console.log('current', currentTime);
     console.log('points', points);
 
     this.points = points;
   }
+  _hiddenTimerZero(){
+    this.cronHoursElement.classList.remove('hidden')
+    this.cronMinutesElement.classList.remove('hidden')
+    document.querySelector('.separate.hour').classList.remove('hidden')
+    document.querySelector('.separate.min').classList.remove('hidden')
+    document.querySelector('.separate.sec').classList.add('hidden')
+    document.querySelector('.numberCenter .numbers').classList.remove('line')
+    
+    if(this.cronHoursElement.textContent == '00'){
+      this.cronHoursElement.classList.add('hidden')
+      document.querySelector('.separate.hour').classList.add('hidden')
+      document.querySelector('.separate.sec').classList.remove('hidden')
+      document.querySelector('.numberCenter .numbers').classList.add('line')
 
+    }
+    if(this.cronMinutesElement.textContent == '00' && this.cronHoursElement.textContent == '00'){
+      this.cronMinutesElement.classList.add('hidden')
+      document.querySelector('.separate.min').classList.add('hidden')
+    }
+  }
   _showTimerValues() {
     const hours = Math.floor(this.currentTime / 3600000);
     const minutes = Math.floor((this.currentTime % 3600000) / 60000);
     const seconds = Math.floor((this.currentTime % 60000) / 1000);
-    const milliseconds = this.currentTime % 1000;
-
+    const milliseconds = Math.floor((this.currentTime % 1000) / 10)
+    
+    
     this.cronHoursElement.textContent = hours.toString().padStart(2, '0');
     this.cronMinutesElement.textContent = minutes.toString().padStart(2, '0');
     this.cronSecondsElement.textContent = seconds.toString().padStart(2, '0');
     this.cronMilisecondsElement.textContent = milliseconds.toString().padStart(2, '0');
+    this._hiddenTimerZero()
   }
 
   _stopTimer() {
@@ -180,12 +180,14 @@ class TimerView {
     this.cronHoursElement.textContent = '00';
     this.cronMinutesElement.textContent = '00';
     this.cronSecondsElement.textContent = '00';
-    this.cronMilisecondsElement.textContent = '99';
+    this.cronMilisecondsElement.textContent = '00';
     this.running = false;
     this.paused = false;
     this.pauseStartTime = 0;
     this.pauseTime = 0;
     this.incrementTime = 0;
+    this.pauseButton.classList.add('hidden')
+    this.startButton.classList.remove('hidden')
 
     this._enableButtons();
 
@@ -194,6 +196,8 @@ class TimerView {
 
   _pauseTimer() {
     clearInterval(this.intervalId);
+    this.pauseButton.classList.add('hidden')
+    this.startButton.classList.remove('hidden')
     this.pauseStartTime = new Date().getTime();
     this.paused = true;
     this.timerStorage.saveStatesOnLocalStorage(this._getStates());
@@ -207,13 +211,15 @@ class TimerView {
       pauseTime: this.pauseTime,
       startTime: this.startTime,
       currentTime: this.currentTime,
-      incrementTime: this.incrementTime
+        incrementTime: this.incrementTime
     }
   }
 
   _configureEventStartTimer() {
     this.startButton.addEventListener('click', () => {
       if (!this.running) {
+        this.pauseButton.classList.remove('hidden')
+        this.startButton.classList.add('hidden')
         this.startTime = new Date().getTime() - this.pauseTime;
         this.intervalId = setInterval(this._updateTimer.bind(this), 10); // Atualiza a cada 10 milissegundos
         this.running = true;
@@ -226,6 +232,8 @@ class TimerView {
   _configureEventStartTimerAfterPaused() {
     this.startButton.addEventListener('click', () => {
       if (this.running && this.paused) {
+        this.pauseButton.classList.remove('hidden')
+        this.startButton.classList.add('hidden')
         this.pauseTime += new Date().getTime() - this.pauseStartTime;
         this.intervalId = setInterval(this._updateTimer.bind(this), 10);
         this.running = true;
@@ -253,14 +261,46 @@ class TimerView {
       }
     });
   }
+  
+  _disableButtons() {
+    if (this.currentTime >= this.time1hour) {
+      this.btnAdd1Hour.classList.add('btn-disabled');
+    }
 
+    if (this.currentTime >= (this.limitTimePerDay - this.time30minutes)) {
+      this.btnAdd30Minutes.classList.add('btn-disabled');
+    }
+
+    if (this.currentTime >= (this.limitTimePerDay - this.time10minutes)) {
+      this.btnAdd10Minutes.classList.add('btn-disabled');
+    }
+  }
+ 
   _configureEventBtnAddTimeOnTimer(btn, addTime) {
-    btn.addEventListener('click', () => {
+    function eventBtnAddTimeOnTimer(){
+      const self = this
       this.incrementTime = this.currentTime + addTime;
-      this.currentTime = this.incrementTime;
+      this.currentTime = (this.incrementTime > this.limitTimePerDay) ? this.limitTimePerDay : this.incrementTime ;
       this.timerStorage.saveStatesOnLocalStorage(this._getStates());
       this._showTimerValues();
       this._disableButtons();
-    });
+    }   
+
+    if (btn === this.btnAdd1Hour && this.currentTime-10 < this.time1hour) {
+      this.btnAdd1Hour.classList.remove('btn-disabled');
+      btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
+    }
+    
+    if (btn === this.btnAdd30Minutes && this.currentTime-10 < (this.limitTimePerDay - this.time30minutes)) {
+      this.btnAdd30Minutes.classList.remove('btn-disabled');
+      btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
+    }
+
+    if (btn === this.btnAdd10Minutes && this.currentTime-10  < (this.limitTimePerDay - this.time10minutes)) {
+      this.btnAdd10Minutes.classList.remove('btn-disabled');
+      btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
+      this._disableButtons();
+    }
+    
   }
 }

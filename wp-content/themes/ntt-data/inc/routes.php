@@ -88,6 +88,7 @@ add_action('rest_api_init', function () {
   register_rest_route(
     'timer',
     'register',
+
     array(
       'methods' => 'POST',
       'callback' => 'register_timer_callback',

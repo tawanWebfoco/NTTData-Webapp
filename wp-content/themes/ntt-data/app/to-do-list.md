@@ -1,11 +1,11 @@
 # LISTA DE TAREFAS
 
 
-- Wendell solicitou para o Tawan inserir um exemplo de como o usuário deve preencher o e-mail para realizar o cadastro;
+- # Wendell solicitou para o Tawan inserir um exemplo de como o usuário deve preencher o e-mail para realizar o cadastro;
 
 - Wendell também solicitou um ajuste na URL para os colaboradores possam se cadastrar, além da opções através dos disparos de Emkt;
 
-- A ideia é “forçar” os colaboradores a usarem o e-mail @nttdata.com para facilitar os relatórios do Wendell;
+- # A ideia é “forçar” os colaboradores a usarem o e-mail @nttdata.com para facilitar os relatórios do Wendell;
 
 - Mariana e Wendell solicitaram que o Tawan inclua todos os países no campo “País” no momento do cadastro;
 
@@ -15,7 +15,7 @@
 
 - Tawan vai realizar um ajuste durante a semana para expandir as fotos, igual como com os vídeos;
 
-- Mari e Wendell solicitaram que a página do “Cronômetro” seja a primeira a aparecer no Web App, ao invés do “Feed”;
+- # Mari e Wendell solicitaram que a página do “Cronômetro” seja a primeira a aparecer no Web App, ao invés do “Feed”;
 
 - Wendell informou que eles não conseguiram montar um regulamento para incluirmos na pág., por isso, ele solicitou a exclusão desse campo com hiperlink;
 
@@ -38,3 +38,10 @@
 - Na página inicial do perfil Convidado, deixar a página “Cronômetro” em primeiro, ao invés do “Feed”;
 
 - Na pág. do perfil Convidado, no “Ranking Geral” para baixo não há necessidade do usuário visualizar as demais informações.
+
+
+
+<!-- FEITOS TAWAN -->
+
+- Acrescentei uma variavel de cor para hover dos botoes ( precisamos definir a cor)
+- acrescentei o hover nos botos do cronometro
