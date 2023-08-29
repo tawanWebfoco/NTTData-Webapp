@@ -125,4 +125,13 @@ define('_t', [
 
 
     'regulamento_leia' => 'Read the regulation',
+
+    /* Página Cronometro */
+    
+    'cron h2' => 'Cronometer',
+    'cron title' => 'Lorem ipsum',
+    'cron_limit_day' => 'DAILY 2 HOUR LIMIT EXERCISES',
+     'cron_minutes' => 'Minutes', 
+     'cron_hour' => ' Hour',
+
 ]);

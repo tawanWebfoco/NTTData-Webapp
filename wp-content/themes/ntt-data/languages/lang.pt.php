@@ -118,4 +118,13 @@ define('_t', [
 
 
     'regulamento_leia' => 'Leia o regulamento',
+
+     /* Página Cronometro */
+
+     'cron_h2' => 'Cronometro',
+     'cron_title' => 'Lorem ipsom',
+     'cron_limit_day' => 'LIMITE DIÁRIO DE 2 HORAS EXERCÍCIOS',
+     'cron_minutes' => 'Minutos',
+     'cron_hour' => 'Hora',
+
 ]);
