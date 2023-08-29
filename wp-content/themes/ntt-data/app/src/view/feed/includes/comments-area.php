@@ -11,8 +11,8 @@ if ($hasComment) {
         $countCommentLikes = $arrayCommentLikes[0] == '' ? 0 : count($arrayCommentLikes);
 
         if ($countCommentLikes == 0)  $textLikes = '<number></number>' . '<text></text>';
-        if ($countCommentLikes === 1) $textLikes = '<number>'.$countCommentLikes .'</number>' . ' <text>Curtida</text>';
-        if ($countCommentLikes > 1) $textLikes = '<number>'.$countCommentLikes .'</number>' . ' <text>Curtidas</text>';
+        if ($countCommentLikes === 1) $textLikes = '<number>'.$countCommentLikes .'</number>' . ' <text>'. _t['feed_curtida'] .'</text>';
+        if ($countCommentLikes > 1) $textLikes = '<number>'.$countCommentLikes .'</number>' . ' <text>'. _t['feed_curtidas'] .'</text>';
 
         $classLiked = null;
         if(in_array($user->id_user, $arrayCommentLikes)){
@@ -34,15 +34,15 @@ if ($hasComment) {
         $diferenca = $dataAtual->diff($dataPublicacao);
 
         $diffDate = "Recente";
-        if ($diferenca->y > 0) $diffDate = $diferenca->y . " anos atrás";
-        if ($diferenca->m > 0) $diffDate = $diferenca->m . " meses atrás";
-        if ($diferenca->d > 0) $diffDate = $diferenca->d . " dias atrás";
-        if ($diferenca->h > 0) $diffDate = $diferenca->h . " horas atrás";
-        if ($diferenca->i > 0) $diffDate = $diferenca->i . " minutos atrás";
+        if ($diferenca->y > 0) $diffDate = $diferenca->y . _t['feed_anos'];
+        if ($diferenca->m > 0) $diffDate = $diferenca->m . _t['feed_meses'];
+        if ($diferenca->d > 0) $diffDate = $diferenca->d . _t['feed_dias'];
+        if ($diferenca->h > 0) $diffDate = $diferenca->h . _t['feed_horas'];
+        if ($diferenca->i > 0) $diffDate = $diferenca->i . _t['feed_minutos'];
 ?>
         <div class="comments">
             <div class="imgPerfil">
-                <img src="<?= $url_img; ?>" alt="Imagem">
+                <img src="<?= $url_img; ?>" alt="<?=_t['feed_pub_alt_imagem']?>">
             </div>
             <div class="content">
                 <div class="person">
@@ -57,7 +57,7 @@ if ($hasComment) {
                     <svg width="22" height="19" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.08079 7.45061L5.35365 10.8021C6.53072 12.0074 8.46928 12.0074 9.64635 10.8021L12.9192 7.45061C14.3603 5.97494 14.3603 3.58242 12.9192 2.10675C11.4782 0.631083 9.14176 0.631084 7.70071 2.10675V2.10675C7.59064 2.21946 7.40936 2.21946 7.29929 2.10675V2.10675C5.85824 0.631084 3.52184 0.631083 2.08079 2.10675C0.639737 3.58242 0.639738 5.97494 2.08079 7.45061Z" stroke="#999999" />
                         </svg>
-                        <div class="desc"><?=  isset($classLiked) ? 'Descurtir' : 'Curtir' ?></div>
+                        <div class="desc"><?=  isset($classLiked) ? _t['feed_descurtir'] : _t['feed_curtir'] ?></div>
                     </div>
                 </div>
                 <div class="peopleLiked">

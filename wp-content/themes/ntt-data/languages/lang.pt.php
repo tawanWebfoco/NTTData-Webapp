@@ -46,6 +46,76 @@ define('_t', [
     'registro_p_3' => 'E lembre-se, cada movimento conta. Incentive seus amigos, familiares e colegas a se juntarem-se nessa jornada de bem-estar. Juntos, faremos a diferença!',
     'registro_p_4' => 'Saiba mais e acompanhe todas as atualizações no nosso site oficial: ',
     'registro_btn_cta' => 'Acessar',
-
     
+
+    /* Página Feed */
+    'feed_h1' => 'Compartilhe sua atividade',
+
+    'feed_pub_caixa' => 'CAIXA DE PUBLICAÇÃO',
+    'feed_pub_apagararq' => 'Apagar Arquivo',
+    'feed_pub_alt_imagem' => 'Imagem',
+    'feed_pub_alt_video' => 'Vídeo',
+    'feed_pub_imagem_title' => 'Adicionar Imagem',
+    'feed_pub_video_title' => 'Adicionar Vídeo',
+    'feed_pub_publicar' => 'Publicar',
+    'feed_pub_limpar' => 'Limpar',
+
+    'feed_curtida' => 'Curtida',
+    'feed_curtidas' => 'Curtidas',
+    'feed_anos' => ' anos atrás',
+    'feed_meses' => ' meses atrás',
+    'feed_dias' => ' dias atrás',
+    'feed_horas' => ' horas atrás',
+    'feed_minutos' => ' minutos atrás',
+    'feed_descurtir' => 'Descurtir',
+    'feed_curtir' => 'Curtir',
+    'feed_comentar' => 'Comentar',
+    'feed_escreva_comentario' => 'Escreva seu Comentário',
+    'feed_sem_publicacoes' => 'Que pena, Não há mais publicações',
+    'feed_ver_mais' => 'Ver Mais',
+    
+
+    /* Página Ranking */
+    'rank_h1' => 'Ranking',
+    'rank_pontosmaius' => 'PONTOS',
+    'rank_pontosminus' => 'pontos',
+    'rank_ponto' => 'ponto',
+    'rank_suapontuacao' => 'Sua Pontuação Total',
+    'rank_taxaseupais' => 'Taxa de Engajamento do seu País',
+    'rank_taxaoutros' => 'Taxa de Engajamento dos demais Países',
+    'rank_rankgeral' => 'Ranking Geral',
+    'rank_vermais' => 'Ver Mais',
+    'rank_entendapontos' => 'Entenda a Pontuação',
+    'rank_entenda1min' => '1 Minuto de Exercício',
+    'rank_entenda1pub' => '1 Publicação',
+    'rank_entenda1ind' => '1 Indicação concretizada',
+    
+    /* Página Perfil */
+    'perfil_editarfoto' => 'editar foto',
+    'perfil_cameraalt' => 'Imagem para Upload',
+    'perfil_cameratitle' => 'Imagem para Upload',
+    'perfil_btneditar' => 'Editar',
+    'perfil_btncancelar' => 'Canlelar',
+    'perfil_btnsalvar' => 'Salvar',
+    'perfil_btnsair' => 'Sair',
+
+    'perfil_convtitulo' => 'Convidar Amigo',
+    'perfil_convtexto' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue magna in blandit. Phasellus at metus ut arcu mollis blandit. Aliquam sapien turpis.',
+    'perfil_convemail' => 'e-mail',
+    'perfil_convbotao' => 'Convidar',
+    'perfil_addemailalt' => 'Add email',
+
+    'perfil_convidadostitulo' => 'Confira sua lista de convidado efetivadas',
+    'perfil_convidadospontos' => 'Pontos',
+    'perfil_convidadosnenhum' => 'Que pena, nenhum de seus convidados efetivaram o cadastro',
+
+    'perfil_convidadopor' => 'Convidado Por',
+    'perfil_convidadosobre_tit' => 'Sobre a ação',
+    'perfil_convidadosobre_p1' => 'Anunciamos a 2ª edição da nossa campanha "Move for the SDGs". Depois de um primeiro ano incrível, com mais de 6.000 horas de atividades físicas com a união de colaboradores de oito países diferentes, estamos prontos para repetir e superar essas conquistas!',
+    'perfil_convidadosobre_p2' => 'Nossa campanha tem como objetivo impulsionar os Objetivos de Desenvolvimento Sustentável da ONU, destacando a importância do cuidado com a saúde física e mental, além da preservação do meio ambiente.',
+    'perfil_convidadosobre_p3' => 'E aí, topa se juntar a nós nessa jornada? Queremos contar com a sua participação para tornar a 2ª edição do "Move For The SDG" ainda mais especial!',
+    'perfil_convidadosobre_p4' => 'Saiba mais e acompanhe todas as novidades em nosso site:',
+
+
+    'regulamento_leia' => 'Leia o regulamento',
 ]);

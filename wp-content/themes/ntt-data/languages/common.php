@@ -22,3 +22,8 @@ if ( empty($user) || $user == null ) {
 }
 /* Incluir arquivo com Strings na linguagem do país */
 include_once 'lang.'.$lang.'.php';
+
+/*
+    Modelo para tradução:
+    <?=_t['id_da_string']?>
+ */

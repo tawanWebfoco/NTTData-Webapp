@@ -52,4 +52,77 @@ define('_t', [
     'registro_cnv_p_4' => 'Obtén más información y sigue todas las novedades en nuestro sitio web: ',
 
     'registro_btn_cta' => 'Acceso',
+    
+
+    /* Página Feed */
+    'feed_h1' => 'Comparte tu actividad',
+
+    'feed_pub_caixa' => 'CAJA DE PUBLICACIÓN',
+    'feed_pub_apagararq' => 'Eliminar archivo',
+    'feed_pub_alt_imagem' => 'Imagen',
+    'feed_pub_alt_video' => 'Vídeo',
+    'feed_pub_imagem_title' => 'Agregar imagen',
+    'feed_pub_video_title' => 'Agregar vídeo',
+    'feed_pub_publicar' => 'Publicar',
+    'feed_pub_limpar' => 'Limpiar',
+
+    'feed_curtida' => 'Me gusta',
+    'feed_curtidas' => 'Me gusta',
+    'feed_anos' => 'hace años',
+    'feed_meses' => 'hace meses',
+    'feed_dias' => 'hace días',
+    'feed_horas' => 'hace horas',
+    'feed_minutos' => 'hace minutos',
+    'feed_descurtir' => 'No me gusta',
+    'feed_curtir' => 'Me gusta',
+    'feed_comentar' => 'Comentario',
+    'feed_escreva_comentario' => 'Escribe tu comentario',
+    'feed_sem_publicacoes' => 'Que lástima, no hay más publicaciones',
+    'feed_ver_mais' => 'Ver más',
+    
+
+    /* Página Ranking */
+    'rank_h1' => 'Clasificación',
+    'rank_pontosmaius' => 'PUNTOS',
+    'rank_pontosminus' => 'puntos',
+    'rank_ponto' => 'punto',
+    'rank_suapontuacao' => 'Tu puntuación total',
+    'rank_taxaseupais' => 'Tasa de participación para su país',
+    'rank_taxaoutros' => 'Tasa de participación de otros países',
+    'rank_rankgeral' => 'Rango General',
+    'rank_vermais' => 'Ver más',
+    'rank_entendapontos' => 'Comprender la partitura',
+    'rank_entenda1min' => 'Ejercicio de 1 minuto',
+    'rank_entenda1pub' => '1 Publicación',
+    'rank_entenda1ind' => '1 rango alcanzado',
+    
+
+    /* Página Perfil */
+    'perfil_editarfoto' => 'editar foto',
+    'perfil_cameraalt' => 'Imagen para subir',
+    'perfil_cameratitle' => 'Imagen para cargar',
+    'perfil_btneditar' => 'Editar',
+    'perfil_btncancelar' => 'Cancelar',
+    'perfil_btnsalvar' => 'Guardar',
+    'perfil_btnsair' => 'Salir',
+
+    'perfil_convtitulo' => 'Invitar a un amigo',
+    'perfil_convtexto' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc consequat congue magna in blandit. Phasellus en metus ut arcu mollis blandit. Aliquam sapien turpis.',
+    'perfil_convemail' => 'correo electrónico',
+    'perfil_convbotao' => 'Invitar',
+    'perfil_addemailalt' => 'Agregar correo electrónico',
+
+    'perfil_convidadostitulo' => 'Consulta tu lista de invitados efectivos',
+    'perfil_convidadospontos' => 'Puntos',
+    'perfil_convidadosnenhum' => 'Qué lástima, ninguno de tus invitados se registró',
+
+    'perfil_convidadopor' => 'Invitado por',
+    'perfil_convidadosobre_tit' => 'Acerca de la acción',
+    'perfil_convidadosobre_p1' => 'Anunciamos la 2ª edición de nuestra campaña “Muévete por los ODS”. Después de un primer año increíble, con más de 6.000 horas de actividad física con el sindicato de empleados de ocho países diferentes, ¡estamos listos para repetir y superar estos logros!',
+    'perfil_convidadosobre_p2' => 'Nuestra campaña pretende impulsar los Objetivos de Desarrollo Sostenible de la ONU, destacando la importancia del cuidado de la salud física y mental, además de preservar el medio ambiente.',
+    'perfil_convidadosobre_p3' => 'Entonces, ¿te gustaría acompañarnos en este viaje? ¡Queremos contar con vuestra participación para hacer aún más especial la 2ª edición de "Move For The SDG"!',
+    'perfil_convidadosobre_p4' => 'Conoce más y sigue todas las novedades en nuestra web:',
+
+
+    'regulamento_leia' => 'Leer el reglamento',
 ]);

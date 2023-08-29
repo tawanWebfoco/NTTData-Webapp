@@ -89,7 +89,7 @@ input.is-invalid,select.is-invalid{
 
 /* MULTIPLE SECTIONS */
 
-.main .cron div > h2, .main .rank div > h2{
+.main .cron div > h2, .main .rank div > h1{
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
@@ -318,7 +318,7 @@ footer.footer .menu ul li i {
   margin: 1vh 4vw;
 }*/
 
-.main .feed > h2 {
+.main .feed > h1 {
   text-align: center;
   font-size: 1.4rem;
   text-transform: uppercase;
@@ -834,7 +834,7 @@ hr {
 
 
   section.feed .sendpubbox {
-    max-width: 768px;
+    max-width: 992px;
   }
 }
 
@@ -1054,6 +1054,8 @@ hr {
 .main .perfil  .perfilContainer .photo {
   text-align: center;
   color: var(--text-silver-dark);
+  display: flex;
+  flex-direction: column;
 }
 .main .perfil  .perfilContainer .imgPerfil {
   border-radius: 100%;
