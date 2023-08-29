@@ -141,7 +141,7 @@ define('_t', [
     /* Página Cronometro */
 
     'cron_h2' => 'Cronómetro', 
-    'cron title' => 'Lorem ipsum', 
+    'cron_title' => 'Agregar tiempo', 
     'cron_limit_day' => 'EJERCICIOS DIARIOS DE LÍMITE DE 2 HORAS', 
     'cron_minutos' => 'Minutos', 
     'cron_hour' => ' Hora ',

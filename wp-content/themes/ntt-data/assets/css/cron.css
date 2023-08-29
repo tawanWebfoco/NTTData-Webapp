@@ -89,7 +89,7 @@ input.is-invalid,select.is-invalid{
 
 /* MULTIPLE SECTIONS */
 
-.main .cron div > h1, .main .rank div > h1{
+.main .cron div > h2, .main .rank div > h1{
   text-align: center;
   font-size: 2rem;
   font-weight: 700;
