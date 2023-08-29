@@ -61,10 +61,14 @@ function register_timer_callback()
   $country = $_POST['country'];
   $date = str_replace('=','T',date('Y-m-d=H:i:s'));
 
+  $sql_get_score_from_current_date = "SELECT SUM(score) FROM wp_app_time WHERE id_user = 1 AND DATE(date) = CURDATE();";
+  $scoreCurrentDay =  Connection::one($sql_insert_time);
 
-
-  $sql_insert_time = "INSERT INTO wp_app_time (id_time, id_user, time_start, time_stop, date, trash, status) 
-  VALUES (NULL, $id_user, '$time_start', '$time_stop', '$date', 0, 'stopped')";
+ 
+  
+  if($scoreCurrentDay < 120){
+  $sql_insert_time = "INSERT INTO wp_app_time (id_time, id_user, time_start, time_stop, date, trash, status, score) 
+  VALUES (NULL, $id_user, '$time_start', '$time_stop', '$date', 0, 'stopped', $time_score)";
 
   $sql_update_score = "UPDATE wp_app_user SET score = score + $time_score WHERE id_user = $id_user";
 
@@ -74,13 +78,20 @@ function register_timer_callback()
   Connection::execute($sql_insert_time);
   Connection::execute($sql_update_score);
   Connection::execute($sql_insert_engaged);
-
+  
   $response = array(
     'message' => 'Tempo registrado com sucesso',
     '$_POST' => $_POST
   );
 
   return new WP_REST_Response($response, 200);
+}else{
+  $response = array(
+    'message' => 'Não foi possível registrar o tempo',
+    '$_POST' => $_POST
+  );
+  return new WP_REST_Response($response, 200);
+}
 }
 
 add_action('rest_api_init', function () {

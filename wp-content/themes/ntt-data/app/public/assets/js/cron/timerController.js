@@ -15,14 +15,9 @@ class TimerController {
   async onSaveTimer() {
     // const user = this.userStorage.getStorage();
     const user = JSON.parse(localStorage.getItem(COLLECTION_USERS));
-    console.log('onSaveTimer:', localStorage.getItem(COLLECTION_USERS))
-    console.log('timer_states:', this.timerView);
-
-
-      // console.log(user.id_user);
-      // console.log(this.timerView.currentTime);
-      console.log('score',this.timerView.points);
-      // console.log(user.country);
+    // console.log('onSaveTimer:', localStorage.getItem(COLLECTION_USERS))
+    // console.log('timer_states:', this.timerView);
+    // console.log('score',this.timerView.points);
 
     const formData = new FormData();
     formData.append('id_user', user.id_user);

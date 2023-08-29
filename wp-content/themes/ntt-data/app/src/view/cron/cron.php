@@ -2,7 +2,7 @@
     <section class="cron">
         <div class="content">
             <div class="top">
-                <h1><?=_t['cron_h1']?></h1>
+                <h2><?=_t['cron_h2']?></h2>
             </div>
             <hr>
             <div class="numberCenter">
@@ -34,15 +34,20 @@
                     alt="Imagem">
             </div>
 
-            <div class="title"><?=_t['cron_addtempo']?></div>
+            <div class="title"><?=_t['cron_title']?></div>
 
             <div class="buttons">
-                <button class="button dark-blue btn-disabled" id="btn-add-10-minutes">10 <?=_t['cron_minutos']?></button>
-                <button class="button dark-blue btn-disabled" id="btn-add-30-minutes">30 <?=_t['cron_minutos']?></button>
-                <button class="button dark-blue btn-disabled" id="btn-add-1-hour">1 <?=_t['cron_hora']?></button>
+                <button class="button dark-blue btn-disabled" id="btn-add-10-minutes">10 <?=_t['cron_minutes']?></button>
+                <button class="button dark-blue btn-disabled" id="btn-add-30-minutes">30 <?=_t['cron_minutes']?></button>
+                <button class="button dark-blue btn-disabled" id="btn-add-1-hour">1 <?=_t['cron_hour']?></button>
             </div>
             <div class="text">
-                <span><?=_t['cron_limitedia']?></span>
+                <span><?=_t['cron_limit_day']?></span>
+            </div>
+            <div class="regulation">
+                <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/cron/regulation.svg"
+                    alt="Icone Regulamento">
+                <span><?=_t['regulamento_leia']?></span>
             </div>
 
             <?php   require_once(dirname(__FILE__,2) .'/template/regulation.php'); ?> 
