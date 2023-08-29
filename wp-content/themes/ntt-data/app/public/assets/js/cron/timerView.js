@@ -257,7 +257,7 @@ class TimerView {
       if (confirm('Deseja parar e salvar o tempo?')) {
         this._stopTimer();
         await onSaveTimer();
-        // this._resetTimer();
+        this._resetTimer();
       }
     });
   }
