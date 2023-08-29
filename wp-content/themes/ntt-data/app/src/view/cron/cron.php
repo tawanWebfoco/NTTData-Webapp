@@ -44,12 +44,7 @@
             <div class="text">
                 <span><?=_t['cron_limit_day']?></span>
             </div>
-            <div class="regulation">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/cron/regulation.svg"
-                    alt="Icone Regulamento">
-                <span><?=_t['regulamento_leia']?></span>
-            </div>
-
+          
             <?php   require_once(dirname(__FILE__,2) .'/template/regulation.php'); ?> 
 
             <!-- <div class="ilust">
