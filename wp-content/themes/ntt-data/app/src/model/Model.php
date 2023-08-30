@@ -68,6 +68,7 @@
                     // print_r($sql);
                 }
             $result = Database::getResultFromQuery($sql);
+            print_r($sql);
             if($result->num_rows === 0){
                 return null;
             }else{
