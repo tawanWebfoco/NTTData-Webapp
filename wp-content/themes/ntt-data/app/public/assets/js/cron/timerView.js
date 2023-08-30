@@ -104,7 +104,7 @@ class TimerView {
     if (this.hasExceededLimit) {
       this._pauseTimer();
       this.hasExceededLimit = true;
-      alert('Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo');
+      this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo');
       return;
     } 
     this.currentTime = (new Date().getTime() - this.startTime - this.pauseTime) + this.incrementTime;
@@ -300,7 +300,7 @@ class TimerView {
   configureEventStopTimer(onSaveTimer) {
     this.stopButton.addEventListener('click', () => {
 
-      this.newConfirm('Deseja para e salvar o tempo?',onSaveTimer, async ()=>{
+      this.newBoxAlertConfirm(true,'Deseja para e salvar o tempo?',onSaveTimer, async ()=>{
         this._stopTimer();
         await onSaveTimer();
         this._resetTimer();
@@ -308,7 +308,7 @@ class TimerView {
       })
 
   }
-  newConfirm(texto,callback){
+  newBoxAlertConfirm(confirm,texto,callback = ()=>{}){
     const boxConfirm = document.createElement("div");
     boxConfirm.id = 'newConfirm';
   
@@ -322,37 +322,40 @@ class TimerView {
     currentDate.hours = currentDate.hours.toString().padStart(2, '0');
     currentDate.minutes = currentDate.minutes.toString().padStart(2, '0');
     currentDate.seconds = currentDate.seconds.toString().padStart(2, '0');
-    
+
       body.innerHTML =  currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds
       
 
     const footer = document.createElement("div");
     footer.className = 'footerConfirm';
       footer.innerHTML = '';
+
+      boxConfirm.insertAdjacentElement("beforeend",head);
+      boxConfirm.insertAdjacentElement("beforeend",body);
+      boxConfirm.insertAdjacentElement("beforeend",footer);
       
-    const btnConfirmar = document.createElement("button");
-      btnConfirmar.textContent = 'Confirmar';
-      btnConfirmar.className = 'button dark-blue';
+      if(confirm){
+        const btnConfirmar = document.createElement("button");
+          btnConfirmar.textContent = 'Confirmar';
+          btnConfirmar.className = 'button dark-blue';
+          footer.insertAdjacentElement("beforeend",btnConfirmar);
           
-    const btnCancelar = document.createElement("button");
-      btnCancelar.textContent = 'Cancelar';
-      btnCancelar.className = 'button light-blue';
+          btnConfirmar.onclick = async (e)=> {
+            callback()
+            boxConfirm.parentElement.removeChild(boxConfirm)
+          };
+      }
+      const btnCancelar = document.createElement("button");
+        btnCancelar.textContent = 'Cancelar';
+        btnCancelar.className = 'button light-blue';
+        btnCancelar.onclick = function() {
+          boxConfirm.parentElement.removeChild(boxConfirm)
+        };
       
-    btnConfirmar.onclick = async (e)=> {
-      callback()
-      boxConfirm.parentElement.removeChild(boxConfirm)
+      footer.insertAdjacentElement("beforeend",btnCancelar);
 
-    };
-
-    btnCancelar.onclick = function() {
-      boxConfirm.parentElement.removeChild(boxConfirm)
-      };
   
-    boxConfirm.insertAdjacentElement("beforeend",head);
-    boxConfirm.insertAdjacentElement("beforeend",body);
-    boxConfirm.insertAdjacentElement("beforeend",footer);
-    footer.insertAdjacentElement("beforeend",btnConfirmar);
-    footer.insertAdjacentElement("beforeend",btnCancelar);
+
     
     document.querySelector('html').append(boxConfirm);
   }
