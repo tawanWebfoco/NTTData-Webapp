@@ -33,18 +33,17 @@ include_once 'languages/common.php';
         
          <div class="main-header">
             <div class="main-header-container">
-               <a href="#" id="brand">
                   <?php 
                   if(has_custom_logo()){
                      the_custom_logo() ;
                   }else{
                      esc_html(bloginfo());
                   }
-                   ?> 
+                   ?>
 
-                   <i class="<?php echo esc_html(get_theme_mod( 'set_nav_icon', '' )) ?>">
-                  </i>
-               </a>
+               <div id="logo-move-header">
+                    <img src="<?=get_template_directory_uri()?>/assets/img/Logo_ODS.png" width="130" height="87" />
+                </div>
    
             </div>
 

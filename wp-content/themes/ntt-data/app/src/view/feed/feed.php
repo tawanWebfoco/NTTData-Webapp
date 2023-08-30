@@ -21,7 +21,6 @@
         </section>
     <?php
     } elseif (get_class($user) === 'Guest') {
-
         require_once(dirname(__FILE__, 5) . '/page-home.php');
     }
     ?>

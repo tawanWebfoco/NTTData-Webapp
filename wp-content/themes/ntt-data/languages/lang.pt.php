@@ -56,9 +56,9 @@ define('_t', [
     
 
     /* Página Feed */
-    'feed_h1' => 'Compartilhe sua atividade',
+    'feed_h1' => 'Compartilhe sua atividade com seus amigos!',
 
-    'feed_pub_caixa' => 'CAIXA DE PUBLICAÇÃO',
+    'feed_pub_caixa' => 'MENSAGEM',
     'feed_pub_apagararq' => 'Apagar Arquivo',
     'feed_pub_alt_imagem' => 'Imagem',
     'feed_pub_alt_video' => 'Vídeo',
@@ -133,7 +133,7 @@ define('_t', [
 
      /* Página Cronometro */
 
-     'cron_h2' => 'Cronometro',
+     'cron_h2' => 'Suba seu tempo aqui',
      'cron_title' => 'Adicionar Tempo',
      'cron_limit_day' => 'LIMITE DIÁRIO DE 2 HORAS EXERCÍCIOS',
      'cron_minutes' => 'Minutos',

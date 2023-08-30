@@ -254,6 +254,15 @@ body .header {
   width: 100vw;
 }
 
+.main-header-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 992px;
+  margin: 0 auto;
+  align-items: center;
+}
+#logo-move-header {display: none;}
+
 .main-header {
     display: grid;
     width: 100%;
@@ -379,6 +388,11 @@ section.feed .receivepubbox {
   width: 100%;
 }
 @media (min-width: 1024px) {
+  #logo-move-header {display: inherit;}
+  .main-header-container {
+    width: 100%;
+  }
+
   section.feed {
     display: flex;
     flex-wrap: wrap;
@@ -846,7 +860,8 @@ hr {
 
 @media (min-width: 1024px) {
   .main section.cron {
-    max-width: 70%;
+    width: 100%;
+    /*max-width: 992px;*/
     margin: 0 auto;
     padding: 6vh 0;
     height: auto;
