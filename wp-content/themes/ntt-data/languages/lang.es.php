@@ -143,6 +143,6 @@ define('_t', [
     'cron_h2' => 'Cronómetro', 
     'cron_title' => 'Agregar tiempo', 
     'cron_limit_day' => 'EJERCICIOS DIARIOS DE LÍMITE DE 2 HORAS', 
-    'cron_minutos' => 'Minutos', 
+    'cron_minutes' => 'Minutos', 
     'cron_hour' => ' Hora ',
 ]);

@@ -191,8 +191,8 @@ class TimerView {
     this.pauseButton.classList.add('hidden')
     this.startButton.classList.remove('hidden')
     this._enableButtons();
-    this._showTimerValues();
     this.timerStorage.removeStatesFromLocalStorage();
+    this._showTimerValues();
   }
 
   _pauseTimer() {
@@ -299,9 +299,9 @@ class TimerView {
   }
 
   configureEventStopTimer(onSaveTimer) {
-    this.stopButton.addEventListener('click', () => {
+    this.stopButton.addEventListener('click', async () => {
 
-      this.newBoxAlertConfirm(true,'Deseja parar e salvar o tempo?',onSaveTimer, async ()=>{
+      this.newBoxAlertConfirm(true,'Deseja parar e salvar o tempo?', async ()=>{
         this._stopTimer();
         await onSaveTimer();
         this._resetTimer();
@@ -341,7 +341,7 @@ class TimerView {
           btnConfirmar.className = 'button dark-blue';
           footer.insertAdjacentElement("beforeend",btnConfirmar);
           
-          btnConfirmar.onclick = async (e)=> {
+          btnConfirmar.onclick = (e)=> {
             callback()
             boxConfirm.parentElement.removeChild(boxConfirm)
           };
