@@ -86,6 +86,41 @@ input.is-invalid,select.is-invalid{
   width: 100%;
 }
 
+/* CAIXA DE CONFIRMAÇÃO */
+div#newConfirm {
+  flex-direction: column;
+  display: flex;
+  position: absolute;
+  top: 30vh;
+  background-color: var(--background-gray);
+  width: 55vw;
+  padding: 16px 60px;
+  border: solid 3px var(--blue-primary);
+  border-radius: 0px 20px 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--btn-danger);
+  font-weight: 600;
+}
+.headConfirm {
+  margin-top: 10px;
+}
+.bodyConfirm {
+  margin: 10px;
+}
+.footerConfirm button {
+  flex-grow: 1;
+  margin: 0 10px;
+  font-weight: 600;
+}
+.footerConfirm button:hover {
+  transform: scale(1.1);
+}
+.footerConfirm {
+  display: flex;
+  margin: 10px 0;
+}
 
 /* MULTIPLE SECTIONS */
 
