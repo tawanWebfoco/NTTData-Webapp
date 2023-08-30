@@ -35,13 +35,7 @@ include_once 'languages/common.php';
             <div class="main-header-container">
                   <?php 
                   if(has_custom_logo()){
-                     ?><a href="#" id="brand"><?php
                      the_custom_logo() ;
-                     ?>
-                        <i class="<?php echo esc_html(get_theme_mod( 'set_nav_icon', '' )) ?>">
-                        </i>
-                     </a>
-                     <?php
                   }else{
                      esc_html(bloginfo());
                   }
