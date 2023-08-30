@@ -1,3 +1,4 @@
+
 console.log('> Timer View');
 
 class TimerView {
@@ -309,9 +310,9 @@ class TimerView {
 
       this.newBoxAlertConfirm(true,'Deseja parar e salvar o tempo?', async ()=>{
         this._stopTimer();
-        await onSaveTimer();
         this.currentTimeFromDb = parseInt(this.currentTimeFromDb) + parseInt(this.scoreInsertDataBase)
         this._resetTimer();
+        await onSaveTimer();
       }) 
       })
 
@@ -355,6 +356,7 @@ class TimerView {
       
     const body = document.createElement("div");
     body.className = 'bodyConfirm';
+    // let currentDate = this._convertTimestampInObjectTime(this.currentTime)
     
     let currentDate = this._getLimitToInsertDb();
 
@@ -362,6 +364,7 @@ class TimerView {
     currentDate.minutes = currentDate.minutes.toString().padStart(2, '0');
     currentDate.seconds = currentDate.seconds.toString().padStart(2, '0');
 
+      body.innerHTML = 'Tempo: ' + currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds
       body.innerHTML = 'Tempo restante: ' + currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds;
 
       

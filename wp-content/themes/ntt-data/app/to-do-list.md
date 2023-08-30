@@ -23,9 +23,7 @@
 
 - # Precisamos validar o campo “Ranking Geral” top 10, pois está com erros;
 
-- # Atualizar o layout dos Cronômetro 
-
-- atualizar layout da Pontuações do Ranking para as cores do Wireframe. Pela versão apresentada (em Cinza), ficou muito “sem graça”;
+- Atualizar o layout dos Cronômetro e Pontuações do Ranking para as cores do Wireframe. Pela versão apresentada (em Cinza), ficou muito “sem graça”;
 
 - Tawan informou que estamos trabalhando nas versões traduzidas para ser entregues essa semana;
 
@@ -33,7 +31,7 @@
 
 # Adicionar o botão quadrado “Stop” no cronômetro;
 
-- # Retirar do cronômetro o “milésimo de segundo”; ( alterado )
+- Retirar do cronômetro o “milésimo de segundo”;
 
 - Wendell solicitou que o botão de inserção do e-mail tenha opção de edição, caso o usuário tenha digitado algo errado;
 
@@ -45,6 +43,8 @@
 
 <!-- FEITOS TAWAN -->
 
+- Acrescentei uma variavel de cor para hover dos botoes ( precisamos definir a cor)
+- acrescentei o hover nos botos do cronometro
 - variavel de cor para "hover" dos botoes ( precisamos definir a cor);
 - adicionei o 'hover' nos botos do cronometro;
 - adicionei o exemplo de como o usuário deve preencher o e-mail para realizar o cadastro;
