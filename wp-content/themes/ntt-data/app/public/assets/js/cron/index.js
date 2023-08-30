@@ -2,10 +2,12 @@ console.log('Cron.JS');
 
 
 const timerStorage = new TimerStorage;
+var newConfirm = new NewConfirm;
 
 const timerView = new TimerView({
   timerStorage,
-  timerController: null
+  timerController: null,
+  newConfirm
 });
 
 timerView.run();

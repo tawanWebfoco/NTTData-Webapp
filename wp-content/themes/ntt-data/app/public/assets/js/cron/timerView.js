@@ -40,6 +40,7 @@ class TimerView {
   constructor(props) {
     this.timerStorage = props.timerStorage;
     this.timerController = props.timerController;
+    this.newConfirm = props.newConfirm;
     return this;
   }
 
@@ -251,14 +252,26 @@ class TimerView {
       }
     });
   }
+  
 
   configureEventStopTimer(onSaveTimer) {
     this.stopButton.addEventListener('click', async () => {
+
       if (confirm('Deseja parar e salvar o tempo?')) {
         this._stopTimer();
         await onSaveTimer();
         this._resetTimer();
       }
+
+      // this.newConfirm.cod('Deseja parar e salvar o tempo?', async ()=>{
+      //   TimerView._stopTimer();
+      //   await onSaveTimer();
+      //   TimerView._resetTimer();
+       
+        
+      // });
+    
+
     });
   }
   
@@ -303,4 +316,49 @@ class TimerView {
     }
     
   }
+
+  cod(texto,callback){
+		const boxConfirm = document.createElement("div");
+		boxConfirm.style.left =  (window.innerWidth/2) - (569 * .5)+"px";
+		boxConfirm.style.top = '150px';
+		boxConfirm.id = 'newConfirm';
+		boxConfirm.style = ' flex-direction:column;display:flex; position:absolute; top:20%; left:0%; width:300px; height:300px ';
+
+		const btnConfirmar = document.createElement("button");
+		btnConfirmar.textContent = 'Confirmar';
+		btnConfirmar.addEventListener('click',	()=>{this.confirmar(callback)})
+		btnConfirmar.className = 'botaoBox';
+				
+		const btnCancelar = document.createElement("button");
+		btnCancelar.textContent = 'Cancelar';
+		btnCancelar.addEventListener('click', () => {this.cancelar(callback)})
+		btnCancelar.className = 'botaoBox';
+
+
+		const head = document.createElement("div");
+            head.innerHTML = "Atenção";
+
+		const body = document.createElement("div");
+            body.innerHTML = texto;
+
+		const footer = document.createElement("div");
+            footer.innerHTML = '';
+
+            boxConfirm.insertAdjacentElement("beforeend",head);
+            boxConfirm.insertAdjacentElement("beforeend",body);
+            boxConfirm.insertAdjacentElement("beforeend",footer);
+            boxConfirm.insertAdjacentElement("beforeend",btnConfirmar);
+            boxConfirm.insertAdjacentElement("beforeend",btnCancelar);
+
+
+		document.querySelector('html').append(boxConfirm);
+        return
+	
+	 function confirmar(callback){
+        console.log(TimerView);
+        
+      }
+      function cancelar(callback){
+      }
+}
 }

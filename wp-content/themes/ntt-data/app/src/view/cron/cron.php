@@ -68,6 +68,7 @@
     
 </script>
 
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/cron/newConfirm.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/global.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/components/userStorage.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/cron/timerStorage.js"></script>
