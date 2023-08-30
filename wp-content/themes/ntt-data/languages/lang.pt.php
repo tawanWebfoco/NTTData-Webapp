@@ -139,4 +139,12 @@ define('_t', [
      'cron_minutes' => 'Minutos',
      'cron_hour' => 'Hora',
 
+
+     /* Página Recover */
+
+     'recover_h1' => 'Altere sua senha',
+     'recover_new_password' => 'Nova senha',
+     'recover_confirmPassword' => 'Confirme a senha',
+     'recover_update' => 'Alterar',
+
 ]);
