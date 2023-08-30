@@ -8,7 +8,8 @@ $lang = '';
 if ( empty($user) || $user == null ) {
     $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 } else {
-    switch ($user->country) {
+    $country = strtolower($user->coutry);
+    switch ($country) {
         case 'brasil':
             $lang = 'pt';
             break;
