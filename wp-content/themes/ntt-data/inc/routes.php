@@ -4,7 +4,7 @@ class Connection
   private static function getConnection()
   {
     // $conn = new mysqli('db', 'root', '', 'wpdatabase');
-    // $conn = new mysqli('localhost', 'root', '', 'webappwebfoco_nttdata');
+    // $conn = new mysqli('127.0.0.1:3307', 'root', '', 'wp_lpnttdata');
     $conn = new mysqli('localhost', 'webappwebfoco_nttdata', 'qMg[iv2!n~#*', 'webappwebfoco_nttdata');
 
     if ($conn->connect_error) {
