@@ -111,10 +111,16 @@ ul.redes-sociais a.icone-social {
     background: url(../img/icones/linkedin.svg);
 }
 
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+.header-container > div {
+    display: flex;
+    align-items: center;
+}
 @media (min-width: 992px) {
-    .header-container {
-        text-align: left;
-    }
     svg#header-logo {
         width: 169px;
     }
@@ -141,7 +147,7 @@ section.conteudo {
     justify-content: center;
     width: 100%;
     max-width: 1130px;
-    padding: 0 20px;
+    /*padding: 0 20px;*/
 }
 
 
@@ -177,6 +183,17 @@ section.conteudo {
 }
 .form-group > div {
     display: flex;
+}
+
+@media (max-width: 768px) {
+    .linha-links-login {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    .linha-links-login p {
+        text-align: center;
+    }
 }
 
 .form-group input,

@@ -91,10 +91,10 @@
                    
                 </ul>
                 
-                <div class="seeMorePublish">
+                <!--div class="seeMorePublish">
                     <span><?=_t['rank_vermais']?></span>
                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/feed/arrow-down.svg" alt="Icon Arrow Down">
-                </div>
+                </div-->
             </div>
             <div class="howYourScore">
                 <h3><?=_t['rank_entendapontos']?></h3>

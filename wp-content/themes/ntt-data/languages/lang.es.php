@@ -62,9 +62,9 @@ define('_t', [
     
 
     /* Página Feed */
-    'feed_h1' => 'Comparte tu actividad',
+    'feed_h1' => '¡Comparte tu actividad con tus amigos!',
 
-    'feed_pub_caixa' => 'CAJA DE PUBLICACIÓN',
+    'feed_pub_caixa' => 'MENSAJE',
     'feed_pub_apagararq' => 'Eliminar archivo',
     'feed_pub_alt_imagem' => 'Imagen',
     'feed_pub_alt_video' => 'Vídeo',
@@ -140,7 +140,7 @@ define('_t', [
 
     /* Página Cronometro */
 
-    'cron_h2' => 'Cronómetro', 
+    'cron_h2' => 'Cuenta tu tiempo aquí', 
     'cron_title' => 'Agregar tiempo', 
     'cron_limit_day' => 'EJERCICIOS DIARIOS DE LÍMITE DE 2 HORAS', 
     'cron_minutos' => 'Minutos', 
