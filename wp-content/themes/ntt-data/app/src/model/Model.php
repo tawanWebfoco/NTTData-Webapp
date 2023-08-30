@@ -68,7 +68,6 @@
                     // print_r($sql);
                 }
             $result = Database::getResultFromQuery($sql);
-            
             if($result->num_rows === 0){
                 return null;
             }else{
@@ -110,7 +109,7 @@
         private static function getOrder($order){
             $sql = '';
             if(!empty($order)){
-                $sql = " ORDER BY ". static::$idTable .' '. $order;
+                $sql = " ORDER BY ". $order;
             }
             return $sql;
         }
