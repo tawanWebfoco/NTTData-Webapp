@@ -761,7 +761,7 @@ hr {
   display: flex;
   margin: -8px 10px 0 10px;
   justify-content: flex-end;
-  color: var(--btn-danger);
+  color: var(--blue-secundary);
 }
 .main .cron .content .numberBig > div{
   font-size: 2.8rem;
@@ -780,7 +780,7 @@ hr {
 .main .cron .numbers.line .numberlite {
   margin: 0;
   justify-content: flex-start;
-  color: var(--btn-danger);
+  color: var(--blue-secundary);
   /* font-size: 3rem; */
 }
 

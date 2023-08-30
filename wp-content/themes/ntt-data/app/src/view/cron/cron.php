@@ -63,9 +63,7 @@
 <script>
     Document.prototype.homePath = "<?= home_url() ?>";
     Document.prototype.userWebApp = "<?php echo $user->id_user . ',' . $user->full_name . ',' .  $user->email . ',' .  $user->country . ',' .  $user->score . ',' .  $user->time  ?>"; 
-    Document.prototype.scoreCurrentDay = "<?= $scoreCurrentDay ?>";
-    
-    
+    Document.prototype.currentTimeFromDb = "<?= $currentTimeFromDb ?>";
 </script>
 
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/cron/newConfirm.js"></script>

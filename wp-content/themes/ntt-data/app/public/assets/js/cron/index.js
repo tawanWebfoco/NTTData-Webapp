@@ -4,10 +4,12 @@ console.log('Cron.JS');
 const timerStorage = new TimerStorage;
 var newConfirm = new NewConfirm;
 
+const currentTimeFromDb = parseInt(document.currentTimeFromDb);
+console.log(currentTimeFromDb);
 const timerView = new TimerView({
   timerStorage,
   timerController: null,
-  newConfirm
+  currentTimeFromDb
 });
 
 timerView.run();

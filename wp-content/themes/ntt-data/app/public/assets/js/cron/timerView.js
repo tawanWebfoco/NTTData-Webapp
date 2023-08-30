@@ -8,10 +8,12 @@ class TimerView {
   currentTime = 0;
   startTime = 0;
   pauseTime = 0;
+  currentTimeFromDb = 0;
   pauseStartTime = 0;
   points = 0;
   hasExceededLimit = false;
   incrementTime = 0;
+  scoreInsertDataBase = 0
 
   // constants values
   limitTimePerDay = 7200000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
@@ -40,6 +42,7 @@ class TimerView {
   constructor(props) {
     this.timerStorage = props.timerStorage;
     this.timerController = props.timerController;
+    this.currentTimeFromDb = props.currentTimeFromDb
     return this;
   }
 
@@ -65,6 +68,7 @@ class TimerView {
       this.pauseTime = state.pauseTime || 0;
       this.startTime = state.startTime || 0;
       this.currentTime = state.currentTime || 0;
+      this.currentTimeFromDb = this.currentTimeFromDb || 0;
       this.incrementTime = state.incrementTime || 0;
 
       this._showTimerValues();
@@ -188,6 +192,7 @@ class TimerView {
     this.pauseStartTime = 0;
     this.pauseTime = 0;
     this.incrementTime = 0;
+    this.currentTime = 0;
     this.pauseButton.classList.add('hidden')
     this.startButton.classList.remove('hidden')
     this._enableButtons();
@@ -212,6 +217,7 @@ class TimerView {
       pauseTime: this.pauseTime,
       startTime: this.startTime,
       currentTime: this.currentTime,
+      currentTimeFromDb: this.currentTimeFromDb,
         incrementTime: this.incrementTime
     }
   }
@@ -304,10 +310,40 @@ class TimerView {
       this.newBoxAlertConfirm(true,'Deseja parar e salvar o tempo?', async ()=>{
         this._stopTimer();
         await onSaveTimer();
+        this.currentTimeFromDb = parseInt(this.currentTimeFromDb) + parseInt(this.scoreInsertDataBase)
         this._resetTimer();
       }) 
       })
 
+  }
+  _formatTimeToHMS(){
+
+  }
+  _getLimitToInsertDb(){
+    // const limitDay = this._convertTimestampInObjectTime(this.limitTimePerDay);
+    const limitDay =  parseInt(this.limitTimePerDay / 60000) ;
+    const scoreCurrent = parseInt(this.currentTime / 60000);
+    const sumScoreCurrent = parseInt(this.currentTimeFromDb) + parseInt(scoreCurrent)
+    const limitInsertDataBase = limitDay - this.currentTimeFromDb;
+
+    this.scoreInsertDataBase = (scoreCurrent > limitInsertDataBase) ? limitInsertDataBase : scoreCurrent;
+
+
+
+    console.log('this.currentTime ',this.currentTime );
+    console.log('currentTime ',scoreCurrent );
+    console.log('sumScoreCurrent ',sumScoreCurrent );
+    console.log('limitDay ',limitDay );
+    console.log('limitTimePerDay ',this.limitTimePerDay );
+    console.log('this.time1minute ',this.time1minute );
+    console.log('this.currentTimeFromDb ',this.currentTimeFromDb );
+    console.log('this.limitInsertDataBase ',limitInsertDataBase );
+    console.log('scoreInsertDataBase ',this.scoreInsertDataBase );
+
+    const valueReturn = this._convertTimestampInObjectTime(this.scoreInsertDataBase * 60000);
+    
+
+    return valueReturn;
   }
   newBoxAlertConfirm(confirm,texto,callback = ()=>{}){
     const boxConfirm = document.createElement("div");
@@ -319,12 +355,15 @@ class TimerView {
       
     const body = document.createElement("div");
     body.className = 'bodyConfirm';
-    let currentDate = this._convertTimestampInObjectTime(this.currentTime)
+    
+    let currentDate = this._getLimitToInsertDb();
+
     currentDate.hours = currentDate.hours.toString().padStart(2, '0');
     currentDate.minutes = currentDate.minutes.toString().padStart(2, '0');
     currentDate.seconds = currentDate.seconds.toString().padStart(2, '0');
 
-      body.innerHTML = 'Tempo: ' + currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds
+      body.innerHTML = 'Tempo restante: ' + currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds;
+
       
 
     const footer = document.createElement("div");
