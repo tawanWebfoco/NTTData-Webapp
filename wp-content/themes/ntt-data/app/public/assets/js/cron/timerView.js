@@ -172,6 +172,8 @@ class TimerView {
   _stopTimer() {
     clearInterval(this.intervalId);
     this._addPoints();
+    this._resetTimer();
+    
   }
 
   _resetTimer() {
@@ -188,9 +190,8 @@ class TimerView {
     this.incrementTime = 0;
     this.pauseButton.classList.add('hidden')
     this.startButton.classList.remove('hidden')
-
     this._enableButtons();
-
+    this._showTimerValues();
     this.timerStorage.removeStatesFromLocalStorage();
   }
 
