@@ -10,7 +10,7 @@ $dataJSON = file_get_contents("php://input");
 $data = json_decode($dataJSON, true);
 $pubView = unserialize($_SESSION['pubView']);
 
-$latestPub = $pubView->getPub([],'*','DESC','',5);
+$latestPub = $pubView->getPub([],'*','id_pub DESC','',5);
 if(count($latestPub) > 0){
    $arrayIdPubView = array_map(function($latestPub){
       return $latestPub->id_pub;
