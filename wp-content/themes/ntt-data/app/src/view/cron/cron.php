@@ -44,12 +44,7 @@
             <div class="text">
                 <span><?=_t['cron_limit_day']?></span>
             </div>
-            <div class="regulation">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/cron/regulation.svg"
-                    alt="Icone Regulamento">
-                <span><?=_t['regulamento_leia']?></span>
-            </div>
-
+          
             <?php   require_once(dirname(__FILE__,2) .'/template/regulation.php'); ?> 
 
             <!-- <div class="ilust">
@@ -64,15 +59,16 @@
 </div>
 <?php
 ?>
+
 <script>
     Document.prototype.homePath = "<?= home_url() ?>";
     Document.prototype.userWebApp = "<?php echo $user->id_user . ',' . $user->full_name . ',' .  $user->email . ',' .  $user->country . ',' .  $user->score . ',' .  $user->time  ?>"; 
-    
-    
+    Document.prototype.scoreCurrentDay = "<?= $scoreCurrentDay ?>";
     
     
 </script>
 
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/cron/newConfirm.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/global.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/components/userStorage.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/cron/timerStorage.js"></script>

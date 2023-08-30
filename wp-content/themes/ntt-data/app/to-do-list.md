@@ -21,9 +21,11 @@
 
 # Trocar “1 Indicação Concretizada” por “1 Convidado Registrado”;
 
-- Precisamos validar o campo “Ranking Geral” top 10, pois está com erros;
+- # Precisamos validar o campo “Ranking Geral” top 10, pois está com erros;
 
-- Atualizar o layout dos Cronômetro e Pontuações do Ranking para as cores do Wireframe. Pela versão apresentada (em Cinza), ficou muito “sem graça”;
+- # Atualizar o layout dos Cronômetro 
+
+- atualizar layout da Pontuações do Ranking para as cores do Wireframe. Pela versão apresentada (em Cinza), ficou muito “sem graça”;
 
 - Tawan informou que estamos trabalhando nas versões traduzidas para ser entregues essa semana;
 
@@ -31,7 +33,7 @@
 
 # Adicionar o botão quadrado “Stop” no cronômetro;
 
-- Retirar do cronômetro o “milésimo de segundo”;
+- # Retirar do cronômetro o “milésimo de segundo”; ( alterado )
 
 - Wendell solicitou que o botão de inserção do e-mail tenha opção de edição, caso o usuário tenha digitado algo errado;
 
@@ -43,5 +45,14 @@
 
 <!-- FEITOS TAWAN -->
 
-- Acrescentei uma variavel de cor para hover dos botoes ( precisamos definir a cor)
-- acrescentei o hover nos botos do cronometro
+- variavel de cor para "hover" dos botoes ( precisamos definir a cor);
+- adicionei o 'hover' nos botos do cronometro;
+- adicionei o exemplo de como o usuário deve preencher o e-mail para realizar o cadastro;
+- Na página inicial do perfil Convidado, deixar a página “Cronômetro” em primeiro, ao invés do “Feed”;
+- criei uma nova caixa de "Alert e caixa de confirmação";
+- criei algumas validações para inserir o tempo no banco de dados então o backend já não permite inserir tempo maior que 120 minutos diário.
+- realizei alguns ajustes na lógica do frontend para impedir que o usuário ultrapasse o tempo de 2h diárias, mas ainda falta conectar os dados no backend.
+- alterei o layout do cronometro, usei o exemplo que o Wendell deu de como o cronometro do celular dele funciona.
+- alterei o campo milésimo de segundo para centesimo, ( esse campo torna o app mais dinâmico, se realmente for pra tirar só me pontuar.)
+- corrigi o rank top 10 para aparecer por ordem de pontuação
+- realizei as traduções da página do cronometro.

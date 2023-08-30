@@ -104,7 +104,7 @@ class TimerView {
     if (this.hasExceededLimit) {
       this._pauseTimer();
       this.hasExceededLimit = true;
-      alert('Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo');
+      this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo');
       return;
     } 
     this.currentTime = (new Date().getTime() - this.startTime - this.pauseTime) + this.incrementTime;
@@ -172,6 +172,8 @@ class TimerView {
   _stopTimer() {
     clearInterval(this.intervalId);
     this._addPoints();
+    this._resetTimer();
+    
   }
 
   _resetTimer() {
@@ -188,10 +190,9 @@ class TimerView {
     this.incrementTime = 0;
     this.pauseButton.classList.add('hidden')
     this.startButton.classList.remove('hidden')
-
     this._enableButtons();
-
     this.timerStorage.removeStatesFromLocalStorage();
+    this._showTimerValues();
   }
 
   _pauseTimer() {
@@ -251,16 +252,9 @@ class TimerView {
       }
     });
   }
+  
 
-  configureEventStopTimer(onSaveTimer) {
-    this.stopButton.addEventListener('click', async () => {
-      if (confirm('Deseja parar e salvar o tempo?')) {
-        this._stopTimer();
-        await onSaveTimer();
-        // this._resetTimer();
-      }
-    });
-  }
+
   
   _disableButtons() {
     if (this.currentTime >= this.time1hour) {
@@ -303,4 +297,71 @@ class TimerView {
     }
     
   }
+
+  configureEventStopTimer(onSaveTimer) {
+    this.stopButton.addEventListener('click', async () => {
+
+      this.newBoxAlertConfirm(true,'Deseja parar e salvar o tempo?', async ()=>{
+        this._stopTimer();
+        await onSaveTimer();
+        this._resetTimer();
+      }) 
+      })
+
+  }
+  newBoxAlertConfirm(confirm,texto,callback = ()=>{}){
+    const boxConfirm = document.createElement("div");
+    boxConfirm.id = 'newConfirm';
+  
+    const head = document.createElement("div");
+      head.className = 'headConfirm';
+      head.innerHTML = texto;
+      
+    const body = document.createElement("div");
+    body.className = 'bodyConfirm';
+    let currentDate = this._convertTimestampInObjectTime(this.currentTime)
+    currentDate.hours = currentDate.hours.toString().padStart(2, '0');
+    currentDate.minutes = currentDate.minutes.toString().padStart(2, '0');
+    currentDate.seconds = currentDate.seconds.toString().padStart(2, '0');
+
+      body.innerHTML = 'Tempo: ' + currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds
+      
+
+    const footer = document.createElement("div");
+    footer.className = 'footerConfirm';
+      footer.innerHTML = '';
+
+      boxConfirm.insertAdjacentElement("beforeend",head);
+      boxConfirm.insertAdjacentElement("beforeend",body);
+      boxConfirm.insertAdjacentElement("beforeend",footer);
+      
+      if(confirm){
+        const btnConfirmar = document.createElement("button");
+          btnConfirmar.textContent = 'Confirmar';
+          btnConfirmar.className = 'button dark-blue';
+          footer.insertAdjacentElement("beforeend",btnConfirmar);
+          
+          btnConfirmar.onclick = (e)=> {
+            callback()
+            boxConfirm.parentElement.removeChild(boxConfirm)
+          };
+      }
+      const btnCancelar = document.createElement("button");
+        btnCancelar.textContent = 'Cancelar';
+        btnCancelar.className = 'button light-blue';
+        btnCancelar.onclick = function() {
+          boxConfirm.parentElement.removeChild(boxConfirm)
+        };
+      
+      footer.insertAdjacentElement("beforeend",btnCancelar);
+
+  
+
+    
+    document.querySelector('html').append(boxConfirm);
+  }
+
+ 
+
+
 }

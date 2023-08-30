@@ -1,11 +1,10 @@
 <?php
-$hasComment = Comment::get(['id_pub' => $pub->id_pub], '*', 'DESC');
+$hasComment = Comment::get(['id_pub' => $pub->id_pub], '*', 'id_comment DESC');
 if ($hasComment) {
     foreach ($hasComment as $key => $comment) {
         $userComment = User::getOne(['id_user' => $comment->id_user]);
         
-     
-
+    
 
         $arrayCommentLikes = explode(',', $comment->likes);
         $countCommentLikes = $arrayCommentLikes[0] == '' ? 0 : count($arrayCommentLikes);

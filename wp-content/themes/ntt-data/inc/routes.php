@@ -4,7 +4,7 @@ class Connection
   private static function getConnection()
   {
     // $conn = new mysqli('db', 'root', '', 'wpdatabase');
-    // $conn = new mysqli('localhost', 'root', '', 'webappwebfoco_nttdata');
+    // $conn = new mysqli('127.0.0.1:3307', 'root', '', 'wp_lpnttdata');
     $conn = new mysqli('localhost', 'webappwebfoco_nttdata', 'qMg[iv2!n~#*', 'webappwebfoco_nttdata');
 
     if ($conn->connect_error) {
@@ -61,16 +61,19 @@ function register_timer_callback()
   $country = $_POST['country'];
   $date = str_replace('=','T',date('Y-m-d=H:i:s'));
 
-  $sql_get_score_from_current_date = "SELECT SUM(score) FROM wp_app_time WHERE id_user = 1 AND DATE(date) = CURDATE();";
-  $scoreCurrentDay =  Connection::one($sql_insert_time);
+  $sql_get_score_from_current_date = "SELECT SUM(score) as score FROM wp_app_time WHERE id_user = $id_user AND DATE(date) = CURDATE();";
+  $scoreCurrentDay =  Connection::one($sql_get_score_from_current_date)['score'];
+
+  $limitInsertDataBase = 120 - $scoreCurrentDay;
+
+  $scoreInsertDataBase = ($time_score > $limitInsertDataBase) ? $limitInsertDataBase : $time_score;
 
  
-  
-  if($scoreCurrentDay < 120){
-  $sql_insert_time = "INSERT INTO wp_app_time (id_time, id_user, time_start, time_stop, date, trash, status, score) 
-  VALUES (NULL, $id_user, '$time_start', '$time_stop', '$date', 0, 'stopped', $time_score)";
 
-  $sql_update_score = "UPDATE wp_app_user SET score = score + $time_score WHERE id_user = $id_user";
+  $sql_insert_time = "INSERT INTO wp_app_time (id_time, id_user, time_start, time_stop, date, trash, status, score) 
+  VALUES (NULL, $id_user, '$time_start', '$time_stop', '$date', 0, 'stopped', $scoreInsertDataBase)";
+
+  $sql_update_score = "UPDATE wp_app_user SET score = score + $scoreInsertDataBase WHERE id_user = $id_user";
 
   $sql_insert_engaged = "INSERT INTO wp_app_engaged (id_engaged, id_user, type, date, country, trash)
   VALUES (NULL, $id_user, 'cron', '$date', '" . $country . "', null)";
@@ -80,26 +83,18 @@ function register_timer_callback()
   Connection::execute($sql_insert_engaged);
   
   $response = array(
-    'message' => 'Tempo registrado com sucesso',
+    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score",
     '$_POST' => $_POST
   );
+  return new WP_REST_Response($response, 200);
+}
 
-  return new WP_REST_Response($response, 200);
-}else{
-  $response = array(
-    'message' => 'Não foi possível registrar o tempo',
-    '$_POST' => $_POST
-  );
-  return new WP_REST_Response($response, 200);
-}
-}
 
 add_action('rest_api_init', function () {
 
   register_rest_route(
     'timer',
     'register',
-
     array(
       'methods' => 'POST',
       'callback' => 'register_timer_callback',

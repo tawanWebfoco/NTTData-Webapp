@@ -110,7 +110,7 @@
         private static function getOrder($order){
             $sql = '';
             if(!empty($order)){
-                $sql = " ORDER BY ". static::$idTable .' '. $order;
+                $sql = " ORDER BY ". $order;
             }
             return $sql;
         }

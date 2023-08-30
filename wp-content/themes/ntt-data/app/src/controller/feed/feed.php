@@ -4,7 +4,7 @@ $type = isset($_POST['type']) ? $_POST['type'] : '';
 $pagination = isset($_GET['type']) ? $_GET['type'] : '';
 
 $latestPub = new Pub('');
-$pubs = $latestPub->getPub([],'*','DESC','',4);
+$pubs = $latestPub->getPub([],'*','id_pub DESC','',4);
 
 $arrayIdPubView = array_map(function($pubs){
     return $pubs->id_pub;

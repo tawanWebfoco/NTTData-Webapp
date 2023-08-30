@@ -37,7 +37,7 @@
 
                 </form>
                
-                <a id="login" class="disabled">Login</a>
+                <a id="login" href="<?= home_url()?>/app" >Login</a>
                 <img class="disabled" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icones/profile.svg" alt="icone perfil">
             </nav>
         </div>

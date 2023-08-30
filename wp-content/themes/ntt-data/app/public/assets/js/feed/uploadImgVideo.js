@@ -21,7 +21,7 @@ uploadVideo.addEventListener('click', function(e) {
 
 
 inputUploadImage.addEventListener('change', function() {
-    var maxFileSize = 3 * 1024 * 1024;
+    var maxFileSize = 5 * 1024 * 1024; // tamanho maximo de imagem 5mb
     selectedImage = inputUploadImage.files[0];
 
     if(selectedImage.size > maxFileSize) {
@@ -51,7 +51,7 @@ inputUploadImage.addEventListener('change', function() {
 
 inputUploadVideo.addEventListener('change', function() {
 
-    var maxFileSize = 15 * 1024 * 1024;
+    var maxFileSize = 15 * 1024 * 1024; // tamanho maximo de imagem 15 mb
     selectedVideo = inputUploadVideo.files[0];
     console.log(selectedVideo);
 
