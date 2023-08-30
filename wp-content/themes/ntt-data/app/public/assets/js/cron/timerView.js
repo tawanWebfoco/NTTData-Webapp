@@ -300,7 +300,7 @@ class TimerView {
   configureEventStopTimer(onSaveTimer) {
     this.stopButton.addEventListener('click', () => {
 
-      this.newBoxAlertConfirm(true,'Deseja para e salvar o tempo?',onSaveTimer, async ()=>{
+      this.newBoxAlertConfirm(true,'Deseja parar e salvar o tempo?',onSaveTimer, async ()=>{
         this._stopTimer();
         await onSaveTimer();
         this._resetTimer();
@@ -323,7 +323,7 @@ class TimerView {
     currentDate.minutes = currentDate.minutes.toString().padStart(2, '0');
     currentDate.seconds = currentDate.seconds.toString().padStart(2, '0');
 
-      body.innerHTML =  currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds
+      body.innerHTML = 'Tempo: ' + currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds
       
 
     const footer = document.createElement("div");
