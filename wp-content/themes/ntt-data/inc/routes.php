@@ -73,7 +73,7 @@ function register_timer_callback()
   $sql_insert_time = "INSERT INTO wp_app_time (id_time, id_user, time_start, time_stop, date, trash, status, score) 
   VALUES (NULL, $id_user, '$time_start', '$time_stop', '$date', 0, 'stopped', $scoreInsertDataBase)";
 
-  $sql_update_score = "UPDATE wp_app_user SET score = score + $time_score WHERE id_user = $id_user";
+  $sql_update_score = "UPDATE wp_app_user SET score = score + $scoreInsertDataBase WHERE id_user = $id_user";
 
   $sql_insert_engaged = "INSERT INTO wp_app_engaged (id_engaged, id_user, type, date, country, trash)
   VALUES (NULL, $id_user, 'cron', '$date', '" . $country . "', null)";
