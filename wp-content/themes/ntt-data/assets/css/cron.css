@@ -2,12 +2,12 @@
   --blue-primary: #070F26;
   --blue-primary-hover: #070F26;
   --blue-secundary: #6785C1;
-  --blue-secundary-hover: #6785C1;
+  --blue-secundary-hover: #6E95CC;
   --black:#000;
   --text-silver-dark:#636363;
-  --text-silver-light:#A6A6A6;
+  --text-silver-light:#999;
   --background-gray:#F2F2F2;
-  --background-gray-dark:#DFDFDF;
+  --background-gray-dark:#dbdbdb;
   --text-dark: #000;
   --text-light: #fff;
   --transparent: #fff0;
@@ -31,6 +31,23 @@ h1, h2, h3, h4, h5, h6 {
 li {
   list-style: none;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track { 
+  background: var(--background-gray);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--blue-secundary); 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-secundary-hover); 
+}
+
 /* SITE */
 body {
   display: grid;
@@ -170,12 +187,15 @@ div#newConfirm {
   margin: 2px 5px 0 10px;
 
 }
-.main .rank .content h3, .main .perfil h3{
+.main .rank .content h3 {
   text-align: center;
-  font-size: 1.5rem;
-  text-transform: uppercase;
+  font-size: 1.2rem;
   margin: 10px 0;
   font-weight: 700;
+}
+.main .rank .content .howYourScore h3 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
 }
 .main .cron .content .regulation span,
 .main .perfil .regulation span {
@@ -188,8 +208,12 @@ div#newConfirm {
 .main .perfil .regulation
  {
   width: 80%;
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+.main .cron .content .regulation {
+  align-self: flex-start;
+  margin-top: 25px;
 }
 .main .cron .content .regulation  img#regulation,
 .main .perfil .regulation  img#regulation
@@ -714,20 +738,11 @@ div.liked > svg > path {
 /*  */
 
 /* CRON */
-div.main#cron {
-  background-image: url(http://localhost/htdocs/Webfoco/nttdata/LP-site/wp-content/themes/ntt-data/app/public\assets\img\ilust/cron-hand.png);
-  background-position: bottom;
-  background-position-x: 90%;
-  background-position-y: 95%;
-  bottom: 0;
-  background-size: 150px;
-  background-repeat: no-repeat;
-}
-.main .cron{
-  width: 100vw;
-    height: 80vh;
-    display: flex;
-    flex-direction: column;
+.main .cron {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px 45px;
 }
 
 hr {
@@ -742,6 +757,7 @@ hr {
   justify-content: space-between;
   align-items: center;
   flex-grow: 1;
+  gap: 20px;
 }
 /* .main .cron .content:before {
   content: '';
@@ -753,7 +769,7 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  border: solid var(--blue-primary) 4px;
+  border: solid var(--blue-primary) 3px;
   border-radius: 100%;
   align-items: center;
   width: 55vw;
@@ -771,7 +787,7 @@ hr {
 }
 .main .cron .content .numberlite  .miliSecond {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .main .cron .content .numberlite {
@@ -782,7 +798,7 @@ hr {
 }
 .main .cron .content .numberBig > div{
   font-size: 2.8rem;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .main .cron .numbers.line .numberlite > div{
@@ -824,9 +840,11 @@ hr {
   cursor: pointer;
 }
 .main .cron .content .title{
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   text-transform: uppercase;
   font-weight: 700;
+  text-align: center;
+  width: 80%;
 }
 
 .main .cron .content .buttons .button{
@@ -843,7 +861,8 @@ hr {
   font-weight: bold;
 }
 .main .cron .content .text {
-  width: 80%;
+  width: 60%;
+  align-self: flex-start;
 }
 .main .cron .content .text span{
   color: var(--text-silver-dark);
@@ -851,6 +870,9 @@ hr {
   font-weight: 500;
 }
 
+.main .cron .content .buttons {
+  margin: 10px 0 30px;
+}
 
 .main .cron .ilust {
   position: absolute;
@@ -879,11 +901,15 @@ hr {
     height: 250px;
   }
 
-  .cron .text,
-  .cron .regulation,
-  .cron .buttons {
+  .main .cron .content .text,
+  .main .cron .content .regulation,
+  .main .cron .content .buttons {
     text-align: center;
     justify-content: center;
+    width: 100%;
+  }
+  .main .cron .content .regulation {
+    width: 100%;
   }
 
   .cron .buttons {
@@ -931,6 +957,41 @@ hr {
 .main .rank .content .otherCountryRank{
   width: 100%;
 }
+
+.boxScore.pie {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  border: solid 15px var(--text-silver-light);;
+  border-radius: 100%;
+}
+
+.main .rank .content .yourRank .score {
+  width: 155px;
+  height: 155px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+  text-align: center;
+}
+.main .rank .content .yourRank .score:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(http://localhost/NTTData/NTTData-Webapp/wp-content/themes/ntt-data/app/public/assets/img/icons/rank/array-score.svg);
+  background-size: cover;
+  animation: gira 1s .5s both;
+}
+@keyframes gira {
+  from{transform: rotate(0deg); opacity: 0;}
+  to{transform: rotate(360deg); opacity: 1;}
+}
 .main .rank .content .yourRank .number,
 .main .rank .content .yourCountryRank .number,
 .main .rank .content .otherCountryRank .number {
@@ -939,6 +1000,9 @@ hr {
   letter-spacing: -2px;
   margin: 5px 0 -5px 0;
   font-family: 'Noto Sans';
+  display: flex;
+  align-items: center;
+  line-height: 3.7rem;
 }
 .boxScore .number > span {
   font-family: 'Roboto';
@@ -946,9 +1010,14 @@ hr {
   font-weight: 400;
 }
 .main .rank .content .yourRank .text,
-.main .rank .content .yourCountryRank .text,
+.main .rank .content .yourCountryRank .text {
+  font-weight: 400;
+  text-align: center;
+}
 .main .rank .content .otherCountryRank .text {
-  font-weight: 600;
+  font-weight: 500;
+  font-family: 'Noto Sans';
+  text-align: center;
 }
 .main .rank .content .otherCountryRank .text {
   font-size: 1.2rem;
@@ -965,7 +1034,7 @@ hr {
 	display: none;
 }
 .main .rank .content .otherCountryRank .cards .country{
-  margin: 0 20px 30px 20px;
+  margin: 10px 20px 0px 20px;
   flex: 0 0 auto;
   scroll-snap-align: start;
 }
@@ -986,7 +1055,7 @@ hr {
   margin: 10px 0;
   display: block;
 }
-.main .rank .content  .yourRank .score,
+/*.main .rank .content  .yourRank .score,
 .main .rank .content  .otherCountryRank .score,
 .main .rank .content  .yourCountryRank .score
  {
@@ -1000,7 +1069,7 @@ hr {
   align-items: center;
   margin-top: 25px;
   text-align: center;
-}
+}*/
 .boxScore {
   margin-top: 25px;
 }
@@ -1010,13 +1079,12 @@ hr {
 .main .rank .content .yourRank .desc {
   margin: 15px 0 25px 0;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.2rem;
 }
 
 .main .rank .content .allRank {
   width: 100%;
-  margin: 20px 0;
 }
 
 
@@ -1024,7 +1092,11 @@ hr {
   display: flex;
   width: 100%;
   padding: 7px 20px;
-  color: var(--text-silver-dark);
+  
+  font-weight: 500;
+  color: var(--text-silver-light);
+  background-color: #F7F7F7;
+  margin-bottom: 3px;
 }
 .main .rank .content .allRank ul li:nth-child(even){
   background-color: var(--background-gray);
@@ -1074,10 +1146,16 @@ hr {
   .main .rank .content .yourRank,
   .main .rank .content .yourCountryRank{
     width: 50%;
+    min-height: 275px;
+    justify-content: flex-end;
   }
   .main .rank .content .top,
   .main .rank .content .otherCountryRank {
     width: 100%;
+  }
+
+  .main .rank .content .otherCountryRank .cards .country:first-child {
+    padding: 0;
   }
 
   .main .rank .content .otherCountryRank .cards {
@@ -1101,14 +1179,20 @@ hr {
 }
 
 
- div.main#perfil {
-  background-image: url(http://localhost/htdocs/Webfoco/nttdata/LP-site/wp-content/themes/ntt-data/app/assets/img/ilust/card.png);
-  background-position: bottom;
-  background-position-x: 90%;
-  background-position-y: 95%;
-  bottom: 0;
-  background-size: 150px;
+section.perfil {
+  margin-top: 50px;
+}
+
+div.main#perfil,
+div.main#cron {
+  background-position: bottom right;
   background-repeat: no-repeat;
+}
+div.main#perfil {
+  background-image: url(../img/ilust/card.png);
+}
+div.main#cron {
+  background-image: url(../img/ilust/cron-hand.png);
 }
 
 .main .perfil  .perfilContainer {
@@ -1117,11 +1201,13 @@ hr {
   
 }
 
+.main .perfil  .perfilContainer .box {
+  display: flex;
+  flex-direction: column;
+}
 .main .perfil  .perfilContainer .photo {
   text-align: center;
   color: var(--text-silver-dark);
-  display: flex;
-  flex-direction: column;
 }
 .main .perfil  .perfilContainer .imgPerfil {
   border-radius: 100%;
@@ -1133,13 +1219,13 @@ hr {
 .main .perfil  .perfilContainer a#uploadLink {
   user-select:none;
   background-color: var(--blue-primary);
-  padding: 9px 7px 4px 7px;
+  padding: 6px 7px 4px 7px;
   border-radius: 100%;
-  margin: auto;
+  width: fit-content;
   position: relative;
-  width: 9vw;
-  right: -61%;
-  bottom: 28%;
+  margin-top: -50px;
+  margin-right: 5px;
+  align-self: flex-end;
 }
 img#uploadedImage {
   transform: scale(1.2);
@@ -1151,10 +1237,10 @@ img#uploadedImage {
   padding: 5px 0;
 }
 
-.main .perfil  input,
-.main .perfil  span  {
+.main .perfil input,
+.main .perfil span  {
   border: none;
-  color: var(--text-silver-light);
+  color: var(--text-silver-dark);
   flex-grow: 1;
   background-color: transparent;
 }
@@ -1165,7 +1251,7 @@ img#uploadedImage {
 .main .perfil .label {
   font-size: .9rem;
   width: 20%;
-  color: var(--background-gray-dark);
+  color: var(--text-silver-light);
 }
 
 .main .perfil  .perfilContainer .content {
@@ -1187,14 +1273,16 @@ img#uploadedImage {
 }
 
 .main .perfil .text{
-  margin-top: 25px;
+  margin-top: 35px;
 }
 .main .perfil h3{
   text-align: start;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 10px 0;
+  font-weight: 700;
 }
-.main .perfil .perfilContainer span{
-  color: var(--text-silver-light);
-}
+
 .main .perfil .inputs {
   margin-top: 30px;
 }
@@ -1225,7 +1313,7 @@ img#uploadedImage {
   margin: 10px auto;
   max-width: 400px;
   text-align: center;
-  color: var(--text-silver-light);
+  color: var(--blue-secundary);
 }
 .invite .sendMessageReturn.error {
   color: var(--btn-danger);
@@ -1233,10 +1321,12 @@ img#uploadedImage {
 
 .main .perfil .guest {
   margin: 40px 0 15px 0;
+  max-width: 60%;
 }
 .main .perfil .guest h4 {
   margin: 18px 0;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  font-weight: 700;
 }
 .main .perfil .guest li {
   line-height: 24px;
@@ -1337,7 +1427,7 @@ img#uploadedImage {
   --p:20;
   --b:15px;
   --c:var(--blue-secundary);
-  --w:170px;
+  --w:155px;
   
   width:var(--w);
   aspect-ratio:1;
@@ -1362,11 +1452,14 @@ img#uploadedImage {
     conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
   -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
           mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+  
+  transform: rotateY(180deg);
+  margin: -15px;
 }
 .pie:after {
   inset:calc(50% - var(--b)/2);
   background:var(--c);
-  transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+  transform:rotate(calc(var(--p)* (-3.6deg) )) translateY(calc(-47% - var(--w)/2));
 }
 .animate {
   animation:p 1s .5s both;
