@@ -30,14 +30,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
          $subject = 'NTT DATA te convida a fazer parte! Mova-se pelos ODS!';
          
          $message .='<h2><b>Faça parte do grande movimento da NTT DATA</b></h2>';
-         $message .= '<p>Tudo começa com um movimento. E queremos que você seja parte dessa iniciativa que visa unir mais uma vez nossa região em prol dos Objetivos de Desenvolvimento Sustentável da ONU.
-         Nosso propósito é contribuir para uma sociedade melhor para todos, valorizando e apoiando as ações que promovem a saúde e o bem-estar físico e mental de todos.</p>';
-         $message .= '<p>Corra, dance, pule, medite, brinque com os filhos no parque, faça esgrima, pádel, vôlei, jogue futebol com os colegas do trabalho, ande de skate, leve seu animal de estimação para passear... Movimente-se! Cuide do corpo e da mente, incentive o seu entorno a fazer o mesmo e participe da nossa ação!</p>';
-         $message .= "<h3><a href='";
+         $message .= '<p>Olá!</p>';
+         $message .= '<p>Você foi convidado a participar do "Mova-se Pelas ODS" uma ação em que colaboradores da NTT DATA e apoiadores como você se unem para contribuir com os Objetivos de Desenvolvimento Sustentável das Nações Unidas.</p>';
+         $message .= '<p>O "Mova-se Pelas ODS" é uma demonstração do nosso compromisso com questões globais importantes, como igualdade, saúde, educação, meio ambiente e muito mais. Acreditamos que cada ação, não importa o quão pequena, pode criar um impacto positivo no mundo. É por isso que estamos convidando pessoas como você, que compartilham dos mesmos valores e desejam fazer a diferença, a se juntar a nós nesse movimento.</p>';
+         $message .= '<p>Como parte deste movimento, realizamos uma série de atividades, incluindo eventos de conscientização, voluntariado, arrecadação de fundos e ações práticas que apoiam diretamente os ODS. Através da colaboração e do trabalho em equipe, acreditamos que podemos alcançar mudanças reais e significativas.</p>';
+         $message .= '<p>Juntos, podemos "Mova-se Pelas ODS" e tornar nosso mundo um lugar melhor para as gerações futuras. Acesse nosso aplicativo  e '; 
+         $message .= "<a href='";
          $message .= generateUrl($user, $email, $validationId);
          $message .= "'>";
-         $message .= "Registre-se";
-         $message .= '<a></h3>';
+         $message .= "Cadastre-se";
+         $message .= '<a>';
+         $message .= ' para começar a somar nessa jornada!'; 
+         $message .= '<p>Saiba mais em nosso site oficial: <a href="https://moveforthesdg.com/">moveforthesdgs.com</a></p>'; 
          
          $headers = array('Content-Type: text/html; charset=UTF-8');
          
