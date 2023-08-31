@@ -17,6 +17,7 @@
                     }
                     ?>
                     <img class="imgPerfil" src="<?= $url_img; ?>" alt="Imagem">
+                    <br/>
                     <span id="editImgPerfil"><?=_t['perfil_editarfoto']?></span>
                 </div>
 

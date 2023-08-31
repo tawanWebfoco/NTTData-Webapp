@@ -25,6 +25,21 @@ html.disabled{
 overflow: hidden;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+   width: 8px;
+ }
+ ::-webkit-scrollbar-track { 
+   background: var(--background-gray);
+ }
+ ::-webkit-scrollbar-thumb {
+   background: var(--blue-secundary); 
+   border-radius: 10px;
+ }
+ ::-webkit-scrollbar-thumb:hover {
+   background: var(--blue-secundary-hover); 
+ }
+
 /* MULTIPLE SECTIONS */
 
 .main .titleOne{
