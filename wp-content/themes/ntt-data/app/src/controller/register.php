@@ -44,7 +44,7 @@ if($regType == md5('convidado')){
     
             $id_guest = $register->register();
             $user = Guest::getOne(['id_guest' => $id_guest]);
-            
+            $_SESSION['session_id'] = session_id();
             $_SESSION['user'] = $user;
             usleep(300000); // 500000 microssegundos = 500 milissegundos
             header("Location:".home_url().'/app');
