@@ -111,6 +111,7 @@ if(isset($validationId)){
 
     if(count($_POST) > 0){
         $_POST['password'] = md5($_POST['password']);
+        $_POST['confirmPassword'] = md5($_POST['confirmPassword']);
     // if(!Model::validarEmailNTTDataWebfoco($_POST['email'])){
         try {
             $validation = new User($_POST);
