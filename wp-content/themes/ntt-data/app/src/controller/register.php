@@ -100,7 +100,7 @@ if(isset($validationId)){
     try{
         $id_user = $register->register();
         $user = User::getOne(['id_user' => $id_user]);
-        
+        $_SESSION['session_id'] = session_id();
         $_SESSION['user'] = $user;
         usleep(500000); // 500000 microssegundos = 500 milissegundos
         header("Location:app");
