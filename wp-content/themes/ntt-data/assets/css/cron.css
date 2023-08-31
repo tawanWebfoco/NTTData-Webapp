@@ -134,9 +134,11 @@ div#newConfirm {
 
 /* MULTIPLE SECTIONS */
 
-.main .cron div > h2, .main .rank div > h1{
+.main .cron div > h1,
+.main .rank div > h1,
+.main .feed > h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   text-transform: uppercase;
   color: var(--blue-primary);
@@ -374,7 +376,6 @@ footer.footer .menu ul li i {
 
 .main .feed > h1 {
   text-align: center;
-  font-size: 1.4rem;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--blue-primary);
@@ -933,16 +934,16 @@ hr {
 .main .rank .content .yourRank .number,
 .main .rank .content .yourCountryRank .number,
 .main .rank .content .otherCountryRank .number {
-  font-size: 2.8rem;
-  font-weight: 600;
-  letter-spacing: -2px;
-  margin: 5px 0 -5px 0;
-}
-.main .rank .content .yourCountryRank .number,
-.main .rank .content .otherCountryRank .number {
   font-size: 3.3rem;
   font-weight: 700;
-  
+  letter-spacing: -2px;
+  margin: 5px 0 -5px 0;
+  font-family: 'Noto Sans';
+}
+.boxScore .number > span {
+  font-family: 'Roboto';
+  font-size: 2.8rem;
+  font-weight: 400;
 }
 .main .rank .content .yourRank .text,
 .main .rank .content .yourCountryRank .text,
@@ -991,7 +992,7 @@ hr {
  {
   width: 183px;
   height: 170px;
-  border: solid var(--blue-secundary) 20px;
+  border: solid var(--blue-secundary) 15px;
   display: flex;
   border-radius: 100%;
   justify-content: center;
@@ -999,6 +1000,9 @@ hr {
   align-items: center;
   margin-top: 25px;
   text-align: center;
+}
+.boxScore {
+  margin-top: 25px;
 }
 
 .main .rank .content .yourCountryRank .desc,
@@ -1317,4 +1321,62 @@ img#uploadedImage {
     max-width: 500px;
     margin: 30px auto 0;
   }
+}
+
+
+
+
+/* Ranking Charts */
+@property --p{
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.pie {
+  --p:20;
+  --b:15px;
+  --c:var(--blue-secundary);
+  --w:170px;
+  
+  width:var(--w);
+  aspect-ratio:1;
+  position:relative;
+  display:inline-grid;
+  margin:5px;
+  place-content:center;
+  font-size:25px;
+  font-weight:bold;
+  font-family:sans-serif;
+}
+.pie:before,
+.pie:after {
+  content:"";
+  position:absolute;
+  border-radius:50%;
+}
+.pie:before {
+  inset:0;
+  background:
+    radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
+    conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+          mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+}
+.pie:after {
+  inset:calc(50% - var(--b)/2);
+  background:var(--c);
+  transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+}
+.animate {
+  animation:p 1s .5s both;
+}
+.no-round:before {
+  background-size:0 0,auto;
+}
+.no-round:after {
+  content:none;
+}
+@keyframes p {
+  from{--p:0}
 }

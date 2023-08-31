@@ -2,7 +2,7 @@
     <section class="cron">
         <div class="content">
             <div class="top">
-                <h2><?=_t['cron_h2']?></h2>
+                <h1><?=_t['cron_h1']?></h1>
             </div>
             <hr>
             <div class="numberCenter">
