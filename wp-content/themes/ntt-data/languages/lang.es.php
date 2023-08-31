@@ -140,9 +140,21 @@ define('_t', [
 
     /* Página Cronometro */
 
-    'cron_h2' => 'Cuenta tu tiempo aquí', 
+    'cron_h1' => 'Cuenta tu tiempo aquí', 
     'cron_title' => 'Agregar tiempo', 
     'cron_limit_day' => 'EJERCICIOS DIARIOS DE LÍMITE DE 2 HORAS', 
     'cron_minutes' => 'Minutos', 
     'cron_hour' => ' Hora ',
+
+    /* recuperación de página */
+
+    'recover_h1' => 'Enviar un correo electrónico para restablecer su contraseña',
+    'recover_update' => 'Actualizar',
+    'recover_recuperar' => 'Enviar',
+
+    /* Página UpdatePass */
+
+   'updatePass_h1' => 'Cambiar su contraseña',
+   'updatePass_new_password' => 'Nueva contraseña',
+   'updatePass_confirmPassword' => 'Confirmar una contraseña'
 ]);
