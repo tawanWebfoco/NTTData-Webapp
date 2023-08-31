@@ -13,7 +13,6 @@
                 </div>
                 <div class="desc"><?=_t['rank_suapontuacao']?></div>
             </div>
-            <?php print_r($_SESSION['session_id']); ?>
             <div class="yourCountryRank">
                 <div class="boxScore pie animate" style="--p: 70">
                     <div class="number">70<span>%</span></div>
