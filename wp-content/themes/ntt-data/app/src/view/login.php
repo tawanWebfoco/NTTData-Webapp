@@ -56,7 +56,7 @@ get_header('login');
                             <button class="btn btn-login"><?=_t['login_entrar']?></button>
                             <p>
                                 <a href="<?= home_url()?>/recover" id="remeberPassword"><?=_t['login_esquecisenha']?></a>
-                                <a href="<?= home_url()?>/register" id="register">"><?=_t['login_cadastrese']?></a>
+                                <a href="<?= home_url()?>/register" id="register"><?=_t['login_cadastrese']?></a>
                             </p>
                         </div>
                     </div>
