@@ -84,12 +84,6 @@ if(isset($validationId)){
 
     $compareDbRegister = (Model::getValidationId($email)) ? Model::getValidationId($email) : null;
 
-    echo '<br>';
-    echo '<br>';
-    print_r($compareDbRegister->validationId);
-    echo '<br>';
-    echo '<br>';
-
     $dataRegister['full_name'] = $full_name;
     $dataRegister['email'] = $email;
     $dataRegister['username'] = $username;
@@ -157,6 +151,7 @@ if(isset($validationId)){
 
 
          $successMenssage = 1;
+         
          header("Location:".home_url()."/register?".md5('twofactors').'='.$successMenssage); 
 }catch(AppException $e) {
     $exception=  $e;

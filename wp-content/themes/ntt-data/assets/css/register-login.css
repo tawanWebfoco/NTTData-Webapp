@@ -333,6 +333,7 @@ form.form-login .form-group input {
 
 .linha-links-login {
     justify-content: space-between;
+    align-items: center;
 }
 .linha-links-login p {
     text-align: right;
