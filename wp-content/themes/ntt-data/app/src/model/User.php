@@ -68,8 +68,8 @@ class User extends Model{
 
         if($this->password && $this->confirmPassword 
             && $this->password !== $this->confirmPassword) {
-            $errors['password'] = 'As senhas não são iguais.<br>';
-            $errors['confirmPassword'] = 'As senhas não são iguais.<br>';
+            $errors['password'] = 'As senhas não são iguais.<br>' . $this->password.'<br>';;
+            $errors['confirmPassword'] = 'As senhas não são iguais.<br>'. $this->confirmPassword;
         }
 
 

@@ -146,4 +146,16 @@ define('_t', [
      'cron_minutes' => 'Minutes', 
      'cron_hour' => ' Hour',
 
+     /* Page recovery */
+
+     'recover_h1' => 'Send an email to reset your password',
+     'recover_update' => 'Update',
+     'recover_recuperar' => 'Send',
+
+     /* UpdatePass page */
+
+    'updatePass_h1' => 'Change your password',
+    'updatePass_new_password' => 'New Password',
+    'updatePass_confirmPassword' => 'Confirm a password'
+
 ]);
