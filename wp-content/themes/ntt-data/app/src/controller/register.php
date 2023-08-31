@@ -29,6 +29,7 @@ if($regType == md5('convidado')){
 
     if(count($_POST) > 0){
         $_POST['validationId'] = $validationId;
+        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
        
         $register = new Guest($_POST);
         try{
@@ -51,6 +52,8 @@ if($regType == md5('convidado')){
 
 $regType = md5('colaborador');
 if(count($_POST) > 0){
+    $_POST['validationId'] = $validationId;
+    $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $_POST['validationId'] = $validationId;
     $register = new User($_POST);
     try{

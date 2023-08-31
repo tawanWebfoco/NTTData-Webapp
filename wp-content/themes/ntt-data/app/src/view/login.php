@@ -40,7 +40,7 @@ get_header('login');
                     </div>
                     <div class="form-group">
                         <label for="password"><?=_t['login_senha']?></label>
-                        <div><input autocomplete="off" type="text" id="password" name="password" 
+                        <div><input autocomplete="off" type="password" id="password" name="password" 
                         class="form-control <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" 
                         placeholder=""></div>
                         <div class="invalid-feedback">

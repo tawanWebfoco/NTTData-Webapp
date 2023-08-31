@@ -34,6 +34,10 @@ if(count($_POST) > 0){
     $_POST['validationId'] = $validationId;
     $_POST['id_user'] = $id_user;
     $_POST['primary_key'] = $id_user;
+    $_POST['validationId'] = $validationId;
+
+    $_POST['password'] = md5($_POST['password']);
+    $_POST['confirmPassword'] = md5($_POST['confirmPassword']);
 
     switch ($regType) {
         case md5('convidado'):
@@ -62,6 +66,7 @@ if(count($_POST) > 0){
                 header("Location:app");
             }catch(AppException $e) {
                 $exception=  $e;
+                print_r($exception);
             }
             break;
     }

@@ -73,7 +73,7 @@ get_header('login');
 
                     <div class="form-group">
                         <label for="password"><?=_t['registro_frm_senha']?></label>
-                        <div><input autocomplete="none" type="text" id="password" name="password"
+                        <div><input autocomplete="none" type="password" id="password" name="password"
                         class="form-control 
                         <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" 
                         value="<?=  isset($password) ? $password : ''; ?>" 
@@ -85,7 +85,7 @@ get_header('login');
                     </div>
                     <div class="form-group">
                         <label for="confirmPassword"><?=_t['registro_frm_confirmesenha']?></label>
-                        <div><input autocomplete="off" type="text" id="confirmPassword" name="confirmPassword" 
+                        <div><input autocomplete="off" type="password" id="confirmPassword" name="confirmPassword" 
                         class="form-control <?= isset($errors['confirmPassword']) ? 'is-invalid' : ''; ?>" 
                         placeholder=""></div>
                         <div class="invalid-feedback">

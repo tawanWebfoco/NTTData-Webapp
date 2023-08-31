@@ -10,6 +10,7 @@ if (isset($user)) {
     
     $exception = null;
     if (count($_POST) > 0) {
+        $_POST['password'] = md5($_POST['password']);
         $login = new Login($_POST);
 
         try {

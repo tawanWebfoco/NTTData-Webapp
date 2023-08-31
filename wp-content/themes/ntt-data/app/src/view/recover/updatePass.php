@@ -19,7 +19,7 @@ get_header('login');
                     <?php endif; ?>
                     <div class="form-group">
                         <label for="password"><?= _t['updatePass_new_password'] ?></label>
-                        <div><input autocomplete="none" type="text" id="password" name="password" class="form-control 
+                        <div><input autocomplete="none" type="password" id="password" name="password" class="form-control 
                         <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" value="<?= isset($password) ? $password : ''; ?>" placeholder="" autofocus></div>
                         <div class="invalid-feedback">
                             <?= isset($errors['password']) ? $errors['password'] : '';     ?>
@@ -27,7 +27,7 @@ get_header('login');
                     </div>
                     <div class="form-group">
                         <label for="confirmPassword"><?= _t['updatePass_confirmPassword'] ?></label>
-                        <div><input autocomplete="off" type="text" id="confirmPassword" name="confirmPassword" class="form-control <?= isset($errors['confirmPassword']) ? 'is-invalid' : ''; ?>" placeholder=""></div>
+                        <div><input autocomplete="off" type="password" id="confirmPassword" name="confirmPassword" class="form-control <?= isset($errors['confirmPassword']) ? 'is-invalid' : ''; ?>" placeholder=""></div>
                         <div class="invalid-feedback">
                             <?= isset($errors['confirmPassword']) ? $errors['confirmPassword'] : '';    ?>
                         </div>
