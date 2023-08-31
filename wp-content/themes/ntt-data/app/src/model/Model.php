@@ -63,10 +63,7 @@
                 . static::getLimit($limit)
                 . static::getOffset($offset);
 
-                if(static::$tableName == 'wp_app_pub'){
-
-                    // print_r($sql);
-                }
+                // print_r($sql);
             $result = Database::getResultFromQuery($sql);
             
             if($result->num_rows === 0){
@@ -166,6 +163,18 @@
             // printf($sql);
             Database::executeSQL($sql);
         }
+
+        public function updatePass(){
+            $idTable = static::$idTable;
+            $sql = "UPDATE " . static::$tableName . " SET ";
+            $sql .= " password = ";
+            $sql .= static::getFormatedValue($this->values['password']);
+            $sql .= ", validation = 0";
+            $sql .=  " WHERE $idTable = " . $this->values['primary_key'];
+
+            // print_r($sql);
+            return Database::executeSQL($sql);
+        }
         
         public function insert() {
             $idTable = static::$idTable;
@@ -176,7 +185,7 @@
                         $sql .= static::getFormatedValue($value) . ",";
                 }
                 $sql[strlen($sql) - 1] = ')';
-                // print_r($sql);
+                print_r($sql);
            return Database::executeSQL($sql);
         }
 
@@ -190,6 +199,7 @@
                     if($col == $idTable) continue;
                     if($col == 'regType') continue;
                     if($col == 'validationId') continue;
+                    if($col == 'validation') continue;
                     if($col == 'confirmPassword') {
                         $date = date('Y-m-d');
                         $sql .= static::getFormatedValue($date) . ",";

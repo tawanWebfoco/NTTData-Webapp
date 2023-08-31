@@ -20,63 +20,52 @@ $regType = sanitize_text_field($regType);
 
 $exception = null;
 
-// $regType = md5('convidado');
-$regType = md5('colaborador');
 
-
-// if(!$invited || !$email || !$validationId || !$regType) {
-//     header("Location: app"); 
-//     die('Error: Link not Found ');
-// }
-
-if(count($_POST) > 0){
-    $_POST['validationId'] = $validationId;
-    switch ($regType) {
-        case md5('convidado'):
-            // print_r($_POST);
-            $register = new Guest($_POST);
-            try{
-        
-                $id_guest = $register->register();
-                $user = Guest::getOne(['id_guest' => $id_guest]);
-                
-                $_SESSION['user'] = $user;
-                usleep(500000); // 500000 microssegundos = 500 milissegundos
-                header("Location:app");
-            }catch(AppException $e) {
-                $exception=  $e;
-            }
-            
-            break;
-            
-            case md5('colaborador'):
-            $register = new User($_POST);
-
-            try{
-        
-                $id_user = $register->register();
-                $user = User::getOne(['id_user' => $id_user]);
-                
-                $_SESSION['user'] = $user;
-                usleep(500000); // 500000 microssegundos = 500 milissegundos
-                header("Location:app");
-            }catch(AppException $e) {
-                $exception=  $e;
-            }
-            break;
+if($regType == md5('convidado')){
+    if(!$invited || !$email || !$validationId || !$regType) {
+        header("Location: app"); 
+        die('Error: Link not Found ');
     }
 
+    if(count($_POST) > 0){
+        $_POST['validationId'] = $validationId;
+       
+        $register = new Guest($_POST);
+        try{
+    
+            $id_guest = $register->register();
+            $user = Guest::getOne(['id_guest' => $id_guest]);
+            
+            $_SESSION['user'] = $user;
+            usleep(500000); // 500000 microssegundos = 500 milissegundos
+            header("Location:app");
+        }catch(AppException $e) {
+            $exception=  $e;
+        }
+    
+    }
+    loadView('register/cnvRegister', $_POST  + ['exception' => $exception, 'invited' => $invited]);
 
+
+}else{
+
+$regType = md5('colaborador');
+if(count($_POST) > 0){
+    $_POST['validationId'] = $validationId;
+    $register = new User($_POST);
+    try{
+
+        $id_user = $register->register();
+        $user = User::getOne(['id_user' => $id_user]);
+        
+        $_SESSION['user'] = $user;
+        usleep(500000); // 500000 microssegundos = 500 milissegundos
+        header("Location:app");
+    }catch(AppException $e) {
+        $exception=  $e;
+        print_r($exception);
+    }
 }
 
-
-
-switch ($regType) {
-    case md5('colaborador'):
-            loadView('register/clbRegister', $_POST  + ['exception' => $exception, 'invited' => $invited]);
-        break;
-        case md5('convidado'):
-            loadView('register/cnvRegister', $_POST  + ['exception' => $exception, 'invited' => $invited]);
-        # code...
-        break;
+loadView('register/clbRegister', $_POST  + ['exception' => $exception, 'invited' => $invited]);
 }

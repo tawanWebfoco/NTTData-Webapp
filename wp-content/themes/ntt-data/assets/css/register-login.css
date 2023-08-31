@@ -248,6 +248,18 @@ input.is-invalid,select.is-invalid{
     text-align: center;
     border-radius: 10px;
 }
+ .sendMessageReturn {
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 400px;
+    text-align: center;
+    color: var(--text-silver-light);
+}
+.sendMessageReturn.error {
+    color: var(--btn-danger);
+}
 
 
 #conteudo-pagina h2 {

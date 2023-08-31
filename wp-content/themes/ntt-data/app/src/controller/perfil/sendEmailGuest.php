@@ -27,12 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
          }
         
          $validationId = Model::validationId($email);
-         $subject = 'Participe da ODS junto com a NTT DATA';
+         $subject = 'NTT DATA te convida a fazer parte! Mova-se pelos ODS!';
          
-         $message = 'Conteúdo do Email ';
-         $message .= '<br>';
-         $message .= '<br>';
+         $message .='<h2><b>Faça parte do grande movimento da NTT DATA</b></h2>';
+         $message .= '<p>Tudo começa com um movimento. E queremos que você seja parte dessa iniciativa que visa unir mais uma vez nossa região em prol dos Objetivos de Desenvolvimento Sustentável da ONU.
+         Nosso propósito é contribuir para uma sociedade melhor para todos, valorizando e apoiando as ações que promovem a saúde e o bem-estar físico e mental de todos.</p>';
+         $message .= '<p>Corra, dance, pule, medite, brinque com os filhos no parque, faça esgrima, pádel, vôlei, jogue futebol com os colegas do trabalho, ande de skate, leve seu animal de estimação para passear... Movimente-se! Cuide do corpo e da mente, incentive o seu entorno a fazer o mesmo e participe da nossa ação!</p>';
+         $message .= "<h3><a href='";
          $message .= generateUrl($user, $email, $validationId);
+         $message .= "'>";
+         $message .= "Registre-se";
+         $message .= '<a></h3>';
          
          $headers = array('Content-Type: text/html; charset=UTF-8');
          

@@ -1,7 +1,7 @@
 <?php
 class Guest extends Model{
     protected static $tableName = 'wp_app_guest';
-    protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country'];
+    protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country','validation'];
     protected static $idTable = 'id_guest';
 
     private function validate() {
@@ -50,6 +50,31 @@ class Guest extends Model{
         }
     }
     
+    public function validateUpdatePass(){
+        $errors = [];
+
+        $validationDb = Guest::getOne(['id_guest' => $this->id_user], 'validation')->validation;
+
+        if($this->validationId !== $validationDb) {
+            $errors['validationId'] = 'Erro de validação.';
+        }
+
+        if(!$this->confirmPassword) {
+            $errors['confirm_password'] = 'Confirmação de Senha é um campo obrigatório.';
+        }
+
+        if($this->password && $this->confirmPassword 
+            && $this->password !== $this->confirmPassword) {
+            $errors['password'] = 'As senhas não são iguais.';
+            $errors['confirmPassword'] = 'As senhas não são iguais.';
+        }
+
+        if(count($errors) > 0) {
+            throw new ValidationException($errors);
+        }
+    }
+
+   
     public function register(){
         $this->validate();
         return parent::register();

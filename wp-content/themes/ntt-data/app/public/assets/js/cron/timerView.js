@@ -341,10 +341,14 @@ class TimerView {
     console.log('this.limitInsertDataBase ',limitInsertDataBase );
     console.log('scoreInsertDataBase ',this.scoreInsertDataBase );
 
-    const valueReturn = this._convertTimestampInObjectTime(this.scoreInsertDataBase * 60000);
+    const currentTimeLimit = this._convertTimestampInObjectTime(this.scoreInsertDataBase * 60000);
+    const currentRestTime = this._convertTimestampInObjectTime(limitInsertDataBase * 60000);
     
-
-    return valueReturn;
+  
+    return   {
+      currentTimeLimit,
+      currentRestTime
+    }
   }
   newBoxAlertConfirm(confirm,texto,callback = ()=>{}){
     const boxConfirm = document.createElement("div");
@@ -358,14 +362,20 @@ class TimerView {
     body.className = 'bodyConfirm';
     // let currentDate = this._convertTimestampInObjectTime(this.currentTime)
     
-    let currentDate = this._getLimitToInsertDb();
+    let currentTimeLimit = this._getLimitToInsertDb().currentTimeLimit;
+    let currentRestTime = this._getLimitToInsertDb().currentRestTime;
+     
+    currentTimeLimit.hours = currentTimeLimit.hours.toString().padStart(2, '0');
+    currentTimeLimit.minutes = currentTimeLimit.minutes.toString().padStart(2, '0');
+    currentTimeLimit.seconds = currentTimeLimit.seconds.toString().padStart(2, '0');
+    
+    currentRestTime.hours = currentRestTime.hours.toString().padStart(2, '0');
+    currentRestTime.minutes = currentRestTime.minutes.toString().padStart(2, '0');
+    currentRestTime.seconds = currentRestTime.seconds.toString().padStart(2, '0');
 
-    currentDate.hours = currentDate.hours.toString().padStart(2, '0');
-    currentDate.minutes = currentDate.minutes.toString().padStart(2, '0');
-    currentDate.seconds = currentDate.seconds.toString().padStart(2, '0');
-
-      body.innerHTML = 'Tempo: ' + currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds
-      body.innerHTML = 'Tempo restante: ' + currentDate.hours + ':' + currentDate.minutes + ':' + currentDate.seconds;
+      body.innerHTML = 'Tempo: ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
+      
+      body.innerHTML += '<br>Tempo restante: ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
 
       
 

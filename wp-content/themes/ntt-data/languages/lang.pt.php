@@ -142,9 +142,14 @@ define('_t', [
 
      /* Página Recover */
 
-     'recover_h1' => 'Altere sua senha',
-     'recover_new_password' => 'Nova senha',
-     'recover_confirmPassword' => 'Confirme a senha',
+     'recover_h1' => 'Envie um e-mail para redefinir sua senha',
      'recover_update' => 'Alterar',
+     'recover_recuperar' => 'Enviar',
+
+     /* Página UpdatePass */
+
+    'updatePass_h1' => 'Altere sua senha',
+    'updatePass_new_password' => 'Nova Senha',
+    'updatePass_confirmPassword' => 'Confirme a senha'
 
 ]);

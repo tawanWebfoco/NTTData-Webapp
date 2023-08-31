@@ -22,8 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     });
 
- const formRecover = document.querySelector('.form-recover')
- const btnRecover = formRecover.querySelector('.btn-recover')
+
 
  
 

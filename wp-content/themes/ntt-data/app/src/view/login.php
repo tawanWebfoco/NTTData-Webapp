@@ -25,6 +25,7 @@ get_header('login');
                 <div class="card-body">
                     <?php include(TEMPLATE_PATH . '/messages.php'); 
                     ?>
+                    
                     <div class="form-group">
                         <label for="email"><?=_t['login_email']?></label>
                         <div><input autocomplete="none" type="text" id="email" name="email"
@@ -54,7 +55,7 @@ get_header('login');
                         <div class="linha-links-login">
                             <button class="btn btn-login"><?=_t['login_entrar']?></button>
                             <p>
-                                <a href="#" id="remeberPassword"><?=_t['login_esquecisenha']?></a>
+                                <a href="<?= home_url()?>/recover" id="remeberPassword"><?=_t['login_esquecisenha']?></a>
                                 <a href="#"><?=_t['login_cadastrese']?></a>
                             </p>
                         </div>

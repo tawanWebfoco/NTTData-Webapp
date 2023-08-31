@@ -67,6 +67,7 @@
                         <?php endif ; ?>
                     <?php endif ; ?>
                 </div>
+                
                 <div class="action">
                     <div class="like <?= isset($classLiked) ? $classLiked : ''; ?>" <?php echo md5('id_pub') . '="' . $pub->id_pub . '"' ?> <?php echo md5('id_user') . '="' . $user->id_user . '"' ?>>
 
@@ -75,10 +76,12 @@
                         </svg>
                         <div class="desc"><?=  isset($classLiked) ? _t['feed_descurtir'] : _t['feed_curtir'] ?></div>
                     </div>
+                    <?php if (get_class($user) === 'User') :; ?>
                     <div id="comment">
                         <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/feed/comment.svg" alt="Imagem">
                         <div class="desc"><?=_t['feed_comentar']?></div>
                     </div>
+                    <?php endif; ?>
                 </div>
                 
 

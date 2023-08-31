@@ -74,6 +74,8 @@
                 </div>
                 <div class="desc"><?=_t['rank_taxaoutros']?></div>
             </div>
+            <?php 
+            if (get_class($user) === 'User') :; ?>
             <div class="allRank">
                 <h3><?=_t['rank_rankgeral']?></h3>
                 <ul>
@@ -111,6 +113,7 @@
                     <div class="desc"><?=_t['rank_entenda1ind']?> =<span>50 <?=_t['rank_pontosminus']?></span></div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </section>
 </div>

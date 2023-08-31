@@ -13,11 +13,11 @@ class User extends Model{
     private function validate() {
         $errors = [];
 
-        $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
+        // $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
 
-        if($this->validationId !== $validationDb) {
-            $errors['validationId'] = 'Insira o mesmo endereço de email ao qual enviamos o link.<br>  ';
-        }
+        // if($this->validationId !== $validationDb) {
+        //     $errors['validationId'] = 'Insira o mesmo endereço de email ao qual enviamos o link.<br>  ';
+        // }
 
         //  NOME
         if(!$this->full_name) {
@@ -77,6 +77,31 @@ class User extends Model{
             throw new ValidationException($errors);
         }
     }
+
+    public function validateUpdatePass(){
+        $errors = [];
+
+        $validationDb = User::getOne(['id_user' => $this->id_user], 'validation')->validation;
+
+        if($this->validationId !== $validationDb) {
+            $errors['validationId'] = 'Por favor re-envie o link de redefinição';
+        }
+
+        if(!$this->confirmPassword) {
+            $errors['confirm_password'] = 'Confirmação de Senha é um campo obrigatório.';
+        }
+
+        if($this->password && $this->confirmPassword 
+            && $this->password !== $this->confirmPassword) {
+            $errors['password'] = 'As senhas não são iguais.';
+            $errors['confirmPassword'] = 'As senhas não são iguais.';
+        }
+
+        if(count($errors) > 0) {
+            throw new ValidationException($errors);
+        }
+    }
+
     public function register(){
         $this->validate();
         return parent::register();

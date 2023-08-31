@@ -7,7 +7,7 @@ if (isset($user)) {
     header('Location: app');
     exit();
 } else {
-
+    
     $exception = null;
     if (count($_POST) > 0) {
         $login = new Login($_POST);
@@ -23,5 +23,5 @@ if (isset($user)) {
         }
     }
 
-    loadView('login', $_POST + ['exception' => $exception]);
+    loadView('login', $_POST + ['exception' => $exception ]);
 }
