@@ -2,12 +2,12 @@
   --blue-primary: #070F26;
   --blue-primary-hover: #070F26;
   --blue-secundary: #6785C1;
-  --blue-secundary-hover: #6785C1;
+  --blue-secundary-hover: #6E95CC;
   --black:#000;
   --text-silver-dark:#636363;
-  --text-silver-light:#A6A6A6;
+  --text-silver-light:#999;
   --background-gray:#F2F2F2;
-  --background-gray-dark:#DFDFDF;
+  --background-gray-dark:#dbdbdb;
   --text-dark: #000;
   --text-light: #fff;
   --transparent: #fff0;
@@ -170,12 +170,15 @@ div#newConfirm {
   margin: 2px 5px 0 10px;
 
 }
-.main .rank .content h3, .main .perfil h3{
+.main .rank .content h3 {
   text-align: center;
-  font-size: 1.5rem;
-  text-transform: uppercase;
+  font-size: 1.2rem;
   margin: 10px 0;
   font-weight: 700;
+}
+.main .rank .content .howYourScore h3 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
 }
 .main .cron .content .regulation span,
 .main .perfil .regulation span {
@@ -931,6 +934,41 @@ hr {
 .main .rank .content .otherCountryRank{
   width: 100%;
 }
+
+.boxScore.pie {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  border: solid 15px var(--text-silver-light);;
+  border-radius: 100%;
+}
+
+.main .rank .content .yourRank .score {
+  width: 155px;
+  height: 155px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 25px;
+  text-align: center;
+}
+.main .rank .content .yourRank .score:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url(http://localhost/NTTData/NTTData-Webapp/wp-content/themes/ntt-data/app/public/assets/img/icons/rank/array-score.svg);
+  background-size: cover;
+  animation: gira 1s .5s both;
+}
+@keyframes gira {
+  from{transform: rotate(0deg); opacity: 0;}
+  to{transform: rotate(360deg); opacity: 1;}
+}
 .main .rank .content .yourRank .number,
 .main .rank .content .yourCountryRank .number,
 .main .rank .content .otherCountryRank .number {
@@ -939,6 +977,9 @@ hr {
   letter-spacing: -2px;
   margin: 5px 0 -5px 0;
   font-family: 'Noto Sans';
+  display: flex;
+  align-items: center;
+  line-height: 3.7rem;
 }
 .boxScore .number > span {
   font-family: 'Roboto';
@@ -946,9 +987,14 @@ hr {
   font-weight: 400;
 }
 .main .rank .content .yourRank .text,
-.main .rank .content .yourCountryRank .text,
+.main .rank .content .yourCountryRank .text {
+  font-weight: 400;
+  text-align: center;
+}
 .main .rank .content .otherCountryRank .text {
-  font-weight: 600;
+  font-weight: 500;
+  font-family: 'Noto Sans';
+  text-align: center;
 }
 .main .rank .content .otherCountryRank .text {
   font-size: 1.2rem;
@@ -965,7 +1011,7 @@ hr {
 	display: none;
 }
 .main .rank .content .otherCountryRank .cards .country{
-  margin: 0 20px 30px 20px;
+  margin: 10px 20px 0px 20px;
   flex: 0 0 auto;
   scroll-snap-align: start;
 }
@@ -986,7 +1032,7 @@ hr {
   margin: 10px 0;
   display: block;
 }
-.main .rank .content  .yourRank .score,
+/*.main .rank .content  .yourRank .score,
 .main .rank .content  .otherCountryRank .score,
 .main .rank .content  .yourCountryRank .score
  {
@@ -1000,7 +1046,7 @@ hr {
   align-items: center;
   margin-top: 25px;
   text-align: center;
-}
+}*/
 .boxScore {
   margin-top: 25px;
 }
@@ -1010,13 +1056,12 @@ hr {
 .main .rank .content .yourRank .desc {
   margin: 15px 0 25px 0;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.2rem;
 }
 
 .main .rank .content .allRank {
   width: 100%;
-  margin: 20px 0;
 }
 
 
@@ -1024,7 +1069,11 @@ hr {
   display: flex;
   width: 100%;
   padding: 7px 20px;
-  color: var(--text-silver-dark);
+  
+  font-weight: 500;
+  color: var(--text-silver-light);
+  background-color: #F7F7F7;
+  margin-bottom: 3px;
 }
 .main .rank .content .allRank ul li:nth-child(even){
   background-color: var(--background-gray);
@@ -1074,10 +1123,16 @@ hr {
   .main .rank .content .yourRank,
   .main .rank .content .yourCountryRank{
     width: 50%;
+    min-height: 275px;
+    justify-content: flex-end;
   }
   .main .rank .content .top,
   .main .rank .content .otherCountryRank {
     width: 100%;
+  }
+
+  .main .rank .content .otherCountryRank .cards .country:first-child {
+    padding: 0;
   }
 
   .main .rank .content .otherCountryRank .cards {
@@ -1191,6 +1246,10 @@ img#uploadedImage {
 }
 .main .perfil h3{
   text-align: start;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 10px 0;
+  font-weight: 700;
 }
 .main .perfil .perfilContainer span{
   color: var(--text-silver-light);
@@ -1337,7 +1396,7 @@ img#uploadedImage {
   --p:20;
   --b:15px;
   --c:var(--blue-secundary);
-  --w:170px;
+  --w:155px;
   
   width:var(--w);
   aspect-ratio:1;
@@ -1362,11 +1421,14 @@ img#uploadedImage {
     conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
   -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
           mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+  
+  transform: rotateY(180deg);
+  margin: -15px;
 }
 .pie:after {
   inset:calc(50% - var(--b)/2);
   background:var(--c);
-  transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+  transform:rotate(calc(var(--p)* (-3.6deg) )) translateY(calc(-47% - var(--w)/2));
 }
 .animate {
   animation:p 1s .5s both;
