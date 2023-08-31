@@ -36,7 +36,7 @@ class Guest extends Model{
         }
 
         if(!$this->confirmPassword) {
-            $errors['confirm_password'] = 'Confirmação de Senha é um campo obrigatório.';
+            $errors['confirmPassword'] = 'Confirmação de Senha é um campo obrigatório.';
         }
 
         if($this->password && $this->confirmPassword 

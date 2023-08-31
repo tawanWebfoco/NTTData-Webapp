@@ -5,22 +5,15 @@ class User extends Model{
     protected static $idTable = 'id_user';
 
     public function insert() {
-        $this->validate();
+        $this->validateLogin();
         return parent::insert();
     }
 
-
-    private function validate() {
+    public function validateLogin(){
         $errors = [];
-
-        // $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
-
-        // if($this->validationId !== $validationDb) {
-        //     $errors['validationId'] = 'Insira o mesmo endereço de email ao qual enviamos o link.<br>  ';
-        // }
-
-        //  NOME
-        if(!$this->full_name) {
+        
+         //  NOME
+         if(!$this->full_name) {
             $errors['full_name'] = 'Nome é um campo obrigatório.<br>';
         }
         
@@ -30,7 +23,8 @@ class User extends Model{
         } elseif(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
             $errors['email'] = 'Email inválido.<br>';
         }
-
+        
+        
         if(!$this->validarEmailNTTDataWebfoco($this->email)) {
             $errors['email'] = 'Cadastro permitido apenas para colaboradores NTT DATA.<br>';
         } 
@@ -71,9 +65,28 @@ class User extends Model{
             $errors['password'] = 'As senhas não são iguais.<br>' . $this->password.'<br>';;
             $errors['confirmPassword'] = 'As senhas não são iguais.<br>'. $this->confirmPassword;
         }
-
-
         if(count($errors) > 0) {
+            throw new ValidationException($errors);
+        }
+
+    }
+
+    public function validateRegister() {
+        $errors = [];
+        
+        // $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
+        
+        if($this->validationId !== $this->confirmValidationDb) {
+            $errors['validationId'] = 'validação';
+        }
+
+        if($this->email && $this->confirmEmail 
+            && $this->email !== $this->confirmEmail) {
+            $errors['email'] = 'o email não é o mesmo do pré-registro' ;
+            $errors['confirmemail'] = 'o email não é o mesmo do pré-registro' ;
+        }
+        
+            if(count($errors) > 0) {
             throw new ValidationException($errors);
         }
     }
@@ -103,7 +116,8 @@ class User extends Model{
     }
 
     public function register(){
-        $this->validate();
+        $this->validateRegister();
+        $this->validateLogin();
         return parent::register();
     }
    

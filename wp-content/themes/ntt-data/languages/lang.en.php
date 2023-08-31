@@ -149,6 +149,7 @@ define('_t', [
      /* Page recovery */
 
      'recover_h1' => 'Send an email to reset your password',
+     'registro_enviado' => 'Email sent',
      'recover_update' => 'Update',
      'recover_recuperar' => 'Send',
 

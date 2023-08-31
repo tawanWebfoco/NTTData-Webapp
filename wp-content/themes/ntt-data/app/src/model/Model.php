@@ -199,9 +199,12 @@
                     if($col == $idTable) continue;
                     if($col == 'regType') continue;
                     if($col == 'validationId') continue;
+                    if($col == 'confirmValidationDb') continue;
                     if($col == 'validation') continue;
+                    if($col == 'confirmEmail') continue;
                     if($col == 'confirmPassword') {
-                        $date = date('Y-m-d');
+                        date_default_timezone_set('America/Sao_Paulo');
+                        $date = str_replace('=','T',date('Y-m-d=H:i:s'));
                         $sql .= static::getFormatedValue($date) . ",";
                         continue;
                     };
@@ -214,6 +217,15 @@
 
         public static function saveInvitationsSent($values){
             $sql = "INSERT INTO `wp_app_unregistered`(`email`, `date`, `id_user`, `type`,`validationId`) VALUES (";
+           
+            foreach($values as $col => $value ) {
+                    $sql .= static::getFormatedValue($value) . ",";
+            }
+            $sql[strlen($sql) - 1] = ')';
+            Database::executeSQL($sql);
+        }
+        public static function twoFactors($values){
+            $sql = "INSERT INTO `wp_app_unregistered`(`email`, `date`, `type`,`validationId`,`password`) VALUES (";
            
             foreach($values as $col => $value ) {
                     $sql .= static::getFormatedValue($value) . ",";
@@ -313,7 +325,7 @@
         
         public static function getValidationId($email){
             $class = get_called_class();
-            $sql = "SELECT `validationId` FROM `wp_app_unregistered` WHERE `email` = ";
+            $sql = "SELECT * FROM `wp_app_unregistered` WHERE `email` = ";
             $sql .= static::getFormatedValue($email);
             $sql .= ' ORDER BY id_unregistered DESC LIMIT 1';
             

@@ -149,6 +149,7 @@ define('_t', [
     /* recuperación de página */
 
     'recover_h1' => 'Enviar un correo electrónico para restablecer su contraseña',
+    'registro_enviado' => 'E-mail enviado',
     'recover_update' => 'Actualizar',
     'recover_recuperar' => 'Enviar',
 

@@ -143,6 +143,7 @@ define('_t', [
      /* Página Recover */
 
      'recover_h1' => 'Envie um e-mail para redefinir sua senha',
+     'registro_enviado' => 'E-mail enviado',
      'recover_update' => 'Alterar',
      'recover_recuperar' => 'Enviar',
 

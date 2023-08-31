@@ -18,10 +18,11 @@ get_header('login');
 
 <section class="conteudo">
     <div class="conteudo-container">
+    <?php if(isset($twoFactors) && $twoFactors == null): ?>
         <form class="formRegister formRegisterClb" action="" method="post" autocomplete="off">
             <h1><?=_t['registro_h1']?></h1>
             <input type="hidden" name="regType" value="colaborador">
-            <input type="hidden" name="id_user" value="<?= isset($invited) ? $invited : null ;?>">
+            <!-- <input type="hidden" name="id_user" value="<?php // echo isset($invited) ? $invited : null ;?>"> -->
             <input type="hidden" name="validationId" value="<?= isset($validationId) ? $validationId : null ;?>">
             <div class="register">
                 <div class="card-header">
@@ -76,7 +77,7 @@ get_header('login');
                         <div><input autocomplete="none" type="password" id="password" name="password"
                         class="form-control 
                         <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" 
-                        value="<?=  isset($password) ? $password : ''; ?>" 
+                        value="" 
                         placeholder="" autofocus></div>
                         <div class="invalid-feedback">
                             <?=  isset($errors['password']) ? $errors['password'] : '';
@@ -142,7 +143,22 @@ get_header('login');
                 </div>
             </div>
         </form>
+        <?php else :; ?>
+    <form class="formRegister formRegisterClb" action="" method="post" autocomplete="off">
+            <h2><?=_t['registro_enviado']?></h2>
+                <div class="card-header">
+                </div>
+                <div class="card-body">
+                    <?php  include(TEMPLATE_PATH . '/messages.php'); 
+                    ?>
 
+                     <div class="sendMessageReturn">
+                     Realize a validação do cadastro no seu e-mail.
+                        </div>
+                   
+            </div>
+        </form>
+    <?php endif; ?>
         <div id="conteudo-pagina">
             <h2><?=_t['registro_h2']?></h2>
             <p><?=_t['registro_p_1']?></p>
@@ -156,6 +172,7 @@ get_header('login');
             </div>
         </div>
     </div>
+
 </section>
 
 <?php    
