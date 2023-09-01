@@ -110,7 +110,6 @@ if(isset($validationId)){
 }else{
 
     if(count($_POST) > 0){
-    // if(!Model::validarEmailNTTDataWebfoco($_POST['email'])){
         $_POST['password'] = md5($_POST['password']);
         $_POST['confirmPassword'] = md5($_POST['confirmPassword']);
         try {
@@ -121,7 +120,7 @@ if(isset($validationId)){
     $generateValidationId = Model::validationId($_POST['email']);
     date_default_timezone_set('America/Sao_Paulo');
     $date = str_replace('=','T',date('Y-m-d=H:i:s'));
-    Model::twoFactors([$_POST['email'],  $date , 'colaborador' ,$generateValidationId,  ]);
+    Model::twoFactors([$_POST['email'],  $date , 'colaborador' ,$generateValidationId, $_POST['password'] ]);
 
     function generateUrl($validationId,$email,$username,$country,$full_name,$office){
         $url = home_url();
@@ -153,6 +152,7 @@ if(isset($validationId)){
 
 
          $successMenssage = 1;
+         
          
          header("Location:".home_url()."/register?".md5('twofactors').'='.$successMenssage); 
 }catch(AppException $e) {

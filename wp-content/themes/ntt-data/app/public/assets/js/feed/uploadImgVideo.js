@@ -95,7 +95,7 @@ function isValidImageType(type) {
 }
 
 function isValidVideoType(type) {
-    return /^video\/(mp4|webm|wmv|x-ms-wmv)$/.test(type);
+    return /^video\/(mp4|webm|wmv|x-ms-wmv|hevc|heif|heic|mov)$/.test(type);
 }
 
 function deleteAnexo() {
