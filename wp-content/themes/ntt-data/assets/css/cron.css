@@ -72,6 +72,12 @@ section.receivepubbox {
   overflow-x: hidden;
 }
 
+.button, button {
+  transition: .3s;
+}
+.button:hover, button:hover {
+  opacity: .75;
+}
 
 /* MENSAGENS DE ERRO*/
 input.is-invalid,select.is-invalid{
