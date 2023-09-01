@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
          $validationId = Model::validationId($email);
          $subject = 'NTT DATA te convida a fazer parte! Mova-se pelos ODS!';
          
-         $message .='<h2><b>Faça parte do grande movimento da NTT DATA</b></h2>';
+         $message ='<h2><b>Faça parte do grande movimento da NTT DATA</b></h2>';
          $message .= '<p>Olá!</p>';
          $message .= '<p>Você foi convidado a participar do "Mova-se Pelas ODS" uma ação em que colaboradores da NTT DATA e apoiadores como você se unem para contribuir com os Objetivos de Desenvolvimento Sustentável das Nações Unidas.</p>';
          $message .= '<p>O "Mova-se Pelas ODS" é uma demonstração do nosso compromisso com questões globais importantes, como igualdade, saúde, educação, meio ambiente e muito mais. Acreditamos que cada ação, não importa o quão pequena, pode criar um impacto positivo no mundo. É por isso que estamos convidando pessoas como você, que compartilham dos mesmos valores e desejam fazer a diferença, a se juntar a nós nesse movimento.</p>';
@@ -53,8 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
          if ($result) {
             $messageTemplate['sendEmail']['status'] = 'success';
             $messageTemplate['sendEmail']['message'] = 'Email enviado com sucesso.';
-            Model::saveInvitationsSent([$email,  date('Y-m-d-H') . 'h', $user->id_user, $type ,$validationId]);
-            header('Location: app?p=perfil&invited');
+
+            date_default_timezone_set('America/Sao_Paulo');
+            $date = str_replace('=','T',date('Y-m-d=H:i:s'));
+            Model::saveInvitationsSent([$email, $date, $user->id_user, $type ,$validationId]);
+            // header('Location: app?p=perfil&invited');
+
             $url = home_url();
             $url .= '/app?p=perfil';
             $url .= '&' . md5('invited') . '=true' ;

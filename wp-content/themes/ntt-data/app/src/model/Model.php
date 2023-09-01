@@ -211,7 +211,7 @@
                         $sql .= static::getFormatedValue($value) . ",";
                 }
             $sql[strlen($sql) - 1] = ')';
-
+                
            return Database::executeSQL($sql);
         }
 

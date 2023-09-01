@@ -3,13 +3,13 @@
 
 - # Wendell solicitou para o Tawan inserir um exemplo de como o usuário deve preencher o e-mail para realizar o cadastro;
 
-- Wendell também solicitou um ajuste na URL para os colaboradores possam se cadastrar, além da opções através dos disparos de Emkt;
+- # Wendell também solicitou um ajuste na URL para os colaboradores possam se cadastrar, além da opções através dos disparos de Emkt;
 
 - # A ideia é “forçar” os colaboradores a usarem o e-mail @nttdata.com para facilitar os relatórios do Wendell;
 
 - Mariana e Wendell solicitaram que o Tawan inclua todos os países no campo “País” no momento do cadastro;
 
-<!-- - Tawan precisa deixar um limite de até 5MB para upload de fotos; -->
+- # Tawan precisa deixar um limite de até 5MB para upload de fotos;
 
 # Adicionar um mouse viewer de “Image” e “Video” em cima de cada ícone do Feed de publicações;
 
@@ -38,7 +38,7 @@
 
 # Na página inicial do perfil Convidado, deixar a página “Cronômetro” em primeiro, ao invés do “Feed”;
 
-- Na pág. do perfil Convidado, no “Ranking Geral” para baixo não há necessidade do usuário visualizar as demais informações.
+- # Na pág. do perfil Convidado, no “Ranking Geral” para baixo não há necessidade do usuário visualizar as demais informações.
 
 
 

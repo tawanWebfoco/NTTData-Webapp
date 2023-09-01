@@ -1,7 +1,7 @@
 <?php
 class Guest extends Model{
     protected static $tableName = 'wp_app_guest';
-    protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country','validation'];
+    protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country'];
     protected static $idTable = 'id_guest';
 
     private function validate() {
@@ -10,7 +10,7 @@ class Guest extends Model{
         $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
 
         if($this->validationId !== $validationDb) {
-            $errors['validationId'] = 'Insira o mesmo endereço de email ao qual enviamos o link  ';
+            $errors['validationId'] = 'Código de validação invalido, solicite um novo convite';
         }
 
         if(!$this->full_name) {
@@ -47,6 +47,7 @@ class Guest extends Model{
 
         if(count($errors) > 0) {
             throw new ValidationException($errors);
+
         }
     }
     

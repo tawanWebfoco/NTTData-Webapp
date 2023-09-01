@@ -8,7 +8,7 @@ $invited = intval($invited);
 
 // email do convidado
 $email = (isset($_GET[md5('email')])) ? $_GET[md5('email')] : null;
-$email = sanitize_text_field($email);
+// $email = sanitize_text_field($email);
 
 // id validação do formulário
 $validationId = (isset($_GET[md5('validationId')])) ? $_GET[md5('validationId')] : null; 
@@ -110,8 +110,6 @@ if(isset($validationId)){
 }else{
 
     if(count($_POST) > 0){
-        $_POST['password'] = md5($_POST['password']);
-        $_POST['confirmPassword'] = md5($_POST['confirmPassword']);
     // if(!Model::validarEmailNTTDataWebfoco($_POST['email'])){
         try {
             $validation = new User($_POST);
