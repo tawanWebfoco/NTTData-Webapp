@@ -5,11 +5,15 @@ const timerStorage = new TimerStorage;
 var newConfirm = new NewConfirm;
 
 const currentTimeFromDb = parseInt(document.currentTimeFromDb);
-console.log(currentTimeFromDb);
+
+const arraUser = document.userWebApp.split(',');
+
+
 const timerView = new TimerView({
   timerStorage,
   timerController: null,
-  currentTimeFromDb
+  currentTimeFromDb,
+  country: arraUser[3]
 });
 
 timerView.run();
@@ -18,7 +22,6 @@ const userStorage = new UserStorage;
 // console.log(userStorage.getStorage());
 
 
-const arraUser = document.userWebApp.split(',');
 
 const user = {
   id_user: arraUser[0],

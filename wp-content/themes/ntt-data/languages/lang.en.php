@@ -26,6 +26,7 @@ define('_t', [
     'registro_frm_senha' => 'Password',
     'registro_frm_confirmesenha' => 'Confirm Password',
     'registro_frm_pais' => 'Country',
+    'registro_tr_countries' => 'en',
     'registro_frm_selecione' => 'Select',
     'registro_frm_bra' => 'Brazil',
     'registro_frm_mex' => 'Mexico',

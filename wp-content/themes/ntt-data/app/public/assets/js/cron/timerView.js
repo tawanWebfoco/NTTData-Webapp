@@ -9,7 +9,6 @@ class TimerView {
   currentTime = 0;
   startTime = 0;
   pauseTime = 0;
-  currentTimeFromDb = 0;
   pauseStartTime = 0;
   points = 0;
   hasExceededLimit = false;
@@ -39,11 +38,14 @@ class TimerView {
   // Inject Dependences
   timerStorage = null;
   timerController = null;
+  country = null
+  currentTimeFromDb = 0;
 
   constructor(props) {
     this.timerStorage = props.timerStorage;
     this.timerController = props.timerController;
     this.currentTimeFromDb = props.currentTimeFromDb
+    this.country = props.country
     return this;
   }
 
@@ -109,7 +111,19 @@ class TimerView {
     if (this.hasExceededLimit) {
       this._pauseTimer();
       this.hasExceededLimit = true;
-      this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo');
+      switch (this.country.toLowerCase()) {
+        case 'brasil':
+          textExcedLimitDay = 'Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo.';
+          break;
+        case 'usa':
+          textExcedLimitDay = 'You have exceeded the 2 hour daily limit, click stop to save time.';
+          break;
+        default:
+          textExcedLimitDay = 'Ha excedido el límite diario de 2 horas, haga clic en detener para ahorrar tiempo.';
+          break;
+      }
+
+      this.newBoxAlertConfirm(false,textExcedLimitDay);
       return;
     } 
     this.currentTime = (new Date().getTime() - this.startTime - this.pauseTime) + this.incrementTime;
@@ -308,7 +322,19 @@ class TimerView {
   configureEventStopTimer(onSaveTimer) {
     this.stopButton.addEventListener('click', async () => {
 
-      this.newBoxAlertConfirm(true,'Deseja parar e salvar o tempo?', async ()=>{
+      switch (this.country.toLowerCase()) {
+        case 'brasil':
+          textSaveTime = 'Deseja parar e salvar o tempo?';
+          break;
+        case 'usa':
+          textSaveTime = 'Want to stop and save time?';
+          break;
+        default:
+          textSaveTime = '¿Quieres parar y ahorrar tiempo?';
+          break;
+      }
+
+      this.newBoxAlertConfirm(true,textSaveTime, async ()=>{
         this._stopTimer();
         this.currentTimeFromDb = parseInt(this.currentTimeFromDb) + parseInt(this.scoreInsertDataBase)
         this._resetTimer();
@@ -369,13 +395,29 @@ class TimerView {
     currentTimeLimit.minutes = currentTimeLimit.minutes.toString().padStart(2, '0');
     currentTimeLimit.seconds = currentTimeLimit.seconds.toString().padStart(2, '0');
     
-    currentRestTime.hours = currentRestTime.hours.toString().padStart(2, '0');
-    currentRestTime.minutes = currentRestTime.minutes.toString().padStart(2, '0');
-    currentRestTime.seconds = currentRestTime.seconds.toString().padStart(2, '0');
+    currentRestTime.hours =   parseInt(currentRestTime.hours.toString().padStart(2, '0'));
+    currentRestTime.minutes = parseInt(currentRestTime.minutes.toString().padStart(2, '0'));
+    currentRestTime.seconds = parseInt(currentRestTime.seconds.toString().padStart(2, '0'));
 
-      body.innerHTML = 'Tempo: ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
+
+    switch (this.country.toLowerCase()) {
+      case 'brasil':
+        textTime = 'Tempo:';
+        textRestTime = 'Tempo:';
+        break;
+      case 'usa':
+        textTime = 'Time:';
+        textRestTime = 'Time remaining:';
+        break;
+      default:
+        textTime = 'Tiempo:';
+        textRestTime = 'Tiempo restante:';
+        break;
+    }
+
+      body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
       
-      body.innerHTML += '<br>Tempo restante: ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
+      body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
 
       
 

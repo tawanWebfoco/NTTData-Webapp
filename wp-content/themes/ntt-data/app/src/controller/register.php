@@ -159,6 +159,14 @@ if(isset($validationId)){
 }
 }
 
+include_once(LANGUAGES_PATH.'/common.php');
+// Capturar json com array de todos os países
+// Lê o conteúdo do arquivo JSON
+$jsonString = file_get_contents(CONTROLLER_PATH .'/paises_simples_'._t['registro_tr_countries'].'.json');
 
-loadView('register/clbRegister', $_POST  + ['exception' => $exception, 'twoFactors' => $twoFactors]);
+// Converte o JSON em um array associativo
+$countryArray = json_decode($jsonString, true);
+
+loadView('register/clbRegister', $_POST  + ['exception' => $exception, 'twoFactors' => $twoFactors, 'countryArray'=> $countryArray]);
 }
+

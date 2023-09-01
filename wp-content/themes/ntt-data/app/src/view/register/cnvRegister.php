@@ -95,17 +95,24 @@ get_header('login');
                     <div class="form-group">
                         <label for="country"><?=_t['registro_frm_pais']?></label>
 
-                        <select name="country" id="country" class="<?= isset($errors['country']) ? 'is-invalid' : ''; ?>">
-                            <option value=""><?=_t['registro_frm_selecione']?></option>
-                            <option value="Brasil" <?php (isset($country) && $country == 'Brasil') ? 'selected' : ''; ?>><?=_t['registro_frm_bra']?></option>
-                            <option value="Mexico" <?= (isset($country) && $country == 'Mexico') ? 'selected' : ''; ?>><?=_t['registro_frm_mex']?></option>
-                            <option value="Peru" <?= (isset($country) && $country == 'Peru') ? 'selected' : ''; ?>><?=_t['registro_frm_per']?></option>
-                            <option value="Chile" <?= (isset($country) && $country == 'Chile') ? 'selected' : ''; ?>><?=_t['registro_frm_chi']?></option>
-                            <option value="Colombia" <?= (isset($country) && $country == 'Colombia') ? 'selected' : ''; ?>><?=_t['registro_frm_col']?></option>
-                            <option value="Argentina" <?= (isset($country) && $country == 'Argentina') ? 'selected' : ''; ?>><?=_t['registro_frm_arg']?></option>
-                            <option value="Equador" <?= (isset($country) && $country == 'Equador') ? 'selected' : ''; ?>><?=_t['registro_frm_equ']?></option>
-                            <option value="USA" <?= (isset($country) && $country == 'USA') ? 'selected' : ''; ?>><?=_t['registro_frm_usa']?></option>
-                        </select>
+                        <?php 
+                        // Verifica se houve algum erro na decodificação
+                        if (json_last_error() !== JSON_ERROR_NONE) {
+                        } else {
+                            // Loop através dos países
+                            ?>
+                                <select name="country" id="country" class="<?= isset($errors['country']) ? 'is-invalid' : ''; ?>">
+                                <option value=""><?=_t['registro_frm_selecione']?></option>
+
+                            <?php   foreach ($countryArray as $countryLoop) :; ?>
+                                <option value="<?=$countryLoop['value']?>" <?= (isset($country) && $country == $countryLoop['value']) ? 'selected' : ''; ?>><?= $countryLoop['name']?></option>
+
+                            <?php endforeach; ?>
+                            </select>
+                            
+                        <?php  }   ; ?>
+
+
                         <div class="invalid-feedback">
                             <?=  isset($errors['country']) ? $errors['country'] : '';
                             ?>
