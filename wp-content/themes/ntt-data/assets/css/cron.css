@@ -454,6 +454,7 @@ section.feed .receivepubbox {
 }
 .main .sendpubbox form {
   background: #f7f7f7;
+  border-radius: 20px;
 }
 
 .main .sendpubbox .top {
@@ -548,6 +549,7 @@ div#imageContent > button {
 .main .sendcommentbox {
   background-color: var(--background-gray);
   border-radius: 20px;
+  margin-top: 10px;
   width: 93%;
   display: none;
 }
@@ -693,7 +695,7 @@ div#imageContent > button {
   color: var(--text-silver-dark);
 }
 .receivepubbox .message img {
-  max-width: 55vw;
+  max-width: 100%;
   max-height: 450px;
   object-fit: contain;
   margin-top: 5px;
@@ -975,6 +977,20 @@ hr {
   align-items: center;
   margin-top: 25px;
   text-align: center;
+  background: url(http://localhost/NTTData/NTTData-Webapp/wp-content/themes/ntt-data/app/public/assets/img/icons/rank/array-score.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: bg-aparece 1s .5s both;
+}
+@keyframes bg-aparece {
+  from {
+    background-color: #fff;
+    background-blend-mode: color;
+  }
+  to {
+    background-color: #fff;
+    background-blend-mode: unset;
+  }
 }
 .main .rank .content .yourRank .score:before {
   content: '';
@@ -985,6 +1001,7 @@ hr {
   height: 100%;
   background: url(http://localhost/NTTData/NTTData-Webapp/wp-content/themes/ntt-data/app/public/assets/img/icons/rank/array-score.svg);
   background-size: cover;
+  background-repeat: no-repeat;
   animation: gira 1s .5s both;
 }
 @keyframes gira {

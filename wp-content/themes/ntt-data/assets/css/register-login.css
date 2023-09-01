@@ -161,7 +161,7 @@ section.conteudo {
     justify-content: center;
     width: 100%;
     max-width: 1130px;
-    /*padding: 0 20px;*/
+    padding: 0 10px;
 }
 
 
@@ -304,7 +304,7 @@ form.form-login {
     width: 710px;
     background: var(--background-gray);
     padding: 42px 39px 65px;
-    margin: 110px 0;
+    margin: 50px 0;
 }
 
 form.form-login .card-header {
@@ -331,10 +331,6 @@ form.form-login .form-group input {
     background: #d9d9d9;
 }
 
-.linha-links-login {
-    justify-content: space-between;
-    align-items: center;
-}
 .linha-links-login p {
     text-align: right;
     display: flex;
@@ -371,5 +367,14 @@ form.form-login .form-group input {
 
     .formRegister h1 {
         font-size: 26px;
+    }
+
+    form.form-login {
+        margin: 110px 0;
+    }
+
+    .linha-links-login {
+        justify-content: space-between;
+        align-items: center;
     }
 }

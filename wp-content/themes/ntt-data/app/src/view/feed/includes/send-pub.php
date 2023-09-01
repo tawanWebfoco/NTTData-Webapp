@@ -29,7 +29,7 @@
             <div class="aneximg">
                 <!-- <i class="fi fi-rr-picture"></i> -->
                 <a id="uploadImg" href="#">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/feed/icon-img.svg" alt="<?=_t['feed_pub_alt_imagem']?>" title="<?=_t['feed_pub_imagem_title']?>">
+                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\img\icons/feed/icon-img_2.svg" alt="<?=_t['feed_pub_alt_imagem']?>" title="<?=_t['feed_pub_imagem_title']?>">
                 </a>
             </div>
             <div class="anexvid">
