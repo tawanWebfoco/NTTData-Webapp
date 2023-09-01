@@ -22,7 +22,7 @@ function fnAddEmail(){
     const boxImg = document.createElement('img');
     boxImg.className = 'addEmail';
     boxImg.id = 'removeEmail';
-    boxImg.src = 'http://localhost/webfoco/nttdata/NTTData-Webapp/wp-content/themes/ntt-data/app/public/assets/img/icons/perfil/remove-circle.svg';
+    boxImg.src = '../wp-content/themes/ntt-data/app/public/assets/img/icons/perfil/remove-circle.svg';
     boxImg.setAttribute('alt', 'Icone AddEmail')
 
     boxField.insertAdjacentElement('afterbegin', boxImg)
