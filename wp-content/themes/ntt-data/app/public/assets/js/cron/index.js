@@ -21,8 +21,6 @@ timerView.run();
 const userStorage = new UserStorage;
 // console.log(userStorage.getStorage());
 
-
-
 const user = {
   id_user: arraUser[0],
   full_name: arraUser[1],
