@@ -111,6 +111,7 @@ if(isset($validationId)){
 
     if(count($_POST) > 0){
     // if(!Model::validarEmailNTTDataWebfoco($_POST['email'])){
+        $_POST['password'] = md5($_POST['password']);
         try {
             $validation = new User($_POST);
             $validation->validateLogin();
@@ -119,7 +120,7 @@ if(isset($validationId)){
     $generateValidationId = Model::validationId($_POST['email']);
     date_default_timezone_set('America/Sao_Paulo');
     $date = str_replace('=','T',date('Y-m-d=H:i:s'));
-    Model::twoFactors([$_POST['email'],  $date , 'colaborador' ,$generateValidationId, $_POST['password'] ]);
+    Model::twoFactors([$_POST['email'],  $date , 'colaborador' ,$generateValidationId,  ]);
 
     function generateUrl($validationId,$email,$username,$country,$full_name,$office){
         $url = home_url();
