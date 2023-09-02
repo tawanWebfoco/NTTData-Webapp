@@ -138,7 +138,7 @@ get_header('login');
             
             <div class="bottom-conteudo">
                 <a target="_blank" href="https://moveforthesdg.com/"><button class="btn btn-login"><?=_t['registro_btn_cta']?></button></a>
-                <img src="<?=get_template_directory_uri()?>/assets/img/Logo_ODS.png" width="115" height="78" />
+                <img src="<?=get_template_directory_uri()?>/assets/img/Move-for-SDGs.jpg" width="78" height="78" />
             </div>
         </div>
     </div>

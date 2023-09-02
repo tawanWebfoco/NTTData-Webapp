@@ -53,7 +53,7 @@ include_once 'languages/common.php';
                   </a>
 
                <div id="logo-move-header">
-                    <img src="<?=get_template_directory_uri()?>/assets/img/Logo_ODS.png" width="130" height="87" />
+                    <img src="<?=get_template_directory_uri()?>/assets/img/Move-for-SDGs.jpg" width="100" height="100" />
                 </div>
    
             </div>

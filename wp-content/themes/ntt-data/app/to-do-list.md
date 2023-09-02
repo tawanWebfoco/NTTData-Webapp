@@ -84,9 +84,9 @@
 
 - Ajuste para inserir mensagem que o tempo foi computado com sucesso
 
-- #R Alterar logo Move for the SDGsA
+- # Alterar logo Move for the SDGsA
 
-- #R Ajuste no rodapé da página de login (inserir o mesmo que está na LP)
+- # Ajuste no rodapé da página de login (inserir o mesmo que está na LP)
 
 - Ajuste de e-mail que irá disparar os convites para: moveforthesdg@webfoco.com
 

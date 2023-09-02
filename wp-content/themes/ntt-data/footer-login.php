@@ -1,4 +1,4 @@
-    <footer class="footer-register">
+    <!--footer class="footer-register">
         <div class="footer-container">
             <div class="bloco-footer">
                 <svg id="footer-logo" width="169" height="25" viewBox="0 0 169 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -27,7 +27,31 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
         </div>
-    </footer>
+    </footer-->
+    <div class="footer">
+            <div class="container">
+
+                <div class="top">
+                    <div class="left">
+                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/Logo-NTTData-White.svg" alt="Logo NTTData">
+                        <span>Company</span>
+                    </div>
+                    <div class="right">
+                        <span>Siga Nossas Redes Sociais:</span>
+                        <div class="redes">
+                            <a href="https://www.instagram.com/nttdata.brasil/"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icones/instagram.svg" alt="instagram"></a>
+                            <a href="https://www.facebook.com/nttdatabrazil"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icones/facebook.svg" alt="facebook"></a>
+                            <a href="https://www.youtube.com/c/NTTDATABrasil"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icones/youtube.svg" alt="youtube"></a>
+                            <a href="https://www.tiktok.com/@nttdata.brasil"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icones/tiktok.svg" alt="tiktok"></a>
+                            <a href="https://www.linkedin.com/company/76533648"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/icones/linkedin.svg" alt="linkedin"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <span>©Copyright 2023 NTT DATA Todos os direitos reservados</span>
+                </div>
+            </div>
+        </div>
 
 <script src="<?= get_stylesheet_directory_uri(); ?>/app/public/assets/js/script.js"></script>
 
