@@ -57,3 +57,39 @@
 - alterei o campo milésimo de segundo para centesimo, ( esse campo torna o app mais dinâmico, se realmente for pra tirar só me pontuar.)
 - corrigi o rank top 10 para aparecer por ordem de pontuação
 - realizei as traduções da página do cronometro.
+
+<!-- ---------- ÚLTIMOS AJUSTES ---------- -->
+
+- Ajuste de texto para e-mail de convidado
+
+- Correções de dinâmica de traduções
+
+- Correção de problema de extensão no upload de vídeo
+
+- Ajustes na lógica de engajamento do ranking
+
+- Zerar o ranking de engajamento p/ segunda
+
+- #R Ajuste de texto SUBA SEU TEMPO AQUI para REGISTRE SEU TEMPO AQUI
+
+- Ajuste no limite diário de horas de exercício - de 2h para 4h
+
+- Otimização de imagens
+
+- Ajuste de duração de sessão para só fazer logoff automático após 4h
+
+- Ajustar os Países no ranking em ordem alfabética
+
+- Ajuste para incluir campo de linguagem na página do perfil, onde o usuário consegue alterar para outra (por padrão, o app vem com a linguagem do País, mas também vamos dar a opção de ajustar)
+
+- Ajuste para inserir mensagem que o tempo foi computado com sucesso
+
+- # Alterar logo Move for the SDGsA
+
+- # Ajuste no rodapé da página de login (inserir o mesmo que está na LP)
+
+- Ajuste de e-mail que irá disparar os convites para: moveforthesdg@webfoco.com
+
+- Ajuste no botão “leia o regulamento” para “dúvidas frequentes” que deve levar a página de FAQ
+
+- Subir para a hostinger

@@ -65,73 +65,6 @@ svg#header-logo {
     width: 109px;
 }
 
-/* FOOTER */
-.footer-register {
-    width: 100%;
-    background: #070F26;
-    padding: 40px 0 80px;
-    color: #fff;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-.footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    max-width: 1130px;
-    padding: 0 20px;
-}
-.bloco-footer {
-    max-width: 160px;
-}
-#footer-logo {
-    width: 148px;
-}
-#footer-logo path {
-    fill: #fff
-}
-.footer-register p {
-    color: #A6A6A6;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px;
-}
-ul.redes-sociais {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    gap: 5px;
-}
-ul.redes-sociais a.icone-social {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-size: cover;
-}
-.redes-sociais a.instagram {
-    background: url(../img/icones/instagram.svg);
-}
-.redes-sociais a.facebook {
-    background: url(../img/icones/facebook.svg);
-}
-.redes-sociais a.youtube {
-    background: url(../img/icones/youtube.svg);
-}
-.redes-sociais a.tiktok {
-    background: url(../img/icones/tiktok.svg);
-}
-.redes-sociais a.linkedin {
-    background: url(../img/icones/linkedin.svg);
-}
-
-
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -165,7 +98,7 @@ section.conteudo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 100%;
+    width: calc( 100% - 20px );
     max-width: 1130px;
     padding: 0 10px;
 }
@@ -383,4 +316,128 @@ form.form-login .form-group input {
         justify-content: space-between;
         align-items: center;
     }
+}
+
+
+/* FOOTER */
+/*.footer-register {
+    width: 100%;
+    background: #070F26;
+    padding: 40px 0 80px;
+    color: #fff;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    max-width: 1130px;
+    padding: 0 20px;
+}
+.bloco-footer {
+    max-width: 160px;
+}
+#footer-logo {
+    width: 148px;
+}
+#footer-logo path {
+    fill: #fff
+}
+.footer-register p {
+    color: #A6A6A6;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+}
+ul.redes-sociais {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    gap: 5px;
+}
+ul.redes-sociais a.icone-social {
+    display: block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+}
+.redes-sociais a.instagram {
+    background: url(../img/icones/instagram.svg);
+}
+.redes-sociais a.facebook {
+    background: url(../img/icones/facebook.svg);
+}
+.redes-sociais a.youtube {
+    background: url(../img/icones/youtube.svg);
+}
+.redes-sociais a.tiktok {
+    background: url(../img/icones/tiktok.svg);
+}
+.redes-sociais a.linkedin {
+    background: url(../img/icones/linkedin.svg);
+}*/
+
+/* FOOTER */
+.footer{
+   background-color: var(--blue-primary);
+   height: 230px;
+   display: flex;
+   justify-content: center;
+}
+.footer span{
+   font-size:.8rem;
+   color: var(--text-silver-light);
+}
+.footer .container{
+   flex-direction: column;
+   padding:30px 80px ;
+   width: 100%;
+}
+.footer .top{
+   display: flex;
+   width: 100%;
+   justify-content: space-between;
+}
+.footer .top .left{
+   display: flex;
+   flex-direction: column;
+}
+.footer .top .left img{
+   margin-left: -10px;
+}
+.footer .top .right .redes{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.footer .top .right .redes img{
+   cursor: pointer;
+   margin: 0 3px;
+}
+@media (max-width: 600px){
+    .footer .container{
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0px 20px;
+        gap: 15px;
+        text-align: center;
+   }
+   .footer .top {
+    flex-direction: column;
+    gap: 15px;
+   }
+   .footer .top > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+   }
 }

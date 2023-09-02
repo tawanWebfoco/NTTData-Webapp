@@ -870,9 +870,22 @@ section.downbanner .right .day {
 }
 @media (max-width: 600px){
    .footer .container{
-      justify-content: space-evenly;
-      padding: 0px 20px;
-   }
+       display: flex;
+       justify-content: space-evenly;
+       padding: 0px 20px;
+       gap: 15px;
+       text-align: center;
+  }
+  .footer .top {
+   flex-direction: column;
+   gap: 15px;
+  }
+  .footer .top > div {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+  }
 }
 
 

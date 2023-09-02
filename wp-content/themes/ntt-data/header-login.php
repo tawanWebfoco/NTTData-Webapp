@@ -40,7 +40,7 @@ include_once 'languages/common.php';
                 </div>
                 
                 <div id="logo-move-header-login">
-                    <img src="<?=get_template_directory_uri()?>/assets/img/Logo_ODS.png" width="130" height="87" />
+                    <img src="<?=get_template_directory_uri()?>/assets/img/Move-for-SDGs.jpg" width="100" height="100" />
                 </div>
             </div>
         </header>
