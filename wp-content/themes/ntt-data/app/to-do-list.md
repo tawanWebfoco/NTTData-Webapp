@@ -80,7 +80,7 @@
 
 - Ajustar os Países no ranking em ordem alfabética
 
-- #R Ajuste para incluir campo de linguagem na página do perfil, onde o usuário consegue alterar para outra (por padrão, o app vem com a linguagem do País, mas também vamos dar a opção de ajustar)
+- Ajuste para incluir campo de linguagem na página do perfil, onde o usuário consegue alterar para outra (por padrão, o app vem com a linguagem do País, mas também vamos dar a opção de ajustar)
 
 - Ajuste para inserir mensagem que o tempo foi computado com sucesso
 
