@@ -72,14 +72,14 @@
                             <span><?= $user->username; ?></span>
                         </div>
                         <div class="field">
-                            <label class="label" for="language">Idioma</label>
+                            <label class="label" for="language"><?=_t['perfil_language']?></label>
 
-
+                            
                             <!-- <input type="text" name="language" disabled value="<?= $user->language; ?>"> -->
                             <select name="language" id="language" disabled>
-                                <option value="pt" <?= ($user->language === 'pt') ? 'selected' : ''; ?>>Português</option>
-                                <option value="es" <?= ($user->language != 'pt' && $user->language != 'en') ? 'selected' : ''; ?>>Espanhol</option>
-                                <option value="en" <?= ($user->language === 'en') ? 'selected' : ''; ?>>Inglês</option>
+                                <option value="pt" <?= ($user->language === 'pt') ? 'selected' : ''; ?>><?=_t['perfil_languageNamePt']?></option>
+                                <option value="es" <?= ($user->language != 'pt' && $user->language != 'en') ? 'selected' : ''; ?>><?=_t['perfil_languageNameEs']?></option>
+                                <option value="en" <?= ($user->language === 'en') ? 'selected' : ''; ?>><?=_t['perfil_languageNameEn']?></option>
                             </select>
                         </div>
                     </div>

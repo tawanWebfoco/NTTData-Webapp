@@ -22,22 +22,16 @@
             </div>
             <div class="otherCountryRank">
                 <div class="cards">
+                <div class="country">
+                        <div class="boxScore pie animate" style="--p: 75">
+                            <div class="number">75<span>%</span></div>
+                            <div class="text"><?=_t['registro_frm_arg']?></div>
+                        </div>
+                    </div>
                     <div class="country">
                         <div class="boxScore pie animate" style="--p: 80">
                             <div class="number">80<span>%</span></div>
                             <div class="text"><?=_t['registro_frm_bra']?></div>
-                        </div>
-                    </div>
-                    <div class="country">
-                        <div class="boxScore pie animate" style="--p: 75">
-                            <div class="number">75<span>%</span></div>
-                            <div class="text"><?=_t['registro_frm_per']?></div>
-                        </div>
-                    </div>
-                    <div class="country">
-                        <div class="boxScore pie animate" style="--p: 60">
-                            <div class="number">60<span>%</span></div>
-                            <div class="text"><?=_t['registro_frm_mex']?></div>
                         </div>
                     </div>
                     <div class="country">
@@ -55,13 +49,19 @@
                     <div class="country">
                         <div class="boxScore pie animate" style="--p: 75">
                             <div class="number">75<span>%</span></div>
-                            <div class="text"><?=_t['registro_frm_arg']?></div>
+                            <div class="text"><?=_t['registro_frm_equ']?></div>
+                        </div>
+                    </div>
+                    <div class="country">
+                        <div class="boxScore pie animate" style="--p: 60">
+                            <div class="number">60<span>%</span></div>
+                            <div class="text"><?=_t['registro_frm_mex']?></div>
                         </div>
                     </div>
                     <div class="country">
                         <div class="boxScore pie animate" style="--p: 75">
                             <div class="number">75<span>%</span></div>
-                            <div class="text"><?=_t['registro_frm_equ']?></div>
+                            <div class="text"><?=_t['registro_frm_per']?></div>
                         </div>
                     </div>
                     <div class="country">
