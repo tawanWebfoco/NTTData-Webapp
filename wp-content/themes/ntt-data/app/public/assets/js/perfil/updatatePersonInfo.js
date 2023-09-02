@@ -3,7 +3,10 @@ document.addEventListener("DOMContentLoaded", function() {
 const btnEditPerfil = document.querySelector('.perfil #btn-edit-perfil')
 const btnSavePerfil = document.querySelector('.perfil #btn-save-perfil')
 const personalInfoInput = document.querySelectorAll('.perfil .perfilContainer .personalInfo input');
+const personalInfoSelect = document.querySelectorAll('.perfil .perfilContainer .personalInfo select');
 const uploadPersonInfo = document.querySelector('.perfilContainer #uploadPersonInfo');
+
+console.log(personalInfoSelect);
 let arrayValues = []
 
 // btnSavePerfil.addEventListener('click', ()=>{
@@ -19,14 +22,29 @@ btnEditPerfil.addEventListener('click', ()=>{
         btnSavePerfil.classList.toggle('btn-disabled');
         btnEditPerfil.classList.toggle('btn-danger');
         btnEditPerfil.innerHTML = 'Editar'
+        personalInfoSelect.forEach(select => {
+            console.log(select);
+            select.setAttribute('readonly','')
+            select.setAttribute('disabled','')
+            select.classList.remove('active')
+        })
+        
         personalInfoInput.forEach(input => {
             arrayValues[input.name] = input.value;
+            input.classList.remove('active')
             input.setAttribute('readonly','')
             input.setAttribute('disabled','')
         }); 
         btnSavePerfil.removeEventListener('click', chamaEvento);
     }else{
+        personalInfoSelect.forEach(select => {
+            console.log(select);
+            select.removeAttribute('readonly')
+            select.removeAttribute('disabled')
+            select.classList.add('active')
+        })
         personalInfoInput.forEach(input => {
+            input.classList.add('active')
             if(input.name == 'country')return;
             if(input.name == 'email')return;
             if(input.name == 'office')return;

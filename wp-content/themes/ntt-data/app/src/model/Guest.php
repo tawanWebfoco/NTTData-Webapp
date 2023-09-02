@@ -1,16 +1,20 @@
 <?php
 class Guest extends Model{
     protected static $tableName = 'wp_app_guest';
-    protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country'];
+    protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country','language'];
     protected static $idTable = 'id_guest';
 
     private function validate() {
         $errors = [];
 
-        $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
+        $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email) : null;
 
-        if($this->validationId !== $validationDb) {
-            $errors['validationId'] = 'Código de validação invalido, solicite um novo convite';
+        if(!isset($validationDb)){
+            $errors['validationId'] = 'Seu convite não foi encontrado, solite novamente para um colaborador NTT DATA';
+        }else{
+            if($this->validationId !== $validationDb->validationId) {
+                $errors['validationId'] = 'Código de validação invalido, solicite um novo convite';
+            }
         }
 
         if(!$this->full_name) {

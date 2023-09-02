@@ -1,13 +1,15 @@
 <?php
 
 $full_name = sanitize_text_field($_POST['full_name']);
+$language = sanitize_text_field($_POST['language']);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if(get_class($user) === 'User'){ 
         $update = [
             'id_user' => $_SESSION['user']->id_user,
             'primary_key' => $_SESSION['user']->id_user,
-            'full_name' => $full_name
+            'full_name' => $full_name,
+            'language' => $language
         ];
 
         $update = new User($update);
@@ -15,7 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $update = [
             'id_user' => $_SESSION['user']->id_guest,
             'primary_key' => $_SESSION['user']->id_guest,
-            'full_name' => $full_name
+            'full_name' => $full_name,
+            'language' => $language
         ];
 
         $update = new Guest($update);
@@ -24,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if($update->id_user) {
             $update->update();
             $user->full_name =  $full_name;
+            $user->language = $language;
         }
         $url = home_url();
         $url .= '/app?p=perfil';

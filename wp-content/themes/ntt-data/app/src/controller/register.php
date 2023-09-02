@@ -1,6 +1,14 @@
 <?php
 session_start();
 Model::sanetizePost($_POST);
+include_once(LANGUAGES_PATH.'/common.php');
+
+// Capturar json com array de todos os países
+// Lê o conteúdo do arquivo JSON
+$jsonString = file_get_contents(CONTROLLER_PATH .'/paises_simples_'._t['registro_tr_countries'].'.json');
+
+// Converte o JSON em um array associativo
+$countryArray = json_decode($jsonString, true);
 
 // id do colaborador que convidou
 $invited = (isset($_GET[md5('invited')])) ? $_GET[md5('invited')] : null;
@@ -37,6 +45,20 @@ if($regType == md5('convidado')){
     if(count($_POST) > 0){
         $_POST['validationId'] = $validationId;
         $_POST['password'] = md5($_POST['password']);
+        $language = strtolower($_POST['country']);
+        $lang= '';
+        switch ($language) {
+            case 'brasil':
+                $lang = 'pt';
+                break;
+            case 'usa':
+                $lang = 'en';
+                break;
+            default:
+                $lang = 'es';
+                break;
+        }
+        $_POST['language'] = $lang;
         $_POST['confirmPassword'] = md5($_POST['confirmPassword']);
        
         $register = new Guest($_POST);
@@ -53,7 +75,7 @@ if($regType == md5('convidado')){
         }
     
     }
-    loadView('register/cnvRegister', $_POST  + ['exception' => $exception, 'invited' => $invited]);
+    loadView('register/cnvRegister', $_POST  + ['exception' => $exception, 'invited' => $invited, 'countryArray'=> $countryArray]);
 
 
 }else{
@@ -84,11 +106,26 @@ if(isset($validationId)){
 
     $compareDbRegister = (Model::getValidationId($email)) ? Model::getValidationId($email) : null;
 
+    $language = strtolower($country);
+    $lang= '';
+    switch ($language) {
+        case 'brasil':
+            $lang = 'pt';
+            break;
+        case 'usa':
+            $lang = 'en';
+            break;
+        default:
+            $lang = 'es';
+            break;
+    }
+
     $dataRegister['full_name'] = $full_name;
     $dataRegister['email'] = $email;
     $dataRegister['username'] = $username;
     $dataRegister['password'] = $compareDbRegister->password;
     $dataRegister['country'] = $country;
+    $dataRegister['language'] = $lang;
     $dataRegister['office'] = $office;
     $dataRegister['validationId'] = $validationId;
     $dataRegister['confirmValidationDb'] = $compareDbRegister->validationId;
@@ -134,21 +171,18 @@ if(isset($validationId)){
         return $message;
      }
 
-        $subject = 'Valide seu email para fazer parte! Mova-se pelos ODS!';
+        $subject = _t['registro_sendEmailSubject'];
          
-         $message ='<h2><b>Faça parte do grande movimento da NTT DATA</b></h2>';
-         $message .= '<p>Valide seu email clicando no link abaixo!</p>';
-         $message .= "<a href='";
-         $message .= generateUrl($generateValidationId,$_POST['email'],$_POST['username'],$_POST['country'],$_POST['full_name'],$_POST['office']);
-         $message .= "'>";
-         $message .= "Validar.";
-         $message .= '<a>';
-         $message .= '<p>Saiba mais em nosso site oficial: <a href="https://moveforthesdg.com/">moveforthesdgs.com</a></p>'; 
-         
+         $messageBegin =_t['registro_sendEmailMessageBegin'];
+         $messageLink = generateUrl($generateValidationId,$_POST['email'],$_POST['username'],$_POST['country'],$_POST['full_name'],$_POST['office']);
+         $messageEnd =_t['registro_sendEmailMessageEnd'];
+
+         $messageAll = $messageBegin . $messageLink . $messageEnd;
+        
          $headers = array('Content-Type: text/html; charset=UTF-8');
          
          // Envia o email
-         $result = wp_mail($_POST['email'], $subject, $message, $headers);
+         $result = wp_mail($_POST['email'], $subject, $messageAll, $headers);
 
 
          $successMenssage = 1;
@@ -161,13 +195,8 @@ if(isset($validationId)){
 }
 }
 
-include_once(LANGUAGES_PATH.'/common.php');
-// Capturar json com array de todos os países
-// Lê o conteúdo do arquivo JSON
-$jsonString = file_get_contents(CONTROLLER_PATH .'/paises_simples_'._t['registro_tr_countries'].'.json');
 
-// Converte o JSON em um array associativo
-$countryArray = json_decode($jsonString, true);
+
 
 loadView('register/clbRegister', $_POST  + ['exception' => $exception, 'twoFactors' => $twoFactors, 'countryArray'=> $countryArray]);
 }

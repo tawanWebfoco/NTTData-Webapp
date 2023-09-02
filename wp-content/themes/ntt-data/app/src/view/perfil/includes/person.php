@@ -63,12 +63,24 @@
                             <!-- <input type="text" name="office" disabled value="<?= $user->office; ?>"> -->
                             <span><?= $user->office; ?></span>
                         </div>
+                        
                     <?php endif; ?>
                     
                         <div class="field">
                             <label class="label" for="username"><?=_t['registro_frm_usuario']?></label>
                             <!-- <input type="text" name="username" disabled value="<?= $user->username; ?>"> -->
                             <span><?= $user->username; ?></span>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="language">Idioma</label>
+
+
+                            <!-- <input type="text" name="language" disabled value="<?= $user->language; ?>"> -->
+                            <select name="language" id="language" disabled>
+                                <option value="pt" <?= ($user->language === 'pt') ? 'selected' : ''; ?>>Português</option>
+                                <option value="es" <?= ($user->language != 'pt' && $user->language != 'en') ? 'selected' : ''; ?>>Espanhol</option>
+                                <option value="en" <?= ($user->language === 'en') ? 'selected' : ''; ?>>Inglês</option>
+                            </select>
                         </div>
                     </div>
                 </form>

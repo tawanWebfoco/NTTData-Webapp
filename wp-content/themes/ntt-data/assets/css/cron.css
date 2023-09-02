@@ -1260,11 +1260,16 @@ img#uploadedImage {
 }
 
 .main .perfil input,
+.main .perfil select,
 .main .perfil span  {
   border: none;
   color: var(--text-silver-dark);
   flex-grow: 1;
   background-color: transparent;
+}
+.main .perfil select.active,
+.main .perfil input.active{
+  border: solid var(--text-silver-dark) 1px;
 }
 .main .perfil  span::first-letter{
   text-transform: uppercase;
