@@ -17,6 +17,8 @@ class TimerView {
 
   // constants values
   limitTimePerDay = 7200000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
+  // limitTimePerDay = 7200000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
+  limitOneDay = 86400000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
   time1hour = 3600000; // equivalent a 1 hours, 0 minutes, 0 seconds, 0 milliseconds
   time30minutes = 1800000; // equivalent a 0 hours, 30 minutes, 0 seconds, 0 milliseconds
   time10minutes = 600000; // equivalent a 0 hours, 10 minutes, 0 seconds, 0 milliseconds
@@ -108,28 +110,29 @@ class TimerView {
 
   _updateTimer() {
     if(this.currentTime >= this.limitTimePerDay) this.hasExceededLimit = true;
-    if (this.hasExceededLimit) {
-      this._pauseTimer();
-      this.hasExceededLimit = true;
-      switch (this.country.toLowerCase()) {
-        case 'brasil':
-          textExcedLimitDay = 'Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo.';
-          break;
-        case 'usa':
-          textExcedLimitDay = 'You have exceeded the 2 hour daily limit, click stop to save time.';
-          break;
-        default:
-          textExcedLimitDay = 'Ha excedido el límite diario de 2 horas, haga clic en detener para ahorrar tiempo.';
-          break;
-      }
+    // if (this.hasExceededLimit) {
+    //   this._pauseTimer();
+    //   this.hasExceededLimit = true;
 
-      this.newBoxAlertConfirm(false,textExcedLimitDay);
-      return;
-    } 
+
+      // switch (this.country.toLowerCase()) {
+      //   case 'brasil':
+      //     this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo.');
+      //     break;
+      //   case 'usa':
+      //     this.newBoxAlertConfirm(false,'You have exceeded the 2 hour daily limit, click stop to save time.');
+      //     break;
+      //   default:
+      //     this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 2 horas, haga clic en detener para ahorrar tiempo.');
+      //     break;
+      // }
+
+    //   return;
+    // } 
     this.currentTime = (new Date().getTime() - this.startTime - this.pauseTime) + this.incrementTime;
 
     this._showTimerValues();
-    this._disableButtons();
+    // this._disableButtons();
     
   
   }
@@ -278,15 +281,15 @@ class TimerView {
 
   
   _disableButtons() {
-    if (this.currentTime >= this.time1hour) {
+    if (this.currentTime >= (this.limitOneDay - this.time1hour)) {
       this.btnAdd1Hour.classList.add('btn-disabled');
     }
 
-    if (this.currentTime >= (this.limitTimePerDay - this.time30minutes)) {
+    if (this.currentTime >= (this.limitOneDay - this.time30minutes)) {
       this.btnAdd30Minutes.classList.add('btn-disabled');
     }
 
-    if (this.currentTime >= (this.limitTimePerDay - this.time10minutes)) {
+    if (this.currentTime >= (this.limitOneDay - this.time10minutes)) {
       this.btnAdd10Minutes.classList.add('btn-disabled');
     }
   }
@@ -295,13 +298,16 @@ class TimerView {
     function eventBtnAddTimeOnTimer(){
       const self = this
       this.incrementTime = this.currentTime + addTime;
-      this.currentTime = (this.incrementTime > this.limitTimePerDay) ? this.limitTimePerDay : this.incrementTime ;
+      this.currentTime =  this.incrementTime ;
+      this.currentTime = (this.incrementTime > this.limitOneDay) ? this.currentTime : this.incrementTime ;
+      // this.currentTime = (this.incrementTime > this.limitTimePerDay) ? this.limitOneDay : this.incrementTime ;
       this.timerStorage.saveStatesOnLocalStorage(this._getStates());
       this._showTimerValues();
       this._disableButtons();
     }   
 
-    if (btn === this.btnAdd1Hour && this.currentTime-10 < this.time1hour) {
+    this._disableButtons();
+    if (btn === this.btnAdd1Hour && this.currentTime-10 < (this.limitTimePerDay - this.time30minutes)) {
       this.btnAdd1Hour.classList.remove('btn-disabled');
       btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
     }
@@ -314,7 +320,6 @@ class TimerView {
     if (btn === this.btnAdd10Minutes && this.currentTime-10  < (this.limitTimePerDay - this.time10minutes)) {
       this.btnAdd10Minutes.classList.remove('btn-disabled');
       btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
-      this._disableButtons();
     }
     
   }
@@ -322,23 +327,38 @@ class TimerView {
   configureEventStopTimer(onSaveTimer) {
     this.stopButton.addEventListener('click', async () => {
 
+      console.log(this.country.toLowerCase());
+      
+      let textSaveTime;
       switch (this.country.toLowerCase()) {
         case 'brasil':
           textSaveTime = 'Deseja parar e salvar o tempo?';
-          break;
+        break;
         case 'usa':
           textSaveTime = 'Want to stop and save time?';
-          break;
+        break;
         default:
           textSaveTime = '¿Quieres parar y ahorrar tiempo?';
-          break;
+        break;
       }
 
+     
       this.newBoxAlertConfirm(true,textSaveTime, async ()=>{
         this._stopTimer();
         this.currentTimeFromDb = parseInt(this.currentTimeFromDb) + parseInt(this.scoreInsertDataBase)
         this._resetTimer();
         await onSaveTimer();
+        switch (this.country.toLowerCase()) {
+          case 'brasil':
+            this.newBoxAlertConfirm(false,'Tempo salvo com sucesso.');
+            break;
+          case 'usa':
+            this.newBoxAlertConfirm(false,'Time successfully saved.');
+            break;
+          default:
+            this.newBoxAlertConfirm(false,'Tiempo ahorrado exitosamente.');
+            break;
+        }
       }) 
       })
 
@@ -395,32 +415,56 @@ class TimerView {
     currentTimeLimit.minutes = currentTimeLimit.minutes.toString().padStart(2, '0');
     currentTimeLimit.seconds = currentTimeLimit.seconds.toString().padStart(2, '0');
     
-    currentRestTime.hours =   parseInt(currentRestTime.hours.toString().padStart(2, '0'));
-    currentRestTime.minutes = parseInt(currentRestTime.minutes.toString().padStart(2, '0'));
-    currentRestTime.seconds = parseInt(currentRestTime.seconds.toString().padStart(2, '0'));
+    currentRestTime.hours =   currentRestTime.hours.toString().padStart(2, '0');
+    currentRestTime.minutes = currentRestTime.minutes.toString().padStart(2, '0');
+    currentRestTime.seconds = currentRestTime.seconds.toString().padStart(2, '0');
 
+    console.log('currentRestTime.hours',currentRestTime.hours);
+    console.log('currentRestTime.minutes',currentRestTime.minutes);
+    console.log('currentRestTime.seconds',currentRestTime.seconds);
 
+    if(!((parseInt(currentRestTime.seconds) > 0) || (parseInt(currentRestTime.minutes) > 0) || (parseInt(currentRestTime.hours) > 0))){
+      switch (this.country.toLowerCase()) {
+        case 'brasil':
+          body.innerHTML = 'Você excedeu o limite diário de 2 horas, seus pontos não serão computados.';
+          break;
+        case 'usa':
+          body.innerHTML = 'You have exceeded the 2 hour daily limit, click stop to save time.';
+          break;
+        default:
+          body.innerHTML = 'Ha excedido el límite diario de 2 horas, haga clic en detener para ahorrar tiempo.';
+          break;
+      }
+
+    }else{
+    let textTime
+    let textRestTime
+    
     switch (this.country.toLowerCase()) {
       case 'brasil':
-        textTime = 'Tempo:';
-        textRestTime = 'Tempo:';
-        break;
+        textTime = 'Tempo contabilizado:';
+        textRestTime = 'Tempo restante diário:';
+
+        body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
+        body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
+      break;
       case 'usa':
-        textTime = 'Time:';
-        textRestTime = 'Time remaining:';
-        break;
+        textTime = 'Saved time:';
+        textRestTime = 'Remaining daily time:';
+
+        body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
+        body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
+      break;
       default:
-        textTime = 'Tiempo:';
-        textRestTime = 'Tiempo restante:';
-        break;
+        textTime = 'Tiempo contabilizado:';
+        textRestTime = 'Tiempo restante diario:';
+
+        body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
+        body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
+      break;
     }
-
-      body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
-      
-      body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
-
-      
-
+  }
+    
     const footer = document.createElement("div");
     footer.className = 'footerConfirm';
       footer.innerHTML = '';
