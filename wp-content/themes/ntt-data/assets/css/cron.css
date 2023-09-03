@@ -795,6 +795,10 @@ div.liked > svg > path {
   overflow-y: scroll;
   margin: 5px 0;
 }
+.main .content .commentsArea::-webkit-scrollbar {
+  display: none;
+}
+
 .main .content .commentsArea .comments {
   display: flex;
 }

@@ -83,7 +83,6 @@ if ($hasComment) {
                     <p><?= $textLikes ?></p>
                 </div>
             </div>
-            '
         </div>
     <?php
     }
