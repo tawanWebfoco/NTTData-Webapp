@@ -96,15 +96,18 @@ if($_SESSION['user']->id_user){
         $pubData['file'] = $dataFile['url'];
         $pubData['type_file'] = $dataFile['type'];
     }
-  
-    $publication = new Pub($pubData);
-    $publication->insert($user);
+    if(empty($pubData['message']) && empty($pubData['file'])){
+      $errors['arquivo'] = 'Insira uma mensagem ou arquivo.';
+    }else{
 
-
-    $url = home_url();
-    $url .= '/app?p=feed';
-    usleep(500000); // 500000 microssegundos = 500 milissegundos
-    header("Location:$url");
+       $publication = new Pub($pubData);
+       $publication->insert($user);
+       
+        $url = home_url();
+        $url .= '/app?p=feed';
+        usleep(500000); // 500000 microssegundos = 500 milissegundos
+        header("Location:$url");
+      }
 
 }else{
    $errors['arquivo'] = 'Não foi possível enviar sua publicação';

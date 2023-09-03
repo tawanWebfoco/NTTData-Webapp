@@ -33,12 +33,19 @@ if ($hasComment) {
         $diferenca = $dataAtual->diff($dataPublicacao);
 
         $diffDate = "Recente";
-        if ($diferenca->y > 0) $diffDate = _t['feed_anosantes'] . $diferenca->y . _t['feed_anos'];
-        if ($diferenca->m > 0) $diffDate = _t['feed_mesesantes'] . $diferenca->m . _t['feed_meses'];
-        if ($diferenca->d > 0) $diffDate = _t['feed_diasantes'] . $diferenca->d . _t['feed_dias'];
-        if ($diferenca->h > 0) $diffDate = _t['feed_horasantes'] . $diferenca->h . _t['feed_horas'];
-        if ($diferenca->i > 0) $diffDate = _t['feed_minutosantes'] . $diferenca->i . _t['feed_minutos'];
-?>
+        if ($diferenca->y > 0){ 
+            $diffDate = _t['feed_anosantes'] . $diferenca->y . _t['feed_anos'];
+        }else if ($diferenca->m > 0){ 
+            $diffDate = _t['feed_mesesantes'] . $diferenca->m . _t['feed_meses'];
+        }else if ($diferenca->d > 0){ 
+            $diffDate = _t['feed_diasantes'] . $diferenca->d . _t['feed_dias'];
+        }else if ($diferenca->h > 0){ 
+            $diffDate = _t['feed_horasantes'] . $diferenca->h . _t['feed_horas'];
+        }else if ($diferenca->i > 0){ 
+            $diffDate = _t['feed_minutosantes'] . $diferenca->i . _t['feed_minutos'];
+        }
+        ?>
+        
         <div class="comments">
             <div class="imgPerfil">
                 <img src="<?= $url_img; ?>" alt="<?=_t['feed_pub_alt_imagem']?>">

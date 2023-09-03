@@ -13,7 +13,7 @@ const timerView = new TimerView({
   timerStorage,
   timerController: null,
   currentTimeFromDb,
-  country: arraUser[3]
+  language: arraUser[3]
 });
 
 timerView.run();
@@ -25,7 +25,7 @@ const user = {
   id_user: arraUser[0],
   full_name: arraUser[1],
   email: arraUser[2],
-  country: arraUser[3],
+  language: arraUser[3],
 }
 
 userStorage.setStorage(user);

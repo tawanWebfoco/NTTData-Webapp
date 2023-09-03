@@ -40,14 +40,14 @@ class TimerView {
   // Inject Dependences
   timerStorage = null;
   timerController = null;
-  country = null
+  language = null
   currentTimeFromDb = 0;
 
   constructor(props) {
     this.timerStorage = props.timerStorage;
     this.timerController = props.timerController;
     this.currentTimeFromDb = props.currentTimeFromDb
-    this.country = props.country
+    this.language = props.language
     return this;
   }
 
@@ -115,11 +115,11 @@ class TimerView {
     //   this.hasExceededLimit = true;
 
 
-      // switch (this.country.toLowerCase()) {
-      //   case 'brasil':
+      // switch (this.language.toLowerCase()) {
+      //   case 'pt':
       //     this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo.');
       //     break;
-      //   case 'usa':
+      //   case 'en':
       //     this.newBoxAlertConfirm(false,'You have exceeded the 2 hour daily limit, click stop to save time.');
       //     break;
       //   default:
@@ -327,14 +327,14 @@ class TimerView {
   configureEventStopTimer(onSaveTimer) {
     this.stopButton.addEventListener('click', async () => {
 
-      console.log(this.country.toLowerCase());
+      console.log(this.language.toLowerCase());
       
       let textSaveTime;
-      switch (this.country.toLowerCase()) {
-        case 'brasil':
+      switch (this.language.toLowerCase()) {
+        case 'pt':
           textSaveTime = 'Deseja parar e salvar o tempo?';
         break;
-        case 'usa':
+        case 'en':
           textSaveTime = 'Want to stop and save time?';
         break;
         default:
@@ -348,11 +348,11 @@ class TimerView {
         this.currentTimeFromDb = parseInt(this.currentTimeFromDb) + parseInt(this.scoreInsertDataBase)
         this._resetTimer();
         await onSaveTimer();
-        switch (this.country.toLowerCase()) {
-          case 'brasil':
+        switch (this.language.toLowerCase()) {
+          case 'pt':
             this.newBoxAlertConfirm(false,'Tempo salvo com sucesso.');
             break;
-          case 'usa':
+          case 'en':
             this.newBoxAlertConfirm(false,'Time successfully saved.');
             break;
           default:
@@ -424,11 +424,11 @@ class TimerView {
     console.log('currentRestTime.seconds',currentRestTime.seconds);
 
     if(!((parseInt(currentRestTime.seconds) > 0) || (parseInt(currentRestTime.minutes) > 0) || (parseInt(currentRestTime.hours) > 0))){
-      switch (this.country.toLowerCase()) {
-        case 'brasil':
+      switch (this.language.toLowerCase()) {
+        case 'pt':
           body.innerHTML = 'Você excedeu o limite diário de 2 horas, seus pontos não serão computados.';
           break;
-        case 'usa':
+        case 'en':
           body.innerHTML = 'You have exceeded the 2 hour daily limit, click stop to save time.';
           break;
         default:
@@ -440,15 +440,15 @@ class TimerView {
     let textTime
     let textRestTime
     
-    switch (this.country.toLowerCase()) {
-      case 'brasil':
+    switch (this.language.toLowerCase()) {
+      case 'pt':
         textTime = 'Tempo contabilizado:';
         textRestTime = 'Tempo restante diário:';
 
         body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
         body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
       break;
-      case 'usa':
+      case 'en':
         textTime = 'Saved time:';
         textRestTime = 'Remaining daily time:';
 

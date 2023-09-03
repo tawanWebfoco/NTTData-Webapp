@@ -54,6 +54,10 @@ define('_t', [
     'registro_p_3' => 'E lembre-se, cada movimento conta. Incentive seus amigos, familiares e colegas a se juntarem-se nessa jornada de bem-estar. Juntos, faremos a diferença!',
     'registro_p_4' => 'Saiba mais e acompanhe todas as atualizações no nosso site oficial: ',
     'registro_btn_cta' => 'Acessar',
+
+    'registro_sendEmailSubject' => "Valide seu email para fazer parte! Mova-se pelos ODS!",
+    'registro_sendEmailMessageBegin' => "<h2><b>Faça parte do grande movimento da NTT DATA</b></h2><p>Valide seu email clicando no link abaixo!</p><a href='",
+    'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Saiba mais em nosso site oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
     
 
     /* Página Feed */
@@ -107,6 +111,10 @@ define('_t', [
     'perfil_editarfoto' => 'editar foto',
     'perfil_cameraalt' => 'Imagem para Upload',
     'perfil_cameratitle' => 'Imagem para Upload',
+    'perfil_language' => 'Idioma',
+    'perfil_languageNamePt' => 'Português',
+    'perfil_languageNameEs' => 'Espanhol',
+    'perfil_languageNameEn' => 'Inglês',
     'perfil_btneditar' => 'Editar',
     'perfil_btncancelar' => 'Canlelar',
     'perfil_btnsalvar' => 'Salvar',
@@ -128,6 +136,9 @@ define('_t', [
     'perfil_convidadosobre_p2' => 'Nossa campanha tem como objetivo impulsionar os Objetivos de Desenvolvimento Sustentável da ONU, destacando a importância do cuidado com a saúde física e mental, além da preservação do meio ambiente.',
     'perfil_convidadosobre_p3' => 'E aí, topa se juntar a nós nessa jornada? Queremos contar com a sua participação para tornar a 2ª edição do "Move For The SDG" ainda mais especial!',
     'perfil_convidadosobre_p4' => 'Saiba mais e acompanhe todas as novidades em nosso site:',
+    'perfil_subjectMessageSendEmail' => 'NTT DATA te convida a fazer parte! Mova-se pelos ODS!',
+    'perfil_messageSendEmailBegin' => '<h2><b>Faça parte do grande movimento da NTT DATA</b></h2><p>Olá!</p><p>Você foi convidado a participar do "Mova-se Pelas ODS" uma ação em que colaboradores da NTT DATA e apoiadores como você se unem para contribuir com os Objetivos de Desenvolvimento Sustentável das Nações Unidas.</p><p>O "Mova-se Pelas ODS" é uma demonstração do nosso compromisso com questões globais importantes, como igualdade, saúde, educação, meio ambiente e muito mais. Acreditamos que cada ação, não importa o quão pequena, pode criar um impacto positivo no mundo. É por isso que estamos convidando pessoas como você, que compartilham dos mesmos valores e desejam fazer a diferença, a se juntar a nós nesse movimento.</p><p>Como parte deste movimento, realizamos uma série de atividades, incluindo eventos de conscientização, voluntariado, arrecadação de fundos e ações práticas que apoiam diretamente os ODS. Através da colaboração e do trabalho em equipe, acreditamos que podemos alcançar mudanças reais e significativas.</p><p>Juntos, podemos "Mova-se Pelas ODS" e tornar nosso mundo um lugar melhor para as gerações futuras. Acesse nosso aplicativo e',
+    'perfil_messageSendEmailEnd' => "'>Cadastre-se</a> para começar a somar nessa jornada!</p><p>Saiba mais em nosso site oficial: moveforthesdgs.com</p>",
 
 
     'regulamento_leia' => 'Leia o regulamento',

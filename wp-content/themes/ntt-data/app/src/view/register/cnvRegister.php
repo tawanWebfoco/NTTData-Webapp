@@ -75,7 +75,7 @@ get_header('login');
                         <div><input autocomplete="none" type="password" id="password" name="password"
                         class="form-control 
                         <?= isset($errors['password']) ? 'is-invalid' : ''; ?>" 
-                        value="<?=  isset($password) ? $password : ''; ?>" 
+                        value="" 
                         placeholder="" autofocus></div>
                         <div class="invalid-feedback">
                             <?=  isset($errors['password']) ? $errors['password'] : '';

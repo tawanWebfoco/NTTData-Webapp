@@ -53,13 +53,16 @@ define('_t', [
     'registro_p_2' => 'Corre, baila, salta, medita, juega con tus hijos, al pádel, al vóley, o reúnete con tus colegas para un partido de fútbol, recicla o haz trabajo voluntario. Sé creativo y diviértete mientras cuidas de tu cuerpo y mente.',
     'registro_p_3' => 'Y recuerda: cada movimiento cuenta. Anima a tus amigos, familiares y colegas a unirse a nosotros en este camino de bienestar. ¡Juntos, haremos la diferencia! ',
     'registro_p_4' => 'Obtén más información y sigue todas las actualizaciones en nuestro sitio web: ',
+    'registro_btn_cta' => 'Acceso',
 
     'registro_cnv_p_1' => 'Estamos promoviendo la 2ª edición de nuestra campaña "Muévete por los ODS". Después de un primer año increíble, con más de 6.000 horas de actividad física realizadas, uniendo a empleados de los 8 países de nuestra región, ¡estamos listos para volver y superar los resultados de 2022!',
     'registro_cnv_p_2' => 'Nuestra campaña tiene como objetivo promover los Objetivos de Desarrollo Sostenible de las Naciones Unidas, destacando la importancia del cuidado de la salud física y mental, además de las acciones sociales y la preservación del medio ambiente.',
     'registro_cnv_p_3' => '¿Te animas a unirte a nosotros en este viaje? ¡Queremos contar con tu participación para lograr que la 2ª edición de "Muévete por los ODS" sea aún más especial! ',
     'registro_cnv_p_4' => 'Obtén más información y sigue todas las novedades en nuestro sitio web: ',
 
-    'registro_btn_cta' => 'Acceso',
+    'registro_sendEmailSubject' => "¡Valida tu correo electrónico para unirte! ¡Muévete por el ODS!",
+     'registro_sendEmailMessageBegin' => "<h2><b>Sé parte del gran movimiento NTT DATA</b></h2><p>¡Valida tu correo electrónico haciendo clic en el siguiente enlace!</p><a href=' ",
+     'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Obtenga más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>" ,
     
 
     /* Página Feed */
@@ -114,6 +117,10 @@ define('_t', [
     'perfil_editarfoto' => 'editar foto',
     'perfil_cameraalt' => 'Imagen para subir',
     'perfil_cameratitle' => 'Imagen para cargar',
+    'perfil_language' => 'Idioma',
+    'perfil_languageNamePt' => 'Português',
+    'perfil_languageNameEs' => 'Español',
+    'perfil_languageNameEn' => 'Inglés',
     'perfil_btneditar' => 'Editar',
     'perfil_btncancelar' => 'Cancelar',
     'perfil_btnsalvar' => 'Guardar',
@@ -135,6 +142,12 @@ define('_t', [
     'perfil_convidadosobre_p2' => 'Nuestra campaña pretende impulsar los Objetivos de Desarrollo Sostenible de la ONU, destacando la importancia del cuidado de la salud física y mental, además de preservar el medio ambiente.',
     'perfil_convidadosobre_p3' => 'Entonces, ¿te gustaría acompañarnos en este viaje? ¡Queremos contar con vuestra participación para hacer aún más especial la 2ª edición de "Move For The SDG"!',
     'perfil_convidadosobre_p4' => 'Conoce más y sigue todas las novedades en nuestra web:',
+    'perfil_subjectMessageSendEmail' => '¡NTT DATA te invita a participar! ¡Muévete por los ODS!',
+
+    'perfil_messageSendEmailBegin' => '<h2><b>Únete al gran movimiento de NTT DATA</b></h2><p>¡Hola!</p><p>Has sido invitado a participar en "Muévete por los ODS", una iniciativa en la que colaboradores de NTT DATA y apoyadores como tú se unen para contribuir a los Objetivos de Desarrollo Sostenible de las Naciones Unidas.</p><p>"Muévete por los ODS" es una manifestación de nuestro compromiso con cuestiones globales importantes como la igualdad, la salud, la educación, el medio ambiente y mucho más. Creemos que cada acción, por pequeña que sea, puede tener un impacto positivo en el mundo. Por eso, estamos invitando a personas que comparten nuestros valores y desean marcar la diferencia, a unirse a nosotros en este movimiento.</p><p>Como parte de este movimiento, llevamos a cabo una serie de actividades, que incluyen eventos de concientización, voluntariado, recaudación de fondos y acciones prácticas que respaldan directamente los ODS. A través de la colaboración y el trabajo en equipo, podemos lograr cambios reales y significativos.</p><p>Juntos, podemos "Muévete por los ODS" y hacer de nuestro mundo un lugar mejor para las futuras generaciones. Accede a nuestra aplicación y',
+    
+    'perfil_messageSendEmailEnd' => "'>Regístrate</a> para comenzar a sumarte a esta jornada.
+    </p><p>Obtén más información en nuestro sitio web oficial: moveforthesdgs.com</p>",
 
 
     'regulamento_leia' => 'Leer el reglamento',

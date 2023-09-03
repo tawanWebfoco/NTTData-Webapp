@@ -22,4 +22,6 @@
 <!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/perfil/logout.js"></script> -->
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/uploadImg.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/updatatePersonInfo.js"></script>
+<?php if(get_class($user) === 'User'):; ?>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/addRemoveEmail.js"></script>
+<?php endif; ?>
