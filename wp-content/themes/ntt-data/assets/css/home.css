@@ -25,21 +25,6 @@ html.disabled{
 overflow: hidden;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-   width: 8px;
- }
- ::-webkit-scrollbar-track { 
-   background: var(--background-gray);
- }
- ::-webkit-scrollbar-thumb {
-   background: var(--blue-secundary); 
-   border-radius: 10px;
- }
- ::-webkit-scrollbar-thumb:hover {
-   background: var(--blue-secundary-hover); 
- }
-
 /* MULTIPLE SECTIONS */
 
 .main .titleOne{
@@ -82,10 +67,14 @@ overflow: hidden;
 }
 
 
-@media (max-width: 600px)
+@media (max-width: 800px)
 {
    .main .titleLastYear, .main .textTwo .bottom .title{
       font-size: 1.8rem;
+   }
+   .main .titleLastYear{
+      
+      padding: 0 20px;
    }
    .main .titleOne {
       text-align: center;
@@ -93,7 +82,10 @@ overflow: hidden;
    .main .sectionVideo .left .img {
       display: flex;
       justify-content: center;
+      margin: 30px auto 0;
+      width: 300px;
   }
+ 
 
 }
 
@@ -157,8 +149,9 @@ overflow: hidden;
 
 /* MOBILE */
 
-@media (max-width: 600px)
+@media (max-width: 800px)
 {
+  
    .header .container {
       justify-content: center;   
       padding: 20px 0px;
@@ -168,6 +161,9 @@ overflow: hidden;
       color: var(--blue-primary);
       cursor: pointer;
       padding: 15px 0;
+   }
+   .header nav.menu > a, .header nav.menu select {
+      font-size: .7rem;
    }
 }
 
@@ -204,7 +200,7 @@ overflow: hidden;
 .main .banner .video .header:after {
    content: '';
    display: flex;
-   background-color: #0000009e;
+   background-color: #0000004a;
    height: 545px;
    width: 1511px;
    position: absolute;
@@ -234,7 +230,7 @@ overflow: hidden;
    top: 20px;
    z-index: 9999;
 }
-@media (max-width: 600px)
+@media (max-width: 800px)
 {
    .main .banner .video .header:after {
       width: 100%;
@@ -248,11 +244,11 @@ overflow: hidden;
    }
    
    .main .banner .bannerContainerVideo video {
-      height: 230px;
+      height: 50vw;
       top: -80px;
    }
    .main .banner  .content {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin: 100px 0;
       font-weight: 600;
    }
@@ -302,12 +298,17 @@ section.downbanner .right .day {
    margin-right: 20px;
 }
 
-@media (max-width: 600px)
+@media (max-width: 800px)
 {
    section.downbanner {
       width: 93%;
       padding: 20px;
+      flex-direction: column;
+    align-items: center;
    }
+   section.downbanner .left p {
+      font-size: 1rem;
+  }
 }
 /* END DOWNBANNER */
 
@@ -391,9 +392,9 @@ section.downbanner .right .day {
 
  /* MOBILE BANNER*/
 
-@media (max-width: 600px){
+@media (max-width: 800px){
    .main .textOne .container {
-      padding: 0px 10px;
+      padding: 0px 15px;
    }
    .main .textOne .container .top {
       margin: 0px;
@@ -402,7 +403,7 @@ section.downbanner .right .day {
       flex-direction: column-reverse;
    }
    .main .textOne .container .top .left {
-      width: 100%;
+      width: auto;
    }
    .main .textOne .container .top .left .description{
       margin: 0 5px;
@@ -424,34 +425,7 @@ section.downbanner .right .day {
    .main .textOne .container .top .right img#desc {
       width: 35vw;
    }
-   .main .sectionCards .left .cards {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: scroll;
-      transform: translateX(0px);
-      justify-content: flex-start;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-   }
-   .main .sectionCards .left .cards .card {
-      max-height: none;
-      flex: 0 0 auto;
-  width: 80%;
-  margin-right: 1rem;
-  scroll-snap-align: start;
-  }
-  .main .sectionCards .left .cards .card:hover img{
-   transform: scale(1);
-}
-.main .sectionCards .left .cards .card div.content{
-   visibility: visible;
-   margin:0;
-   opacity: 1;
-   display: none;
-}
-.main .sectionCards .left .cards .card:hover div.content{
-   display: flex;
-}
+  
  }
 
  /* END TEXT ONE */
@@ -491,6 +465,7 @@ section.downbanner .right .day {
 }
 .main .sectionCards .left .cards .card img{
    transition: .4s;
+   
 }
 .main .sectionCards .left .cards .card div.content{
    visibility: hidden;
@@ -543,15 +518,19 @@ section.downbanner .right .day {
 }
  /* MOBILE SECTIONCARDS*/
 
- @media (max-width: 600px){
+ @media (max-width: 800px){
   
    .main .sectionCards .container {
       flex-direction: column;
-      padding: 10px;
+      padding: 10px 20px;
    }
    .main .sectionCards .container .left {
-      width: 100%;
+      width: 27%;
    }
+   .main section.sectionCards {
+      margin: 50px 0 0px 0;
+  }
+  
    .main .sectionCards .left .cards {
       display: flex;
       flex-wrap: nowrap;
@@ -571,21 +550,24 @@ section.downbanner .right .day {
   .main .sectionCards .left .cards .card:hover img{
    transform: scale(1);
 }
+.main .sectionCards .left .cards .card img{
+   width: 300px;
+}
 
 .main .sectionCards .left .cards .card div.content {
-   visibility: visible;
-   /* margin: 0; */
    opacity: 1;
-   /* display: none; */
-   top: 170px;
+   top: 136px;
+   width: 62%;
    height: max-content;
    margin: 0 0 0 7px;
+
 }
 .main .sectionCards .left .cards .card:hover div.content{
    display: block;
 }
 .main .sectionCards .container .right {
-   width: 100%;
+   width: 90vw;
+   margin-top: 20px;
 }
  }
 
@@ -618,6 +600,10 @@ section.downbanner .right .day {
 }
 .main .sectionVideo .left .img {
    margin-top: 25px;
+   width: 220px;
+}
+.main .sectionVideo .left .img img {
+   width: 100%;
 }
 .main .sectionVideo .left.reverse{
    margin-right: 0px;
@@ -648,10 +634,11 @@ section.downbanner .right .day {
 
 /* MOBILE BANNER*/
 
-@media (max-width: 600px){
+@media (max-width: 800px){
    .main .sectionVideo .top {
       flex-direction: column;
       align-items: center;
+      margin: 0;
    }
 .main .sectionVideo .top.reverse {
    flex-direction: column;
@@ -660,10 +647,11 @@ section.downbanner .right .day {
    margin-left: 0;
 }
    .main .sectionVideo .container {
-      padding: 0px 10px;
+      padding: 0px 20px;
    }
    .main .sectionVideo .left {
-      width: 95%;
+      width: auto;
+      margin-right: 0;
    }
   
    .main .sectionVideo .bottom .title {
@@ -671,13 +659,12 @@ section.downbanner .right .day {
   }
   .main .sectionVideo .right{
    width: 95%;
-   margin: 30px 0;
+   margin: 30px 0 0;
    }
    .main .sectionVideo .right video {
       height: 260px;
       object-fit: cover;
    }
-  
 }
 
 /* END SECTIONVIDEO */
@@ -696,7 +683,7 @@ section.downbanner .right .day {
 }
 .main .ranking .container{
    display: flex;
-   padding: 50px 100px;
+   padding: 50px 70px;
    justify-content: center;
 }
 .main .ranking .container .top{
@@ -720,9 +707,10 @@ section.downbanner .right .day {
 }
 .main .ranking .container .bottom .left{
    display: flex;
-   width: 35%;
+   width: 30%;
    justify-content: space-around;
-   margin-right: 40px;
+   margin-right: 30px;
+   margin-top: 20px;
 }
 .main .ranking .container .bottom .left .column{
    display: flex;
@@ -754,7 +742,10 @@ section.downbanner .right .day {
 }
 
 .main .ranking .container .bottom .right {
-   width: 75%;
+   width: 90%;
+}
+.main .ranking .container .bottom .right > div{
+   padding: 10px 0;
 }
 .main .ranking .container .bottom .right .title{
    text-align: center;
@@ -782,7 +773,14 @@ section.downbanner .right .day {
    object-fit: contain;
    height: 40px;
 }
-@media (max-width: 600px){
+
+@media (max-width: 1200px){
+   .main .ranking .container .bottom .right .sports>div {
+      width: 25%;
+   }
+}
+
+@media (max-width: 800px){
    .main .ranking .container {
       padding: 50px 10px;
    }
@@ -841,6 +839,7 @@ section.downbanner .right .day {
 .footer span{
    font-size:.8rem;
    color: var(--text-silver-light);
+   margin-top: 5px;
 }
 .footer .container{
    flex-direction: column;
@@ -855,37 +854,28 @@ section.downbanner .right .day {
 .footer .top .left{
    display: flex;
    flex-direction: column;
+   margin-top: 7px;
 }
 .footer .top .left img{
-   margin-left: -10px;
+   /* margin-left: 10px; */
 }
 .footer .top .right .redes{
    display: flex;
    justify-content: center;
    align-items: center;
 }
+.footer .top .right  {
+   text-align: center;
+}
 .footer .top .right .redes img{
    cursor: pointer;
    margin: 0 3px;
 }
-@media (max-width: 600px){
+@media (max-width: 800px){
    .footer .container{
-       display: flex;
-       justify-content: space-evenly;
-       padding: 0px 20px;
-       gap: 15px;
-       text-align: center;
-  }
-  .footer .top {
-   flex-direction: column;
-   gap: 15px;
-  }
-  .footer .top > div {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
-  }
+      justify-content: space-evenly;
+      padding: 0px 20px;
+   }
 }
 
 
