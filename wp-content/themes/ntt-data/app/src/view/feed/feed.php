@@ -27,6 +27,7 @@
 
 <script>
     Document.prototype.homePath = "<?= home_url() ?>";
+    Document.prototype.language = "<?= $user->language?>";
 </script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\feed/uploadImgVideo.js"></script>
 <?php if (get_class($user) === 'User') :; ?>

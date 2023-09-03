@@ -7,7 +7,7 @@
             </div>
             <div class="yourRank">
                 <div class="score">
-                    <div class="number"><?= $user->score ?></div>
+                    <div class="number"><?= !($user->score <= 0) ? $user->score : 0 ?></div>
                     <div class="text"><?=_t['rank_pontosmaius']?></div>
                     
                 </div>

@@ -62,7 +62,7 @@
 
 <script>
     Document.prototype.homePath = "<?= home_url() ?>";
-    Document.prototype.userWebApp = "<?php echo $user->id_user . ',' . $user->full_name . ',' .  $user->email . ',' .  $user->country . ',' .  $user->score . ',' .  $user->time  ?>"; 
+    Document.prototype.userWebApp = "<?php echo $user->id_user . ',' . $user->full_name . ',' .  $user->email . ',' .  $user->language . ',' .  $user->score . ',' .  $user->time  ?>"; 
     Document.prototype.currentTimeFromDb = "<?= isset($currentTimeFromDb) ? $currentTimeFromDb : 0 ?>";
 </script>
 

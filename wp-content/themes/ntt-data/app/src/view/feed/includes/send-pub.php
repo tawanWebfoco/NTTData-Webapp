@@ -9,7 +9,7 @@
             <textarea name="textareaPub" id="textareaPub" maxlength="140" placeholder="<?=_t['feed_pub_caixa']?>" rows="4" required></textarea>
 
             <input type="file" name="arquivoImg" class="inputUploadImage" id="arquivoImg" accept="image/*" style="display: none;" />
-            <input type="file" name="arquivoVideo" class="inputUploadVideo" id="arquivoVideo" accept="video/*" style="display: none;" />
+            <input type="file" name="arquivoVideo" class="inputUploadVideo" id="arquivoVideo"  style="display: none;" />
         </div>
 
         <div class="imagemContainer">

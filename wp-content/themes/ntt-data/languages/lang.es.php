@@ -53,6 +53,7 @@ define('_t', [
     'registro_p_2' => 'Corre, baila, salta, medita, juega con tus hijos, al pádel, al vóley, o reúnete con tus colegas para un partido de fútbol, recicla o haz trabajo voluntario. Sé creativo y diviértete mientras cuidas de tu cuerpo y mente.',
     'registro_p_3' => 'Y recuerda: cada movimiento cuenta. Anima a tus amigos, familiares y colegas a unirse a nosotros en este camino de bienestar. ¡Juntos, haremos la diferencia! ',
     'registro_p_4' => 'Obtén más información y sigue todas las actualizaciones en nuestro sitio web: ',
+    'registro_btn_cta' => 'Acceso',
 
     'registro_cnv_p_1' => 'Estamos promoviendo la 2ª edición de nuestra campaña "Muévete por los ODS". Después de un primer año increíble, con más de 6.000 horas de actividad física realizadas, uniendo a empleados de los 8 países de nuestra región, ¡estamos listos para volver y superar los resultados de 2022!',
     'registro_cnv_p_2' => 'Nuestra campaña tiene como objetivo promover los Objetivos de Desarrollo Sostenible de las Naciones Unidas, destacando la importancia del cuidado de la salud física y mental, además de las acciones sociales y la preservación del medio ambiente.',

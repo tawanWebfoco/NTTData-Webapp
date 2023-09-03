@@ -7,7 +7,7 @@
 
 - # A ideia é “forçar” os colaboradores a usarem o e-mail @nttdata.com para facilitar os relatórios do Wendell;
 
-- Mariana e Wendell solicitaram que o Tawan inclua todos os países no campo “País” no momento do cadastro;
+- # Mariana e Wendell solicitaram que o Tawan inclua todos os países no campo “País” no momento do cadastro;
 
 - # Tawan precisa deixar um limite de até 5MB para upload de fotos;
 
@@ -23,8 +23,8 @@
 
 - # Precisamos validar o campo “Ranking Geral” top 10, pois está com erros;
 
-- Atualizar o layout do Cronômetro
-- Atualizar o layout das Pontuações do Ranking para as cores do Wireframe. Pela versão apresentada (em Cinza), ficou muito “sem graça”;
+- # Atualizar o layout do Cronômetro
+- # Atualizar o layout das Pontuações do Ranking para as cores do Wireframe. Pela versão apresentada (em Cinza), ficou muito “sem graça”;
 
 - # Tawan informou que estamos trabalhando nas versões traduzidas para ser entregues essa semana;
 
@@ -60,9 +60,9 @@
 
 <!-- ---------- ÚLTIMOS AJUSTES ---------- -->
 
-- Ajuste de texto para e-mail de convidado
+- # Ajuste de texto para e-mail de convidado
 
-- Correções de dinâmica de traduções
+- # Correções de dinâmica de traduções
 
 - Correção de problema de extensão no upload de vídeo
 
