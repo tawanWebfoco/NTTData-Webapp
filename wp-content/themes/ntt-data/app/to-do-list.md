@@ -64,7 +64,7 @@
 
 - # Correções de dinâmica de traduções
 
-- Correção de problema de extensão no upload de vídeo
+- # Correção de problema de extensão no upload de vídeo
 
 - Ajustes na lógica de engajamento do ranking
 
@@ -72,13 +72,13 @@
 
 - # Ajuste de texto SUBA SEU TEMPO AQUI para REGISTRE SEU TEMPO AQUI
 
-- Ajuste no limite diário de horas de exercício - de 2h para 4h
+- # Ajuste no limite diário de horas de exercício - de 2h para 4h
 
 - Otimização de imagens
 
 - Ajuste de duração de sessão para só fazer logoff automático após 4h
 
-- Ajustar os Países no ranking em ordem alfabética
+- # Ajustar os Países no ranking em ordem alfabética
 
 - # Ajuste para incluir campo de linguagem na página do perfil, onde o usuário consegue alterar para outra (por padrão, o app vem com a linguagem do País, mas também vamos dar a opção de ajustar)
 

@@ -28,7 +28,7 @@ inputUploadImage.addEventListener('change', function() {
     selectedImage = inputUploadImage.files[0];
 
     if(selectedImage.size > maxFileSize) {
-        messageError.textContent = "A imagem é muito grande. Tamanho máximo: 1MB.";
+        messageError.textContent = "A imagem é muito grande. Tamanho máximo: 5MB.";
         deleteAnexo();
         return
     }else{
@@ -88,14 +88,6 @@ inputUploadVideo.addEventListener('change', function() {
                 thumbnail.src = canvas.toDataURL("image/jpeg");
             };
 
-            //  await video.play();
-
-            //  var canvas = document.createElement("canvas");
-            //  canvas.width = video.videoWidth;
-            //  canvas.height = video.videoHeight;
-            //  var ctx = canvas.getContext("2d");
-            //  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            //  thumbnail.src = canvas.toDataURL();
 
 
             // textArea.removeAttribute('required');

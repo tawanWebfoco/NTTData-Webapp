@@ -3,6 +3,7 @@ class Guest extends Model{
     protected static $tableName = 'wp_app_guest';
     protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country','language'];
     protected static $idTable = 'id_guest';
+    protected $pointsForInvite = 50;
 
     private function validate() {
         $errors = [];
@@ -82,7 +83,25 @@ class Guest extends Model{
    
     public function register(){
         $this->validate();
-        return parent::register();
+        $id_guest = parent::register();
+
+         // ATUALIZA SCORE
+         $score = User::getOne(['id_user' => $this->id_user], 'score')->score;
+         $score = $score + $this->pointsForInvite;
+
+         $updateScore = [
+             'id_user' => $this->id_user,
+             'primary_key' => $this->id_user,
+             'score' => $score
+             ];
+       
+             $updateScore = new User($updateScore);
+             if($updateScore->id_user) {
+                   $updateScore->update();
+             }
+
+             return $id_guest;
+
     }
 
 }
