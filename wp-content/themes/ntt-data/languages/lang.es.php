@@ -141,7 +141,7 @@ define('_t', [
 
     /* Página Cronometro */
 
-    'cron_h1' => 'Cuenta tu tiempo aquí', 
+    'cron_h1' => 'Registra tu tiempo aquí', 
     'cron_title' => 'Activa el cronómetro al iniciar tu actividad', 
     'cron_limit_day' => 'EJERCICIOS DIARIOS DE LÍMITE DE 2 HORAS', 
     'cron_minutes' => 'Minutos', 

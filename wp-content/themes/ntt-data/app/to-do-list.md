@@ -70,7 +70,7 @@
 
 - Zerar o ranking de engajamento p/ segunda
 
-- #R Ajuste de texto SUBA SEU TEMPO AQUI para REGISTRE SEU TEMPO AQUI
+- # Ajuste de texto SUBA SEU TEMPO AQUI para REGISTRE SEU TEMPO AQUI
 
 - Ajuste no limite diário de horas de exercício - de 2h para 4h
 
