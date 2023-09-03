@@ -61,14 +61,14 @@ inputUploadVideo.addEventListener('change', function() {
     console.log(selectedVideo);
 
     if(selectedVideo.size > maxFileSize) {
-        messageError.textContent = "O vídeo é muito grande. Tamanho máximo: 20MB.";
+        messageError.textContent = "O vídeo é muito grande. Tamanho máximo: 50MB.";
         deleteAnexo();
         return
     }else{
     if (inputUploadVideo.files && selectedVideo && isValidVideoType(selectedVideo.type)) {
         var reader = new FileReader();
 
-        reader.onload = async function(event) {
+        reader.onload = function(event) {
             
             textArea.removeAttribute('required');
             nameImg.innerHTML = selectedVideo.name;
@@ -76,23 +76,42 @@ inputUploadVideo.addEventListener('change', function() {
             imageContent.classList.add('active')
             var video = document.createElement("video");
             video.src = URL.createObjectURL(selectedVideo);
-            // thumbnail.src = canvas.toDataURL();
+
+            video.onloadedmetadata = function() {
+                var canvas = document.createElement("canvas");
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                var thumbnail = document.getElementById("thumbnail");
+                thumbnail.src = canvas.toDataURL("image/jpeg");
+            };
+
+            //  await video.play();
+
+            //  var canvas = document.createElement("canvas");
+            //  canvas.width = video.videoWidth;
+            //  canvas.height = video.videoHeight;
+            //  var ctx = canvas.getContext("2d");
+            //  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            //  thumbnail.src = canvas.toDataURL();
+
 
             // textArea.removeAttribute('required');
-            // nameImg.innerHTML = selectedImage.name;
+            // nameImg.innerHTML = selectedVideo.name;
             // messageError.textContent = "";
             // imageContent.classList.add('active')
-            // thumbnail.src = event.target.result;
+            // var video = document.createElement("video");
+            // video.src = URL.createObjectURL(selectedVideo);
+            //  await video.play();
+            //  var canvas = document.createElement("canvas");
+            //  canvas.width = video.videoWidth;
+            //  canvas.height = video.videoHeight;
+            //  var ctx = canvas.getContext("2d");
+            //  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            //  thumbnail.src = canvas.toDataURL();
 
-            await video.play();
-            await video.pause();
-
-            var canvas = document.createElement("canvas");
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            var ctx = canvas.getContext("2d");
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            thumbnail.src = canvas.toDataURL();
         }
 
         reader.readAsDataURL(inputUploadVideo.files[0]);
