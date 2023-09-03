@@ -39,4 +39,23 @@
             }
             return $id_comment;
         }
+        public function validateDelete(){
+
+            $existComment = $this->getOne(['id_comment' => $this->id_comment]);
+            // print_r(isset());
+            $errors = [];
+
+            if($this->id_user !== $this->user_id_user) {
+                $errors['validationId'] = 'Você não tem permissão para apagar essa comentário';
+            }
+            
+            if(empty($existComment)){
+                $errors['validationId'] = 'Comentário não encontrada no Banco de dados';
+
+            }
+                if(count($errors) > 0) {
+                    print_r($errors);
+                // throw new ValidationException($errors);
+            }
+            }
     }

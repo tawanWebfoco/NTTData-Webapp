@@ -613,7 +613,59 @@ div#imageContent > button {
   width: 90px;
   max-width: 18%;
 }
+.main .receivepubbox .infoPub {
+  display: flex;
+  align-items: center;
+}
+.main .receivepubbox .infoPub .contentNav {
+  /* height: 100px; */
+  width: 100px;
+  background-color: #0c0909c9;
+  position: absolute;
+  right: 0;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  transform: translateY(-15px);
+  display: none;
+}
+.main .receivepubbox .infoPub .contentNav.active {
+  display: block;
+}
+.main .receivepubbox .infoPub .contentNav > *{
+  cursor: pointer;
+}
+.main .receivepubbox .infoPub .contentNav .buttonNav {
+  margin: 4px 0px;
+  padding: 5px;
+  text-align: center;
+  color: var(--text-light);
+}
+.main .receivepubbox .infoPub .contentNav .buttonNav:hover {
+  background-color: #75757552;
+}
+.main .receivepubbox .infoPub .contentNav .deletePub {
+  margin-top: 25px;
+}
+.main .receivepubbox .infoPub img#closeNav {
+  width: 20px;
+  right: 2px;
+  top: 2px;
+  position: absolute;
+}
+.main .receivepubbox .infoPub img#threeDots {
+  cursor: pointer;
+  display: block;
+  width: 20px;
+}
+.main .receivepubbox .infoPub img#threeDots.active {
+  display: none;
+}
+.main .receivepubbox .navPub{
+  margin-right: 20px;
+  position: relative;
+}
 .receivepubbox .person{
+  flex-grow: 1;
   margin: 0 15px;
 }
 .receivepubbox .person h2 {
@@ -682,6 +734,7 @@ div#imageContent > button {
 }
 .main .receivepubbox .message {
   margin: 10px 15px 0px 15px;
+  max-width: 60vw;
 }
 .main .receivepubbox .message .seeMore{
   color: var(--text-silver-light);
@@ -699,6 +752,7 @@ div#imageContent > button {
   line-height: 22px;
   font-size: 1rem;
   color: var(--text-silver-dark);
+  word-wrap: break-word;
 }
 .receivepubbox .message img {
   max-width: 100%;
@@ -737,6 +791,9 @@ div.liked > svg > path {
   padding: 0 0 0 15px;
   display: flex;
   flex-direction: column;
+  max-height: 330px;
+  overflow-y: scroll;
+  margin: 5px 0;
 }
 .main .content .commentsArea .comments {
   display: flex;

@@ -83,9 +83,19 @@ comments.innerHTML = `
 <img src="${photo}" alt="Imagem">
 </div>
 <div class="content">
+<div class="infoPub">
 <div class="person">
 <h2>${fullName}</h2>
 <span>${diffDate}</span>
+    </div>
+        <nav class="navPub">
+            <img id="threeDots" src="http://localhost/webfoco/nttdata/NTTData-Webapp/wp-content/themes/ntt-data/app/public/assets/img/icons/feed/three-dots.svg" alt="">
+            <div class="contentNav" b0461f23338d5d731f9cbc809012203b="${id_comment}" 056289e495a61745984dbbd6a4be9a1c="${id_user}" f49c3c8440f6e6d19158446f7262c7e4="${id_user}">
+                <img id="closeNav" src="http://localhost/webfoco/nttdata/NTTData-Webapp/wp-content/themes/ntt-data/app/public/assets/img/icons/feed/close-circle.svg'" alt="">
+                <!-- <div class="buttonNav editPub">Editar</div> -->
+                <div class="buttonNav deletePub">Apagar</div>
+            </div>
+        </nav>
 </div>
 <div class="message">
 <span>${message}</span>
@@ -118,6 +128,19 @@ document.getElementById('like').addEventListener('click', (button)=>{
         button = button.parentElement;
     }
 })
+
+const btnThreeDots = document.querySelectorAll('.navPub #threeDots')
+
+
+btnThreeDots.forEach(threeDots => {
+
+   threeDots.removeEventListener('click', navButton(threeDots))
+
+   threeDots.addEventListener('click', navButton(threeDots))
+
+   
+});
+
 
 }
 

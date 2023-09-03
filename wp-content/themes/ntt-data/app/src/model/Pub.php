@@ -57,7 +57,25 @@
         }
 
         
-        
+        public function validateDelete(){
+
+            $existPubDb = $this->getOne(['id_pub' => $this->id_pub]);
+            // print_r(isset());
+            $errors = [];
+
+            if($this->id_user !== $this->user_id_user) {
+                $errors['validationId'] = 'Você não tem permissão para apagar essa publicação';
+            }
+            
+            if(empty($existPubDb)){
+                $errors['validationId'] = 'Publicação não encontrada no Banco de dados';
+
+            }
+                if(count($errors) > 0) {
+                    print_r($errors);
+                // throw new ValidationException($errors);
+            }
+            }
     }
 
     

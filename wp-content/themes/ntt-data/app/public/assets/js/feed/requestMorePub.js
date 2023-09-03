@@ -60,5 +60,15 @@ function updateJsActionButton(){
     })
    });
 
+   
+   // nav
+   let btnThreeDots = document.querySelectorAll('.navPub #threeDots')
+   btnThreeDots.forEach(threeDots => {
+      threeDots.removeEventListener('click', navButton(threeDots))
+
+      threeDots.addEventListener('click', navButton(threeDots))
+   });
+
+
 }
 

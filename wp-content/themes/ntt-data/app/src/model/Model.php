@@ -64,6 +64,7 @@
                 . static::getOffset($offset);
 
                 // print_r($sql);
+
             $result = Database::getResultFromQuery($sql);
             
             if($result->num_rows === 0){
@@ -83,9 +84,8 @@
         
 
         private static function getFilters($filters){
-            $sql = '';
+            $sql = ' WHERE 1 = 1 AND trash IS NULL';
             if(count($filters) > 0){
-                $sql .= " WHERE 1 = 1";
                 foreach($filters as $column => $value) {
                     $sql .= " AND $column = ". static::getFormatedValue($value);
                 }
@@ -96,7 +96,7 @@
         private static function getExeptionFilter( $exeption = [], $filters = []){
             $sql = '';
             if(count($exeption) > 0){
-                if(count($filters) < 1)$sql .= " WHERE 1 = 1";
+                // if(count($filters) < 1)$sql .= "";
                 foreach($exeption as $column => $value) {
                     $sql .= " AND ". static::$idTable ." != ". static::getFormatedValue($value);
                 }
@@ -153,6 +153,8 @@
             $sql = "UPDATE " . static::$tableName . " SET ";
             foreach($this->values as $col => $value ) {
                 if($col == 'primary_key')continue; 
+                if($col == 'user_id_user')continue; 
+                if($col == 'type')continue; 
                 if($col != $idTable){
                 $sql .= " `$col` = " . static::getFormatedValue($value) . ",";
                 }
