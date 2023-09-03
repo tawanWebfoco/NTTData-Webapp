@@ -16,7 +16,7 @@ class TimerView {
   scoreInsertDataBase = 0
 
   // constants values
-  limitTimePerDay = 7200000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
+  limitTimePerDay = 14400000; // equivalent a 4 hours, 0 minutes, 0 seconds, 0 milliseconds
   // limitTimePerDay = 7200000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
   limitOneDay = 86400000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
   time1hour = 3600000; // equivalent a 1 hours, 0 minutes, 0 seconds, 0 milliseconds
@@ -113,8 +113,6 @@ class TimerView {
     // if (this.hasExceededLimit) {
     //   this._pauseTimer();
     //   this.hasExceededLimit = true;
-
-
       // switch (this.language.toLowerCase()) {
       //   case 'pt':
       //     this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 2 horas, clique em parar para salvar o tempo.');
@@ -426,13 +424,13 @@ class TimerView {
     if(!((parseInt(currentRestTime.seconds) > 0) || (parseInt(currentRestTime.minutes) > 0) || (parseInt(currentRestTime.hours) > 0))){
       switch (this.language.toLowerCase()) {
         case 'pt':
-          body.innerHTML = 'Você excedeu o limite diário de 2 horas, seus pontos não serão computados.';
+          body.innerHTML = 'Você excedeu o limite diário de 4 horas, seus pontos não serão computados.';
           break;
         case 'en':
-          body.innerHTML = 'You have exceeded the 2 hour daily limit, click stop to save time.';
+          body.innerHTML = 'You have exceeded the 4 hour daily limit, click stop to save time.';
           break;
         default:
-          body.innerHTML = 'Ha excedido el límite diario de 2 horas, haga clic en detener para ahorrar tiempo.';
+          body.innerHTML = 'Ha excedido el límite diario de 4 horas, haga clic en detener para ahorrar tiempo.';
           break;
       }
 

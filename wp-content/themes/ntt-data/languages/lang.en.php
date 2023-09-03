@@ -149,13 +149,13 @@ define('_t', [
     'perfil_messageSendEmailEnd' => "'>Register</a> to start adding to this movement!</p><p>Learn more on our official website: moveforthesdgs.com</p>",
 
 
-    'regulamento_leia' => 'Read the regulation',
+    'regulamento_leia' => 'Frequently Asked Questions',
 
     /* Página Cronometro */
     
     'cron_h1' => 'Count your time here',
     'cron_title' => 'Activate the timer when you start your activity',
-    'cron_limit_day' => 'DAILY 2 HOUR LIMIT EXERCISES',
+    'cron_limit_day' => 'DAILY 4 HOUR LIMIT EXERCISES',
      'cron_minutes' => 'Minutes', 
      'cron_hour' => ' Hour',
 

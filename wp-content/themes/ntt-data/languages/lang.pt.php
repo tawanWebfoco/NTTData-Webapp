@@ -141,13 +141,13 @@ define('_t', [
     'perfil_messageSendEmailEnd' => "'>Cadastre-se</a> para começar a somar nessa jornada!</p><p>Saiba mais em nosso site oficial: moveforthesdgs.com</p>",
 
 
-    'regulamento_leia' => 'Leia o regulamento',
+    'regulamento_leia' => 'Dúvidas Frequentes',
 
      /* Página Cronometro */
 
      'cron_h1' => 'Suba seu tempo aqui',
      'cron_title' => 'Ative o cronômetro quando iniciar sua atividade',
-     'cron_limit_day' => 'LIMITE DIÁRIO DE 2 HORAS EXERCÍCIOS',
+     'cron_limit_day' => 'LIMITE DIÁRIO DE 4 HORAS EXERCÍCIOS',
      'cron_minutes' => 'Minutos',
      'cron_hour' => 'Hora',
 

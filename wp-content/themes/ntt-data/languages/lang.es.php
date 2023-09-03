@@ -150,13 +150,13 @@ define('_t', [
     </p><p>Obtén más información en nuestro sitio web oficial: moveforthesdgs.com</p>",
 
 
-    'regulamento_leia' => 'Leer el reglamento',
+    'regulamento_leia' => 'Preguntas Frecuentes',
 
     /* Página Cronometro */
 
     'cron_h1' => 'Cuenta tu tiempo aquí', 
     'cron_title' => 'Activa el cronómetro al iniciar tu actividad', 
-    'cron_limit_day' => 'EJERCICIOS DIARIOS DE LÍMITE DE 2 HORAS', 
+    'cron_limit_day' => 'EJERCICIOS DIARIOS DE LÍMITE DE 4 HORAS', 
     'cron_minutes' => 'Minutos', 
     'cron_hour' => ' Hora ',
 
