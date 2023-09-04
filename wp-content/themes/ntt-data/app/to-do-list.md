@@ -90,6 +90,6 @@
 
 - Ajuste de e-mail que irá disparar os convites para: moveforthesdg@webfoco.com
 
-- Ajuste no botão “leia o regulamento” para “dúvidas frequentes” que deve levar a página de FAQ
+- # Ajuste no botão “leia o regulamento” para “dúvidas frequentes” que deve levar a página de FAQ
 
 - Subir para a hostinger
