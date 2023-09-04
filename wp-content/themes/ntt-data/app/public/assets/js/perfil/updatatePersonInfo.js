@@ -55,7 +55,11 @@ btnEditPerfil.addEventListener('click', ()=>{
             input.removeAttribute('disabled')
         }); 
         
-        btnEditPerfil.innerHTML = 'Cancelar'
+        var txtCancelar = "Cancelar";
+        if (Document.prototype.language == "en") {
+            txtCancelar = "Cancel";
+        }
+        btnEditPerfil.innerHTML = txtCancelar;
         btnEditPerfil.classList.toggle('btn-danger');
         btnSavePerfil.classList.toggle('btn-disabled');
         btnSavePerfil.addEventListener('click',chamaEvento);

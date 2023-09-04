@@ -1,4 +1,7 @@
 <?php
+/* Incluir Linguagens */
+include_once get_template_directory().'/languages/common.php';
+
 class User extends Model{
     protected static $tableName = 'wp_app_user';
     protected static $columns = ['full_name', 'email', 'username', 'password', 'country','language','office', 'date'];
@@ -14,56 +17,56 @@ class User extends Model{
         
          //  NOME
          if(!$this->full_name) {
-            $errors['full_name'] = 'Nome é um campo obrigatório.<br>';
+            $errors['full_name'] = _t['registro_erronome'].'<br>';
         }
         
         // EMAIL
         if(!$this->email) {
-            $errors['email'] = 'Email é um campo obrigatório.<br>';
+            $errors['email'] = _t['registro_erroemail1'].'<br>';
         } elseif(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'Email inválido.<br>';
+            $errors['email'] = _t['registro_erroemail2'].'<br>';
         }
         
         
         if(!$this->validarEmailNTTDataWebfoco($this->email)) {
-            $errors['email'] = 'Cadastro permitido apenas para colaboradores NTT DATA.<br>';
+            $errors['email'] = _t['registro_erroapenascolab'].'<br>';
         } 
 
         if(User::getOne(['email' => $this->email]) || Guest::getOne(['email' => $this->email])){
-            $errors['email'] = 'Email já cadastrado<br>';
+            $errors['email'] = _t['registro_errojacadastrado'].'<br>';
         }
 
         // USERNAME
         if(!$this->username) {
-            $errors['username'] = 'Usuário é um campo obrigatório.<br>';
+            $errors['username'] = _t['registro_errouser'].'<br>';
         }
         if(User::getOne(['username' => $this->username]) || Guest::getOne(['username' => $this->username])){
-            $errors['username'] = 'Nome de usuário já cadastrado, por favor tente outro.<br>';
+            $errors['username'] = _t['registro_errousercadastrado'].'<br>';
         }
 
         // PAÍS
         if(!$this->country) {
-            $errors['country'] = 'País é um campo obrigatório.<br>';
+            $errors['country'] = _t['registro_erropais'].'<br>';
         }
 
         // CARGO
         if(!$this->office) {
-            $errors['office'] = 'Cargo é um campo obrigatório.<br>';
+            $errors['office'] = _t['registro_errocargo'].'<br>';
         }
 
         // SENHA
         if(!$this->password) {
-            $errors['password'] = 'Senha é um campo obrigatório.<br>';
+            $errors['password'] = _t['registro_errosenha'].'<br>';
         }
 
         if(!$this->confirmPassword) {
-            $errors['confirmPassword'] = 'Confirmação de Senha é um campo obrigatório.<br>';
+            $errors['confirmPassword'] = _t['registro_erroconfsenha'].'<br>';
         }
 
         if($this->password && $this->confirmPassword 
             && $this->password !== $this->confirmPassword) {
-            $errors['password'] = 'As senhas não são iguais.<br>' ;
-            $errors['confirmPassword'] = 'As senhas não são iguais.<br>';
+            $errors['password'] = _t['registro_errosenhasdiferentes'].'<br>' ;
+            $errors['confirmPassword'] = _t['registro_errosenhasdiferentes'].'<br>';
         }
         if(count($errors) > 0) {
             throw new ValidationException($errors);
@@ -77,13 +80,13 @@ class User extends Model{
         // $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email)->validationId : null;
         
         if($this->validationId !== $this->confirmValidationDb) {
-            $errors['validationId'] = 'validação';
+            $errors['validationId'] = _t['registro_errovalidacao'];
         }
 
         if($this->email && $this->confirmEmail 
             && $this->email !== $this->confirmEmail) {
-            $errors['email'] = 'o email não é o mesmo do pré-registro' ;
-            $errors['confirmemail'] = 'o email não é o mesmo do pré-registro' ;
+            $errors['email'] = _t['registro_erroemailprereg'];
+            $errors['confirmemail'] = _t['registro_erroemailprereg'];
         }
         
             if(count($errors) > 0) {
@@ -97,17 +100,17 @@ class User extends Model{
         $validationDb = User::getOne(['id_user' => $this->id_user], 'validation')->validation;
 
         if($this->validationId !== $validationDb) {
-            $errors['validationId'] = 'Por favor re-envie o link de redefinição';
+            $errors['validationId'] = _t['registro_errolinkredef'];
         }
 
         if(!$this->confirmPassword) {
-            $errors['confirm_password'] = 'Confirmação de Senha é um campo obrigatório.';
+            $errors['confirm_password'] = _t['registro_erroconfsenha'];
         }
 
         if($this->password && $this->confirmPassword 
             && $this->password !== $this->confirmPassword) {
-            $errors['password'] = 'As senhas não são iguais.';
-            $errors['confirmPassword'] = 'As senhas não são iguais.';
+            $errors['password'] = _t['registro_errosenhasdiferentes'];
+            $errors['confirmPassword'] = _t['registro_errosenhasdiferentes'];
         }
 
         if(count($errors) > 0) {

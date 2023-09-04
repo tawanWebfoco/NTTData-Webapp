@@ -15,6 +15,11 @@ define('_t', [
     'login_entrar' => 'Entrar',
     'login_esquecisenha' => 'Esqueceu a Senha',
     'login_cadastrese' => 'Cadastre-Se',
+
+    'login_erroemail' => 'E-mail é um campo obrigatório.',
+    'login_errosenha' => 'Por favor, informe a senha.',
+    'login_errodesligado' => 'Usuário está desligado da empresa.',
+    'login_errousersenha' => 'Usuário ou Senha Inválidos.',
     
 
     /* Página Registro */
@@ -58,6 +63,29 @@ define('_t', [
     'registro_sendEmailSubject' => "Valide seu email para fazer parte! Mova-se pelos ODS!",
     'registro_sendEmailMessageBegin' => "<h2><b>Faça parte do grande movimento da NTT DATA</b></h2><p>Valide seu email clicando no link abaixo!</p><a href='",
     'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Saiba mais em nosso site oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
+
+    /* Convidado */
+    'registro_erroconvite1' => 'Seu convite não foi encontrado, solite novamente para um colaborador NTT DATA',
+    'registro_erroconvite2' => 'Código de validação invalido, solicite um novo convite',
+    'registro_erronome' => 'Nome é um campo obrigatório.',
+    'registro_erroemail1' => 'Email é um campo obrigatório.',
+    'registro_erroemail2' => 'Email inválido.',
+    'registro_errouser' => 'Usuário é um campo obrigatório.',
+    'registro_erropais' => 'País é um campo obrigatório.',
+    'registro_errosenha' => 'Senha é um campo obrigatório.',
+    'registro_erroconfsenha' => 'Confirmação de Senha é um campo obrigatório.',
+    'registro_errosenhasdiferentes' => 'As senhas não são iguais.',
+    'registro_erromsg' => 'Erro de validação.',
+
+    'registro_erroapenascolab' => 'Cadastro permitido apenas para colaboradores NTT DATA.',
+    'registro_errojacadastrado' => 'Email já cadastrado',
+    'registro_errousercadastrado' => 'Nome de usuário já cadastrado, por favor tente outro.',
+    'registro_errocargo' => 'Cargo é um campo obrigatório.',
+    'registro_errovalidacao' => 'validação',
+    'registro_erroemailprereg' => 'o email não é o mesmo do pré-registro',
+    'registro_erroemailprereg' => 'o email não é o mesmo do pré-registro',
+    'registro_errolinkredef' => 'Por favor re-envie o link de redefinição',
+
     
 
     /* Página Feed */
@@ -90,6 +118,11 @@ define('_t', [
     'feed_escreva_comentario' => 'Escreva seu Comentário',
     'feed_sem_publicacoes' => 'Que pena, Não há mais publicações',
     'feed_ver_mais' => 'Ver Mais',
+
+    'feed_erroapagar' => 'Você não tem permissão para apagar essa publicação',
+    'feed_erropub' => 'Publicação não encontrada no Banco de dados',
+    'feed_erroapagarcom' => 'Você não tem permissão para apagar essa comentário',
+    'feed_errocom' => 'Comentário não encontrada no Banco de dados',
     
 
     /* Página Ranking */

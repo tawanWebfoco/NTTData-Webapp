@@ -15,6 +15,11 @@ define('_t', [
     'login_entrar' => 'Login',
     'login_esquecisenha' => 'Forgot Password',
     'login_cadastrese' => 'Register',
+
+    'login_erroemail' => 'Email is a required field.',
+    'login_errosenha' => 'Please enter your password.',
+    'login_errodesligado' => 'User is disconnected from the company.',
+    'login_errousersenha' => 'Invalid username or password.',
     
 
     /* Página Registro */
@@ -64,6 +69,29 @@ define('_t', [
     'registro_sendEmailSubject' => "Validate your email to join! Move through the ODS!",
      'registro_sendEmailMessageBegin' => "<h2><b>Be part of the great NTT DATA movement</b></h2><p>Validate your email by clicking on the link below!</p><a href='",
      'registro_sendEmailMessageEnd' => "'>Validate.<a><p>Learn more on our official website: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>" ,
+
+     /* Guest */
+    'registro_erroconvite1' => 'Your invitation was not found, request it again to an NTT DATA collaborator',
+    'registro_erroconvite2' => 'Invalid validation code, request a new invitation',
+    'registro_erronome' => 'Name is a required field.',
+    'registro_erroemail1' => 'Email is a required field.',
+    'registro_erroemail2' => 'Invalid email.',
+    'registro_errouser' => 'User is a required field.',
+    'registro_erropais' => 'Country is a required field.',
+    'registro_errosenha' => 'Password is a required field.',
+    'registro_erroconfsenha' => 'Password confirmation is a required field.',
+    'registro_errosenhasdiferentes' => 'The passwords are not the same.',
+    'registro_erromsg' => 'Validation error.',
+
+    'registro_erroapenascolab' => 'Registration allowed only for NTT DATA collaborators.',
+    'registro_errojacadastrado' => 'Email already registered',
+    'registro_errousercadastrado' => 'Username already registered, please try another one.',
+    'registro_errocargo' => 'Cargo is a required field.',
+    'registro_errovalidacao' => 'validation',
+    'registro_erroemailprereg' => 'the email is not the same as the pre-registration',
+    'registro_erroemailprereg' => 'the email is not the same as the pre-registration',
+    'registro_errolinkredef' => 'Please resend the reset link',
+    
     
 
     /* Página Feed */

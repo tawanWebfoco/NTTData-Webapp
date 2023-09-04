@@ -18,6 +18,7 @@
 
 <script>
     Document.prototype.homePath = "<?= home_url() ?>";
+    Document.prototype.language = "<?= $user->language?>";
 </script>
 <!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/perfil/logout.js"></script> -->
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/uploadImg.js"></script>

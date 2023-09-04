@@ -16,6 +16,11 @@ define('_t', [
     'login_esquecisenha' => 'Olvidé mi contraseña',
     'login_cadastrese' => 'Registrarse',
 
+    'login_erroemail' => 'El correo electrónico es un campo obligatorio.',
+    'login_errosenha' => 'Por favor ingresa tu contraseña.',
+    'login_errodesligado' => 'El usuario se desconecta de la empresa.',
+    'login_errousersenha' => 'Nombre de usuario o contraseña no válidos.',
+
 
     /* Página Registro */
     'registro_h1' => 'Registro de Empleados',
@@ -63,6 +68,29 @@ define('_t', [
     'registro_sendEmailSubject' => "¡Valida tu correo electrónico para unirte! ¡Muévete por el ODS!",
      'registro_sendEmailMessageBegin' => "<h2><b>Sé parte del gran movimiento NTT DATA</b></h2><p>¡Valida tu correo electrónico haciendo clic en el siguiente enlace!</p><a href=' ",
      'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Obtenga más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>" ,
+
+     /* Invitado */
+    'registro_erroconvite1' => 'Tu invitación no fue encontrada, solicítala nuevamente a un colaborador de NTT DATA',
+    'registro_erroconvite2' => 'Código de validación no válido, solicita una nueva invitación',
+    'registro_erronome' => 'El nombre es un campo obligatorio.',
+    'registro_erroemail1' => 'El correo electrónico es un campo obligatorio.',
+    'registro_erroemail2' => 'Correo electrónico no válido.',
+    'registro_errouser' => 'El usuario es un campo obligatorio.',
+    'registro_erropais' => 'El país es un campo obligatorio.',
+    'registro_errosenha' => 'La contraseña es un campo obligatorio.',
+    'registro_erroconfsenha' => 'La confirmación de contraseña es un campo obligatorio.',
+    'registro_errosenhasdiferentes' => 'Las contraseñas no son las mismas.',
+    'registro_erromsg' => 'Error de validación.',
+
+    'registro_erroapenascolab' => 'Registro permitido sólo para colaboradores de NTT DATA.',
+    'registro_errojacadastrado' => 'Correo electrónico ya registrado',
+    'registro_errousercadastrado' => 'Nombre de usuario ya registrado, por favor prueba con otro.',
+    'registro_errocargo' => 'La carga es un campo obligatorio.',
+    'registro_errovalidacao' => 'validación',
+    'registro_erroemailprereg' => 'el email no es el mismo que el de preinscripción',
+    'registro_erroemailprereg' => 'el email no es el mismo que el de preinscripción',
+    'registro_errolinkredef' => 'Por favor, reenvíe el enlace de reinicio',
+    
     
 
     /* Página Feed */

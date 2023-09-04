@@ -1,4 +1,7 @@
 <?php
+/* Incluir Linguagens */
+include_once get_template_directory().'/languages/common.php';
+
 class Guest extends Model{
     protected static $tableName = 'wp_app_guest';
     protected static $columns = ['id_user','full_name','email', 'username', 'password','date','country','language'];
@@ -11,43 +14,43 @@ class Guest extends Model{
         $validationDb = (Model::getValidationId($this->email)) ? Model::getValidationId($this->email) : null;
 
         if(!isset($validationDb)){
-            $errors['validationId'] = 'Seu convite não foi encontrado, solite novamente para um colaborador NTT DATA';
+            $errors['validationId'] = _t['registro_erroconvite1'];
         }else{
             if($this->validationId !== $validationDb->validationId) {
-                $errors['validationId'] = 'Código de validação invalido, solicite um novo convite';
+                $errors['validationId'] = _t['registro_erroconvite2'];
             }
         }
 
         if(!$this->full_name) {
-            $errors['full_name'] = 'Nome é um campo obrigatório.';
+            $errors['full_name'] = _t['registro_erronome'];
         }
         
         if(!$this->email) {
-            $errors['email'] = 'Email é um campo obrigatório.';
+            $errors['email'] = _t['registro_erroemail1'];
         } elseif(!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'Email inválido.';
+            $errors['email'] = _t['registro_erroemail2'];
         }
 
         if(!$this->username) {
-            $errors['username'] = 'Usuário é um campo obrigatório.';
+            $errors['username'] = _t['registro_errouser'];
         }
 
         if(!$this->country) {
-            $errors['country'] = 'País é um campo obrigatório.';
+            $errors['country'] = _t['registro_erropais'];
         }
 
         if(!$this->password) {
-            $errors['password'] = 'Senha é um campo obrigatório.';
+            $errors['password'] = _t['registro_errosenha'];
         }
 
         if(!$this->confirmPassword) {
-            $errors['confirmPassword'] = 'Confirmação de Senha é um campo obrigatório.';
+            $errors['confirmPassword'] = _t['registro_erroconfsenha'];
         }
 
         if($this->password && $this->confirmPassword 
             && $this->password !== $this->confirmPassword) {
-            $errors['password'] = 'As senhas não são iguais.';
-            $errors['confirmPassword'] = 'As senhas não são iguais.';
+            $errors['password'] = _t['registro_errosenhasdiferentes'];
+            $errors['confirmPassword'] = _t['registro_errosenhasdiferentes'];
         }
 
         if(count($errors) > 0) {
@@ -62,17 +65,17 @@ class Guest extends Model{
         $validationDb = Guest::getOne(['id_guest' => $this->id_user], 'validation')->validation;
 
         if($this->validationId !== $validationDb) {
-            $errors['validationId'] = 'Erro de validação.';
+            $errors['validationId'] = _t['registro_erromsg'];
         }
 
         if(!$this->confirmPassword) {
-            $errors['confirm_password'] = 'Confirmação de Senha é um campo obrigatório.';
+            $errors['confirm_password'] = _t['registro_erroconfsenha'];
         }
 
         if($this->password && $this->confirmPassword 
             && $this->password !== $this->confirmPassword) {
-            $errors['password'] = 'As senhas não são iguais.';
-            $errors['confirmPassword'] = 'As senhas não são iguais.';
+            $errors['password'] = _t['registro_errosenhasdiferentes'];
+            $errors['confirmPassword'] = _t['registro_errosenhasdiferentes'];
         }
 
         if(count($errors) > 0) {
