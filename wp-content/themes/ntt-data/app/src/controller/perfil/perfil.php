@@ -1,7 +1,6 @@
 <?php 
 Model::sanetizePost($_POST);
 $messageTemplate = [];
-
 $guest  = Guest::get(['id_user' => $user->id_user], 'full_name, score');
 $invitedFor = User::getOne(['id_user' => $user->id_user], 'full_name');
 
