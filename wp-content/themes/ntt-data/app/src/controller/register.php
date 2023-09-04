@@ -3,6 +3,9 @@ session_start();
 Model::sanetizePost($_POST);
 include_once(LANGUAGES_PATH.'/common.php');
 
+/* Incluir Linguagens */
+include_once 'languages/common.php';
+
 // Capturar json com array de todos os países
 // Lê o conteúdo do arquivo JSON
 $jsonString = file_get_contents(CONTROLLER_PATH .'/paises_simples_'._t['registro_tr_countries'].'.json');
@@ -98,7 +101,7 @@ if(isset($validationId)){
         $full_name = sanitize_text_field($full_name);
 
         if(!$full_name || !$username || !$office || !$country) {
-            $invalid = 'Erro de validação, envie um novo email';
+            $invalid = _t['registro_errovalidacao'];
             header("Location:".home_url()."/register?".md5('invalid').'='.$invalid); 
             die('Error: Link not Found ');
         }

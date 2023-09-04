@@ -22,8 +22,12 @@ define('_t', [
     'login_errousersenha' => 'Nombre de usuario o contraseña no válidos.',
 
 
+    'erro_validacao' => 'Error de validacion',
+
+
     /* Página Registro */
     'registro_h1' => 'Registro de Empleados',
+    'registro_errovalidacao' => 'Error de validación, envía un nuevo correo electrónico',
 
     'registro_frm_nome' => 'Nombre',
     'registro_frm_email' => 'Correo electrónico',

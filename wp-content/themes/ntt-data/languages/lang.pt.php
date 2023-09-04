@@ -20,10 +20,14 @@ define('_t', [
     'login_errosenha' => 'Por favor, informe a senha.',
     'login_errodesligado' => 'Usuário está desligado da empresa.',
     'login_errousersenha' => 'Usuário ou Senha Inválidos.',
+
+
+    'erro_validacao' => 'Erro de validação',
     
 
     /* Página Registro */
     'registro_h1' => 'Cadastro Colaborador',
+    'registro_errovalidacao' => 'Erro de validação, envie um novo email',
 
     'registro_frm_nome' => 'Nome',
     'registro_frm_email' => 'E-mail',
@@ -237,5 +241,5 @@ define('_t', [
 
     'faq_p8' => 'Quem pode participar? (colaboradores, parentes, amigos?, de todas as idades?',
     'faq_r8' => 'Pessoas de todas as idades podem participar, mas para somar tempos e somar pontos a pessoa deve se cadastrar na plataforma.',
-    
+
 ]);

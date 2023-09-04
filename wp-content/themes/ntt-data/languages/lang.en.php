@@ -20,10 +20,14 @@ define('_t', [
     'login_errosenha' => 'Please enter your password.',
     'login_errodesligado' => 'User is disconnected from the company.',
     'login_errousersenha' => 'Invalid username or password.',
+
+
+    'erro_validacao' => 'Validation error',
     
 
     /* Página Registro */
     'registro_h1' => 'Employee Registration',
+    'registro_errovalidacao' => 'Validation error, send a new email',
 
     'registro_frm_nome' => 'Name',
     'registro_frm_email' => 'Email',
