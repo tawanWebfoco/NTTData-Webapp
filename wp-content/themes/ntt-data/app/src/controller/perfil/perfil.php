@@ -3,6 +3,7 @@ Model::sanetizePost($_POST);
 $messageTemplate = [];
 
 $guest  = Guest::get(['id_user' => $user->id_user], 'full_name, score');
+$invitedFor = User::getOne(['id_user' => $user->id_user], 'full_name');
 
 // verifica se imagens de perfil e chama arquivo que realiza a troca
 $type = isset($_POST['type']) ? $_POST['type'] : '';
@@ -30,4 +31,4 @@ switch ($type) {
     
  }
 
- loadTempalteView($page,  ['user' => $user, 'guest' => $guest, 'message' => $messageTemplate]);
+ loadTempalteView($page,  ['user' => $user, 'guest' => $guest, 'message' => $messageTemplate, 'invitedFor' => $invitedFor]);
