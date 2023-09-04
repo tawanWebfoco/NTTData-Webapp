@@ -29,8 +29,10 @@ for (indx = 0; indx < acc.length; indx++) {
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
+      panel.style.padding = "0 18px";
     } else {
       panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.padding = "18px";
     } 
   });
 }

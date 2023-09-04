@@ -1565,9 +1565,24 @@ img#uploadedImage {
 
 
 /* FAQ */
+section.faq {
+  width: 100%;
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+.faq h1 {
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  margin: 15px 0;
+}
+
+
 .accordion {
   background-color: var(--background-gray-dark);
   color: var(--blue-primary);
+  font-family: 'Noto Sans';
   cursor: pointer;
   padding: 18px;
   width: 100%;
