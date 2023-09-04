@@ -54,8 +54,8 @@ for (indx = 0; indx < acc.length; indx++) {
     this.classList.toggle("active");
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
-      panel.style.padding = "0 18px";
       panel.style.maxHeight = null;
+      panel.style.padding = "0 18px";
     } else {
       panel.style.padding = "18px";
       panel.style.maxHeight = panel.scrollHeight + "px";

@@ -1614,5 +1614,5 @@ section.faq {
   background-color: var(--background-gray);
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.2s ease-out;
+  transition: 0.2s ease-out;
 }
