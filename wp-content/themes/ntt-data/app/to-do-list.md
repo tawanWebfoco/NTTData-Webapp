@@ -70,7 +70,7 @@
 
 - Zerar o ranking de engajamento p/ segunda
 
-- #R Ajuste de texto SUBA SEU TEMPO AQUI para REGISTRE SEU TEMPO AQUI
+- # Ajuste de texto SUBA SEU TEMPO AQUI para REGISTRE SEU TEMPO AQUI
 
 - # Ajuste no limite diário de horas de exercício - de 2h para 4h
 
@@ -90,6 +90,6 @@
 
 - Ajuste de e-mail que irá disparar os convites para: moveforthesdg@webfoco.com
 
-- Ajuste no botão “leia o regulamento” para “dúvidas frequentes” que deve levar a página de FAQ
+- # Ajuste no botão “leia o regulamento” para “dúvidas frequentes” que deve levar a página de FAQ
 
 - Subir para a hostinger

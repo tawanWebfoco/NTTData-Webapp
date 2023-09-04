@@ -153,7 +153,7 @@ define('_t', [
 
     /* Página Cronometro */
     
-    'cron_h1' => 'Count your time here',
+    'cron_h1' => 'Register your time here',
     'cron_title' => 'Activate the timer when you start your activity',
     'cron_limit_day' => 'DAILY 4 HOUR LIMIT EXERCISES',
      'cron_minutes' => 'Minutes', 
@@ -170,6 +170,34 @@ define('_t', [
 
     'updatePass_h1' => 'Change your password',
     'updatePass_new_password' => 'New Password',
-    'updatePass_confirmPassword' => 'Confirm a password'
+    'updatePass_confirmPassword' => 'Confirm a password',
+
+
+    /* Página FAQ */
+    'faq_h1' => 'Perguntas Frequentes (FAQ)',
+
+    'faq_p1' => 'Should I record my times day by day? Or can I pool them and upload them weekly?',
+    'faq_r1' => 'The times must be recorded simultaneously with the practice of the activity.',
+
+    'faq_p2' => 'If there is a group activity on NTT DATA (Example: Exercise routine for 40 or 50 people) is there a way to upload an Excel data of all participants?',
+    'faq_r2' => 'No. Each member participating in the activity must record their own times on the platform.',
+    
+    'faq_p3' => 'Will family members register in the same way as employees? Should they add any additional information? How will these extra points be added to the contributor?',
+    'faq_r3' => 'Family and friends will sign up via invitation/email they will receive. NTT DATA employees must access the web platform and there they can send any invitations they wish. Guests must access the platform and upload their times, as will employees.',
+
+    'faq_p4' => 'If the type of activity I will be doing is not on the list, is there an “Other” option to add it?',
+    'faq_r4' => 'Each employee must choose the type of activity to be carried out and there will be an option “Other” to be able to correctly register their times.',
+
+    'faq_p5' => 'On which day will the platform close for the registration of points?',
+    'faq_r5' => 'The platform will be open from 09/04 to 10/22 for registration of times and activities.',
+    
+    'faq_p6' => 'Should I have the platform open while doing my activity? If my cell phone blocks the platform, will it stop recording my time?',
+    'faq_r6' => 'The platform will work in the “background”, that is, you can open it, click on start and block the cell phone. In the end, you will have to access the platform and close the activity. If you forget to end the activity, the system will finish adding the time to the 120 minutes of activity.',
+
+    'faq_p7' => 'Will there be a prize for those who accumulate the most points?',
+    'faq_r7' => 'No. On October 27th there will be a closing event where we will announce the top performers from each country and region.',
+
+    'faq_p8' => 'Who can participate? (collaborators, relatives, friends?, of all ages?',
+    'faq_r8' => 'People of all ages can participate, but to add times and add points, the person must register on the platform.',
 
 ]);
