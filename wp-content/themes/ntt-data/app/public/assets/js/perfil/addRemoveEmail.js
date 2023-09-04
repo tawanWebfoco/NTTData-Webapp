@@ -11,7 +11,7 @@ function fnAddEmail(){
 
     const boxLabel = document.createElement('label')
     boxLabel.className = 'label';
-    boxLabel.innerText= 'e-mail';
+    boxLabel.innerText= perfil_convemail;
     boxLabel.setAttribute('for', 'email');
 
     const boxInput = document.createElement('input');

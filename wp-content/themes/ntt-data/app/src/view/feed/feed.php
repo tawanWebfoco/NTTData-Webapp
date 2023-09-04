@@ -28,6 +28,19 @@
 <script>
     Document.prototype.homePath = "<?= home_url() ?>";
     Document.prototype.language = "<?= $user->language?>";
+
+    /* Textos */
+
+    let feed_erroimggrande = "<?=_t['feed_erroimggrande']?>";
+    let feed_erroimginvalida = "<?=_t['feed_erroimginvalida']?>";
+    let feed_errovidgrande = "<?=_t['feed_errovidgrande']?>";
+    let feed_errovidinvalido = "<?=_t['feed_errovidinvalido']?>";
+    
+    let feed_curtida = "<?=_t['feed_curtida']?>";
+    let feed_curtidas = "<?=_t['feed_curtidas']?>";
+    let feed_curtir = "<?=_t['feed_curtir']?>";
+    let feed_descurtir = "<?=_t['feed_descurtir']?>";
+
 </script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\feed/uploadImgVideo.js"></script>
 <?php if (get_class($user) === 'User') :; ?>

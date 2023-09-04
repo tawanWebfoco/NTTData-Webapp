@@ -28,7 +28,7 @@ inputUploadImage.addEventListener('change', function() {
     selectedImage = inputUploadImage.files[0];
 
     if(selectedImage.size > maxFileSize) {
-        messageError.textContent = "A imagem é muito grande. Tamanho máximo: 5MB.";
+        messageError.textContent = feed_erroimggrande;
         deleteAnexo();
         return
     }else{
@@ -48,7 +48,7 @@ inputUploadImage.addEventListener('change', function() {
 
         reader.readAsDataURL(selectedImage);
     }else{
-        messageError.textContent = "Arquivo inválido. Selecione uma imagem.";
+        messageError.textContent = feed_erroimginvalida;
         deleteAnexo();
     }
 }
@@ -61,7 +61,7 @@ inputUploadVideo.addEventListener('change', function() {
     console.log(selectedVideo);
 
     if(selectedVideo.size > maxFileSize) {
-        messageError.textContent = "O vídeo é muito grande. Tamanho máximo: 50MB.";
+        messageError.textContent = feed_errovidgrande;
         deleteAnexo();
         return
     }else{
@@ -109,7 +109,7 @@ inputUploadVideo.addEventListener('change', function() {
         reader.readAsDataURL(inputUploadVideo.files[0]);
     }else{
         console.log(inputUploadVideo[0]);
-        messageError.textContent = "Arquivo inválido. Selecione um Vídeo.";
+        messageError.textContent = feed_errovidinvalido;
         deleteAnexo();
 
     }

@@ -91,7 +91,7 @@ define('_t', [
     'registro_erroemailprereg' => 'the email is not the same as the pre-registration',
     'registro_erroemailprereg' => 'the email is not the same as the pre-registration',
     'registro_errolinkredef' => 'Please resend the reset link',
-    
+
     
 
     /* Página Feed */
@@ -124,6 +124,16 @@ define('_t', [
     'feed_escreva_comentario' => 'Write your comment',
     'feed_sem_publicacoes' => 'Too bad, there are no more publications',
     'feed_ver_mais' => 'See More',
+
+    'feed_erroapagar' => 'You don\'t have permission to delete this post.',
+    'feed_erropub' => 'Publication not found in the database',
+    'feed_erroapagarcom' => 'You don\'t have permission to delete this comment',
+    'feed_errocom' => 'Comment not found in database',
+
+    'feed_erroimggrande' => 'The image is too big. Maximum size: 5MB.',
+    'feed_erroimginvalida' => 'Invalid file. Select an image.',
+    'feed_errovidgrande' => 'The video is too big. Maximum size: 50MB.',
+    'feed_errovidinvalido' => 'Invalid file. Select a Video.',
     
 
     /* Página Ranking */
@@ -172,7 +182,7 @@ define('_t', [
     'perfil_convidadosobre_p3' => 'So, would you like to join us on this journey? We want to count on your participation to make the 2nd edition of "Move For The SDG" even more special!',
     'perfil_convidadosobre_p4' => 'Learn more and follow all the news on our website:',
     'perfil_subjectMessageSendEmail' => 'NTT DATA invites you to take part! Move for the SDGs!',
-    'perfil_messageSendEmailBegin' => "<h2><b>Be part of this great action of NTT DATA</b></h2><p>Hello!</p><pYou were invited to participate in 'Move for the SDGs', an action in which NTT DATA employees and supporters, like you, come together to contribute to the United Nations Sustainable Development Goals!</p><p>'Move for the SDGs' is a demonstration of our commitment to important global issues such as equality, health, education, the environment and so much more! We believe that every action, no matter how small, can make a positive impact on the world. That's why we're inviting people like you, who share the same values ​​and want to make a difference, to join us..</p><p>As part of this journey, we run a range of activities including awareness events, volunteering, fundraising and practical actions that directly support the SDGs. Through collaboration and teamwork, we believe we can achieve real, meaningful change.</p><p>Together we can 'Move for the SDGs' and make our world a better place for future generations. Access our app and",
+    'perfil_messageSendEmailBegin' => "<h2><b>Be part of this great action of NTT DATA</b></h2><p>Hello!</p><pYou were invited to participate in 'Move for the SDGs', an action in which NTT DATA employees and supporters, like you, come together to contribute to the United Nations Sustainable Development Goals!</p><p>'Move for the SDGs' is a demonstration of our commitment to important global issues such as equality, health, education, the environment and so much more! We believe that every action, no matter how small, can make a positive impact on the world. That's why we're inviting people like you, who share the same values and want to make a difference, to join us..</p><p>As part of this journey, we run a range of activities including awareness events, volunteering, fundraising and practical actions that directly support the SDGs. Through collaboration and teamwork, we believe we can achieve real, meaningful change.</p><p>Together we can 'Move for the SDGs' and make our world a better place for future generations. Access our app and",
 
     'perfil_messageSendEmailEnd' => "'>Register</a> to start adding to this movement!</p><p>Learn more on our official website: moveforthesdgs.com</p>",
 

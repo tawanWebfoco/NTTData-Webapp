@@ -90,7 +90,7 @@ define('_t', [
     'registro_erroemailprereg' => 'el email no es el mismo que el de preinscripción',
     'registro_erroemailprereg' => 'el email no es el mismo que el de preinscripción',
     'registro_errolinkredef' => 'Por favor, reenvíe el enlace de reinicio',
-    
+
     
 
     /* Página Feed */
@@ -123,6 +123,16 @@ define('_t', [
     'feed_escreva_comentario' => 'Escribe tu comentario',
     'feed_sem_publicacoes' => 'Que lástima, no hay más publicaciones',
     'feed_ver_mais' => 'Ver más',
+
+    'feed_erroapagar' => 'No tienes permiso para eliminar esta publicación',
+    'feed_erropub' => 'Publicación no encontrada en la base de datos',
+    'feed_erroapagarcom' => 'No tienes permiso para eliminar este comentario',
+    'feed_errocom' => 'Comentario no encontrado en la base de datos',
+
+    'feed_erroimggrande' => 'La imagen es demasiado grande. Tamaño máximo: 5 MB.',
+    'feed_erroimginvalida' => 'Archivo inválido. Seleccione una imagen.',
+    'feed_errovidgrande' => 'El vídeo es demasiado grande. Tamaño máximo: 50 MB.',
+    'feed_errovidinvalido' => 'Archivo inválido. Seleccione un vídeo.',
     
 
     /* Página Ranking */
@@ -174,8 +184,7 @@ define('_t', [
 
     'perfil_messageSendEmailBegin' => '<h2><b>Únete al gran movimiento de NTT DATA</b></h2><p>¡Hola!</p><p>Has sido invitado a participar en "Muévete por los ODS", una iniciativa en la que colaboradores de NTT DATA y apoyadores como tú se unen para contribuir a los Objetivos de Desarrollo Sostenible de las Naciones Unidas.</p><p>"Muévete por los ODS" es una manifestación de nuestro compromiso con cuestiones globales importantes como la igualdad, la salud, la educación, el medio ambiente y mucho más. Creemos que cada acción, por pequeña que sea, puede tener un impacto positivo en el mundo. Por eso, estamos invitando a personas que comparten nuestros valores y desean marcar la diferencia, a unirse a nosotros en este movimiento.</p><p>Como parte de este movimiento, llevamos a cabo una serie de actividades, que incluyen eventos de concientización, voluntariado, recaudación de fondos y acciones prácticas que respaldan directamente los ODS. A través de la colaboración y el trabajo en equipo, podemos lograr cambios reales y significativos.</p><p>Juntos, podemos "Muévete por los ODS" y hacer de nuestro mundo un lugar mejor para las futuras generaciones. Accede a nuestra aplicación y',
     
-    'perfil_messageSendEmailEnd' => "'>Regístrate</a> para comenzar a sumarte a esta jornada.
-    </p><p>Obtén más información en nuestro sitio web oficial: moveforthesdgs.com</p>",
+    'perfil_messageSendEmailEnd' => "'>Regístrate</a> para comenzar a sumarte a esta jornada.</p><p>Obtén más información en nuestro sitio web oficial: moveforthesdgs.com</p>",
 
 
     'regulamento_leia' => 'Preguntas Frecuentes',
