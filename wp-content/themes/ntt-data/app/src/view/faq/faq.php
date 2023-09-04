@@ -1,20 +1,46 @@
 <div id="faq" class="main">
     <section class="faq">
-        <h1>Perguntas Frequentes (FAQ)</h1>
+        <h1><?=_t['faq_h1']?></h1>
 
-        <button class="accordion">Pergunta 1</button>
+        <button class="accordion"><?=_t['faq_p1']?></button>
         <div class="panel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <?=_t['faq_r1']?>
         </div>
 
-        <button class="accordion">Pergunta 2</button>
+        <button class="accordion"><?=_t['faq_p2']?></button>
         <div class="panel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <?=_t['faq_r2']?>
         </div>
 
-        <button class="accordion">Pergunta 3</button>
+        <button class="accordion"><?=_t['faq_p3']?></button>
         <div class="panel">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <?=_t['faq_r3']?>
+        </div>
+
+        <button class="accordion"><?=_t['faq_p4']?></button>
+        <div class="panel">
+            <?=_t['faq_r4']?>
+        </div>
+
+
+        <button class="accordion"><?=_t['faq_p5']?></button>
+        <div class="panel">
+            <?=_t['faq_r5']?>
+        </div>
+
+        <button class="accordion"><?=_t['faq_p6']?></button>
+        <div class="panel">
+            <?=_t['faq_r6']?>
+        </div>
+
+        <button class="accordion"><?=_t['faq_p7']?></button>
+        <div class="panel">
+            <?=_t['faq_r7']?>
+        </div>
+
+        <button class="accordion"><?=_t['faq_p8']?></button>
+        <div class="panel">
+            <?=_t['faq_r8']?>
         </div>
     </section>
 </div>

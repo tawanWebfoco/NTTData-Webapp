@@ -172,4 +172,33 @@ define('_t', [
    'updatePass_h1' => 'Cambiar su contraseña',
    'updatePass_new_password' => 'Nueva contraseña',
    'updatePass_confirmPassword' => 'Confirmar una contraseña'
+
+
+    /* Página FAQ */
+    'faq_h1' => 'Perguntas Frequentes (FAQ)',
+
+    'faq_p1' => 'Debo subir mis tiempos dia a dia? o puedo juntarlos y subirlos semanalmente?',
+    'faq_r1' => 'Los tiempos deben ser cargados simultáneamente a la práctica de la actividad.',
+
+    'faq_p2' => 'Si hay una actividad grupal en NTT DATA (Ejemplo: Rutina de ejercicio para 40 o 50 personas) ¿hay alguna forma de subir un Excel o formato para subir los datos de todos los participantes?',
+    'faq_r2' => 'No. Cada miembro que participe de la actividad debe cargar sus propios tiempos en la plataforma',
+    
+    'faq_p3' => '¿Los familiares se inscribirán de la misma forma que colaboradores? ¿Deben agregar alguna información adicional? ¿Cómo se le sumarán esos puntos extras al colaborador?',
+    'faq_r3' => 'Los familiares y amigos se inscribirán a través de una invitación/correo que recibirán. Los colaboradores de NTT DATA deberán acceder a la plataforma web y allí podrán enviar las invitaciones quieran. Los invitados deberán acceder a la plataforma y cargar sus tiempos, tal como los harán los colaboradores.',
+
+    'faq_p4' => 'Si el tipo de actividad que haré no está en la lista, ¿habrá alguna opción "otro" para agregarla?',
+    'faq_r4' => 'Cada colaborador debe elegir qué tipo de actividad va a realizar y habrá una opción de “otro” para poder registrar adecuadamente sus tiempos.',
+    
+    'faq_p5' => '¿Qué día se cierra la plataforma para subir puntos?',
+    'faq_r5' => 'La plataforma estará abierta desde 4/9 hasta el 22/10 para registrar los tiempos y actividades.',
+    
+    'faq_p6' => '¿Tengo que tener la plataforma abierta mientras hago mi actividad? ¿Se cierra si se me bloquea el celular?',
+    'faq_r6' => 'La plataforma funcionará en “segundo plano”, o sea, podrás abrirla, clicar en iniciar y bloquear el celular. Al final, la persona tendrá que acceder a la plataforma y cerrar la actividad. En el caso de que se olvide de cerrar la actividad, el sistema terminará de sumar el tiempo a los 120 minutos de actividad.',
+
+    'faq_p7' => '¿Habrá algún premio para quienes junten más puntos?',
+    'faq_r7' => 'No. El 27 de octubre habrá un evento de cierre donde daremos a conocer los mejores performances de cada país y de la región.',
+    
+    'faq_p8' => '¿Quiénes pueden participar? (colaboradores, familiares, amigos?, de todas las edades?',
+    'faq_r8' => 'Podrán participar personas de todas las edades, pero para añadir tiempos y sumar puntos, la persona debe registrarse en la plataforma.',
+
 ]);
