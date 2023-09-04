@@ -1561,3 +1561,43 @@ img#uploadedImage {
 @keyframes p {
   from{--p:0}
 }
+
+
+
+/* FAQ */
+.accordion {
+  background-color: var(--background-gray-dark);
+  color: var(--blue-primary);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: var(--text-silver-light);
+}
+
+.accordion:after {
+  content: '\002B';
+  color: var(--text-silver-dark);
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: var(--background-gray);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
