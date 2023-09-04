@@ -1,4 +1,7 @@
 env.ini
+uploads/
+wp-content/uploads/
+backups-dup-lite/
 wp-config.php
 env.ini
 .htaccess

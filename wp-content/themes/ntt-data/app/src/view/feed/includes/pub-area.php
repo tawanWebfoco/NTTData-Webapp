@@ -55,9 +55,21 @@
 
 
             <div class="content">
-                <div class="person">
-                    <h2><?= $userPub->full_name; ?></h2>
-                    <span><?= $diffDate; ?></span>
+                <div class="infoPub">
+                    <div class="person">
+                        <h2><?= $userPub->full_name; ?></h2>
+                        <span><?= $diffDate; ?></span>
+                    </div>
+                    <?php if ($user->id_user === $pub->id_user ) :; ?>
+                        <nav class="navPub">
+                            <img id="threeDots" src="<?= get_stylesheet_directory_uri() . '/app/public\assets\img\icons/feed/three-dots.svg' ?>" alt="">
+                            <div class="contentNav"  <?php echo md5('id_pub') . '="' . $pub->id_pub . '"' ?> <?php echo md5('pub_id_user') . '="' . $pub->id_user . '"' ?><?php echo md5('id_user') . '="' . $user->id_user . '"' ?> >
+                                <img id="closeNav" src="<?= get_stylesheet_directory_uri() . '/app/public\assets\img\icons/feed/close-circle.svg' ?>" alt="">
+                                <!-- <div class="buttonNav editPub">Editar</div> -->
+                                <div class="buttonNav deletePub">Apagar</div>
+                            </div>
+                        </nav>
+                    <?php endif; ?>
                 </div>
                 <div class="message">
                     <p><?= $pub->message; ?></p>

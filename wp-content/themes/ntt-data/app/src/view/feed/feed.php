@@ -33,5 +33,6 @@
 <?php if (get_class($user) === 'User') :; ?>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\feed/sendComment.js"></script>
 <?php endif; ?>
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\feed/navPub.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\feed/likes.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\feed/requestMorePub.js"></script>

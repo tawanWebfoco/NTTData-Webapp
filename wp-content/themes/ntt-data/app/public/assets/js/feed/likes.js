@@ -38,7 +38,18 @@ function liked(button){
    
     if(button.classList.contains('liked')){
         button.classList.toggle('liked')
-        button.querySelector('.desc').innerHTML = 'Curtir';
+
+        switch (document.language.toLowerCase()) {
+            case 'pt':
+                button.querySelector('.desc').innerHTML = 'Curtir';
+              break;
+              case 'en':
+                button.querySelector('.desc').innerHTML = 'Like';
+                break;
+                default:
+                button.querySelector('.desc').innerHTML = 'Me Gusta';
+              break;
+          }
         let likedNumb = button.parentElement.parentElement.querySelector('.peopleLiked number');
         let likeText = button.parentElement.parentElement.querySelector('.peopleLiked text');
         let originalNumber = likedNumb
@@ -56,7 +67,20 @@ function liked(button){
         submitLike(data)
     }else{
         button.classList.toggle('liked')
-        button.querySelector('.desc').innerHTML = 'Descurtir';
+
+        switch (document.language.toLowerCase()) {
+            case 'pt':
+                button.querySelector('.desc').innerHTML = 'Descurtir';
+              break;
+              case 'en':
+                button.querySelector('.desc').innerHTML = 'Unike';
+                break;
+                default:
+                button.querySelector('.desc').innerHTML = 'No Me Gusta';
+              break;
+          }
+
+
         let likedNumb = button.parentElement.parentElement.querySelector('.peopleLiked number');
         let likeText = button.parentElement.parentElement.querySelector('.peopleLiked text');
         let originalNumber = likedNumb

@@ -90,7 +90,7 @@ define('_t', [
     'feed_dias' => '  days ago',
     'feed_horas' => ' hours ago',
     'feed_minutos' => ' minutes ago',
-    'feed_descurtir' => 'Dislike',
+    'feed_descurtir' => 'Unlike',
     'feed_curtir' => 'Like',
     'feed_comentar' => 'Comment',
     'feed_escreva_comentario' => 'Write your comment',
