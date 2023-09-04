@@ -170,7 +170,7 @@ define('_t', [
 
     'updatePass_h1' => 'Change your password',
     'updatePass_new_password' => 'New Password',
-    'updatePass_confirmPassword' => 'Confirm a password'
+    'updatePass_confirmPassword' => 'Confirm a password',
 
 
     /* Página FAQ */

@@ -163,7 +163,7 @@ define('_t', [
 
     'updatePass_h1' => 'Altere sua senha',
     'updatePass_new_password' => 'Nova Senha',
-    'updatePass_confirmPassword' => 'Confirme a senha'
+    'updatePass_confirmPassword' => 'Confirme a senha',
 
 
     /* Página FAQ */
