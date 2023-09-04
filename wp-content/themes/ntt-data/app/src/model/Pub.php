@@ -72,8 +72,8 @@
 
             }
                 if(count($errors) > 0) {
-                    print_r($errors);
-                // throw new ValidationException($errors);
+                    // print_r($errors);
+                throw new ValidationException($errors);
             }
             }
     }
