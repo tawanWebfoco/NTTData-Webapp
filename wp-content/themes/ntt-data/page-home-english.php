@@ -277,7 +277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     </div>
                     <div class="right">
-                    <video controls poster="http://moveforthesdg.com/wp-content/uploads/2023/07/Captura-de-tela-2023-07-31-103848.png" src="http://moveforthesdg.com/wp-content/uploads/2023/07/nttdata-video2.mp4">
+                    <video controls poster="https://moveforthesdg.com/wp-content/uploads/2023/07/Captura-de-tela-2023-07-31-103848.png" src="https://moveforthesdg.com/wp-content/uploads/2023/07/nttdata-video2.mp4">
                             </video>
                     </div>
                     
@@ -314,13 +314,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="titleOne">How to participate</div>
                         <p>Keep an eye on our communication channels, as you will soon have access to the details on how to be part of this initiative. But for now, start moving and taking even better care of your health.</p>
                         <div class="img">
-                        <img id="logo-movethesdg" src="http://moveforthesdg.com/wp-content/uploads/2023/07/MicrosoftTeams-image.png" alt="logo move for the sdg">
+                        <img id="logo-movethesdg" src="https://moveforthesdg.com/wp-content/uploads/2023/07/MicrosoftTeams-image.png" alt="logo move for the sdg">
                         </div>
 
                     </div>
                     <div class="right">
                         <div class="video">
-                            <video controls poster="http://moveforthesdg.com/wp-content/uploads/2023/07/Captura-de-tela-2023-07-31-104502.png"  src="http://moveforthesdg.com/wp-content/uploads/2023/07/ESG-PROJECT-Americas-Internal-Talent-VFinal.mp4"></video>
+                            <video controls poster="https://moveforthesdg.com/wp-content/uploads/2023/07/Captura-de-tela-2023-07-31-104502.png"  src="https://moveforthesdg.com/wp-content/uploads/2023/07/ESG-PROJECT-Americas-Internal-Talent-VFinal.mp4"></video>
                         </div>
                     </div>
                 </div>

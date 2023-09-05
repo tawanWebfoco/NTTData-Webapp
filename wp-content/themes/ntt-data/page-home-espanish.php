@@ -302,7 +302,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     </div>
                     <div class="right">
-                    <video controls poster="http://moveforthesdg.com/wp-content/uploads/2023/07/Captura-de-tela-2023-07-31-103848.png" src="http://moveforthesdg.com/wp-content/uploads/2023/07/nttdata-video2.mp4">
+                    <video controls poster="https://moveforthesdg.com/wp-content/uploads/2023/07/Captura-de-tela-2023-07-31-103848.png" src="https://moveforthesdg.com/wp-content/uploads/2023/07/nttdata-video2.mp4">
                             </video>
                     </div>
                 </div>
@@ -341,13 +341,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p>Mantente atento a nuestros canales de comunicación, pronto tendrás acceso a todos los detalles para ser parte de esta iniciativa.<br>Pero desde ahora, empieza a moverte y cuidar aún más de tu salud.
 </p>
                         <div class="img">
-                            <img id="logo-movethesdg" src="http://moveforthesdg.com/wp-content/uploads/2023/07/MicrosoftTeams-image.png" alt="logo move for the sdg">
+                            <img id="logo-movethesdg" src="https://moveforthesdg.com/wp-content/uploads/2023/07/MicrosoftTeams-image.png" alt="logo move for the sdg">
                         </div>
 
                     </div>
                     <div class="right">
                         <div class="video">
-                            <video controls poster="http://moveforthesdg.com/wp-content/uploads/2023/07/Captura-de-tela-2023-07-31-104502.png"  src="http://moveforthesdg.com/wp-content/uploads/2023/07/ESG-PROJECT-Americas-Internal-Talent-VFinal.mp4"></video>
+                            <video controls poster="https://moveforthesdg.com/wp-content/uploads/2023/07/Captura-de-tela-2023-07-31-104502.png"  src="https://moveforthesdg.com/wp-content/uploads/2023/07/ESG-PROJECT-Americas-Internal-Talent-VFinal.mp4"></video>
                         </div>
                     </div>
                 </div>
