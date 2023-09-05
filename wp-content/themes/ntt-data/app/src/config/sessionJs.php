@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 require_once(dirname(__FILE__, 2) . '/config/config.php');
 // requireValidSession();
 require_once(dirname(__FILE__,7) . '/wp-config.php');
@@ -13,10 +13,6 @@ if($data['type'] == 'User'){
 }elseif ($data['type'] == "Guest") {
    $user = Guest::getOne(['id_guest' => $data['id_user']]);
 }
-
 if($user){
    $_SESSION['user'] = $user;
-   echo '1';
-}else{
-   echo '0';
 }

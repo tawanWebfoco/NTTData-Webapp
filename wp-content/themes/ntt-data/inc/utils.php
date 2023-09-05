@@ -40,7 +40,7 @@ $html = <<<HTML
   if(userValid){
   const homeUrl = document.homePath
   // console.log(homeUrl);
-   const pathComments = '/wp-content/themes/ntt-data/app/src/config/sessionJs.php';
+   const pathComments = homeUrl+'/../../wp-content/themes/ntt-data/app/src/config/sessionJs.php';
   const encode =  JSON.stringify(userValid)
    fetch(pathComments, {
                method: 'POST',
@@ -57,11 +57,9 @@ $html = <<<HTML
            })
            .then(data => {
             console.log(data);
-            if(data == '1'){
-              // window.location.href = 'https://webapp.webfoco.com/app';
-            }else{
-              window.location.href = 'https://webapp.webfoco.com/login';
-            }
+
+            window.location.href = 'https://webapp.webfoco.com/app';
+            // window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/app';
 
 
            })

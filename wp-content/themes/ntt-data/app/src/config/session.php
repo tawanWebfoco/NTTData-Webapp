@@ -7,7 +7,7 @@ function requireValidSession(){
     if (!isset($user)) {
         getUserJs();
         $user = ($_SESSION) ? $_SESSION['user'] : null;
-        print_r('user');
+        print_r($user);
         if (!isset($user)) {
             // usleep(1000000); // 500000 microssegundos = 500 milissegundos
         // header('Location: login');
