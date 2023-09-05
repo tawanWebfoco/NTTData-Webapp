@@ -1,4 +1,7 @@
 <?php
+/* Incluir Linguagens */
+include_once get_template_directory().'/languages/common.php';
+
     class Pub extends Model{
         protected static $tableName = 'wp_app_pub';
         protected static $columns = ['id_user','message', 'date','file','type_file'];
@@ -64,11 +67,11 @@
             $errors = [];
 
             if($this->id_user !== $this->user_id_user) {
-                $errors['validationId'] = 'Você não tem permissão para apagar essa publicação';
+                $errors['validationId'] = _t['feed_erroapagar'];
             }
             
             if(empty($existPubDb)){
-                $errors['validationId'] = 'Publicação não encontrada no Banco de dados';
+                $errors['validationId'] = _t['feed_erropub'];
 
             }
                 if(count($errors) > 0) {

@@ -16,9 +16,18 @@ define('_t', [
     'login_esquecisenha' => 'Olvidé mi contraseña',
     'login_cadastrese' => 'Registrarse',
 
+    'login_erroemail' => 'El correo electrónico es un campo obligatorio.',
+    'login_errosenha' => 'Por favor ingresa tu contraseña.',
+    'login_errodesligado' => 'El usuario se desconecta de la empresa.',
+    'login_errousersenha' => 'Nombre de usuario o contraseña no válidos.',
+
+
+    'erro_validacao' => 'Error de validacion',
+
 
     /* Página Registro */
     'registro_h1' => 'Registro de Empleados',
+    'registro_errovalidacao' => 'Error de validación, envía un nuevo correo electrónico',
 
     'registro_frm_nome' => 'Nombre',
     'registro_frm_email' => 'Correo electrónico',
@@ -63,6 +72,29 @@ define('_t', [
     'registro_sendEmailSubject' => "¡Valida tu correo electrónico para unirte! ¡Muévete por el ODS!",
      'registro_sendEmailMessageBegin' => "<h2><b>Sé parte del gran movimiento NTT DATA</b></h2><p>¡Valida tu correo electrónico haciendo clic en el siguiente enlace!</p><a href=' ",
      'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Obtenga más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>" ,
+
+     /* Invitado */
+    'registro_erroconvite1' => 'Tu invitación no fue encontrada, solicítala nuevamente a un colaborador de NTT DATA',
+    'registro_erroconvite2' => 'Código de validación no válido, solicita una nueva invitación',
+    'registro_erronome' => 'El nombre es un campo obligatorio.',
+    'registro_erroemail1' => 'El correo electrónico es un campo obligatorio.',
+    'registro_erroemail2' => 'Correo electrónico no válido.',
+    'registro_errouser' => 'El usuario es un campo obligatorio.',
+    'registro_erropais' => 'El país es un campo obligatorio.',
+    'registro_errosenha' => 'La contraseña es un campo obligatorio.',
+    'registro_erroconfsenha' => 'La confirmación de contraseña es un campo obligatorio.',
+    'registro_errosenhasdiferentes' => 'Las contraseñas no son las mismas.',
+    'registro_erromsg' => 'Error de validación.',
+
+    'registro_erroapenascolab' => 'Registro permitido sólo para colaboradores de NTT DATA.',
+    'registro_errojacadastrado' => 'Correo electrónico ya registrado',
+    'registro_errousercadastrado' => 'Nombre de usuario ya registrado, por favor prueba con otro.',
+    'registro_errocargo' => 'La carga es un campo obligatorio.',
+    'registro_errovalidacao' => 'validación',
+    'registro_erroemailprereg' => 'el email no es el mismo que el de preinscripción',
+    'registro_erroemailprereg' => 'el email no es el mismo que el de preinscripción',
+    'registro_errolinkredef' => 'Por favor, reenvíe el enlace de reinicio',
+
     
 
     /* Página Feed */
@@ -95,6 +127,16 @@ define('_t', [
     'feed_escreva_comentario' => 'Escribe tu comentario',
     'feed_sem_publicacoes' => 'Que lástima, no hay más publicaciones',
     'feed_ver_mais' => 'Ver más',
+
+    'feed_erroapagar' => 'No tienes permiso para eliminar esta publicación',
+    'feed_erropub' => 'Publicación no encontrada en la base de datos',
+    'feed_erroapagarcom' => 'No tienes permiso para eliminar este comentario',
+    'feed_errocom' => 'Comentario no encontrado en la base de datos',
+
+    'feed_erroimggrande' => 'La imagen es demasiado grande. Tamaño máximo: 5 MB.',
+    'feed_erroimginvalida' => 'Archivo inválido. Seleccione una imagen.',
+    'feed_errovidgrande' => 'El vídeo es demasiado grande. Tamaño máximo: 50 MB.',
+    'feed_errovidinvalido' => 'Archivo inválido. Seleccione un vídeo.',
     
 
     /* Página Ranking */
@@ -146,8 +188,7 @@ define('_t', [
 
     'perfil_messageSendEmailBegin' => '<h2><b>Únete al gran movimiento de NTT DATA</b></h2><p>¡Hola!</p><p>Has sido invitado a participar en "Muévete por los ODS", una iniciativa en la que colaboradores de NTT DATA y apoyadores como tú se unen para contribuir a los Objetivos de Desarrollo Sostenible de las Naciones Unidas.</p><p>"Muévete por los ODS" es una manifestación de nuestro compromiso con cuestiones globales importantes como la igualdad, la salud, la educación, el medio ambiente y mucho más. Creemos que cada acción, por pequeña que sea, puede tener un impacto positivo en el mundo. Por eso, estamos invitando a personas que comparten nuestros valores y desean marcar la diferencia, a unirse a nosotros en este movimiento.</p><p>Como parte de este movimiento, llevamos a cabo una serie de actividades, que incluyen eventos de concientización, voluntariado, recaudación de fondos y acciones prácticas que respaldan directamente los ODS. A través de la colaboración y el trabajo en equipo, podemos lograr cambios reales y significativos.</p><p>Juntos, podemos "Muévete por los ODS" y hacer de nuestro mundo un lugar mejor para las futuras generaciones. Accede a nuestra aplicación y',
     
-    'perfil_messageSendEmailEnd' => "'>Regístrate</a> para comenzar a sumarte a esta jornada.
-    </p><p>Obtén más información en nuestro sitio web oficial: moveforthesdgs.com</p>",
+    'perfil_messageSendEmailEnd' => "'>Regístrate</a> para comenzar a sumarte a esta jornada.</p><p>Obtén más información en nuestro sitio web oficial: moveforthesdgs.com</p>",
 
 
     'regulamento_leia' => 'Preguntas Frecuentes',

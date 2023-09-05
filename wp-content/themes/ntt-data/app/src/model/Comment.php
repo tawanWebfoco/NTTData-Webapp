@@ -1,4 +1,7 @@
 <?php
+/* Incluir Linguagens */
+include_once get_template_directory().'/languages/common.php';
+
     class Comment extends Model{
         protected static $tableName = 'wp_app_comment';
         protected static $columns = ['id_pub', 'message', 'id_user', 'date',];
@@ -46,11 +49,11 @@
             $errors = [];
 
             if($this->id_user !== $this->user_id_user) {
-                $errors['validationId'] = 'Você não tem permissão para apagar essa comentário';
+                $errors['validationId'] = _t['feed_erroapagarcom'];
             }
             
             if(empty($existComment)){
-                $errors['validationId'] = 'Comentário não encontrada no Banco de dados';
+                $errors['validationId'] = _t['feed_errocom'];
 
             }
                 if(count($errors) > 0) {

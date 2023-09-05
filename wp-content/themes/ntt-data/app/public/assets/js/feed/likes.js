@@ -39,7 +39,8 @@ function liked(button){
     if(button.classList.contains('liked')){
         button.classList.toggle('liked')
 
-        switch (document.language.toLowerCase()) {
+        button.querySelector('.desc').innerHTML = feed_curtir;
+        /*switch (document.language.toLowerCase()) {
             case 'pt':
                 button.querySelector('.desc').innerHTML = 'Curtir';
               break;
@@ -49,7 +50,7 @@ function liked(button){
                 default:
                 button.querySelector('.desc').innerHTML = 'Me Gusta';
               break;
-          }
+          }*/
         let likedNumb = button.parentElement.parentElement.querySelector('.peopleLiked number');
         let likeText = button.parentElement.parentElement.querySelector('.peopleLiked text');
         let originalNumber = likedNumb
@@ -59,26 +60,27 @@ function liked(button){
             likeText.textContent = ''
         }else if(originalNumber.textContent == 2){
             likedNumb.textContent = likedNumb.textContent-1
-            likeText.textContent = ' Curtida'
+            likeText.textContent = ' ' + feed_curtida;
         }else if(originalNumber.textContent > 2){
             likedNumb.textContent = likedNumb.textContent-1
         }
         
         submitLike(data)
     }else{
-        button.classList.toggle('liked')
+        button.classList.toggle('liked');
+        button.querySelector('.desc').innerHTML = feed_descurtir;
 
-        switch (document.language.toLowerCase()) {
+        /*switch (document.language.toLowerCase()) {
             case 'pt':
                 button.querySelector('.desc').innerHTML = 'Descurtir';
               break;
               case 'en':
-                button.querySelector('.desc').innerHTML = 'Unike';
+                button.querySelector('.desc').innerHTML = 'Unlike';
                 break;
                 default:
                 button.querySelector('.desc').innerHTML = 'No Me Gusta';
               break;
-          }
+          }*/
 
 
         let likedNumb = button.parentElement.parentElement.querySelector('.peopleLiked number');
@@ -87,14 +89,14 @@ function liked(button){
 
     
         if(originalNumber.textContent == '' || originalNumber.textContent == 0){
-            likedNumb.textContent  = 1
-            likeText.textContent = ' Curtida'
+            likedNumb.textContent  = 1;
+            likeText.textContent = ' ' + feed_curtida;
         }else if(originalNumber.textContent == 1 ){
-            likedNumb.textContent ++
-            likeText.textContent = ' Curtidas'
+            likedNumb.textContent ++;
+            likeText.textContent = ' ' + feed_curtidas;
         }else if(originalNumber.textContent > 1 ){
-            likedNumb.textContent ++
-            likeText.textContent = ' Curtidas'
+            likedNumb.textContent ++;
+            likeText.textContent = ' ' + feed_curtidas;
         }
 
         submitLike(data)

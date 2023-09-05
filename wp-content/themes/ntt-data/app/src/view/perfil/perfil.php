@@ -18,6 +18,9 @@
 
 <script>
     Document.prototype.homePath = "<?= home_url() ?>";
+    Document.prototype.language = "<?= $user->language?>";
+
+    let perfil_convemail = "<?=_t['perfil_convemail']?>";
 </script>
 <!-- <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/js/perfil/logout.js"></script> -->
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/app/public\assets\js\perfil/uploadImg.js"></script>

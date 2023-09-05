@@ -58,7 +58,7 @@ for (indx = 0; indx < acc.length; indx++) {
       panel.style.padding = "0 18px";
     } else {
       panel.style.padding = "18px";
-      panel.style.maxHeight = panel.scrollHeight + "px";
+      panel.style.maxHeight = (panel.scrollHeight + 36) + "px";
     } 
   });
 }

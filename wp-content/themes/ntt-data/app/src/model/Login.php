@@ -1,15 +1,18 @@
 <?php
+/* Incluir Linguagens */
+include_once get_template_directory().'/languages/common.php';
+
 class Login extends Model{
 
     public function validate(){
         $errors = [];
 
         if(!$this->email){
-            $errors['email'] = 'E-mail é um campo obrigatório.';
+            $errors['email'] = _t['login_erroemail'];
         }
 
         if(!$this->password){
-            $errors['password'] = 'Por favor, informe a senha.';
+            $errors['password'] = _t['login_errosenha'];
         }
 
         if(count($errors) > 0 ){
@@ -24,7 +27,7 @@ class Login extends Model{
         
         if($user){
             if($user->off_company){
-                throw new AppException('Usuário está desligado da empresa.');
+                throw new AppException(_t['login_errodesligado']);
             }
 
             if($this->password === $user->password){
@@ -39,6 +42,6 @@ class Login extends Model{
             }
         }
         
-        throw new AppException('Usuário ou Senha Inválidos.');
+        throw new AppException(_t['login_errousersenha']);
     }
 }
