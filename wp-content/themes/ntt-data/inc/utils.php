@@ -5,14 +5,17 @@ echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/g
 echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/components/userStorage.js'></script>";
 echo "<script>Document.prototype.homePath = '". home_url() ."'</script>";
 $userType = get_class($user);
+$idGuest = isset($user->id_guest) ? $user->id_guest : null;
 
 $html = <<<HTML
 <script>
 const user = {
   id_user: "$user->id_user",
+  id_guest: "$idGuest",
   full_name: "$user->full_name",
   email: "$user->email",
   language: "$user->language",
+  country: "$user->country",
   username: "$user->username",
   type: "$userType",
 }
@@ -22,7 +25,7 @@ userStorage.setStorage(user);
 // console.log('userStorage:'+user.id_user, userStorage.getStorage());
 // window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/app';
 // window.location.href = 'https://webapp.webfoco.com/app';
-  // window.location.href = document.homePath+'/app';
+  window.location.href = document.homePath+'/app';
 </script>
 HTML;
 echo $html;

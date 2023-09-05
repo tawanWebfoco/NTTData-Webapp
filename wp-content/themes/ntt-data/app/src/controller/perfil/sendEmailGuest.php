@@ -1,13 +1,13 @@
 <?php 
 include_once(LANGUAGES_PATH . '/common.php');
 
-function generateUrl($user, $email, $validationId){
+function generateUrl($user, $email, $validationId,$type){
    $url = home_url();
    $message = "$url/register?";
    $message .= md5('invited') . "=$user->id_user&";
    $message .= md5('email') . "=" . md5($email) . "&";
    $message .= md5('validationId') . "=$validationId&";
-   $message .= md5('regType') . "=" . md5('convidado');
+   $message .= md5('regType') . "=" . md5($type);
    return $message;
 }
 
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') :
          
          $messageBegin = _t['perfil_messageSendEmailBegin'];
 
-         $messageLink = " <a href='".generateUrl($user, $email, $validationId);
+         $messageLink = " <a href='".generateUrl($user, $email, $validationId,$type);
 
          $messageEnd = _t['perfil_messageSendEmailEnd'];
 
