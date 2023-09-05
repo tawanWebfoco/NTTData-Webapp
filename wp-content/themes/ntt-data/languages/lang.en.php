@@ -45,7 +45,7 @@ define('_t', [
     'registro_frm_arg' => 'Argentina',
     'registro_frm_equ' => 'Ecuador',
     'registro_frm_usa' => 'USA',
-    'registro_frm_cargo' => 'Cargo',
+    'registro_frm_cargo' => 'Position',
     'registro_frm_talent' => 'Talent',
     'registro_frm_leader' => 'Leader',
     'registro_frm_manager' => 'Manager',
@@ -70,12 +70,12 @@ define('_t', [
 
     'registro_btn_cta' => 'Access',
     
-    'registro_sendEmailSubject' => "Validate your email to join! Move through the ODS!",
+    'registro_sendEmailSubject' => "Validate your email to join! Move For The SDGs!",
      'registro_sendEmailMessageBegin' => "<h2><b>Be part of the great NTT DATA movement</b></h2><p>Validate your email by clicking on the link below!</p><a href='",
      'registro_sendEmailMessageEnd' => "'>Validate.<a><p>Learn more on our official website: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>" ,
 
      /* Guest */
-    'registro_erroconvite1' => 'Your invitation was not found, request it again to an NTT DATA collaborator',
+    'registro_erroconvite1' => 'Your invitation was not found, request it again to a NTT DATA collaborator',
     'registro_erroconvite2' => 'Invalid validation code, request a new invitation',
     'registro_erronome' => 'Name is a required field.',
     'registro_erroemail1' => 'Email is a required field.',
@@ -90,10 +90,9 @@ define('_t', [
     'registro_erroapenascolab' => 'Registration allowed only for NTT DATA collaborators.',
     'registro_errojacadastrado' => 'Email already registered',
     'registro_errousercadastrado' => 'Username already registered, please try another one.',
-    'registro_errocargo' => 'Cargo is a required field.',
-    'registro_errovalidacao' => 'validation',
-    'registro_erroemailprereg' => 'the email is not the same as the pre-registration',
-    'registro_erroemailprereg' => 'the email is not the same as the pre-registration',
+    'registro_errocargo' => 'Posicion is a required field.',
+    'registro_errovalidacao' => 'Validation',
+    'registro_erroemailprereg' => 'The email is not the same as the pre-registration',
     'registro_errolinkredef' => 'Please resend the reset link',
 
     
@@ -126,7 +125,7 @@ define('_t', [
     'feed_curtir' => 'Like',
     'feed_comentar' => 'Comment',
     'feed_escreva_comentario' => 'Write your comment',
-    'feed_sem_publicacoes' => 'Too bad, there are no more publications',
+    'feed_sem_publicacoes' => 'Sorry, there are no more publications',
     'feed_ver_mais' => 'See More',
 
     'feed_erroapagar' => 'You don\'t have permission to delete this post.',
@@ -143,12 +142,12 @@ define('_t', [
     /* Página Ranking */
     'rank_h1' => 'Ranking',
     'rank_pontosmaius' => 'POINTS',
-    'rank_pontosminus' => 'points',
-    'rank_ponto' => 'point',
+    'rank_pontosminus' => 'Points',
+    'rank_ponto' => 'Point',
     'rank_suapontuacao' => 'Your Total Score',
     'rank_taxaseupais' => 'Engagement Rate for your Country',
     'rank_taxaoutros' => 'Engagement Rate of other Countries',
-    'rank_rankgeral' => 'Rank General',
+    'rank_rankgeral' => 'General Rank',
     'rank_vermais' => 'See More',
     'rank_entendapontos' => 'Understand the score',
     'rank_entenda1min' => '1 Minute Exercise',
@@ -177,7 +176,7 @@ define('_t', [
 
     'perfil_convidadostitulo' => 'Check your list of registered guests',
     'perfil_convidadospontos' => 'Points',
-    'perfil_convidadosnenhum' => 'Too bad, none of your guests registered',
+    'perfil_convidadosnenhum' => 'Sorry, none of your guests registered',
 
     'perfil_convidadopor' => 'Invited By',
     'perfil_convidadosobre_tit' => 'About the action',
@@ -212,29 +211,29 @@ define('_t', [
 
     'updatePass_h1' => 'Change your password',
     'updatePass_new_password' => 'New Password',
-    'updatePass_confirmPassword' => 'Confirm a password',
+    'updatePass_confirmPassword' => 'Confirm password',
 
 
     /* Página FAQ */
-    'faq_h1' => 'Perguntas Frequentes (FAQ)',
+    'faq_h1' => 'Frequently Asked Questions (FAQ)',
 
-    'faq_p1' => 'Should I record my times day by day? Or can I pool them and upload them weekly?',
+    'faq_p1' => 'Should I record my times day by day? Or can I group them and upload weekly?',
     'faq_r1' => 'The times must be recorded simultaneously with the practice of the activity.',
 
     'faq_p2' => 'If there is a group activity on NTT DATA (Example: Exercise routine for 40 or 50 people) is there a way to upload an Excel data of all participants?',
     'faq_r2' => 'No. Each member participating in the activity must record their own times on the platform.',
     
-    'faq_p3' => 'Will family members register in the same way as employees? Should they add any additional information? How will these extra points be added to the contributor?',
-    'faq_r3' => 'Family and friends will sign up via invitation/email they will receive. NTT DATA employees must access the web platform and there they can send any invitations they wish. Guests must access the platform and upload their times, as will employees.',
+    'faq_p3' => 'Will family members register in the same way as employees? Should they add any additional information? How will these extra points be added to the employee?',
+    'faq_r3' => 'Family and friends will sign up via invitation/email they will receive. NTT DATA employees must access the web platform and there they can send any invitations they wish. Guests must access the platform and upload their times, as the employees.',
 
     'faq_p4' => 'If the type of activity I will be doing is not on the list, is there an “Other” option to add it?',
-    'faq_r4' => 'Each employee must choose the type of activity to be carried out and there will be an option “Other” to be able to correctly register their times.',
+    'faq_r4' => 'Each employee must choose the type of activity and there will be an “Other” option able to register their times.',
 
-    'faq_p5' => 'On which day will the platform close for the registration of points?',
+    'faq_p5' => 'On which day will the platform close for the points registration?',
     'faq_r5' => 'The platform will be open from 09/04 to 10/22 for registration of times and activities.',
     
     'faq_p6' => 'Should I have the platform open while doing my activity? If my cell phone blocks the platform, will it stop recording my time?',
-    'faq_r6' => 'The platform will work in the “background”, that is, you can open it, click on start and block the cell phone. In the end, you will have to access the platform and close the activity. If you forget to end the activity, the system will finish adding the time to the 120 minutes of activity.',
+    'faq_r6' => 'The platform will work in the “background”, so you can open it, click on start and block the cell phone. In the end, you will have to access the platform and close the activity. If you forget to end the activity, the system will finish adding the time to the 120 minutes of activity.',
 
     'faq_p7' => 'Will there be a prize for those who accumulate the most points?',
     'faq_r7' => 'No. On October 27th there will be a closing event where we will announce the top performers from each country and region.',

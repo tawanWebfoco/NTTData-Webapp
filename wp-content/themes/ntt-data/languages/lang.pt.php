@@ -93,7 +93,7 @@ define('_t', [
     'registro_errovalidacao' => 'validação',
     'registro_erroemailprereg' => 'o email não é o mesmo do pré-registro',
     'registro_erroemailprereg' => 'o email não é o mesmo do pré-registro',
-    'registro_errolinkredef' => 'Por favor re-envie o link de redefinição',
+    'registro_errolinkredef' => 'Por favor, re-envie o link de redefinição',
 
     
 

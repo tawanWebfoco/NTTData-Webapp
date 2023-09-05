@@ -9,20 +9,20 @@ define('_t', [
 
 
     /* Página Login */
-    'login_h1' => 'Inicia sesión en tu cuenta',
+    'login_h1' => 'Iniciar sesión en tu cuenta',
     'login_email' => 'Correo electrónico',
     'login_senha' => 'Contraseña',
     'login_entrar' => 'Iniciar sesión',
     'login_esquecisenha' => 'Olvidé mi contraseña',
     'login_cadastrese' => 'Registrarse',
 
-    'login_erroemail' => 'El correo electrónico es un campo obligatorio.',
-    'login_errosenha' => 'Por favor ingresa tu contraseña.',
-    'login_errodesligado' => 'El usuario se desconecta de la empresa.',
-    'login_errousersenha' => 'Nombre de usuario o contraseña no válidos.',
+    'login_erroemail' => 'Correo electrónico es un campo obligatorio.',
+    'login_errosenha' => 'Por favor, ingresa tu contraseña.',
+    'login_errodesligado' => 'Usuario desconectado de la empresa.',
+    'login_errousersenha' => 'Nombre de usuario o contraseña inválidos.',
 
 
-    'erro_validacao' => 'Error de validacion',
+    'erro_validacao' => 'Error de validación',
 
 
     /* Página Registro */
@@ -69,30 +69,29 @@ define('_t', [
     'registro_cnv_p_3' => '¿Te animas a unirte a nosotros en este viaje? ¡Queremos contar con tu participación para lograr que la 2ª edición de "Muévete por los ODS" sea aún más especial! ',
     'registro_cnv_p_4' => 'Obtén más información y sigue todas las novedades en nuestro sitio web: ',
 
-    'registro_sendEmailSubject' => "¡Valida tu correo electrónico para unirte! ¡Muévete por el ODS!",
+    'registro_sendEmailSubject' => "¡Valida tu correo electrónico para unirte! ¡Muévete por los ODS!",
      'registro_sendEmailMessageBegin' => "<h2><b>Sé parte del gran movimiento NTT DATA</b></h2><p>¡Valida tu correo electrónico haciendo clic en el siguiente enlace!</p><a href=' ",
      'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Obtenga más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>" ,
 
      /* Invitado */
     'registro_erroconvite1' => 'Tu invitación no fue encontrada, solicítala nuevamente a un colaborador de NTT DATA',
-    'registro_erroconvite2' => 'Código de validación no válido, solicita una nueva invitación',
-    'registro_erronome' => 'El nombre es un campo obligatorio.',
-    'registro_erroemail1' => 'El correo electrónico es un campo obligatorio.',
-    'registro_erroemail2' => 'Correo electrónico no válido.',
-    'registro_errouser' => 'El usuario es un campo obligatorio.',
-    'registro_erropais' => 'El país es un campo obligatorio.',
-    'registro_errosenha' => 'La contraseña es un campo obligatorio.',
-    'registro_erroconfsenha' => 'La confirmación de contraseña es un campo obligatorio.',
+    'registro_erroconvite2' => 'Código de validación inválido, solicite una nueva invitación',
+    'registro_erronome' => 'Nombre es un campo obligatorio.',
+    'registro_erroemail1' => 'Correo electrónico es un campo obligatorio.',
+    'registro_erroemail2' => 'Correo electrónico inválido.',
+    'registro_errouser' => 'Usuario es un campo obligatorio.',
+    'registro_erropais' => 'País es un campo obligatorio.',
+    'registro_errosenha' => 'Contraseña es un campo obligatorio.',
+    'registro_erroconfsenha' => 'Confirmación de contraseña es un campo obligatorio.',
     'registro_errosenhasdiferentes' => 'Las contraseñas no son las mismas.',
     'registro_erromsg' => 'Error de validación.',
 
     'registro_erroapenascolab' => 'Registro permitido sólo para colaboradores de NTT DATA.',
     'registro_errojacadastrado' => 'Correo electrónico ya registrado',
-    'registro_errousercadastrado' => 'Nombre de usuario ya registrado, por favor prueba con otro.',
-    'registro_errocargo' => 'La carga es un campo obligatorio.',
+    'registro_errousercadastrado' => 'Nombre de usuario ya registrado, por favor registre otro.',
+    'registro_errocargo' => 'Cargo es un campo obligatorio.',
     'registro_errovalidacao' => 'validación',
-    'registro_erroemailprereg' => 'el email no es el mismo que el de preinscripción',
-    'registro_erroemailprereg' => 'el email no es el mismo que el de preinscripción',
+    'registro_erroemailprereg' => 'el correo electrónico no es el mismo que el de preinscripción',
     'registro_errolinkredef' => 'Por favor, reenvíe el enlace de reinicio',
 
     
@@ -107,7 +106,7 @@ define('_t', [
     'feed_pub_imagem_title' => 'Agregar imagen',
     'feed_pub_video_title' => 'Agregar vídeo',
     'feed_pub_publicar' => 'Publicar',
-    'feed_pub_limpar' => 'Limpiar',
+    'feed_pub_limpar' => 'Borrar',
 
     'feed_curtida' => 'Me gusta',
     'feed_curtidas' => 'Me gusta',
@@ -216,9 +215,9 @@ define('_t', [
 
 
     /* Página FAQ */
-    'faq_h1' => 'Perguntas Frequentes (FAQ)',
+    'faq_h1' => 'Preguntas Frecuentes (FAQ)',
 
-    'faq_p1' => 'Debo subir mis tiempos dia a dia? o puedo juntarlos y subirlos semanalmente?',
+    'faq_p1' => '¿Debo subir mis tiempos dia a dia? ¿O puedo juntarlos y subirlos semanalmente?',
     'faq_r1' => 'Los tiempos deben ser cargados simultáneamente a la práctica de la actividad.',
 
     'faq_p2' => 'Si hay una actividad grupal en NTT DATA (Ejemplo: Rutina de ejercicio para 40 o 50 personas) ¿hay alguna forma de subir un Excel o formato para subir los datos de todos los participantes?',

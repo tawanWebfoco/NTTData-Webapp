@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // session_id($session_id);
 loadModel('Login');
 

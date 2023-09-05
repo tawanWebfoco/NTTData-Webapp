@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 Model::sanetizePost($_POST);
 
 include_once(LANGUAGES_PATH.'/common.php');
