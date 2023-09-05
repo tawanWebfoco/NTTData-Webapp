@@ -19,6 +19,7 @@ const user = {
 const userStorage = new UserStorage;
 userStorage.setStorage(user);
 // console.log('userStorage:'+user.id_user, userStorage.getStorage());
+// window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/app';
 window.location.href = 'https://webapp.webfoco.com/app';
 </script>
 HTML;

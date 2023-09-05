@@ -1,5 +1,5 @@
 <?php 
-session_start();
+// session_start();
 requireValidSession();
 $user = ($_SESSION) ? $_SESSION['user'] : null;
 

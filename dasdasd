@@ -1,0 +1,301 @@
+[33mcommit b4c37340601f5832ab2ef40f9a3784469088bf53[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Tue Sep 5 00:04:38 2023 -0300
+
+    teste
+
+[33mcommit 108feb0e5bd6e92af14807730f5c70b338cf790f[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Tue Sep 5 00:03:00 2023 -0300
+
+    v2
+
+[33mcommit 1be09d41c44fc821cd037917555784761e64cbbf[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Tue Sep 5 00:00:35 2023 -0300
+
+    correção chamada session
+
+[33mcommit fc492de2bcb158bf5034fef69c6c1dd7cd6579cb[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 23:34:20 2023 -0300
+
+    v4
+
+[33mcommit 53e7f4d9d68b355f28f8d243ddea9f466a3461e4[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 23:29:29 2023 -0300
+
+    teste v4
+
+[33mcommit b48e4a9f9a12c8ea4667334877d0c7b7b771a018[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 23:29:18 2023 -0300
+
+    teste
+
+[33mcommit acfc6cf7791e264251c57c74de335010f419ff0f[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 23:10:58 2023 -0300
+
+    teste v2
+
+[33mcommit bdea9d57c50eff58a9df8fa91eaab840d507f133[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 23:09:26 2023 -0300
+
+    teste
+
+[33mcommit c5d4cdb75118345c0906cfd8ef405d51338f9ec8[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 22:22:40 2023 -0300
+
+    v3
+
+[33mcommit 8e3b3e09131662c55558689d4b0483bc21112c9d[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 22:13:50 2023 -0300
+
+    login no mobile teste
+
+[33mcommit b56d4c76485f83d04cd025420ab4fa9208be96c4[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 21:19:20 2023 -0300
+
+    login no mobile teste
+
+[33mcommit 31003febbbacf2fe33da891db700f1904d9c889b[m
+Merge: cbb54d1 5a0953c
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 21:14:18 2023 -0300
+
+    Merge branch 'main' of https://github.com/tawanWebfoco/NTTData-Webapp
+
+[33mcommit cbb54d15d7d6970be4de3e2e67833aa5a36bcd68[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 21:14:14 2023 -0300
+
+    login no mobile teste
+
+[33mcommit 5a0953c9101d61acf421f5902b2341157321ad85[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 19:10:59 2023 -0300
+
+    Correção caminho do arq de tradução
+
+[33mcommit fbc251e64800d5f7a94c0002332b211d9098f5b5[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 19:04:11 2023 -0300
+
+    Traduções Erros de Validação
+
+[33mcommit df122536a29fd7cfeac0f62e2afbc34e160b9189[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 18:46:34 2023 -0300
+
+    Traduções JS
+
+[33mcommit e5435b1b5bcadceb4c961ca864ada773aac927e0[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 16:54:33 2023 -0300
+
+    Traduções as Models
+
+[33mcommit 7845797046ac8fa9d1d99a7d33ffa777133d8754[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 14:56:11 2023 -0300
+
+    Espaçamento do FAQ
+
+[33mcommit 55cdba86e3804dbfac7f5ac68121dec5677f3bf6[m
+Merge: 4335d2a 7aaef3b
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 14:49:39 2023 -0300
+
+    Merge branch 'main' of https://github.com/tawanWebfoco/NTTData-Webapp
+
+[33mcommit 4335d2ab478d46a2cc22e9845ed4b253b92c3d32[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 14:49:35 2023 -0300
+
+    sv1
+
+[33mcommit 7aaef3b6e85a726d1149f3b473e6825d6a913569[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 12:36:09 2023 -0300
+
+    Erro no Routes
+
+[33mcommit ed22ae89faaff7d4af8d22da948ba82b15d66655[m
+Merge: 06dd8fa 22776bf
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 12:17:08 2023 -0300
+
+    Merge branch 'main' of https://github.com/tawanWebfoco/NTTData-Webapp
+
+[33mcommit 06dd8fa6e01bff0fcc47881b3e1ab27fe5118d81[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Mon Sep 4 12:17:05 2023 -0300
+
+    ajuste convidado por
+
+[33mcommit 22776bf61bdfdeb398f8792020790fa4ff414db4[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 12:16:59 2023 -0300
+
+    Traduções
+
+[33mcommit 4fb4f11372614a3dd9cf8bc80a6bbfa9d33757c8[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 08:24:04 2023 -0300
+
+    FAQ finalizado
+
+[33mcommit 8ce796ab0a9862abe72f2971d4ecc6399bab025e[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 08:18:51 2023 -0300
+
+    FAQ
+
+[33mcommit 8914dd9ab0e1ec7dbd838db1ce6875512fa8b016[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 08:17:20 2023 -0300
+
+    FAQ
+
+[33mcommit 7b4523fecf46ef930e3edda7ccb8524e9289f0ba[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 07:53:56 2023 -0300
+
+    FAQ
+
+[33mcommit f5c89835cf0a4867c78445c2325b2b234e35e271[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 07:49:33 2023 -0300
+
+    FAQ
+
+[33mcommit 5b53e58499a24141fa88e958879229beb8ea5104[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 07:43:10 2023 -0300
+
+    FAQ
+
+[33mcommit f5b698a068764e6a518c234dbc7bf7af9ddc350a[m
+Merge: 97a45e9 870f3bc
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 07:34:13 2023 -0300
+
+    Merge branch 'main' of https://github.com/tawanWebfoco/NTTData-Webapp
+
+[33mcommit 97a45e98623456ed866e7dfdc916aabb32c87109[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Mon Sep 4 07:34:08 2023 -0300
+
+    Sinc 5
+
+[33mcommit 870f3bc964047395e5c36f100100e7bcc7be86dd[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 23:01:17 2023 -0300
+
+    subindo hospedagem
+
+[33mcommit 0dcc0e400e83d39ff01d8bb9d7701e78e64775e7[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 22:54:24 2023 -0300
+
+    v2
+
+[33mcommit 558f8d659b57addc04cc7cab1946179890487607[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 20:06:50 2023 -0300
+
+    v1
+
+[33mcommit 6dad8bc033781c06dc084bd9562663ebd50f0c7f[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 19:57:16 2023 -0300
+
+    v1
+
+[33mcommit af6bb1085d7552639a71710f4b15c100ecac1bc9[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 16:14:20 2023 -0300
+
+    tr dos novos comentarios e likes
+
+[33mcommit 61dc83fffcc5993de3bd8e300f28cf160bba5d8d[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 16:06:29 2023 -0300
+
+    hidden scrolbar
+
+[33mcommit df114e548f9b33f338e23b2acd9db00275459d23[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 16:03:10 2023 -0300
+
+    route
+
+[33mcommit e985dd3326b9e380c9fb445ea3741a72aa917a1c[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 16:01:43 2023 -0300
+
+    apagar pub e comment
+
+[33mcommit 9c403dd15f10eab2de2f5d960f13fb2d30b7b126[m
+Merge: 819dd94 c0d129c
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Sun Sep 3 10:47:50 2023 -0300
+
+    Merge branch 'main' of https://github.com/tawanWebfoco/NTTData-Webapp
+
+[33mcommit c0d129cc0f46ae73770a2e9639f03142abf84da4[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 10:27:10 2023 -0300
+
+    FAQ
+
+[33mcommit 819dd946ec841a0322f4047633bd0e8944e93bad[m
+Merge: c9b7ebc 200b0b8
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Sun Sep 3 10:11:08 2023 -0300
+
+    Merge branch 'main' of https://github.com/tawanWebfoco/NTTData-Webapp
+
+[33mcommit c9b7ebca3638b91aabf651b61eb5f4d5961d9065[m
+Author: RafaelWBP <rafael.reis@webfoco.com>
+Date:   Sun Sep 3 10:11:02 2023 -0300
+
+    Sinc 4
+
+[33mcommit 200b0b85c0359b456176a19c09ee87143562b3f4[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 07:38:40 2023 -0300
+
+    thumb video
+
+[33mcommit d40ec20662d0a1ddc6e3535a1fe33b4552e166ee[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 07:37:20 2023 -0300
+
+    thumb video
+
+[33mcommit d776a78f7676c18dc9692f74d564e56035f8f682[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sun Sep 3 07:22:07 2023 -0300
+
+    ajuste de envio de pub
+
+[33mcommit e3d5bbcede7b8ef3f40f86caccc05baf0b323f3d[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sat Sep 2 20:06:40 2023 -0300
+
+    routes
+
+[33mcommit 7380e00911d43d6e0012ecc8563d287969dfafaa[m
+Author: tawanrio <tawan.rio@webfoco.com>
+Date:   Sat Sep 2 20:00:14 2023 -0300
+
+    mais ajuste de tradução
+
+

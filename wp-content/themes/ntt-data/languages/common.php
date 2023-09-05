@@ -1,4 +1,5 @@
 <?php
+session_start();
 /* Descobrir língua */
 $user = array();
 if ( isset($_SESSION['user']) ) {
