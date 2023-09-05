@@ -18,6 +18,7 @@ session_unset();
  <script>
   //  const home =  'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/';
    const home =  'https://webapp.webfoco.com';
+  //  const home =  'https://moveforthesdg.com/app';
   //  const home =  home_url();
    console.log(home);
    localStorage.clear(); // Isso limpará todos os dados armazenados no localStorage
