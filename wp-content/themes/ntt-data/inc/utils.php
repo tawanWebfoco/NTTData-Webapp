@@ -28,8 +28,11 @@ echo $html;
 function getUserJs(){
 echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/global.js'></script>";
 echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/components/userStorage.js'></script>";
+
 $html = <<<HTML
 <script>
+   
+
   const ValidStorage = new UserStorage;
   // const usernew = userStorage.getStorage();
   let userValid = null 
@@ -55,14 +58,14 @@ $html = <<<HTML
            })
            .then(data => {
             console.log(data);
-            window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/app/?p=feed';
+            window.location.href = homeUrl+'/app/?p=feed';
 
 
            })
            .catch(error => {
            });
           }else{
-            window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/login';
+            window.location.href = homeUrl+'/login';
           }
 </script>
 HTML;
