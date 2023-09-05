@@ -23,7 +23,7 @@ require_once(realpath(dirname(__FILE__).'/loader.php'));
 require_once(realpath(dirname(__FILE__).'/session.php'));
 // require_once(realpath(dirname(__FILE__).'/date_utils.php'));
 
-include_once(LANGUAGES_PATH.'/common.php');
+
 require_once(MODEL_PATH .'/Model.php');
 require_once(MODEL_PATH .'/User.php');
 require_once(MODEL_PATH .'/Guest.php');

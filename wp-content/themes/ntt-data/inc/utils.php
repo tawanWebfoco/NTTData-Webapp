@@ -19,7 +19,7 @@ const user = {
 const userStorage = new UserStorage;
 userStorage.setStorage(user);
 // console.log('userStorage:'+user.id_user, userStorage.getStorage());
-window.location.href = 'https://webapp.webfoco.com/app';
+// window.location.href = 'https://webapp.webfoco.com/app';
 </script>
 HTML;
 echo $html;
@@ -36,11 +36,11 @@ $html = <<<HTML
   let userValid = null 
    userValid = ValidStorage.getStorage();
   // console.log(userValid);
+  console.log('uservalid',userValid);
   if(userValid){
-
   const homeUrl = document.homePath
-  console.log(homeUrl);
-   const pathComments = homeUrl +'/wp-content/themes/ntt-data/app/src/config/sessionJs.php';
+  // console.log(homeUrl);
+   const pathComments = '/wp-content/themes/ntt-data/app/src/config/sessionJs.php';
   const encode =  JSON.stringify(userValid)
    fetch(pathComments, {
                method: 'POST',
@@ -57,7 +57,11 @@ $html = <<<HTML
            })
            .then(data => {
             console.log(data);
-            window.location.href = 'https://webapp.webfoco.com/app';
+            if(data == '1'){
+              // window.location.href = 'https://webapp.webfoco.com/app';
+            }else{
+              window.location.href = 'https://webapp.webfoco.com/login';
+            }
 
 
            })

@@ -1,12 +1,6 @@
 <?php
 require_once(dirname(__FILE__) . '/app/src/config/config.php');
 
-?>
- <script>
-    Document.prototype.homePath = "<?= home_url() ?>";
-</script>
-<?php
-
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
    );
