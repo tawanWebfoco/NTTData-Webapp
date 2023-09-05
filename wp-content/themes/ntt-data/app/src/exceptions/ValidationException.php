@@ -1,7 +1,4 @@
 <?php
-/* Incluir Linguagens */
-include_once get_template_directory().'/languages/common.php';
-
 class ValidationException extends AppException{
 
     private $errors = [];

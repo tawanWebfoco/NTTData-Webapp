@@ -1,6 +1,4 @@
 <?php
-/* Incluir Linguagens */
-include_once get_template_directory().'/languages/common.php';
 
 class Guest extends Model{
     protected static $tableName = 'wp_app_guest';

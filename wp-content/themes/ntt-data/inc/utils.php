@@ -31,8 +31,6 @@ echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/c
 
 $html = <<<HTML
 <script>
-   
-
   const ValidStorage = new UserStorage;
   // const usernew = userStorage.getStorage();
   let userValid = null 
@@ -41,7 +39,8 @@ $html = <<<HTML
   if(userValid){
 
   const homeUrl = document.homePath
-   const pathComments = homeUrl +'/../../wp-content/themes/ntt-data/app/src/config/sessionJs.php';
+  console.log(homeUrl);
+   const pathComments = homeUrl +'/wp-content/themes/ntt-data/app/src/config/sessionJs.php';
   const encode =  JSON.stringify(userValid)
    fetch(pathComments, {
                method: 'POST',
@@ -58,14 +57,14 @@ $html = <<<HTML
            })
            .then(data => {
             console.log(data);
-            window.location.href = homeUrl+'/app/?p=feed';
+            window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/app/?p=feed';
 
 
            })
            .catch(error => {
            });
           }else{
-            window.location.href = homeUrl+'/login';
+            window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/login';
           }
 </script>
 HTML;

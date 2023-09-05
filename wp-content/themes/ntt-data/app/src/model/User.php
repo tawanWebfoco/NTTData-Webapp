@@ -1,6 +1,4 @@
 <?php
-/* Incluir Linguagens */
-include_once get_template_directory().'/languages/common.php';
 
 class User extends Model{
     protected static $tableName = 'wp_app_user';

@@ -1,10 +1,9 @@
 <?php
 session_start();
 Model::sanetizePost($_POST);
+
 include_once(LANGUAGES_PATH.'/common.php');
 
-/* Incluir Linguagens */
-include_once get_template_directory().'/languages/common.php';
 
 // Capturar json com array de todos os países
 // Lê o conteúdo do arquivo JSON
