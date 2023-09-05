@@ -9,20 +9,19 @@ session_unset();
  
  ?>
  
- 
  <script>
     Document.prototype.homePath = "<?= home_url() ?>";
 </script>
  <?php
  $html = <<<HTML
  <script>
+  console.log(document.homePath);
   //  const home =  'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/';
-   const home =  'https://webapp.webfoco.com';
+  //  const home =  'https://webapp.webfoco.com';
   //  const home =  'https://moveforthesdg.com/app';
   //  const home =  home_url();
-   console.log(home);
    localStorage.clear(); // Isso limpará todos os dados armazenados no localStorage
-   window.location.href = home;
+   window.location.href = document.homePath
  </script>
 HTML;
 
