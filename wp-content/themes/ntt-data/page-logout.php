@@ -21,7 +21,7 @@ session_unset();
   //  const home =  home_url();
    console.log(home);
    localStorage.clear(); // Isso limpará todos os dados armazenados no localStorage
-   window.location.href = home;
+  //  window.location.href = home;
  </script>
 HTML;
 

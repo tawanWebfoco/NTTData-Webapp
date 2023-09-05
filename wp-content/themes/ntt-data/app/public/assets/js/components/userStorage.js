@@ -13,7 +13,7 @@ class UserStorage {
   
   setStorage(user) {
     localStorage.setItem(COLLECTION_USERS, JSON.stringify(user));
-    console.log(COLLECTION_USERS,user);
+    // console.log(COLLECTION_USERS,user);
   }
 
   removeStorage() {

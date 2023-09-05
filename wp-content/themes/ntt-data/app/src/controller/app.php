@@ -3,8 +3,11 @@ session_start();
 requireValidSession();
 $user = ($_SESSION) ? $_SESSION['user'] : null;
 
+// print_r($user);
 
-$page = isset($_GET['p']) ? $_GET['p'] : 'cron';
+
+
+$page = isset($_GET['p']) ? $_GET['p'] : 'feed';
 
 switch ($page) {
    case !'feed':

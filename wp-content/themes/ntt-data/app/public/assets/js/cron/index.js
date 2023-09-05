@@ -19,16 +19,16 @@ const timerView = new TimerView({
 timerView.run();
 
 const userStorage = new UserStorage;
-// console.log(userStorage.getStorage());
+console.log(userStorage.getStorage());
 
-const user = {
-  id_user: arraUser[0],
-  full_name: arraUser[1],
-  email: arraUser[2],
-  language: arraUser[3],
-}
+// const user = {
+//   id_user: arraUser[0],
+//   full_name: arraUser[1],
+//   email: arraUser[2],
+//   language: arraUser[3],
+// }
 
-userStorage.setStorage(user);
+// userStorage.setStorage(user);
 
 const timerController = new TimerController({
   timerView,
