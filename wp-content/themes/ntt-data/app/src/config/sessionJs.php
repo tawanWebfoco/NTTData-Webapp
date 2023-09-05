@@ -17,5 +17,4 @@ if($data['type'] == 'User'){
 
 if($user){
    $_SESSION['user'] = $user;
-   print_r($_SESSION);
 }

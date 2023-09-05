@@ -19,7 +19,7 @@ const user = {
 const userStorage = new UserStorage;
 userStorage.setStorage(user);
 // console.log('userStorage:'+user.id_user, userStorage.getStorage());
-// window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/app/?p=cron';
+window.location.href = 'https://webapp.webfoco.com/app';
 </script>
 HTML;
 echo $html;
@@ -57,14 +57,14 @@ $html = <<<HTML
            })
            .then(data => {
             console.log(data);
-            window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/app/?p=feed';
+            window.location.href = 'https://webapp.webfoco.com/app';
 
 
            })
            .catch(error => {
            });
           }else{
-            window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/login';
+            window.location.href = 'https://webapp.webfoco.com/login';
           }
 </script>
 HTML;
