@@ -80,7 +80,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
         </section>
-            <script>
+            <!-- <script>
                 let bannerPlayer = document.querySelector(' #player')
                 let banner = document.querySelector('.banner .video')
                 let html = document.querySelector('html');
@@ -192,7 +192,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }, 1000); 
         }
         iniciarContagemRegressiva('2023-09-04T00:00:00');
-    </script>
+    </script> -->
 
 
         
