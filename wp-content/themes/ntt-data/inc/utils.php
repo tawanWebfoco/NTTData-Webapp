@@ -1,5 +1,5 @@
 <?php
-
+// require_once(dirname(__FILE__, 2) . '/app/src/config/config.php');
 function userLoginJS($user){
 echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/global.js'></script>";
 echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/components/userStorage.js'></script>";
@@ -22,7 +22,7 @@ userStorage.setStorage(user);
 // console.log('userStorage:'+user.id_user, userStorage.getStorage());
 // window.location.href = 'http://localhost/webfoco/nttdata/web2/NTTData-Webapp/app';
 // window.location.href = 'https://webapp.webfoco.com/app';
-  window.location.href = document.homePath+'/app';
+  // window.location.href = document.homePath+'/app';
 </script>
 HTML;
 echo $html;

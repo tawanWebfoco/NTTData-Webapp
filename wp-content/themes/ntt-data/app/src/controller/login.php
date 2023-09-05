@@ -5,6 +5,7 @@ loadModel('Login');
 
 $user = ($_SESSION) ? $_SESSION['user'] : null;
 if (isset($user)) {
+    
     header('Location: app');
     exit();
 } else {
@@ -18,6 +19,7 @@ if (isset($user)) {
             
             $user = $login->checkLogin();
             // $_SESSION['session_id'] = session_id();
+            
             $_SESSION['user'] = $user;
             userLoginJS($user);
             // getUserJs();

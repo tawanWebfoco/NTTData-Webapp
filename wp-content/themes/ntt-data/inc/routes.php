@@ -1,17 +1,12 @@
 <?php
+session_start();
 require_once(dirname(__FILE__,5) . '/wp-config.php');
+
 class Connection
 {
   private static function getConnection()
   {
-    // $conn = new mysqli('db', 'root', '', 'wpdatabase');
-    // $conn = new mysqli('127.0.0.1:3307', 'root', '', 'wp_lpnttdata');
-    // $conn = new mysqli('localhost', 'root', '', 'webappwebfoco_nttdata');
     $conn = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    // $conn = new mysqli('localhost', 'webappwebfoco_nttdata', 'qMg[iv2!n~#*', 'webappwebfoco_nttdata');
-    // $conn = new mysqli('localhost', 'root', '', 'wp_lpnttdata');
-    // moveforthesdg.com
-    // $conn = new mysqli('localhost', 'moveforthesdg', 'NTTDATAwbp2023', 'admin_nttdata');
 
     if ($conn->connect_error) {
       die('Erro: ' . $conn->connect_error);

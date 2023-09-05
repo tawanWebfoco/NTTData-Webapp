@@ -241,11 +241,6 @@ class TimerView {
   _configureEventStartTimer() {
     this.startButton.addEventListener('click', () => {
       if (!this.running) {
-        console.log(this.limitTimePerDay / 60000);
-        console.log('cuurentTimeDb',this.currentTimeFromDb);
-        console.log('limit',this.limitTimePerDay / 60000);
-
-        if(this.currentTimeFromDb < (this.limitTimePerDay / 60000)){
         this.pauseButton.classList.remove('hidden')
         this.startButton.classList.add('hidden')
         this.startTime = new Date().getTime() - this.pauseTime;
@@ -253,19 +248,6 @@ class TimerView {
         this.running = true;
         this.paused = false;
         this.timerStorage.saveStatesOnLocalStorage(this._getStates());
-        }else{
-          switch (this.language.toLowerCase()) {
-            case 'pt':
-              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.');
-              break;
-            case 'en':
-              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.');
-              break;
-            default:
-              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas');
-              break;
-          }
-        }
       }
     });
   }
@@ -273,9 +255,6 @@ class TimerView {
   _configureEventStartTimerAfterPaused() {
     this.startButton.addEventListener('click', () => {
       if (this.running && this.paused) {
-        console.log('cuurentTimeDb',this.currentTimeFromDb);
-        console.log('limit',this.limitTimePerDay / 60000);
-        if(this.currentTimeFromDb < (this.limitTimePerDay / 60000)){
         this.pauseButton.classList.remove('hidden')
         this.startButton.classList.add('hidden')
         this.pauseTime += new Date().getTime() - this.pauseStartTime;
@@ -283,19 +262,6 @@ class TimerView {
         this.running = true;
         this.paused = false;
         this.timerStorage.saveStatesOnLocalStorage(this._getStates());
-        }else{
-          switch (this.language.toLowerCase()) {
-            case 'pt':
-              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.');
-              break;
-            case 'en':
-              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.');
-              break;
-            default:
-              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas');
-              break;
-          }
-        }
       }
     });
   }

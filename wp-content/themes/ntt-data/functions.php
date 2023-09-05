@@ -1,5 +1,5 @@
 <?php 
-
+require_once(dirname(__FILE__) . '/app/src/config/config.php');
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/routes.php';
 require get_template_directory() . '/inc/utils.php';

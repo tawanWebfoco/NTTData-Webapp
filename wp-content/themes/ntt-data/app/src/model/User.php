@@ -1,5 +1,6 @@
 <?php
 include_once(LANGUAGES_PATH.'/common.php');
+
 class User extends Model{
     protected static $tableName = 'wp_app_user';
     protected static $columns = ['full_name', 'email', 'username', 'password', 'country','language','office', 'date'];
