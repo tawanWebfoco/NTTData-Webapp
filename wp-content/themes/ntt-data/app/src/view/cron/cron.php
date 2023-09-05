@@ -33,6 +33,9 @@
                     src="<?php echo get_stylesheet_directory_uri(); ?>/app/public/assets/img/icons/cron/stop.svg"
                     alt="Imagem">
             </div>
+            <div class="savetime">
+                <div id="save-time" class="btnSave button dark-blue">Salvar Tempo</div>
+            </div>
 
             <div class="title"><?=_t['cron_title']?></div>
 

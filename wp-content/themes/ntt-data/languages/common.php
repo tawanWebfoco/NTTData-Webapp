@@ -7,24 +7,24 @@ if ( isset($_SESSION['user']) ) {
     $user = $_SESSION['user'];
 }
 $lang = '';
-// if ( empty($user) || $user == null ) {
-//     $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-// } else {
-//     // print($_SESSION);
-//     $language = 'strtolower($user->language)';
-//     switch ($language) {
-//         case 'pt':
-//             $lang = 'pt';
-//             break;
-//             case 'en':
-//                 $lang = 'en';
-//                 break;
-//                 default:
-//                 $lang = 'es';
-//                 break;
-//             }
-//         }
-        $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+if ( empty($user) || $user == null ) {
+    $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+} else {
+    // print($_SESSION);
+    $language = 'strtolower($user->language)';
+    switch ($language) {
+        case 'pt':
+            $lang = 'pt';
+            break;
+            case 'en':
+                $lang = 'en';
+                break;
+                default:
+                $lang = 'es';
+                break;
+            }
+        }
+        // $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 /* Incluir arquivo com Strings na linguagem do país */
 include_once 'lang.'.$lang.'.php';
 

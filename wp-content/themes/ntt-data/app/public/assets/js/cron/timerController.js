@@ -8,7 +8,8 @@ class TimerController {
   constructor(props) {
     this.timerView = props.timerView;
     this.userStorage = props.userStorage;
-    this.timerView.configureEventStopTimer(this.onSaveTimer.bind(this));
+    this.timerView.configureEventSaveTimer(this.onSaveTimer.bind(this));
+    this.timerView.configureEventStopTimer();
     return this;
   }
 
