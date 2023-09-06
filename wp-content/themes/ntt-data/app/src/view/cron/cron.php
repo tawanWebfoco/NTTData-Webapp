@@ -34,7 +34,7 @@
                     alt="Imagem">
             </div>
             <div class="savetime">
-                <div id="save-time" class="btnSave button dark-blue">Salvar Tempo</div>
+                <div id="save-time" class="btnSave button light-blue"><?= _t['cron_save_time'] ?></div>
             </div>
 
             <div class="title"><?=_t['cron_title']?></div>

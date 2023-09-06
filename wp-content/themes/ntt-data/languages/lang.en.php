@@ -199,6 +199,7 @@ define('_t', [
     'cron_limit_day' => 'DAILY 4 HOUR LIMIT EXERCISES',
      'cron_minutes' => 'Minutes', 
      'cron_hour' => ' Hour',
+     'cron_save_time' => 'Save time',
 
      /* Page recovery */
 

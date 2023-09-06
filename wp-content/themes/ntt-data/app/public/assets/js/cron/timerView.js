@@ -122,10 +122,10 @@ class TimerView {
           this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas, clique em salvar tempo.');
           break;
         case 'en':
-          this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit, click to save time.');
+          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 4 hours, click on Save Time.');
           break;
         default:
-          this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas, haga clic en ahorrar tiempo.');
+          this.newBoxAlertConfirm(false,'Has superado el límite diario de 4 horas, haz clic en Ahorrar Tiempo.');
           break;
       }
 
@@ -452,33 +452,19 @@ class TimerView {
       let textSaveTime;
       switch (this.language.toLowerCase()) {
         case 'pt':
-          textSaveTime = 'Deseja limpar o cronometro?';
+          textSaveTime = 'Deseja zerar o cronômetro?';
         break;
         case 'en':
-          textSaveTime = 'Want to stop and save time?';
+          textSaveTime = 'Do you want to reset the timer?';
         break;
         default:
-          textSaveTime = '¿Quieres parar y ahorrar tiempo?';
+          textSaveTime = '¿Deseas reiniciar el cronómetro?';
         break;
       }
 
      let textBody = '';
       this.newBoxAlertConfirm(true,textSaveTime,textBody, ()=>{
         this._stopTimer();
-        // this.currentTimeFromDb = parseInt(this.currentTimeFromDb) + parseInt(this.scoreInsertDataBase)
-
-        // await onSaveTimer();
-        // switch (this.language.toLowerCase()) {
-        //   case 'pt':
-        //     this.newBoxAlertConfirm(false,'Tempo salvo com sucesso.');
-        //     break;
-        //   case 'en':
-        //     this.newBoxAlertConfirm(false,'Time successfully saved.');
-        //     break;
-        //   default:
-        //     this.newBoxAlertConfirm(false,'Tiempo ahorrado exitosamente.');
-        //     break;
-        // }
       }) 
       })
 
@@ -504,10 +490,10 @@ class TimerView {
           textSaveTime = 'Deseja salvar o tempo?';
         break;
         case 'en':
-          textSaveTime = 'Want to save time?';
+          textSaveTime = 'Do you want to save the time?';
         break;
         default:
-          textSaveTime = '¿Quieres ahorrar tiempo?';
+          textSaveTime = '¿Deseas ahorrar el tiempo?';
         break;
       }
 
@@ -564,13 +550,13 @@ class TimerView {
       }else{
         switch (this.language.toLowerCase()) {
           case 'pt':
-            this.newBoxAlertConfirm(false,'Nenhum tempo foi salvo','');
+            this.newBoxAlertConfirm(false,'Erro ao salvar o tempo.','');
             break;
           case 'en':
-            this.newBoxAlertConfirm(false,'Time successfully saved.','');
+            this.newBoxAlertConfirm(false,'Error when saving the time.','');
             break;
           default:
-            this.newBoxAlertConfirm(false,'Tiempo ahorrado exitosamente.','');
+            this.newBoxAlertConfirm(false,'Error al ahorrar el tiempo.','');
             break;
         }
       }

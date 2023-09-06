@@ -907,6 +907,11 @@ hr {
   transition: .4s;
   cursor: pointer;
 }
+.main .cron .content .savetime #save-time{
+  text-transform: uppercase;
+  padding: 8px 30px;
+
+}
 .main .cron .content .title{
   font-size: 1.1rem;
   text-transform: uppercase;
