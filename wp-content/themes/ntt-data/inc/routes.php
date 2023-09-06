@@ -32,6 +32,7 @@ class Connection
   public static function one($sql)
   {
     $conn = self::getConnection();
+    print_r($sql);
     $result = $conn->query($sql);
     return $result->fetch_assoc();
   }
@@ -55,17 +56,23 @@ class Connection
 function register_timer_callback()
 {
   date_default_timezone_set('America/Sao_Paulo');
-  $id_user = intval($_POST['id_user']);
   $typeUser = $_POST['typeUser'];
+  if($typeUser === "User"){
+    $id_user = intval($_POST['id_user']);
+  }else{
+    $id_user = intval($_POST['id_guest']);
+  }
+
   $time_stop = $_POST['time_stop'];
   $time_start = $_POST['time_start'];
   $time_score = intval($_POST['time_score']);
   $country = $_POST['country'];
   $date = str_replace('=','T',date('Y-m-d=H:i:s'));
 
-  $sql_get_score_from_current_date = "SELECT SUM(score) as score FROM wp_app_time WHERE typeUser = '$typeUser' AND id_user = $id_user AND DATE(date) = CURDATE();";
-  $scoreCurrentDay =  Connection::one($sql_get_score_from_current_date)['score'];
 
+  $sql_get_score_from_current_date = "SELECT SUM(score) as score FROM wp_app_time WHERE id_user = $id_user AND DATE(date) = CURDATE() AND typeUser = '$typeUser' ";
+
+  $scoreCurrentDay =  Connection::one($sql_get_score_from_current_date)['score'];
   $limitInsertDataBase = 240 - $scoreCurrentDay;
 
   $scoreInsertDataBase = ($time_score > $limitInsertDataBase) ? $limitInsertDataBase : $time_score;

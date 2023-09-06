@@ -22,6 +22,7 @@ class TimerController {
 
     const formData = new FormData();
     formData.append('id_user', user.id_user);
+    formData.append('id_guest', user.id_guest);
     formData.append('typeUser', user.type);
     formData.append('time_stop', this.timerView.startTime + this.timerView.currentTime);
     formData.append('time_start', this.timerView.startTime);
