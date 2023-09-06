@@ -53,17 +53,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                if(get_class($user) === 'User'){ 
                   $update = [
-                     'id_user' => $_SESSION['user']->id_user,
-                     'primary_key' => $_SESSION['user']->id_user,
+                     'id_user' => $user->id_user,
+                     'primary_key' => $user->id_user,
                      'photo' => $image_info
                   ];
    
                   $updateUser = new User($update);
               }elseif( get_class($user) === 'Guest'){
                $update = [
-                  'id_user' => $_SESSION['user']->id_guest,
+                  'id_user' => $user->id_guest,
                   'photo' => $image_info,
-                  'primary_key' => $_SESSION['user']->id_guest
+                  'primary_key' => $user->id_guest
                ];
 
                $updateUser = new Guest($update);

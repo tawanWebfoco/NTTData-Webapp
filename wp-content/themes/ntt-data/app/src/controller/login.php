@@ -3,7 +3,7 @@
 // session_id($session_id);
 loadModel('Login');
 
-$user = ($_SESSION) ? $_SESSION['user'] : null;
+$user = ($_SESSION) ? unserialize($_SESSION['user']) : null;
 if (isset($user)) {
     header('Location: app');
     exit();
@@ -18,7 +18,7 @@ if (isset($user)) {
             
             $user = $login->checkLogin();
             // $_SESSION['session_id'] = session_id();
-            $_SESSION['user'] = $user;
+            $_SESSION['user'] = serialize($user);
             userLoginJS($user);
             // getUserJs();
             // session_regenerate_id();

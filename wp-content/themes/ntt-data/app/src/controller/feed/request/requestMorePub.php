@@ -19,7 +19,7 @@ if(count($latestPub) > 0){
    
    $pubView->setArrayIdPubView($arrayIdPubView);
    $_SESSION['pubView'] = serialize($pubView);
-   $user = $_SESSION['user'];
+   $user = unserialize($_SESSION['user']);
    
    
    

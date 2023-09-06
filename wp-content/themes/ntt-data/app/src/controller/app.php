@@ -1,7 +1,7 @@
 <?php 
 // session_start();
 requireValidSession();
-$user = ($_SESSION) ? $_SESSION['user'] : null;
+$user = ($_SESSION) ? unserialize($_SESSION['user']) : null;
 
 // print_r($user);
 

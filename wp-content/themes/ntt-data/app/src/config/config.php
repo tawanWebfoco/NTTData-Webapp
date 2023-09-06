@@ -1,4 +1,5 @@
 <?php
+session_start();
 date_default_timezone_set('America/Sao_Paulo');
 setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8','portuguese');
 
@@ -32,3 +33,4 @@ require_once(MODEL_PATH .'/Engaged.php');
 require_once(MODEL_PATH .'/Comment.php');
 require_once(EXCEPTION_PATH .'/AppException.php');
 require_once(EXCEPTION_PATH .'/ValidationException.php');
+require_once(LANGUAGES_PATH.'/common.php');

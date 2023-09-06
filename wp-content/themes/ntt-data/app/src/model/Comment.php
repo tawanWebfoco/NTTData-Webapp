@@ -1,5 +1,5 @@
 <?php
-include_once(LANGUAGES_PATH.'/common.php');
+// include_once(LANGUAGES_PATH.'/common.php');
     class Comment extends Model{
         protected static $tableName = 'wp_app_comment';
         protected static $columns = ['id_pub', 'message', 'id_user', 'date',];

@@ -14,5 +14,5 @@ if($data['type'] == 'User'){
    $user = Guest::getOne(['id_guest' => $data['id_guest']]);
 }
 if($user){
-   $_SESSION['user'] = $user;
+   $_SESSION['user'] = serialize($user);
 }

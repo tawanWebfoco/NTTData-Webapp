@@ -1,14 +1,7 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 // require_once(dirname(__FILE__,2) . '/app/src/config/config.php');
-/* Descobrir língua */
-$user = array();
-
-if ( isset($_SESSION['user']) ) {
-    $user = $_SESSION['user'];
-}
+/* Descobrir língua */$user = ($_SESSION) ? unserialize($_SESSION['user']) : null;
+$user = ($_SESSION) ? unserialize($_SESSION['user']) : null;
 
 $lang = '';
 if ( empty($user) || $user == null ) {

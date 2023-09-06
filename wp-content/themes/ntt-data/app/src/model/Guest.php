@@ -1,5 +1,5 @@
 <?php
-include_once(LANGUAGES_PATH.'/common.php');
+// include_once(LANGUAGES_PATH.'/common.php');
 
 class Guest extends Model{
     protected static $tableName = 'wp_app_guest';

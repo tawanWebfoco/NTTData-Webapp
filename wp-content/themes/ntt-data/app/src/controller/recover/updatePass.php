@@ -47,7 +47,7 @@ if(count($_POST) > 0){
                $id_guest = $register->updatePass();
                $user = Guest::getOne(['id_guest' => $id_guest]);
                $_SESSION['session_id'] = session_id();
-                $_SESSION['user'] = $user;
+                $_SESSION['user'] = serialize($user);
                 usleep(300000); // 500000 microssegundos = 500 milissegundos
                 header("Location:app");
             }catch(AppException $e) {
@@ -62,7 +62,7 @@ if(count($_POST) > 0){
                $register->updatePass();
                $user = User::getOne(['id_user' => $id_user]);
                $_SESSION['session_id'] = session_id();
-                $_SESSION['user'] = $user;
+                $_SESSION['user'] = serialize($user);
                 usleep(300000); // 500000 microssegundos = 500 milissegundos
                 header("Location:app");
             }catch(AppException $e) {

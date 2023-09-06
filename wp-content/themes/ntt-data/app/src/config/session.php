@@ -1,12 +1,12 @@
 <?php
 
 function requireValidSession(){
-    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+    $user = isset($_SESSION) ? unserialize($_SESSION['user']) : null;
     // $session_id = ($_SESSION) ? $_SESSION['session_id'] : null;
     
     if (!isset($user)) {
         getUserJs();
-        $user = ($_SESSION) ? $_SESSION['user'] : null;
+        $user = ($_SESSION) ? unserialize($_SESSION['user']) : null;
         print_r($user);
         if (!isset($user)) {
             // usleep(1000000); // 500000 microssegundos = 500 milissegundos

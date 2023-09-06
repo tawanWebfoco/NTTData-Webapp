@@ -80,10 +80,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          $errors['arquivo'] = 'Erro ao enviar o(a)' . $files['typeFile']; 
     }
    }
+   $user = isset($_SESSION) ? unserialize($_SESSION['user']) : null;
+if($user->id_user){
 
-if($_SESSION['user']->id_user){
-
-    $pubData['id_user'] = $_SESSION['user']->id_user;
+    $pubData['id_user'] = $user->id_user;
     $pubData['message'] = $_POST['textareaPub'];
     $pubData['date'] = str_replace('=','T',date('Y-m-d=H:i:s'));
     $pubData['file'] = null;
