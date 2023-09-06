@@ -5,7 +5,8 @@ echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/g
 echo "<script src='" . get_stylesheet_directory_uri() . "/app/public/assets/js/components/userStorage.js'></script>";
 echo "<script>Document.prototype.homePath = '". home_url() ."'</script>";
 $userType = get_class($user);
-$idGuest = isset($user->id_guest) ? $user->id_guest : null;
+$idGuest = '';
+if($userType == "Guest") $idGuest = ($user->id_guest) ? $user->id_guest : null;
 
 $html = <<<HTML
 <script>
@@ -46,7 +47,7 @@ $html = <<<HTML
   if(userValid){
   const homeUrl = document.homePath
   // console.log(homeUrl);
-   const pathComments = homeUrl+'/../../wp-content/themes/ntt-data/app/src/config/sessionJs.php';
+   const pathComments = homeUrl+'/wp-content/themes/ntt-data/app/src/config/sessionJs.php';
   const encode =  JSON.stringify(userValid)
    fetch(pathComments, {
                method: 'POST',
@@ -70,6 +71,7 @@ $html = <<<HTML
 
            })
            .catch(error => {
+            console.log(error);
            });
           }else{
             // console.log(document.homePath+'/login');

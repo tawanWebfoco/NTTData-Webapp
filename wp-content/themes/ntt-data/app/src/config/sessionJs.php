@@ -8,6 +8,7 @@ $dataJSON = file_get_contents("php://input");
 
 $data = json_decode($dataJSON, true);
 $user = null;
+print_r($user);
 if($data['type'] == 'User'){
    $user = User::getOne(['id_user' => $data['id_user']]);
 }elseif ($data['type'] == "Guest") {
