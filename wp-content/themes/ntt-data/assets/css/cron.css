@@ -109,16 +109,25 @@ input.is-invalid,select.is-invalid{
   width: 100%;
 }
 
+div#bgBoxConfirm::before {
+  content: '';
+  background-color: #929bab8c;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  position: fixed;
+  top: 0;
+}
 div#newConfirm {
   flex-direction: column;
   display: flex;
   position: absolute;
-  top: 30vh;
+  top: 35vh;
   background-color: var(--background-gray);
-  width: 95vw;
+  width: 80vw;
   padding: 16px 20px;
   border: solid 3px var(--blue-primary);
-  border-radius: 0px 20px 20px;
+  border-radius: 20px;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;

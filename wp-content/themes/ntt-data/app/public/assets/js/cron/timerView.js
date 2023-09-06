@@ -598,6 +598,9 @@ class TimerView {
     }
   }
   newBoxAlertConfirm(confirm,textoHead,textoBody,callback = ()=>{}){
+    const bgBoxConfirm = document.createElement("div");
+    bgBoxConfirm.id = 'bgBoxConfirm';
+
     const boxConfirm = document.createElement("div");
     boxConfirm.id = 'newConfirm';
   
@@ -607,65 +610,8 @@ class TimerView {
       
     const body = document.createElement("div");
     body.className = 'bodyConfirm';
-    // let currentDate = this._convertTimestampInObjectTime(this.currentTime)
     
-    let currentTimeLimit = this._getLimitToInsertDb().currentTimeLimit;
-    let currentRestTime = this._getLimitToInsertDb().currentRestTime;
-     
-    currentTimeLimit.hours = currentTimeLimit.hours.toString().padStart(2, '0');
-    currentTimeLimit.minutes = currentTimeLimit.minutes.toString().padStart(2, '0');
-    currentTimeLimit.seconds = currentTimeLimit.seconds.toString().padStart(2, '0');
-    
-    currentRestTime.hours =   currentRestTime.hours.toString().padStart(2, '0');
-    currentRestTime.minutes = currentRestTime.minutes.toString().padStart(2, '0');
-    currentRestTime.seconds = currentRestTime.seconds.toString().padStart(2, '0');
-
-    // console.log('currentRestTime.hours',currentRestTime.hours);
-    // console.log('currentRestTime.minutes',currentRestTime.minutes);
-    // console.log('currentRestTime.seconds',currentRestTime.seconds);
-
     body.innerHTML = textoBody;
-  //   if(!((parseInt(currentRestTime.seconds) > 0) || (parseInt(currentRestTime.minutes) > 0) || (parseInt(currentRestTime.hours) > 0))){
-  //     switch (this.language.toLowerCase()) {
-  //       case 'pt':
-  //         body.innerHTML = 'Você excedeu o limite diário de 4 horas, seus pontos não serão computados.';
-  //         break;
-  //       case 'en':
-  //         body.innerHTML = 'You have exceeded the 4 hour daily limit, click stop to save time.';
-  //         break;
-  //       default:
-  //         body.innerHTML = 'Ha excedido el límite diario de 4 horas, haga clic en detener para ahorrar tiempo.';
-  //         break;
-  //     }
-
-  //   }else{
-  //   let textTime
-  //   let textRestTime
-    
-  //   switch (this.language.toLowerCase()) {
-  //     case 'pt':
-  //       textTime = 'Tempo contabilizado:';
-  //       textRestTime = 'Tempo restante diário:';
-
-  //       body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
-  //       body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
-  //     break;
-  //     case 'en':
-  //       textTime = 'Saved time:';
-  //       textRestTime = 'Remaining daily time:';
-
-  //       body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
-  //       body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
-  //     break;
-  //     default:
-  //       textTime = 'Tiempo contabilizado:';
-  //       textRestTime = 'Tiempo restante diario:';
-
-  //       body.innerHTML = textTime+' ' + currentTimeLimit.hours + ':' + currentTimeLimit.minutes + ':' + currentTimeLimit.seconds;
-  //       body.innerHTML += '<br>'+ textRestTime+ ' ' + currentRestTime.hours + ':' + currentRestTime.minutes + ':' + currentRestTime.seconds;
-  //     break;
-  //   }
-  // }
     
     const footer = document.createElement("div");
     footer.className = 'footerConfirm';
@@ -683,22 +629,22 @@ class TimerView {
           
           btnConfirmar.onclick = (e)=> {
             callback()
-            boxConfirm.parentElement.removeChild(boxConfirm)
+            bgBoxConfirm.parentElement.removeChild(bgBoxConfirm)
           };
       }
       const btnCancelar = document.createElement("button");
         btnCancelar.textContent = 'Cancelar';
         btnCancelar.className = 'button light-blue';
         btnCancelar.onclick = function() {
-          boxConfirm.parentElement.removeChild(boxConfirm)
+          bgBoxConfirm.parentElement.removeChild(bgBoxConfirm)
         };
       
       footer.insertAdjacentElement("beforeend",btnCancelar);
 
   
-
+      bgBoxConfirm.insertAdjacentElement("beforeend",boxConfirm);
     
-    document.querySelector('html').append(boxConfirm);
+    document.querySelector('html').append(bgBoxConfirm);
   }
 
  
