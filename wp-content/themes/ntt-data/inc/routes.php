@@ -32,7 +32,6 @@ class Connection
   public static function one($sql)
   {
     $conn = self::getConnection();
-    print_r($sql);
     $result = $conn->query($sql);
     return $result->fetch_assoc();
   }
@@ -70,8 +69,9 @@ function register_timer_callback()
   $date = str_replace('=','T',date('Y-m-d=H:i:s'));
 
 
-  $sql_get_score_from_current_date = "SELECT SUM(score) as score FROM wp_app_time WHERE id_user = $id_user AND DATE(date) = CURDATE() AND typeUser = '$typeUser' ";
-
+  
+  $sql_get_score_from_current_date = "SELECT SUM(score) as score FROM wp_app_time WHERE id_user = $id_user  AND typeUser = '$typeUser' AND DATE(date) = CURDATE();";
+  
   $scoreCurrentDay =  Connection::one($sql_get_score_from_current_date)['score'];
   $limitInsertDataBase = 240 - $scoreCurrentDay;
 
@@ -92,7 +92,7 @@ function register_timer_callback()
   Connection::execute($sql_insert_engaged);
   
   $response = array(
-    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score",
+    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score ---- $sql_get_score_from_current_date" ,
     '$_POST' => $_POST
   );
   return new WP_REST_Response($response, 200);
