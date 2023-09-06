@@ -56,13 +56,14 @@ function register_timer_callback()
 {
   date_default_timezone_set('America/Sao_Paulo');
   $id_user = intval($_POST['id_user']);
+  $typeUser = $_POST['typeUser'];
   $time_stop = $_POST['time_stop'];
   $time_start = $_POST['time_start'];
   $time_score = intval($_POST['time_score']);
   $country = $_POST['country'];
   $date = str_replace('=','T',date('Y-m-d=H:i:s'));
 
-  $sql_get_score_from_current_date = "SELECT SUM(score) as score FROM wp_app_time WHERE id_user = $id_user AND DATE(date) = CURDATE();";
+  $sql_get_score_from_current_date = "SELECT SUM(score) as score FROM wp_app_time WHERE typeUser = '$typeUser' AND id_user = $id_user AND DATE(date) = CURDATE();";
   $scoreCurrentDay =  Connection::one($sql_get_score_from_current_date)['score'];
 
   $limitInsertDataBase = 240 - $scoreCurrentDay;
@@ -71,8 +72,8 @@ function register_timer_callback()
 
  
 
-  $sql_insert_time = "INSERT INTO wp_app_time (id_time, id_user, time_start, time_stop, date, trash, status, score) 
-  VALUES (NULL, $id_user, '$time_start', '$time_stop', '$date', 0, 'stopped', $scoreInsertDataBase)";
+  $sql_insert_time = "INSERT INTO wp_app_time (id_time, id_user, time_start, time_stop, date, trash, status, score, typeUser) 
+  VALUES (NULL, $id_user, '$time_start', '$time_stop', '$date', 0, 'stopped', $scoreInsertDataBase, '$typeUser')";
 
   $sql_update_score = "UPDATE wp_app_user SET score = score + $scoreInsertDataBase WHERE id_user = $id_user";
 
