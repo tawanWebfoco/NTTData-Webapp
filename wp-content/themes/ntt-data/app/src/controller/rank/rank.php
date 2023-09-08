@@ -3,6 +3,6 @@
 $user = User::getOne(['id_user' => $user->id_user]);
 
 $RankTopUser = User::get([],'full_name, score','score DESC','',10);
-// $RankTopUser = array_reverse($RankTopUser);
+$percentCountries = Country::getPercentEngagement();
 
-loadTempalteView($page,  ['user' => $user, 'RankTopUser' => $RankTopUser]);
+loadTempalteView($page,  ['user' => $user, 'RankTopUser' => $RankTopUser, 'percentCountries' => $percentCountries]);

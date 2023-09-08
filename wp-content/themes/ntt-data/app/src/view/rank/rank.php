@@ -14,62 +14,95 @@
                 <div class="desc"><?=_t['rank_suapontuacao']?></div>
             </div>
             <div class="yourCountryRank">
-                <div class="boxScore pie animate" style="--p: 0">
-                    <div class="number">0<span>%</span></div>
+                <div class="boxScore pie animate" style="--p: <?= $percentCountries[strtolower($user->country)] ; ?>">
+                    <div class="number"><?= $percentCountries[strtolower($user->country)] ; ?><span>%</span></div>
                     <div class="text"><?=_t['rank_pontosmaius']?></div>
                 </div>
                 <div class="desc"><?=_t['rank_taxaseupais']?></div>
             </div>
             <div class="otherCountryRank">
                 <div class="cards">
-                <div class="country">
-                        <div class="boxScore pie animate" style="--p: 0">
-                            <div class="number">0<span>%</span></div>
-                            <div class="text"><?=_t['registro_frm_arg']?></div>
+                    <?php foreach ($percentCountries as $key => $percent) :  ; ?>
+                    <?php
+                        $countryName = '';
+                        switch ($key) {
+                            case 'argentina':
+                                $countryName = 'registro_frm_arg';
+                            break;
+                            case 'brasil':
+                                $countryName = 'registro_frm_bra';
+                            break;
+                            case 'chile':
+                                $countryName = 'registro_frm_chi';
+                            break;
+                            case 'colombia':
+                                $countryName = 'registro_frm_col';
+                            break;
+                            case 'equador':
+                                $countryName = 'registro_frm_equ';
+                            break;
+                            case 'mexico':
+                                $countryName = 'registro_frm_mex';
+                            break;
+                            case 'peru':
+                                $countryName = 'registro_frm_per';
+                            break;
+                            case 'estados unidos':
+                                $countryName = 'registro_frm_usa';
+                            break;
+                            
+                        }
+                        if($key == strtolower($user->country))continue;
+                    ?>
+                        <div class="country">
+                            <div class="boxScore pie animate" style="--p: <?= $percent ?>">
+                                <div class="number"><?= $percent ?><span>%</span></div>
+                                <div class="text"><?=_t[$countryName]?></div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="country">
-                        <div class="boxScore pie animate" style="--p: 0">
-                            <div class="number">0<span>%</span></div>
+                        <?php endforeach; ?>
+                    <!-- <div class="country">
+                        <div class="boxScore pie animate" style="--p: <?= $percentCountries['brasil'] ?>">
+                            <div class="number"><?= $percentCountries['brasil'] ?><span>%</span></div>
                             <div class="text"><?=_t['registro_frm_bra']?></div>
                         </div>
                     </div>
                     <div class="country">
-                        <div class="boxScore pie animate" style="--p: 0">
-                            <div class="number">0<span>%</span></div>
+                        <div class="boxScore pie animate" style="--p: <?= $percentCountries['chile'] ?>">
+                            <div class="number"><?= $percentCountries['chile'] ?><span>%</span></div>
                             <div class="text"><?=_t['registro_frm_chi']?></div>
                         </div>
                     </div>
                     <div class="country">
-                        <div class="boxScore pie animate" style="--p: 0">
-                            <div class="number">0<span>%</span></div>
+                        <div class="boxScore pie animate" style="--p: <?= $percentCountries['colombia'] ?>">
+                            <div class="number"><?= $percentCountries['colombia'] ?><span>%</span></div>
                             <div class="text"><?=_t['registro_frm_col']?></div>
                         </div>
                     </div>
                     <div class="country">
-                        <div class="boxScore pie animate" style="--p: 0">
-                            <div class="number">0<span>%</span></div>
+                        <div class="boxScore pie animate" style="--p: <?= $percentCountries['equador'] ?>">
+                            <div class="number"><?= $percentCountries['equador'] ?><span>%</span></div>
                             <div class="text"><?=_t['registro_frm_equ']?></div>
                         </div>
                     </div>
                     <div class="country">
-                        <div class="boxScore pie animate" style="--p: 0">
-                            <div class="number">0<span>%</span></div>
+                        <div class="boxScore pie animate" style="--p: <?= $percentCountries['mexico'] ?>">
+                            <div class="number"><?= $percentCountries['mexico'] ?><span>%</span></div>
                             <div class="text"><?=_t['registro_frm_mex']?></div>
                         </div>
                     </div>
                     <div class="country">
-                        <div class="boxScore pie animate" style="--p: 0">
-                            <div class="number">0<span>%</span></div>
+                        <div class="boxScore pie animate" style="--p: <?= $percentCountries['peru'] ?>">
+                            <div class="number"><?= $percentCountries['peru'] ?><span>%</span></div>
                             <div class="text"><?=_t['registro_frm_per']?></div>
                         </div>
                     </div>
                     <div class="country">
-                        <div class="boxScore pie animate" style="--p: 0">
-                            <div class="number">0<span>%</span></div>
+                        <div class="boxScore pie animate" style="--p: <?= $percentCountries['estados unidos'] ?>">
+                            <div class="number"><?= $percentCountries['estados unidos'] ?><span>%</span></div>
                             <div class="text"><?=_t['registro_frm_usa']?></div>
                         </div>
-                    </div>
+                    </div> -->
                   
                     
                 </div>
