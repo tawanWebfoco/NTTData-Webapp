@@ -31,6 +31,7 @@ require_once(MODEL_PATH .'/Guest.php');
 require_once(MODEL_PATH .'/Pub.php');
 require_once(MODEL_PATH .'/Engaged.php');
 require_once(MODEL_PATH .'/Comment.php');
+require_once(MODEL_PATH .'/Country.php');
 require_once(EXCEPTION_PATH .'/AppException.php');
 require_once(EXCEPTION_PATH .'/ValidationException.php');
 require_once(LANGUAGES_PATH.'/common.php');
