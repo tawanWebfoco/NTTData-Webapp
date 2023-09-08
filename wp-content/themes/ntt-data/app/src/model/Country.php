@@ -11,12 +11,15 @@ class Country extends Model
     public static function updateEngagament()
     {
         $countries = self::getEngagement();
+        $peopleForCountry = self::getRegisterPeople();
         foreach ($countries as $key => $country) {
             $engagement = $country['engagement'];
             $date_data = $country['date_data'];
             $id_country = $country['id_country'];
+            $id_country = $country['id_country'];
+            $register_people = $peopleForCountry[$key]['people'];
 
-            $sql = "UPDATE `wp_app_country` SET `date_data` = '$date_data',`engagement`='$engagement' WHERE id_country = $id_country";
+            $sql = "UPDATE `wp_app_country` SET `date_data` = '$date_data',`engagement`='$engagement',`register_people` = $register_people WHERE id_country = $id_country";
 
             Database::executeSQL($sql);
         }
@@ -29,9 +32,11 @@ class Country extends Model
         $percentCountries = [];
         foreach ($countries as $key => $country) {
             $engagement = 0;
-                print_r(($country->count_people * $projectDays));
-                print_r(($country->engagement * 100));
-                $engagement =  ($country->engagement * 100) / ($country->count_people * $projectDays);
+                // $engagement =  ($country->engagement * 100) / ($country->total_people * $projectDays);
+                if(($country->register_people * $projectDays) > 0){
+
+                    $engagement =  ($country->engagement * 100) / ($country->register_people * $projectDays);
+                }
                 $engagement = intval($engagement);
             $percentCountries[$country->name] = $engagement    ;
         }
@@ -55,7 +60,27 @@ class Country extends Model
         return $countDays;
 
     }
+    public static function getRegisterPeople(){
+        $countries = self::get();
+        $objects = [];
+        foreach ($countries as $key => $country) {
+            $sql = "SELECT COUNT(*) AS people
+            FROM wp_app_user
+            WHERE country = '$country->name'";
+            $result = Database::getResultFromQuery($sql);
 
+            if ($result) {
+                while ($people = $result->fetch_assoc()) {
+                    $objects[$country->name] = [
+                        'id_country' => $country->id_country,
+                        'people' => $people['people'],
+                    ];
+                }
+            }
+        }
+        return($objects);
+
+    }
     public static function getEngagement(){
         $countries = self::get();
         $objects = [];
@@ -75,8 +100,6 @@ class Country extends Model
                     ];
                 }
             }
-
-            // return $objects;
         }
         return($objects);
     }

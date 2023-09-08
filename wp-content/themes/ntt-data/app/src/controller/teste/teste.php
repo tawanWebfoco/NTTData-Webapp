@@ -1,6 +1,6 @@
 <?php
 
-// Country::updateEngagament();
+Country::updateEngagament();
 $countries = Country::getPercentEngagement();
 
 print_r($countries);
