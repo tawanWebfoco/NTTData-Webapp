@@ -37,7 +37,7 @@ class Country extends Model
 
                     $engagement =  ($country->engagement * 100) / ($country->register_people * $projectDays);
                 }
-                $engagement = intval($engagement);
+                $engagement = ceil($engagement);
             $percentCountries[$country->name] = $engagement    ;
         }
 
