@@ -68,7 +68,7 @@ class Country extends Model
             WHERE country = '$country->name'";
             $result = Database::getResultFromQuery($sql);
 
-            if ($result) {
+            if ($result->num_rows > 0) {
                 while ($people = $result->fetch_assoc()) {
                     $objects[$country->name] = [
                         'id_country' => $country->id_country,
@@ -88,7 +88,7 @@ class Country extends Model
             $sql = "SELECT COUNT(*) as engagement FROM (SELECT DISTINCT id_user, DATE(date) as data FROM wp_app_engaged WHERE country = '$country->name')subquery";
             $result = Database::getResultFromQuery($sql);
 
-            if ($result) {
+            if ($result->num_rows > 0) {
                 date_default_timezone_set('America/Sao_Paulo');
                 $date = str_replace('=', 'T', date('Y-m-d=H:i:s'));
                 while ($row = $result->fetch_assoc()) {
@@ -111,14 +111,51 @@ class Country extends Model
             $sql = "SELECT SUM(score) as score FROM wp_app_user WHERE country = '$country->name'";
             $result = Database::getResultFromQuery($sql);
 
-            if ($result) {
-                date_default_timezone_set('America/Sao_Paulo');
-                $date = str_replace('=', 'T', date('Y-m-d=H:i:s'));
+            if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     $objects[$country->name] = [
                         'id_country' => $country->id_country,
                         'score' => $row['score'],
-                        'date_data' => $date,
+                    ];
+                }
+            }
+        }
+        return($objects);
+
+    }
+    public static function getPubForCountry(){
+        $countries = self::get();
+        $objects = [];
+
+        foreach ($countries as $key => $country) {
+            $sql = "SELECT count(*) as pub FROM wp_app_engaged WHERE country = '$country->name' AND `type` = 'pub'";
+            $result = Database::getResultFromQuery($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $objects[$country->name] = [
+                        'id_country' => $country->id_country,
+                        'pub' => $row['pub'],
+                    ];
+                }
+            }
+        }
+        return($objects);
+
+    }
+    public static function getCommentForCountry(){
+        $countries = self::get();
+        $objects = [];
+
+        foreach ($countries as $key => $country) {
+            $sql = "SELECT count(*) as comment FROM wp_app_engaged WHERE country = '$country->name' AND `type` = 'comment'";
+            $result = Database::getResultFromQuery($sql);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $objects[$country->name] = [
+                        'id_country' => $country->id_country,
+                        'comment' => $row['comment'],
                     ];
                 }
             }
@@ -135,8 +172,6 @@ class Country extends Model
             LIMIT 10;";
             $result = Database::getResultFromQuery($sql);
             if ($result->num_rows > 0) {
-                date_default_timezone_set('America/Sao_Paulo');
-                $date = str_replace('=', 'T', date('Y-m-d=H:i:s'));
                 $topList = [];
                 while ($row = $result->fetch_assoc()) {
                     array_push($topList, $row);
@@ -153,6 +188,49 @@ class Country extends Model
             }
         }
         return($objects);
-
     }
+    public static function getAllPoints(){
+            $sql = "SELECT SUM(score) as score FROM wp_app_user WHERE 1 = 1";
+            $result = Database::getResultFromQuery($sql);
+
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc()['score'];
+                        
+                }
+        return($row);
+    }
+    public static function getCountRegister(){
+            $sql = "SELECT count(*) as records FROM wp_app_user WHERE 1 = 1";
+            $result = Database::getResultFromQuery($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc()['records'];   
+                }
+        return($row);
+    }
+    public static function getCountGuest(){
+            $sql = "SELECT count(*) as records FROM wp_app_guest WHERE 1 = 1";
+            $result = Database::getResultFromQuery($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc()['records'];   
+                }
+        return($row);
+    }
+    public static function getCountPub(){
+            $sql = "SELECT count(*) as pub  FROM wp_app_pub WHERE 1 = 1";
+            $result = Database::getResultFromQuery($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc()['pub'];   
+                }
+        return($row);
+    }
+    public static function getCountComment(){
+            $sql = "SELECT count(*) as comment FROM wp_app_comment WHERE 1 = 1";
+            $result = Database::getResultFromQuery($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc()['comment'];   
+                }
+        return($row);
+    }
+
+
 }

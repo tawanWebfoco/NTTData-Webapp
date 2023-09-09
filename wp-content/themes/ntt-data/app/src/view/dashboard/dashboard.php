@@ -9,7 +9,14 @@
 </head>
 
 <body>
-
+   <div class="total country">
+      <h1>Relatório Geral</h1>
+      <div class="registers">Cadastros: <?= $generalData['register'] ?></div>
+      <div class="registers">Convidados: <?= $generalData['guest'] ?></div>
+      <div class="points">Pontos: <?= $generalData['points'] ?></div>
+      <div class="pubs">Publicações: <?= $generalData['pub'] ?></div>
+      <div class="comments">Comentários: <?= $generalData['comment'] ?></div>
+   </div>
    <div class="countries">
       <?php foreach ($dataCountries as $key => $country) :; ?>
          <div class="country">
@@ -17,6 +24,8 @@
             <div class="registeredUser">Cadastros: <?= $country['people'] ?></div>
             <div class="points">Pontos do País: <?= $country['score'] ?></div>
             <div class="engagament">Engajamento: <?= $country['percent'] ?>%</div>
+            <div class="pub">Publicações: <?= $country['pub'] ?></div>
+            <div class="comment">Comentários: <?= $country['comment'] ?></div>
             <div class="rank">
                <h2>Top 10</h2>
                <table>
