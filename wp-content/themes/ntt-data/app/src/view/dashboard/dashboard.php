@@ -16,7 +16,7 @@
             <div class="name">País: <span><?= $key ?></span></div>
             <div class="registeredUser">Quantidade de Cadastros: <?= $country['people'] ?></div>
             <div class="points">Pontos do País: <?= $country['score'] ?></div>
-            <div class="engagament">Engajamento: <?= $country['percent'] ?></div>
+            <div class="engagament">Engajamento: <?= $country['percent'] ?>%</div>
             <div class="rank">
                <h2>Top 10</h2>
                <table>
