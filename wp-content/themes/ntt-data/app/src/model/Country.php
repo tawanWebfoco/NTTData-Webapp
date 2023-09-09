@@ -35,9 +35,9 @@ class Country extends Model
         foreach ($countries as $key => $country) {
             $engagement = 0;
                 // $engagement =  ($country->engagement * 100) / ($country->total_people * $projectDays);
-                if(($country->register_people * $projectDays) > 0){
+                if(($country->people_engaged * $projectDays) > 0){
 
-                    $engagement =  ($country->engagement * 100) / ($country->register_people * $projectDays);
+                    $engagement =  ($country->engagement * 100) / ($country->people_engaged * $projectDays);
                 }
                 $engagement = ceil($engagement);
             $percentCountries[$country->name] = $engagement    ;
