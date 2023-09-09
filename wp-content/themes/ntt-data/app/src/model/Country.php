@@ -11,14 +11,17 @@ class Country extends Model
     public static function updateEngagament()
     {
         $countries = self::getEngagement();
-        $peopleForCountry = self::getRegisterPeopleEngaged();
+        $peopleForCountry = self::getRegisterPeople();
+        $peopleForCountryEngaged = self::getRegisterPeopleEngaged();
+
         foreach ($countries as $key => $country) {
             $engagement = $country['engagement'];
             $date_data = $country['date_data'];
             $id_country = $country['id_country'];
             $register_people = $peopleForCountry[$key]['people'];
+            $people_engaged = $peopleForCountryEngaged[$key]['people'];
 
-            $sql = "UPDATE `wp_app_country` SET `date_data` = '$date_data',`engagement`='$engagement',`register_people` = $register_people WHERE id_country = $id_country";
+            $sql = "UPDATE `wp_app_country` SET `people_engaged` = $people_engaged, `date_data` = '$date_data',`engagement`='$engagement',`register_people` = $register_people WHERE id_country = $id_country";
 
             Database::executeSQL($sql);
         }
