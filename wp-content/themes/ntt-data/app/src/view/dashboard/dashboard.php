@@ -13,8 +13,8 @@
    <div class="countries">
       <?php foreach ($dataCountries as $key => $country) :; ?>
          <div class="country">
-            <div class="name">País: <span><?= $key ?></span></div>
-            <div class="registeredUser">Quantidade de Cadastros: <?= $country['people'] ?></div>
+            <div class="name"><span><?= $key ?></span></div>
+            <div class="registeredUser">Cadastros: <?= $country['people'] ?></div>
             <div class="points">Pontos do País: <?= $country['score'] ?></div>
             <div class="engagament">Engajamento: <?= $country['percent'] ?>%</div>
             <div class="rank">

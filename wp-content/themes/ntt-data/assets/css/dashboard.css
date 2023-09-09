@@ -10,7 +10,10 @@
    border: solid #eee 2px;
    width:300px;
 }
-
+.name {
+   font-size: 1.5rem;
+   font-weight: bold;
+}
 .name span {
    text-transform: capitalize;
 }
