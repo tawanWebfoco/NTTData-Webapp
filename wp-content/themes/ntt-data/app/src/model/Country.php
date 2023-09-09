@@ -11,7 +11,7 @@ class Country extends Model
     public static function updateEngagament()
     {
         $countries = self::getEngagement();
-        $peopleForCountry = self::getRegisterPeople();
+        $peopleForCountry = self::getRegisterPeopleEngaged();
         foreach ($countries as $key => $country) {
             $engagement = $country['engagement'];
             $date_data = $country['date_data'];
@@ -66,6 +66,27 @@ class Country extends Model
             $sql = "SELECT COUNT(*) AS people
             FROM wp_app_user
             WHERE country = '$country->name'";
+            $result = Database::getResultFromQuery($sql);
+
+            if ($result->num_rows > 0) {
+                while ($people = $result->fetch_assoc()) {
+                    $objects[$country->name] = [
+                        'id_country' => $country->id_country,
+                        'people' => $people['people'],
+                    ];
+                }
+            }
+        }
+        return($objects);
+
+    }
+    public static function getRegisterPeopleEngaged(){
+        $countries = self::get();
+        $objects = [];
+        foreach ($countries as $key => $country) {
+            $sql = "SELECT COUNT(*) AS people
+            FROM wp_app_user
+            WHERE country = '$country->name' AND `score` > 0";
             $result = Database::getResultFromQuery($sql);
 
             if ($result->num_rows > 0) {
