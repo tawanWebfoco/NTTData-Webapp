@@ -1,0 +1,55 @@
+.countries {
+   display: flex;
+   flex-wrap: wrap;
+   font-size: 1.1rem;
+}
+
+.country {
+   margin: 5px 10px;
+   padding: 10px 20px;
+   border: solid #eee 2px;
+   width:300px;
+}
+
+.name span {
+   text-transform: capitalize;
+}
+
+.country > * {
+   margin: 5px 0;
+}
+
+
+.rank li {
+   text-decoration: none;
+   list-style: none;
+}
+
+.rank {
+   display: flex;
+   font-size: .8rem;
+   flex-direction: column;
+}
+
+
+.country .rank table tr:nth-child(even) {
+   background-color: #eee;
+}
+
+.rank table tr {
+   flex-grow: 1;
+   display: flex;
+}
+
+tbody {
+   display: flex;
+   flex-direction: column;
+}
+
+table {
+   width: 100%;
+}
+
+td:first-child {
+   flex-grow: 1;
+}

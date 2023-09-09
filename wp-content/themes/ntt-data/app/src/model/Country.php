@@ -16,7 +16,6 @@ class Country extends Model
             $engagement = $country['engagement'];
             $date_data = $country['date_data'];
             $id_country = $country['id_country'];
-            $id_country = $country['id_country'];
             $register_people = $peopleForCountry[$key]['people'];
 
             $sql = "UPDATE `wp_app_country` SET `date_data` = '$date_data',`engagement`='$engagement',`register_people` = $register_people WHERE id_country = $id_country";
@@ -102,5 +101,58 @@ class Country extends Model
             }
         }
         return($objects);
+    }
+    
+    public static function getPointsForCountry(){
+        $countries = self::get();
+        $objects = [];
+
+        foreach ($countries as $key => $country) {
+            $sql = "SELECT SUM(score) as score FROM wp_app_user WHERE country = '$country->name'";
+            $result = Database::getResultFromQuery($sql);
+
+            if ($result) {
+                date_default_timezone_set('America/Sao_Paulo');
+                $date = str_replace('=', 'T', date('Y-m-d=H:i:s'));
+                while ($row = $result->fetch_assoc()) {
+                    $objects[$country->name] = [
+                        'id_country' => $country->id_country,
+                        'score' => $row['score'],
+                        'date_data' => $date,
+                    ];
+                }
+            }
+        }
+        return($objects);
+
+    }
+    public static function getTop10ForCountry(){
+        $countries = self::get();
+        $objects = [];
+
+        foreach ($countries as $key => $country) {
+            $sql = "SELECT full_name,score FROM wp_app_user WHERE country = '$country->name' ORDER BY score DESC
+            LIMIT 10;";
+            $result = Database::getResultFromQuery($sql);
+            if ($result->num_rows > 0) {
+                date_default_timezone_set('America/Sao_Paulo');
+                $date = str_replace('=', 'T', date('Y-m-d=H:i:s'));
+                $topList = [];
+                while ($row = $result->fetch_assoc()) {
+                    array_push($topList, $row);
+                    $objects[$country->name] = [
+                        'id_country' => $country->id_country,
+                        'topList' => $topList
+                    ];
+                }
+            }else{
+                $objects[$country->name] = [
+                    'id_country' => $country->id_country,
+                    'topList' => []
+                ];
+            }
+        }
+        return($objects);
+
     }
 }
