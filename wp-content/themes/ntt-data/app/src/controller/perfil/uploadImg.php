@@ -42,9 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $attachment_id = wp_insert_attachment($attachment, $upload_file);
 
             // Atualiza metadados da mídia
-            require_once(ABSPATH . 'wp-admin/includes/image.php');
-            $attachment_data = wp_generate_attachment_metadata($attachment_id, $upload_file);
-            wp_update_attachment_metadata($attachment_id, $attachment_data);
+            // require_once(ABSPATH . 'wp-admin/includes/image.php');
+            // $attachment_data = wp_generate_attachment_metadata($attachment_id, $upload_file);
+            // wp_update_attachment_metadata($attachment_id, $attachment_data);
 
 
             $image_info = wp_get_attachment_image_url($attachment_id, 'full');
