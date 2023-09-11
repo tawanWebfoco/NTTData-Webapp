@@ -3,7 +3,7 @@ function iniciarContagemRegressiva(dataFinal) {
             const agora = new Date().getTime();
         
             dataFinal = new Date(dataFinal);
-            console.log(dataFinal);
+            // console.log(dataFinal);
             const diferenca = dataFinal - agora;
 
             const day = document.querySelector('.downbanner .right .day .number');

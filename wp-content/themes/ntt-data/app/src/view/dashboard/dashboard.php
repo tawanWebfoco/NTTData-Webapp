@@ -16,7 +16,35 @@
       <div class="points">Pontos: <?= $generalData['points'] ?></div>
       <div class="pubs">Publicações: <?= $generalData['pub'] ?></div>
       <div class="comments">Comentários: <?= $generalData['comment'] ?></div>
+      <button id="generalDownload">Download Excel</button>
+
    </div>
+
+   <script>
+       const generalUrl =  "<?= get_stylesheet_directory_uri() ?>"+ '/app/src/controller/dashboard/export/geral.php';
+      const generalDownload = document.getElementById('generalDownload');
+
+      let encode = <?php echo json_encode($generalData); ?>;
+       encode = JSON.stringify(encode);
+       console.log(encode);
+      generalDownload.addEventListener('click', ()=>{
+         console.log('oii');
+         document.location = generalUrl;
+      //     fetch(generalUrl, {
+      //       method: "POST",
+      //       headers: {
+      //          "Content-Type": "application/json",
+      //       },
+      //       body: encode,
+      //       })
+      //    .then(data => ()=>{
+      //       console.log(data);
+      //    })
+      //    .catch(error => console.error('Error on request:', error));
+
+      });
+
+   </script>
    <div class="countries">
       <?php foreach ($dataCountries as $key => $country) :; ?>
          <div class="country">

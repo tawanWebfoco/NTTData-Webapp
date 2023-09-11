@@ -25,7 +25,7 @@ function navButton(threeDots){
   })
 
   closeNav.addEventListener('click',()=>{
-   console.log(closeNav);
+   // console.log(closeNav);
      contentNav.classList.remove('active')
      threeDots.classList.remove('active')
   })
@@ -89,7 +89,7 @@ function submitData(data,content){
                return response.text();
            })
            .then(data => {
-            console.log(data);
+            // console.log(data);
             updateDeletPub(content)
 
            })

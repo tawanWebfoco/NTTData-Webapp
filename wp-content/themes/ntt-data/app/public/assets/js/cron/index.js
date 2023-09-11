@@ -2,7 +2,7 @@ console.log('Cron.JS');
 
 
 const timerStorage = new TimerStorage;
-var newConfirm = new NewConfirm;
+// var newConfirm = new NewConfirm;
 
 const currentTimeFromDb = parseInt(document.currentTimeFromDb);
 

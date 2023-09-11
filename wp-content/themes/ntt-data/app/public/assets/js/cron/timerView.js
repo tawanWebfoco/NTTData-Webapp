@@ -1,5 +1,5 @@
 
-console.log('> Timer View');
+// console.log('> Timer View');
 
 class TimerView {
   // States
@@ -113,19 +113,20 @@ class TimerView {
     const limitDay =  parseInt(this.limitTimePerDay / 60000) ;
     const limitInsertDataBase = limitDay - this.currentTimeFromDb;
 
-    if((this.currentTime / 6000) >= limitInsertDataBase) {
+    // console.log("current / 60000",(this.currentTime / 60000));
+    if((this.currentTime / 60000) >= limitInsertDataBase) {
       
       this.hasExceededLimit = true;
       this._pauseTimer();
       switch (this.language.toLowerCase()) {
         case 'pt':
-          this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas, clique em salvar tempo.');
+          this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas, clique em salvar tempo.','');
           break;
         case 'en':
-          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 4 hours, click on Save Time.');
+          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 4 hours, click on Save Time.','');
           break;
         default:
-          this.newBoxAlertConfirm(false,'Has superado el límite diario de 4 horas, haz clic en Ahorrar Tiempo.');
+          this.newBoxAlertConfirm(false,'Has superado el límite diario de 4 horas, haz clic en Ahorrar Tiempo.','');
           break;
       }
 
@@ -182,8 +183,8 @@ class TimerView {
     ? (this.limitTimePerDay - this.time1minute) 
     : currentTime;
 
-    console.log('currentTIME', this.currentTime);
-    console.log('points', points);
+    // console.log('currentTIME', this.currentTime);
+    // console.log('points', points);
 
     this.points = points;
   }
@@ -280,9 +281,9 @@ class TimerView {
   _configureEventStartTimer() {
     this.startButton.addEventListener('click', () => {
       if (!this.running) {
-        console.log(this.limitTimePerDay / 60000);
-        console.log('cuurentTimeDb',this.currentTimeFromDb);
-        console.log('limit',this.limitTimePerDay / 60000);
+        // console.log(this.limitTimePerDay / 60000);
+        // console.log('cuurentTimeDb',this.currentTimeFromDb);
+        // console.log('limit',this.limitTimePerDay / 60000);
 
         if(this.currentTimeFromDb < (this.limitTimePerDay / 60000)){
         this.pauseButton.classList.remove('hidden')
@@ -295,13 +296,13 @@ class TimerView {
         }else{
           switch (this.language.toLowerCase()) {
             case 'pt':
-              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.');
+              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.','');
               break;
             case 'en':
-              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.');
+              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.','');
               break;
             default:
-              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas');
+              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas','');
               break;
           }
         }
@@ -311,9 +312,11 @@ class TimerView {
 
   _configureEventStartTimerAfterPaused() {
     this.startButton.addEventListener('click', () => {
+      // console.log(this.running);
+      // console.log(this.paused);
       if (this.running && this.paused) {
-        console.log('cuurentTimeDb',this.currentTimeFromDb);
-        console.log('limit',this.limitTimePerDay / 60000);
+        // console.log('cuurentTimeDb',this.currentTimeFromDb);
+        // console.log('limit',this.limitTimePerDay / 60000);
         if(this.currentTimeFromDb < (this.limitTimePerDay / 60000)){
         this.pauseButton.classList.remove('hidden')
         this.startButton.classList.add('hidden')
@@ -325,13 +328,13 @@ class TimerView {
         }else{
           switch (this.language.toLowerCase()) {
             case 'pt':
-              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.');
+              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.','');
               break;
             case 'en':
-              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.');
+              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.','');
               break;
             default:
-              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas');
+              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas','');
               break;
           }
         }
@@ -404,24 +407,24 @@ class TimerView {
 
     const limitInsertDataBase = limitDay - this.currentTimeFromDb;
 
-    console.log('LIMITINSERT',limitInsertDataBase );
-    console.log('CURRENT',this.currentTime / 60000);
+    // console.log('LIMITINSERT',limitInsertDataBase );
+    // console.log('CURRENT',this.currentTime / 60000);
 
 
-    console.log('sumhour',parseInt((sumHour) / 60000)+1);
+    // console.log('sumhour',parseInt((sumHour) / 60000)+1);
     if (btn === this.btnAdd1Hour && parseInt((sumHour) / 60000)+1 < (limitInsertDataBase)) {
       this.btnAdd1Hour.classList.remove('btn-disabled');
       btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
     }
     
     if (btn === this.btnAdd30Minutes && parseInt((sum30Min) / 60000)+1 < (limitInsertDataBase)) {
-      // console.log('sumhour',sum30Min / 60000);
+      console.log('sumhour',sum30Min / 60000);
       this.btnAdd30Minutes.classList.remove('btn-disabled');
       btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
     }
     
     if (btn === this.btnAdd10Minutes && parseInt((sum10Min) / 60000)+1 < (limitInsertDataBase)) {
-      // console.log('sum10Min',sum10Min / 60000);
+      console.log('sum10Min',sum10Min / 60000);
       this.btnAdd10Minutes.classList.remove('btn-disabled');
       btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
     }
@@ -445,9 +448,9 @@ class TimerView {
 
   configureEventStopTimer() {
     this.stopButton.addEventListener('click', () => {
-      console.log('oi');
+      // console.log('oi');
 
-      console.log(this.language.toLowerCase());
+      // console.log(this.language.toLowerCase());
       
       let textSaveTime;
       switch (this.language.toLowerCase()) {
@@ -482,7 +485,7 @@ class TimerView {
       currentRestTime.minutes = currentRestTime.minutes.toString().padStart(2, '0');
       currentRestTime.seconds = currentRestTime.seconds.toString().padStart(2, '0');
 
-      console.log(this.language.toLowerCase());
+      // console.log(this.language.toLowerCase());
       
       let textSaveTime;
       switch (this.language.toLowerCase()) {
@@ -525,7 +528,7 @@ class TimerView {
         break;
       }
 
-      console.log('hour',hour);
+      // console.log('hour',hour);
 
      let textBody= '';
       this.newBoxAlertConfirm(true,textSaveTime,hour, async ()=>{
@@ -578,15 +581,15 @@ class TimerView {
 
 
 
-    // console.log('this.currentTime ',this.currentTime );
-    // console.log('currentTime ',scoreCurrent );
-    // console.log('sumScoreCurrent ',sumScoreCurrent );
-    // console.log('limitDay ',limitDay );
-    // console.log('limitTimePerDay ',this.limitTimePerDay );
-    // console.log('this.time1minute ',this.time1minute );
-    // console.log('this.currentTimeFromDb ',this.currentTimeFromDb );
-    // console.log('this.limitInsertDataBase ',limitInsertDataBase );
-    // console.log('scoreInsertDataBase ',this.scoreInsertDataBase );
+    console.log('this.currentTime ',this.currentTime );
+    console.log('currentTime ',scoreCurrent );
+    console.log('sumScoreCurrent ',sumScoreCurrent );
+    console.log('limitDay ',limitDay );
+    console.log('limitTimePerDay ',this.limitTimePerDay );
+    console.log('this.time1minute ',this.time1minute );
+    console.log('this.currentTimeFromDb ',this.currentTimeFromDb );
+    console.log('this.limitInsertDataBase ',limitInsertDataBase );
+    console.log('scoreInsertDataBase ',this.scoreInsertDataBase );
 
     const currentTimeLimit = this._convertTimestampInObjectTime(this.scoreInsertDataBase * 60000);
     const currentRestTime = this._convertTimestampInObjectTime(limitInsertDataBase * 60000);

@@ -112,7 +112,7 @@ class Country extends Model
             $sql = "SELECT COUNT(*) as engagement FROM (SELECT DISTINCT id_user, DATE(date) as data FROM wp_app_engaged WHERE country = '$country->name')subquery";
             $result = Database::getResultFromQuery($sql);
 
-            if ($result->num_rows > 0) {
+            if ($result && $result->num_rows > 0) {
                 date_default_timezone_set('America/Sao_Paulo');
                 $date = str_replace('=', 'T', date('Y-m-d=H:i:s'));
                 while ($row = $result->fetch_assoc()) {

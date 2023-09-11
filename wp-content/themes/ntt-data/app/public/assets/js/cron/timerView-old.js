@@ -1,5 +1,5 @@
 
-console.log('> Timer View');
+// console.log('> Timer View');
 
 class TimerView {
   // States
@@ -150,8 +150,8 @@ class TimerView {
     ? (this.limitTimePerDay - this.time1minute) 
     : currentTime;
 
-    console.log('currentTIME', this.currentTime);
-    console.log('points', points);
+    // console.log('currentTIME', this.currentTime);
+    // console.log('points', points);
 
     this.points = points;
   }
@@ -325,7 +325,7 @@ class TimerView {
   configureEventStopTimer(onSaveTimer) {
     this.stopButton.addEventListener('click', async () => {
 
-      console.log(this.language.toLowerCase());
+      // console.log(this.language.toLowerCase());
       
       let textSaveTime;
       switch (this.language.toLowerCase()) {
@@ -375,15 +375,15 @@ class TimerView {
 
 
 
-    console.log('this.currentTime ',this.currentTime );
-    console.log('currentTime ',scoreCurrent );
-    console.log('sumScoreCurrent ',sumScoreCurrent );
-    console.log('limitDay ',limitDay );
-    console.log('limitTimePerDay ',this.limitTimePerDay );
-    console.log('this.time1minute ',this.time1minute );
-    console.log('this.currentTimeFromDb ',this.currentTimeFromDb );
-    console.log('this.limitInsertDataBase ',limitInsertDataBase );
-    console.log('scoreInsertDataBase ',this.scoreInsertDataBase );
+    // console.log('this.currentTime ',this.currentTime );
+    // console.log('currentTime ',scoreCurrent );
+    // console.log('sumScoreCurrent ',sumScoreCurrent );
+    // console.log('limitDay ',limitDay );
+    // console.log('limitTimePerDay ',this.limitTimePerDay );
+    // console.log('this.time1minute ',this.time1minute );
+    // console.log('this.currentTimeFromDb ',this.currentTimeFromDb );
+    // console.log('this.limitInsertDataBase ',limitInsertDataBase );
+    // console.log('scoreInsertDataBase ',this.scoreInsertDataBase );
 
     const currentTimeLimit = this._convertTimestampInObjectTime(this.scoreInsertDataBase * 60000);
     const currentRestTime = this._convertTimestampInObjectTime(limitInsertDataBase * 60000);
@@ -417,9 +417,9 @@ class TimerView {
     currentRestTime.minutes = currentRestTime.minutes.toString().padStart(2, '0');
     currentRestTime.seconds = currentRestTime.seconds.toString().padStart(2, '0');
 
-    console.log('currentRestTime.hours',currentRestTime.hours);
-    console.log('currentRestTime.minutes',currentRestTime.minutes);
-    console.log('currentRestTime.seconds',currentRestTime.seconds);
+    // console.log('currentRestTime.hours',currentRestTime.hours);
+    // console.log('currentRestTime.minutes',currentRestTime.minutes);
+    // console.log('currentRestTime.seconds',currentRestTime.seconds);
 
     if(!((parseInt(currentRestTime.seconds) > 0) || (parseInt(currentRestTime.minutes) > 0) || (parseInt(currentRestTime.hours) > 0))){
       switch (this.language.toLowerCase()) {

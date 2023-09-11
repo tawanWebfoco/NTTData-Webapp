@@ -3,7 +3,7 @@ $validation = isset($_GET['wbp']) ? $_GET['wbp'] : null;
 $authentication = isset($_GET['authentication']) ? $_GET['authentication'] : null;
 $exception = null;
 
-if($validation != 'dashboard' || $authentication != 'nttdata') die;
+// if($validation != 'dashboard' || $authentication != 'nttdata') die;
 
 Country::updateEngagament();
 
@@ -22,6 +22,12 @@ $generalData = [
    'comment' => $countComment,
 
 ];
+
+
+
+// fputcsv($file, $generalData, ';');
+// fclose($file);
+
 
 // CAPTURA DADOS DOS PAISES
 $percentCountries = Country::getPercentEngagement();
@@ -48,5 +54,7 @@ foreach ($pointsCountries as $key => $country) {
    # code...
 }
 
+$_SESSION['dataCountries'] = serialize($dataCountries);
+$_SESSION['generalData'] = serialize($generalData);
 
 loadView('dashboard/dashboard', ['exception' => $exception, 'dataCountries' => $dataCountries, 'generalData' => $generalData ]);
