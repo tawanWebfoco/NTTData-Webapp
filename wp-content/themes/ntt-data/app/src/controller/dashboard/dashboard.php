@@ -1,4 +1,5 @@
 <?php
+requireValidSession();
 $validation = isset($_GET['wbp']) ? $_GET['wbp'] : null;
 $authentication = isset($_GET['authentication']) ? $_GET['authentication'] : null;
 $exception = null;
