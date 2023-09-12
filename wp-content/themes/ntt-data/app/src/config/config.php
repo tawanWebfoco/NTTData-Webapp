@@ -14,6 +14,7 @@ define('MODEL_PATH', dirname(__FILE__,2).'/model');
 define('VIEW_PATH', (dirname(__FILE__,2).'/view'));
 define('TEMPLATE_PATH', (dirname(__FILE__,2).'/view/template'));
 define('CONTROLLER_PATH', (dirname(__FILE__,2).'/controller'));
+define('EXTRA_PATH', (dirname(__FILE__,2).'/extra'));
 define('EXCEPTION_PATH', (dirname(__FILE__,2).'/exceptions'));
 define('LANGUAGES_PATH', (dirname(__FILE__,4).'/languages'));
 

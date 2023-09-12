@@ -1,21 +1,12 @@
 <?php
-session_start();
-// <?php
-// require_once(dirname(__FILE__, 4) . '/config/config.php');
-// session_start();
-// requireValidSession();
-// require_once(dirname(__FILE__,9) . '/wp-config.php');
-
-// $dataJSON = file_get_contents("php://input");
-
-// $data = json_decode($dataJSON, true);
-
-// echo 'oiii';
+require_once(dirname(__FILE__, 4) . '/config/config.php');
 
 
 header("Content-type:application/x-msexcel; charset=UTF-8");
 header("Content-Disposition: attachment; filename=filegeral.xls");
 
+
+$dataCountries = unserialize($_SESSION['dataCountries']);
 
 $generalData = unserialize($_SESSION['generalData']);
 $generalPoints = $generalData['points'];
@@ -25,7 +16,7 @@ $generalComment = $generalData['comment'];
 $generalPub = $generalData['pub'];
 
 $html = <<<HTML
-<h1>Relatório Geral</h1>
+<h1>Geral</h1>
     <table>
         <tr>
             <th>Cadastros</th>

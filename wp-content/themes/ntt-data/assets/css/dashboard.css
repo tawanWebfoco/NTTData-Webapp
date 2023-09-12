@@ -4,6 +4,7 @@
    font-size: 1.1rem;
 }
 
+.total, 
 .country {
    margin: 5px 10px;
    padding: 10px 20px;
@@ -14,40 +15,41 @@
    font-size: 1.5rem;
    font-weight: bold;
 }
-.name span {
+button,
+.name {
    text-transform: capitalize;
 }
 
+.total > * ,
 .country > * {
    margin: 5px 0;
 }
+thead {
+   display: flex;
+   flex-direction: column;
+}
 
-
-.rank li {
+tbody.rank li {
    text-decoration: none;
    list-style: none;
 }
 
-.rank {
+tbody.rank {
    display: flex;
    font-size: .8rem;
    flex-direction: column;
 }
 
 
-.country .rank table tr:nth-child(even) {
+.country tbody.rank tr:nth-child(even) {
    background-color: #eee;
 }
 
-.rank table tr {
+tbody.rank tr {
    flex-grow: 1;
    display: flex;
 }
 
-tbody {
-   display: flex;
-   flex-direction: column;
-}
 
 table {
    width: 100%;
