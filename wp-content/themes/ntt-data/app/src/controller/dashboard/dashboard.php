@@ -3,7 +3,7 @@ $validation = isset($_GET['wbp']) ? $_GET['wbp'] : null;
 $authentication = isset($_GET['authentication']) ? $_GET['authentication'] : null;
 $exception = null;
 
-// if($validation != 'dashboard' || $authentication != 'nttdata') die;
+if($validation != 'dashboard' || $authentication != 'nttdata') die;
 
 Country::updateEngagament();
 
@@ -22,11 +22,6 @@ $generalData = [
    'comment' => $countComment,
 
 ];
-
-
-
-// fputcsv($file, $generalData, ';');
-// fclose($file);
 
 
 // CAPTURA DADOS DOS PAISES
