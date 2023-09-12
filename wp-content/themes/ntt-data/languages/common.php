@@ -1,7 +1,7 @@
 <?php
 // require_once(dirname(__FILE__,2) . '/app/src/config/config.php');
 /* Descobrir língua */
-$user = ($_SESSION) ? unserialize($_SESSION['user']) : null;
+$user = ($_SESSION && isset($_SESSION['user'])) ? unserialize($_SESSION['user']) : null;
 
 $lang = '';
 if ( empty($user) || $user == null ) {

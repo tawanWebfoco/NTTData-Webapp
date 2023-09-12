@@ -10,7 +10,8 @@
 
 </head>
 
-<body id="body">
+<body>
+   <div id="body">
    <div class="total">
       <table id="totalCountry">
          <thead>
@@ -108,7 +109,7 @@
    </table>
 <?php endforeach; ?>
 </div>
-
+</div>
 <script>
       //export to excel
       var tableToExcel = (function() {
@@ -128,7 +129,7 @@
             const newTable =  table.cloneNode(true)
             const buttons =  newTable.querySelectorAll('button')
             buttons.forEach(btn => {
-               btn.parentElement.remove(btn);
+               btn.parentNode.removeChild(btn);
             });
  
             var ctx = {
