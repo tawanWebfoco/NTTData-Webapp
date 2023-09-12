@@ -1,5 +1,4 @@
 <?php
-requireValidSession();
 $validation = isset($_GET['wbp']) ? $_GET['wbp'] : null;
 $authentication = isset($_GET['authentication']) ? $_GET['authentication'] : null;
 $exception = null;
@@ -54,8 +53,5 @@ foreach ($pointsCountries as $key => $country) {
    ];
    # code...
 }
-
-$_SESSION['dataCountries'] = serialize($dataCountries);
-$_SESSION['generalData'] = serialize($generalData);
 
 loadView('dashboard/dashboard', ['exception' => $exception, 'dataCountries' => $dataCountries, 'generalData' => $generalData ]);
