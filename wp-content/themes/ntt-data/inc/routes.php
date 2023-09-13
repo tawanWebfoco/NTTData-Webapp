@@ -84,7 +84,8 @@ function register_timer_callback()
 
  
   $sql_update_score = "UPDATE wp_app_user SET score = score + $scoreInsertDataBase, `time` = `time` + $scoreInsertDataBase WHERE id_user = $id_user";
-  if($typeUser === "Guest")$sql_update_score = "UPDATE wp_app_guest SET score = score + $scoreInsertDataBase, `time` = `time` + $scoreInsertDataBase WHERE id_guest = $id_guest";
+
+  if($typeUser === "Guest")$sql_update_score = "UPDATE wp_app_guest SET score = score + $scoreInsertDataBase, `time` = `time` + $scoreInsertDataBase WHERE id_guest = $id_user";
 
   $sql_insert_engaged = "INSERT INTO wp_app_engaged (id_engaged, id_user, type, date, country, trash)
   VALUES (NULL, $id_user, 'cron', '$date', '" . $country . "', null)";
