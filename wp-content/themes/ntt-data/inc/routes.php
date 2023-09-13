@@ -94,7 +94,7 @@ function register_timer_callback()
   Connection::execute($sql_insert_engaged);
   
   $response = array(
-    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score ---- $sql_get_score_from_current_date" ,
+    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score" ,
     '$_POST' => $_POST
   );
   return new WP_REST_Response($response, 200);
