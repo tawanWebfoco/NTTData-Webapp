@@ -21,6 +21,10 @@
             <td><?= $generalData['register'] ?></td>
          </tr>
          <tr>
+            <th>Cadastros Engajados: </th>
+            <td><?= $generalData['registerEngaged'] ?></td>
+         </tr>
+         <tr>
             <th>Convidados: </th>
             <td><?= $generalData['guest'] ?></td>
          </tr>

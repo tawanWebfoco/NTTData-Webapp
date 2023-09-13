@@ -10,6 +10,7 @@ Country::updateEngagament();
 // CAPTURA DADOS GERAIS
 $allPoints = Country::getAllPoints();
 $countRegister = Country::getCountRegister();
+$countRegisterEngaged = Country::getCountRegisterEngaged();
 $countGuest = Country::getCountGuest();
 $countPub = Country::getCountPub();
 $countComment = Country::getCountComment();
@@ -17,6 +18,7 @@ $countComment = Country::getCountComment();
 $generalData = [
    'points' => $allPoints,
    'register' => $countRegister,
+   'registerEngaged' => $countRegisterEngaged,
    'guest' => $countGuest,
    'pub' => $countPub,
    'comment' => $countComment,

@@ -231,6 +231,14 @@ class Country extends Model
                 }
         return($row);
     }
+    public static function getCountRegisterEngaged(){
+            $sql = "SELECT count(*) as records FROM wp_app_user WHERE 1 = 1 AND `score` > 0";
+            $result = Database::getResultFromQuery($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc()['records'];   
+                }
+        return($row);
+    }
     public static function getCountGuest(){
             $sql = "SELECT count(*) as records FROM wp_app_guest WHERE 1 = 1";
             $result = Database::getResultFromQuery($sql);
