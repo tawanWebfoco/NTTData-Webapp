@@ -48,6 +48,9 @@
             <th>Comentários: </th>
             <td><?= $generalData['comment'] ?></td>
          </tr>
+         <tr class="engagament">
+                  <td>Obs.: Cadastro engajado são aqueles que possuem pontuação maior que 0</td>
+               </tr>
          </thead>
       </table>
       <!-- <button href="#" onclick="javascript: tableToExcel('body', 'Minha tabela')" title="Exportar para Excel">Exportar Tudo</button> -->
@@ -97,6 +100,7 @@
                   <th>Engajamento:</th>
                   <td> <?= $country['percent'] ?>%</td>
                </tr>
+      
                </thead>
 
                <tbody class="rank">
