@@ -31,22 +31,28 @@ $pubCountries = Country::getPubForCountry();
 $commentCountries = Country::getCommentForCountry();
 $top10Countries = Country::getTop10ForCountry();
 $peopleForCountry = Country::getRegisterPeople();
+$totalPeople = Country::getTotalPeople();
 
 
 
 
 $dataCountries = [];
 foreach ($pointsCountries as $key => $country) {
+   $proportionRegisterTotalPeople = ceil(($peopleForCountry[$key]['people'] * 100) / $totalPeople[$key]['total_people']);
+
    $dataCountries[$key] = [
       'id_country' => $country['id_country'],
       'score' => $country['score'],
       'percent' => $percentCountries[$key],
       'people' => $peopleForCountry[$key]['people'],
+      'totalPeople' => $totalPeople[$key]['total_people'],
+      'proportion' => $proportionRegisterTotalPeople,
       'pub' => $pubCountries[$key]['pub'],
       'comment' => $commentCountries[$key]['comment'],
       'top10' => $top10Countries[$key]['topList'],
    ];
    # code...
 }
+
 
 loadView('dashboard/dashboard', ['exception' => $exception, 'dataCountries' => $dataCountries, 'generalData' => $generalData ]);

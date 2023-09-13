@@ -57,13 +57,17 @@
                   <th>Cadastros:</th>
                   <td> <?= $country['people'] ?></td>
                </tr>
+               <tr class="registeredUser">
+                  <th>Total de Colaboradores:</th>
+                  <td> <?= $country['totalPeople'] ?></td>
+               </tr>
+               <tr class="registeredUser">
+                  <th>Proporçao de cadastros:</th>
+                  <td> <?= $country['proportion'] ?>%</td>
+               </tr>
                <tr class="points">
                   <th>Pontos do País:</th>
                   <td> <?= $country['score'] ?></td>
-               </tr>
-               <tr class="engagament">
-                  <th>Engajamento:</th>
-                  <td> <?= $country['percent'] ?></td>
                </tr>
                <tr class="pub">
                   <th>Publicações:</th>
@@ -72,6 +76,10 @@
                <tr class="comment">
                   <th>Comentários:</th>
                   <td> <?= $country['comment'] ?></td>
+               </tr>
+               <tr class="engagament">
+                  <th>Engajamento:</th>
+                  <td> <?= $country['percent'] ?>%</td>
                </tr>
                </thead>
 

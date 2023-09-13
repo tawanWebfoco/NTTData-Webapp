@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user->language = $language;
         }
         $url = home_url();
-        $url .= '/app?p=perfil';
-        usleep(500000); // 500000 microssegundos = 500 milissegundos
-        header("Location:$url");
-        exit();
+        // $url .= '/app?p=perfil';
+        // usleep(1000000); // 500000 microssegundos = 500 milissegundos
+        // header("Location:$url");
+        // exit();
 }

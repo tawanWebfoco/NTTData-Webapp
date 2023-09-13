@@ -257,4 +257,27 @@ class Country extends Model
     }
 
 
+    public static function getTotalPeople(){
+        $countries = self::get();
+        $objects = [];
+
+        foreach ($countries as $key => $country) {
+            $sql = "SELECT total_people FROM wp_app_country WHERE `name` = '$country->name'";
+            $result = Database::getResultFromQuery($sql);
+
+            if ($result) {
+                while ($row = $result->fetch_assoc()) {
+                    $objects[$country->name] = [
+                        'id_country' => $country->id_country,
+                        'total_people' => $row['total_people'],
+                    ];
+                }
+            }
+        }
+        return($objects);
+
+    }
+    
+        
+
 }
