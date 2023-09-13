@@ -58,11 +58,15 @@
                   <td> <?= $country['people'] ?></td>
                </tr>
                <tr class="registeredUser">
+                  <th>Cadastros engajados:</th>
+                  <td> <?= $country['peopleEngaged'] ?></td>
+               </tr>
+               <tr class="registeredUser">
                   <th>Total de Colaboradores:</th>
                   <td> <?= $country['totalPeople'] ?></td>
                </tr>
                <tr class="registeredUser">
-                  <th>Proporçao de cadastros:</th>
+                  <th>Proporçao de Cadastros:</th>
                   <td> <?= $country['proportion'] ?>%</td>
                </tr>
                <tr class="points">
