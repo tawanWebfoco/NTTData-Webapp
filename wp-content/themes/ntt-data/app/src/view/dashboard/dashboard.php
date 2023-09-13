@@ -38,7 +38,7 @@
          </tr>
          </thead>
       </table>
-      <button href="#" onclick="javascript: tableToExcel('body', 'Minha tabela')" title="Exportar para Excel">Exportar Tudo</button>
+      <!-- <button href="#" onclick="javascript: tableToExcel('body', 'Minha tabela')" title="Exportar para Excel">Exportar Tudo</button> -->
 
    </div>
    
@@ -113,7 +113,7 @@
       $currentDate = date('Y-m-d');
       $fileNameExport = 'webapp-nttdata-'. $key .'-'.$currentDate;
       ?>
-      <tr><td><button href="#" onclick="tableToExcel('country-<?= $key ?>', '<?= $fileNameExport ?>')" title="country-<?= $key ?>">Exportar <?= $key ?></button></td></tr>
+      <!-- <tr><td><button href="#" onclick="tableToExcel('country-<?= $key ?>', '<?= $fileNameExport ?>')" title="country-<?= $key ?>">Exportar <?= $key ?></button></td></tr> -->
    </tfoot>
 
 
