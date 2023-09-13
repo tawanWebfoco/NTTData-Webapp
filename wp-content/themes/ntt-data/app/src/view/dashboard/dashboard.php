@@ -25,6 +25,14 @@
             <td><?= $generalData['registerEngaged'] ?></td>
          </tr>
          <tr>
+            <th>Total de Colaboradores: </th>
+            <td><?= $generalData['totalPeople'] ?></td>
+         </tr>
+         <tr>
+            <th>Proporção de Cadastros: </th>
+            <td><?= $generalData['proportionTotal'] ?>%</td>
+         </tr>
+         <tr>
             <th>Convidados: </th>
             <td><?= $generalData['guest'] ?></td>
          </tr>

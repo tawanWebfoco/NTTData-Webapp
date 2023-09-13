@@ -263,9 +263,17 @@ class Country extends Model
                 }
         return($row);
     }
-
-
     public static function getTotalPeople(){
+            $sql = "SELECT SUM(total_people) as total_people FROM wp_app_country WHERE 1 = 1";
+            $result = Database::getResultFromQuery($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc()['total_people'];   
+                }
+        return($row);
+    }
+
+
+    public static function getTotalPeopleForCountry(){
         $countries = self::get();
         $objects = [];
 
@@ -285,6 +293,7 @@ class Country extends Model
         return($objects);
 
     }
+   
     
         
 
