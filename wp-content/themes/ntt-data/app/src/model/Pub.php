@@ -34,7 +34,8 @@ class Pub extends Model{
                 'country' => $user->country,
                 'date' => $date,
                 'id_user' => $this->id_user,
-                'type' => 'pub'
+                'type' => 'pub',
+                'typeUser' => 'User'
                 ];
 
             $engaged = new Engaged($engagedData);

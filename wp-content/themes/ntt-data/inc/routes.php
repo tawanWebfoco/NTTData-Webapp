@@ -87,15 +87,16 @@ function register_timer_callback()
 
   if($typeUser === "Guest")$sql_update_score = "UPDATE wp_app_guest SET score = score + $scoreInsertDataBase, `time` = `time` + $scoreInsertDataBase WHERE id_guest = $id_user";
 
+
   $sql_insert_engaged = "INSERT INTO wp_app_engaged (id_engaged, id_user, type, date, country,typeUser)
-  VALUES (NULL, $id_user, 'cron', '$date', '" . $country . "',$typeUser)";
+  VALUES (NULL, $id_user, 'cron', '$date', '" . $country . "','$typeUser')";
 
   Connection::execute($sql_insert_time);
   Connection::execute($sql_update_score);
   Connection::execute($sql_insert_engaged);
   
   $response = array(
-    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score" ,
+    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score, SQL: $sql_insert_engaged" ,
     '$_POST' => $_POST
   );
   return new WP_REST_Response($response, 200);

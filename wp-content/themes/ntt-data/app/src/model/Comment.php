@@ -17,7 +17,8 @@
                     'country' => $user->country,
                     'date' => $date,
                     'id_user' => $this->id_user,
-                    'type' => 'comment'
+                    'type' => 'comment',
+                    'typeUser' => 'User'
                     ];
 
                 $engaged = new Engaged($engagedData);
