@@ -9,7 +9,7 @@ if ( empty($user) || $user == null ) {
 } else {
     $language = strtolower($user->language);
     
-    if($language == null || empty($language) || !isset($language)){
+    if($language == null || empty($language)){
         $country = strtolower($user->country);
         switch ($country) {
             case 'brasil':
