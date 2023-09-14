@@ -121,22 +121,10 @@ if($regType == md5('convidado')){
            
             $headers = array('Content-Type: text/html; charset=UTF-8');
             
-            print_r($_POST['email']);
-            echo '<br>';
-            echo '<br>';
-            print_r($subject);
-            echo '<br>';
-            echo '<br>';
-            print_r($message);
-            echo '<br>';
-            echo '<br>';
             // Envia o email
             $sendEmail = wp_mail($_POST['email'], $subject, $message, $headers);
-            if($sendEmail){
-
                 usleep(500000); // 500000 microssegundos = 500 milissegundos
                 header("Location:app");
-            }
             
         }catch(AppException $e) {
             $exception=  $e;
