@@ -72,6 +72,9 @@ define('_t', [
     'registro_sendEmailSubject' => "Valide seu email para fazer parte! Mova-se pelos ODS!",
     'registro_sendEmailMessageBegin' => "<h2><b>Estamos felizes por contarmos com você no grande movimento pelos ODS!</b></h2><p>Valide seu email clicando no link abaixo e comece a somar com a gente.</p><a href='",
     'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Corra, dance, pule, medite, brinque com os filhos no parque, faça esgrima, pádel, vôlei, jogue futebol com os colegas do trabalho, ande de skate, leve seu animal de estimação para passear... Movimente-se!</p><p>Todo movimento conta.</p><p>Saiba mais em nosso site oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
+    
+    'registro_sendEmailExistSubject' => "Estamos felizes por contarmos com você no grande movimento pelos ODS!",
+    'registro_sendEmailForValidate' => "<p>Estamos verificando a existencia deste email, por favor ignore esta mensagem</p>",
 
     /* Convidado */
     'registro_erroconvite1' => 'Seu convite não foi encontrado, solite novamente para um colaborador NTT DATA',
@@ -243,4 +246,21 @@ define('_t', [
     'faq_p8' => 'Quem pode participar? (colaboradores, parentes, amigos?, de todas as idades?',
     'faq_r8' => 'Pessoas de todas as idades podem participar, mas para somar tempos e somar pontos a pessoa deve se cadastrar na plataforma.',
 
+
+     // Página Dashboard
+
+    'dashboard_general_report' => 'Relatório Geral: ',
+    'dashboard_registrations' => 'Cadastros: ',
+    'dashboard_registrations_engaged' => 'Cadastros Engajados: ',
+    'dashboard_total_registrations' => 'Total de Colaboradores: ',
+    'dashboard_proportion_registrations' => 'Proporção de Cadastros: ',
+    'dashboard_guest' => 'Convidados: ',
+    'dashboard_points' => 'Pontos: ',
+    'dashboard_pub' => 'Publicações: ',
+    'dashboard_comment' => 'Comentários: ',
+    'dashboard_obs_engaged' => 'Obs.: Cadastro engajado são aqueles que possuem pontuação maior que 0',
+    
+    'dashboard_points_country' => 'Pontos do País: ',
+    'dashboard_engagament' => 'Engajamento: ',
+    'dashboard_top_ten' => 'Top 10 ',
 ]);

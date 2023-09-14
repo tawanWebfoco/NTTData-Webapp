@@ -3,7 +3,7 @@
 
 class User extends Model{
     protected static $tableName = 'wp_app_user';
-    protected static $columns = ['full_name', 'email', 'username', 'password', 'country','language','office', 'date'];
+    protected static $columns = ['full_name', 'email', 'username', 'password','date','country','office','language'  ];
     protected static $idTable = 'id_user';
 
     public function insert() {
@@ -118,7 +118,7 @@ class User extends Model{
     }
 
     public function register(){
-        $this->validateRegister();
+        // $this->validateRegister();
         $this->validateLogin();
         return parent::register();
     }

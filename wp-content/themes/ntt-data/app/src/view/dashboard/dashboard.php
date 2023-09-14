@@ -15,41 +15,41 @@
    <div class="total">
       <table id="totalCountry">
          <thead>
-         <tr class="name"><th><h3> Relatório Geral</h3></th></tr>
+         <tr class="name"><th><h3><?=_t['dashboard_general_report']?></h3></th></tr>
          <tr>
-            <th>Cadastros: </th>
+            <th><?=_t['dashboard_registrations']?></th>
             <td><?= $generalData['register'] ?></td>
          </tr>
          <tr>
-            <th>Cadastros Engajados: </th>
+            <th><?=_t['dashboard_registrations_engaged']?></th>
             <td><?= $generalData['registerEngaged'] ?></td>
          </tr>
          <tr>
-            <th>Total de Colaboradores: </th>
+            <th><?=_t['dashboard_total_registrations']?></th>
             <td><?= $generalData['totalPeople'] ?></td>
          </tr>
          <tr>
-            <th>Proporção de Cadastros: </th>
+            <th><?=_t['dashboard_proportion_registrations']?></th>
             <td><?= $generalData['proportionTotal'] ?>%</td>
          </tr>
          <tr>
-            <th>Convidados: </th>
+            <th><?=_t['dashboard_guest']?></th>
             <td><?= $generalData['guest'] ?></td>
          </tr>
          <tr>
-            <th>Pontos: </th>
+            <th><?=_t['dashboard_guest']?></th>
             <td><?= $generalData['points'] ?></td>
          </tr>
          <tr>
-            <th>Publicações: </th>
+            <th><?=_t['dashboard_pub']?></th>
             <td><?= $generalData['pub'] ?></td>
          </tr>
          <tr>
-            <th>Comentários: </th>
+            <th><?=_t['dashboard_comment']?></th>
             <td><?= $generalData['comment'] ?></td>
          </tr>
          <tr class="engagament">
-                  <td>Obs.: Cadastro engajado são aqueles que possuem pontuação maior que 0</td>
+                  <td><?=_t['dashboard_obs_engaged']?></td>
                </tr>
          </thead>
       </table>
@@ -69,35 +69,35 @@
                   <th><h3><?= $key ?></h3></th>
                </tr>
                <tr class="registeredUser">
-                  <th>Cadastros:</th>
+                  <th><?=_t['dashboard_registrations']?></th>
                   <td> <?= $country['people'] ?></td>
                </tr>
                <tr class="registeredUser">
-                  <th>Cadastros engajados:</th>
+                  <th><?=_t['dashboard_registrations_engaged']?></th>
                   <td> <?= $country['peopleEngaged'] ?></td>
                </tr>
                <tr class="registeredUser">
-                  <th>Total de Colaboradores:</th>
+                  <th><?=_t['dashboard_total_registrations']?></th>
                   <td> <?= $country['totalPeople'] ?></td>
                </tr>
                <tr class="registeredUser">
-                  <th>Proporçao de Cadastros:</th>
+                  <th><?=_t['dashboard_proportion_registrations']?></th>
                   <td> <?= $country['proportion'] ?>%</td>
                </tr>
                <tr class="points">
-                  <th>Pontos do País:</th>
+                  <th><?=_t['dashboard_points_country']?></th>
                   <td> <?= $country['score'] ?></td>
                </tr>
                <tr class="pub">
-                  <th>Publicações:</th>
+                  <th><?=_t['dashboard_pub']?></th>
                   <td> <?= $country['pub'] ?></td>
                </tr>
                <tr class="comment">
-                  <th>Comentários:</th>
+                  <th><?=_t['dashboard_comment']?></th>
                   <td> <?= $country['comment'] ?></td>
                </tr>
                <tr class="engagament">
-                  <th>Engajamento:</th>
+                  <th><?=_t['dashboard_engagament']?></th>
                   <td> <?= $country['percent'] ?>%</td>
                </tr>
       
@@ -106,7 +106,7 @@
                <tbody class="rank">
                   <tr>
                      <th>
-                        <h2>Top 10</h2>
+                        <h2><?=_t['dashboard_top_ten']?></h2>
                      </th>
                   </tr>
 
@@ -116,7 +116,7 @@
                         
                            <td id="lineName"><span><?= $indice++; ?> - </span><?= $person['full_name']; ?></td>
 
-                           <td>Pontos: <?= $person['score']; ?></td>
+                           <td><?=_t['dashboard_points']?> <?= $person['score']; ?></td>
                         
                      </tr>
                   <?php endforeach; ?>

@@ -74,6 +74,8 @@ define('_t', [
     'registro_sendEmailMessageBegin' => "<h2><b>We are happy to have you on board for the great movement for the SDGs!</b></h2><p>Please validate your email by clicking the link below and start making a difference with us.</p><a href='",
     'registro_sendEmailMessageEnd' => "'>Validate.<a><p>Run, dance, jump, meditate, play with your children in the park, fence, paddle, play volleyball, play soccer with your colleagues at work, skateboard, take your pet for a walk... Move!</p><p>Every movement counts.</p><p>Learn more on our official website: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
     
+    'registro_sendEmailExistSubject' => "Estamos felizes por contarmos com você no grande movimento pelos ODS!",
+    'registro_sendEmailForValidate' => "<p>Estamos verificando a existencia deste email, por favor ignore esta mensagem</p>",
 
      /* Guest */
     'registro_erroconvite1' => 'Your invitation was not found, request it again to a NTT DATA collaborator',
@@ -242,5 +244,24 @@ define('_t', [
 
     'faq_p8' => 'Who can participate? (collaborators, relatives, friends?, of all ages?',
     'faq_r8' => 'People of all ages can participate, but to add times and add points, the person must register on the platform.',
+
+
+    // Página Dashboard
+
+    'dashboard_general_report' => 'General Report: ',
+    'dashboard_registrations' => 'Registrations: ',
+    'dashboard_registrations_engaged' => 'Engaged Registrations: ',
+    'dashboard_total_registrations' => 'Total Collaborators: ',
+    'dashboard_proportion_registrations' => 'Proportion of Registrations: ',
+    'dashboard_guest' => 'Guests: ',
+    'dashboard_points' => 'Points: ',
+    'dashboard_pub' => 'Publications: ',
+    'dashboard_comment' => 'Comments: ',
+    'dashboard_obs_engaged' => 'Note: Engaged registration refers to those with a score greater than 0',
+    
+    'dashboard_points_country' => 'Country Points: ',
+    'dashboard_engagament' => 'Engagement: ',
+    'dashboard_top_ten' => 'Top 10 ',
+    
 
 ]);

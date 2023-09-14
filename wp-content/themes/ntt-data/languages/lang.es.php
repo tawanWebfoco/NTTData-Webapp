@@ -72,7 +72,9 @@ define('_t', [
     'registro_sendEmailSubject' => "Valide seu email para fazer parte! Mova-se pelos ODS!",
     'registro_sendEmailMessageBegin' => "<h2><b>¡Estamos felices de tenerte en el gran movimiento por los ODS!</b></h2><p>Valida tu correo electrónico haciendo clic en el enlace abajo y comienza a sumarte a nosotros.</p><a href='",
     'registro_sendEmailMessageEnd' => "'>Validar.<a><p>¡Corre, baila, salta, medita, juega con tus hijos en el parque, practica esgrima, pádel, voleibol, juega fútbol con tus compañeros de trabajo, skateboard, lleva a tu mascota a dar un paseo... Muévete! </p><p>Cada movimiento cuenta.</p><p>Obtén más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
-
+    
+    'registro_sendEmailExistSubject' => "Estamos felizes por contarmos com você no grande movimento pelos ODS!",
+    'registro_sendEmailForValidate' => "<p>Estamos verificando a existencia deste email, por favor ignore esta mensagem</p>",
 
      /* Invitado */
     'registro_erroconvite1' => 'Tu invitación no fue encontrada, solicítala nuevamente a un colaborador de NTT DATA',
@@ -242,5 +244,23 @@ define('_t', [
     
     'faq_p8' => '¿Quiénes pueden participar? (colaboradores, familiares, amigos?, de todas las edades?',
     'faq_r8' => 'Podrán participar personas de todas las edades, pero para añadir tiempos y sumar puntos, la persona debe registrarse en la plataforma.',
+
+
+    // Página Dashboard
+
+    'dashboard_general_report' => 'Informe General: ',
+    'dashboard_registrations' => 'Registros: ',
+    'dashboard_registrations_engaged' => 'Registros Comprometidos: ',
+    'dashboard_total_registrations' => 'Total de Colaboradores: ',
+    'dashboard_proportion_registrations' => 'Proporción de Registros: ',
+    'dashboard_guest' => 'Invitados: ',
+    'dashboard_points' => 'Puntos: ',
+    'dashboard_pub' => 'Publicaciones: ',
+    'dashboard_comment' => 'Comentarios: ',
+    'dashboard_obs_engaged' => 'Nota: Registro comprometido se refiere a aquellos con una puntuación mayor que 0',
+
+    'dashboard_points_country' => 'Puntos del País: ',
+    'dashboard_engagament' => 'Compromiso: ',
+    'dashboard_top_ten' => 'Top 10 ',
 
 ]);

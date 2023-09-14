@@ -23,15 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $update = new Guest($update);
     }
-       
         if($update->id_user) {
             $update->update();
             $user->full_name =  $full_name;
             $user->language = $language;
+            $_SESSION['user'] = serialize($user);
         }
+     ;
         $url = home_url();
-        // $url .= '/app?p=perfil';
+        $url .= '/app?p=perfil';
         // usleep(1000000); // 500000 microssegundos = 500 milissegundos
+        echo "<script>window.location.href = '$url'</script>";
         // header("Location:$url");
         // exit();
 }

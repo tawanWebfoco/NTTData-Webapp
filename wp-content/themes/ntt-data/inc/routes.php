@@ -2,6 +2,7 @@
 // session_start();
 require_once(dirname(__FILE__,5) . '/wp-config.php');
 
+
 class Connection
 {
   private static function getConnection()
@@ -55,6 +56,7 @@ class Connection
 function register_timer_callback()
 {
   date_default_timezone_set('America/Sao_Paulo');
+  setlocale(LC_TIME, 'pt_BR', 'pt_BR.utf-8','portuguese');
   $typeUser = $_POST['typeUser'];
   if($typeUser === "User"){
     $id_user = intval($_POST['id_user']);
@@ -96,7 +98,7 @@ function register_timer_callback()
   Connection::execute($sql_insert_engaged);
   
   $response = array(
-    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score, SQL: $sql_insert_engaged" ,
+    'message' => "Tempo registrado com sucesso current: $scoreCurrentDay , limit, $limitInsertDataBase, score: $time_score" ,
     '$_POST' => $_POST
   );
   return new WP_REST_Response($response, 200);

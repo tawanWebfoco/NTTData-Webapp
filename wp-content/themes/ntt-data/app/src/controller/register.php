@@ -82,120 +82,66 @@ if($regType == md5('convidado')){
 
 }else{
 
-if(isset($validationId)){
-    // country do colaborador
-        $country = (isset($_GET[md5('country')])) ? $_GET[md5('country')] : null;
-        $country = sanitize_text_field($country);
-
-    // office do colaborador
-        $office = (isset($_GET[md5('office')])) ? $_GET[md5('office')] : null;
-        $office = sanitize_text_field($office);
-
-    // username do colaborador
-        $username = (isset($_GET[md5('username')])) ? $_GET[md5('username')] : null;
-        $username = sanitize_text_field($username);
-        
-    // full name do colaborador
-        $full_name = (isset($_GET[md5('full_name')])) ? $_GET[md5('full_name')] : null;
-        $full_name = sanitize_text_field($full_name);
-
-        if(!$full_name || !$username || !$office || !$country) {
-            $invalid = _t['registro_errovalidacao'];
-            header("Location:".home_url()."/register?".md5('invalid').'='.$invalid); 
-            die('Error: Link not Found ');
-        }
-
-
-    $compareDbRegister = (Model::getValidationId($email)) ? Model::getValidationId($email) : null;
-
-    $language = strtolower($country);
-    $lang= '';
-    switch ($language) {
-        case 'brasil':
-            $lang = 'pt';
-            break;
-        case 'usa':
-            $lang = 'en';
-            break;
-        default:
-            $lang = 'es';
-            break;
-    }
-
-    $dataRegister['full_name'] = $full_name;
-    $dataRegister['email'] = $email;
-    $dataRegister['username'] = $username;
-    $dataRegister['password'] = $compareDbRegister->password;
-    $dataRegister['country'] = $country;
-    $dataRegister['language'] = $lang;
-    $dataRegister['office'] = $office;
-    $dataRegister['validationId'] = $validationId;
-    $dataRegister['confirmValidationDb'] = $compareDbRegister->validationId;
-    $dataRegister['confirmEmail'] = $compareDbRegister->email;
-    $dataRegister['confirmPassword'] = $compareDbRegister->password;
-
-   
-    $register = new User($dataRegister);
-    try{
-        $id_user = $register->register();
-        $user = User::getOne(['id_user' => $id_user]);
-        $_SESSION['session_id'] = session_id();
-        $_SESSION['user'] = serialize($user);
-        usleep(500000); // 500000 microssegundos = 500 milissegundos
-        header("Location:app");
-    }catch(AppException $e) {
-        $exception=  $e;
-    }
-}else{
-
     if(count($_POST) > 0){
+        // print_r($_POST);
+
+        
         $_POST['password'] = md5($_POST['password']);
         $_POST['confirmPassword'] = md5($_POST['confirmPassword']);
-        try {
-            $validation = new User($_POST);
-            $validation->validateLogin();
 
- 
-    $generateValidationId = Model::validationId($_POST['email']);
-    date_default_timezone_set('America/Sao_Paulo');
-    $date = str_replace('=','T',date('Y-m-d=H:i:s'));
-    Model::twoFactors([$_POST['email'],  $date , 'colaborador' ,$generateValidationId, $_POST['password'] ]);
-
-    function generateUrl($validationId,$email,$username,$country,$full_name,$office){
-        $url = home_url();
-        $message = "$url/register?";
-        $message .= md5('email') . "=$email&";
-        $message .= md5('country') . "=$country&";
-        $message .= md5('office') . "=$office&";
-        $message .= md5('full_name') . "=$full_name&";
-        $message .= md5('username') . "=$username&";
-        $message .= md5('validationId') . "=$validationId";
-        return $message;
-     }
-
-        $subject = _t['registro_sendEmailSubject'];
-         
-         $messageBegin =_t['registro_sendEmailMessageBegin'];
-         $messageLink = generateUrl($generateValidationId,$_POST['email'],$_POST['username'],$_POST['country'],$_POST['full_name'],$_POST['office']);
-         $messageEnd =_t['registro_sendEmailMessageEnd'];
-
-         $messageAll = $messageBegin . $messageLink . $messageEnd;
+        $language = strtolower($_POST['country']);
         
-         $headers = array('Content-Type: text/html; charset=UTF-8');
-         
-         // Envia o email
-         $result = wp_mail($_POST['email'], $subject, $messageAll, $headers);
+        $_POST['language']= '';
 
+        switch ($language) {
+            case 'brasil':
+                $_POST['language'] = 'pt';
+                break;
+            case 'usa':
+            case 'estados unidos':
+                $_POST['language'] = 'en';
+                break;
+            default:
+                $_POST['language'] = 'es';
+                break;
+        }
+       
+        try {
+            $register = new User($_POST);
+            // $register->validateLogin();
+         
+            $id_user = $register->register();
+            $user = User::getOne(['id_user' => $id_user]);
+            $_SESSION['session_id'] = session_id();
+            $_SESSION['user'] = serialize($user);
 
-         $successMenssage = 1;
+            $subject = _t['registro_sendEmailExistSubject'];
          
-         
-         header("Location:".home_url()."/register?".md5('twofactors').'='.$successMenssage); 
-}catch(AppException $e) {
-    $exception=  $e;
-}
-}
-}
+            $message =_t['registro_sendEmailForValidate'];
+           
+            $headers = array('Content-Type: text/html; charset=UTF-8');
+            
+            print_r($_POST['email']);
+            echo '<br>';
+            echo '<br>';
+            print_r($subject);
+            echo '<br>';
+            echo '<br>';
+            print_r($message);
+            echo '<br>';
+            echo '<br>';
+            // Envia o email
+            $sendEmail = wp_mail($_POST['email'], $subject, $message, $headers);
+            if($sendEmail){
+
+                usleep(500000); // 500000 microssegundos = 500 milissegundos
+                header("Location:app");
+            }
+            
+        }catch(AppException $e) {
+            $exception=  $e;
+        }
+        }
 
 
 
