@@ -69,9 +69,10 @@ define('_t', [
     'registro_cnv_p_3' => '¿Te animas a unirte a nosotros en este viaje? ¡Queremos contar con tu participación para lograr que la 2ª edición de "Muévete por los ODS" sea aún más especial! ',
     'registro_cnv_p_4' => 'Obtén más información y sigue todas las novedades en nuestro sitio web: ',
 
-    'registro_sendEmailSubject' => "¡Valida tu correo electrónico para unirte! ¡Muévete por los ODS!",
-     'registro_sendEmailMessageBegin' => "<h2><b>Sé parte del gran movimiento NTT DATA</b></h2><p>¡Valida tu correo electrónico haciendo clic en el siguiente enlace!</p><a href=' ",
-     'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Obtenga más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>" ,
+    'registro_sendEmailSubject' => "Valide seu email para fazer parte! Mova-se pelos ODS!",
+    'registro_sendEmailMessageBegin' => "<h2><b>¡Estamos felices de tenerte en el gran movimiento por los ODS!</b></h2><p>Valida tu correo electrónico haciendo clic en el enlace abajo y comienza a sumarte a nosotros.</p><a href='",
+    'registro_sendEmailMessageEnd' => "'>Validar.<a><p>¡Corre, baila, salta, medita, juega con tus hijos en el parque, practica esgrima, pádel, voleibol, juega fútbol con tus compañeros de trabajo, skateboard, lleva a tu mascota a dar un paseo... Muévete! </p><p>Cada movimiento cuenta.</p><p>Obtén más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
+
 
      /* Invitado */
     'registro_erroconvite1' => 'Tu invitación no fue encontrada, solicítala nuevamente a un colaborador de NTT DATA',

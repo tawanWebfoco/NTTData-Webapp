@@ -70,8 +70,8 @@ define('_t', [
     'registro_cnv_p_4' => 'Obtenha mais informações e acompanhe todas as novidades em nosso site: ',
 
     'registro_sendEmailSubject' => "Valide seu email para fazer parte! Mova-se pelos ODS!",
-    'registro_sendEmailMessageBegin' => "<h2><b>Faça parte do grande movimento da NTT DATA</b></h2><p>Valide seu email clicando no link abaixo!</p><a href='",
-    'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Saiba mais em nosso site oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
+    'registro_sendEmailMessageBegin' => "<h2><b>Estamos felizes por contarmos com você no grande movimento pelos ODS!</b></h2><p>Valide seu email clicando no link abaixo e comece a somar com a gente.</p><a href='",
+    'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Corra, dance, pule, medite, brinque com os filhos no parque, faça esgrima, pádel, vôlei, jogue futebol com os colegas do trabalho, ande de skate, leve seu animal de estimação para passear... Movimente-se!</p><p>Todo movimento conta.</p><p>Saiba mais em nosso site oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
 
     /* Convidado */
     'registro_erroconvite1' => 'Seu convite não foi encontrado, solite novamente para um colaborador NTT DATA',

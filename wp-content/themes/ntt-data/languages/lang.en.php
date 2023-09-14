@@ -69,10 +69,11 @@ define('_t', [
     'registro_cnv_p_4' => 'Learn more and stay updated on all the news on our website: ',
 
     'registro_btn_cta' => 'Access',
-    
+
     'registro_sendEmailSubject' => "Validate your email to join! Move For The SDGs!",
-     'registro_sendEmailMessageBegin' => "<h2><b>Be part of the great NTT DATA movement</b></h2><p>Validate your email by clicking on the link below!</p><a href='",
-     'registro_sendEmailMessageEnd' => "'>Validate.<a><p>Learn more on our official website: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>" ,
+    'registro_sendEmailMessageBegin' => "<h2><b>We are happy to have you on board for the great movement for the SDGs!</b></h2><p>Please validate your email by clicking the link below and start making a difference with us.</p><a href='",
+    'registro_sendEmailMessageEnd' => "'>Validate.<a><p>Run, dance, jump, meditate, play with your children in the park, fence, paddle, play volleyball, play soccer with your colleagues at work, skateboard, take your pet for a walk... Move!</p><p>Every movement counts.</p><p>Learn more on our official website: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
+    
 
      /* Guest */
     'registro_erroconvite1' => 'Your invitation was not found, request it again to a NTT DATA collaborator',
