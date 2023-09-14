@@ -73,8 +73,8 @@ define('_t', [
     'registro_sendEmailMessageBegin' => "<h2><b>¡Estamos felices de tenerte en el gran movimiento por los ODS!</b></h2><p>Valida tu correo electrónico haciendo clic en el enlace abajo y comienza a sumarte a nosotros.</p><a href='",
     'registro_sendEmailMessageEnd' => "'>Validar.<a><p>¡Corre, baila, salta, medita, juega con tus hijos en el parque, practica esgrima, pádel, voleibol, juega fútbol con tus compañeros de trabajo, skateboard, lleva a tu mascota a dar un paseo... Muévete! </p><p>Cada movimiento cuenta.</p><p>Obtén más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
     
-    'registro_sendEmailExistSubject' => "Estamos felizes por contarmos com você no grande movimento pelos ODS!",
-    'registro_sendEmailForValidate' => "<p>Estamos verificando a existencia deste email, por favor ignore esta mensagem</p>",
+    'registro_sendEmailExistSubject' => "¡Estamos encantados de tenerte en el gran movimiento por los ODS!",
+    'registro_sendEmailForValidate' => "<p>¡Estamos encantados de tenerte en el gran movimiento por los ODS!</p><p><a href='https://moveforthesdg.com/login'>Accede</a> a la aplicación web y comienza a marcar la diferencia.</p><p>Cada movimiento cuenta.</p><p>Obtén más información en nuestro sitio web oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
 
      /* Invitado */
     'registro_erroconvite1' => 'Tu invitación no fue encontrada, solicítala nuevamente a un colaborador de NTT DATA',
