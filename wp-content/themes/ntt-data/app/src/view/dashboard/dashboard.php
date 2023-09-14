@@ -66,6 +66,7 @@
             <thead>
 
                <tr class="name">
+                 
                   <th><h3><?= $key ?></h3></th>
                </tr>
                <tr class="registeredUser">
@@ -138,7 +139,37 @@
 <?php endforeach; ?>
 </div>
 </div>
+<?php 
+
+$user = ($_SESSION && $_SESSION['user']) ? unserialize($_SESSION['user']) : null;
+
+if (isset($user)) {
+   $lang = $user->language; 
+}else{
+   $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+}
+echo "<script>const lang = '$lang';</script>";
+
+?>
 <script>
+
+      let countryNames = document.querySelectorAll('.countries .name h3')
+      countryNames.forEach((country)=>{
+         console.log(country.innerHTML);
+         switch (lang) {
+            case 'es':
+               if(country.innerHTML == 'equador') country.innerHTML = 'Ecuador'
+              break;
+            case 'en':
+               if(country.innerHTML == 'brasil') country.innerHTML = 'Brazil'
+               if(country.innerHTML == 'equador') country.innerHTML = 'Ecuador'
+               if(country.innerHTML == 'estados unidos') country.innerHTML = 'United States.'
+             
+              break;
+            default:
+              break;
+          }
+      })
       //export to excel
       var tableToExcel = (function() {
          var uri = 'data:application/vnd.ms-excel;base64,',
