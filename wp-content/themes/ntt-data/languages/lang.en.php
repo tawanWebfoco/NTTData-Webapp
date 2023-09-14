@@ -257,7 +257,7 @@ define('_t', [
     'dashboard_points' => 'Points: ',
     'dashboard_pub' => 'Publications: ',
     'dashboard_comment' => 'Comments: ',
-    'dashboard_obs_engaged' => 'Note: Engaged registration refers to those with a score greater than 0',
+    'dashboard_obs_engaged' => 'Note: Engaged registration refers to those with a score greater than zero',
     
     'dashboard_points_country' => 'Country Points: ',
     'dashboard_engagament' => 'Engagement: ',

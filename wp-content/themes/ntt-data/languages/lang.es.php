@@ -257,7 +257,7 @@ define('_t', [
     'dashboard_points' => 'Puntos: ',
     'dashboard_pub' => 'Publicaciones: ',
     'dashboard_comment' => 'Comentarios: ',
-    'dashboard_obs_engaged' => 'Nota: Registro comprometido se refiere a aquellos con una puntuación mayor que 0',
+    'dashboard_obs_engaged' => 'Nota: Registro comprometido se refiere a aquellos con una puntuación mayor que cero',
 
     'dashboard_points_country' => 'Puntos del País: ',
     'dashboard_engagament' => 'Compromiso: ',

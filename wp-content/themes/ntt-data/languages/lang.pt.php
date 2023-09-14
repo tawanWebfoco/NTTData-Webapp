@@ -258,7 +258,7 @@ define('_t', [
     'dashboard_points' => 'Pontos: ',
     'dashboard_pub' => 'Publicações: ',
     'dashboard_comment' => 'Comentários: ',
-    'dashboard_obs_engaged' => 'Obs.: Cadastro engajado são aqueles que possuem pontuação maior que 0',
+    'dashboard_obs_engaged' => 'Obs.: Cadastro engajado são aqueles que possuem pontuação maior que zero',
     
     'dashboard_points_country' => 'Pontos do País: ',
     'dashboard_engagament' => 'Engajamento: ',
