@@ -74,7 +74,7 @@ define('_t', [
     'registro_sendEmailMessageEnd' => "'>Validar.<a><p>Corra, dance, pule, medite, brinque com os filhos no parque, faça esgrima, pádel, vôlei, jogue futebol com os colegas do trabalho, ande de skate, leve seu animal de estimação para passear... Movimente-se!</p><p>Todo movimento conta.</p><p>Saiba mais em nosso site oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
     
     'registro_sendEmailExistSubject' => "Estamos felizes por contarmos com você no grande movimento pelos ODS!",
-    'registro_sendEmailForValidate' => "<p>Estamos verificando a existencia deste email, por favor ignore esta mensagem</p>",
+    'registro_sendEmailForValidate' => "<p>Estamos felizes por contarmos com você no grande movimento pelos ODS!</p><p><a href='https://moveforthesdg.com'>Acesse</a> o WebApp e comece a somar.</p><p>Todo movimento conta.</p><p>Saiba mais em nosso site oficial: <a href='https://moveforthesdg.com/'>moveforthesdgs.com</a></p>",
 
     /* Convidado */
     'registro_erroconvite1' => 'Seu convite não foi encontrado, solite novamente para um colaborador NTT DATA',
