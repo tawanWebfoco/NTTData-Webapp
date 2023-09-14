@@ -45,9 +45,14 @@ tbody.rank {
    background-color: #eee;
 }
 
+
 tbody.rank tr {
    flex-grow: 1;
    display: flex;
+}
+
+tr.registeredUser th {
+   text-align: start;
 }
 
 
