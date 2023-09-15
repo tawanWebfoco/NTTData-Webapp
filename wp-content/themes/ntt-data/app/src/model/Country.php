@@ -25,28 +25,64 @@ class Country extends Model
 
             Database::executeSQL($sql);
         }
-        
     }
-    public static function getPercentEngagement(){
+    public static function getPercentEngagement()
+    {
         $projectDays = self::getCountDaysStartProject();
-
         $countries = self::get();
+        $dateStartProject = new DateTime(static::$projectStartDate);
         $percentCountries = [];
+        $objects = [];
         foreach ($countries as $key => $country) {
             $engagement = 0;
-                // $engagement =  ($country->engagement * 100) / ($country->total_people * $projectDays);
-                if(($country->people_engaged * $projectDays) > 0){
 
-                    $engagement =  ($country->engagement * 100) / ($country->people_engaged * $projectDays);
+            $engajamentoCumulativo = 0;
+
+            // Loop para calcular o engajamento diário cumulativo
+            for ($i = 0; $i <= $projectDays; $i++) {
+                $dataConsulta = $dateStartProject->modify("+1 day")->format("Y-m-d");
+                
+
+                // Consulta SQL para obter o número de usuários cadastrados com pontuação maior que zero para o dia atual
+                $sql = "SELECT COUNT(*) AS registers FROM wp_app_user WHERE DATE(date) < '$dataConsulta' AND `score` > 0 AND `country` = '$country->name'";
+                
+                $result = Database::getResultFromQuery($sql);
+                if ($result->num_rows > 0) {
+                    $row = $result->fetch_assoc();
+                    $registers = $row["registers"];
+
+                    // Adicionar o número de usuários do dia ao engajamento cumulativo
+                    $engajamentoCumulativo += $registers;
                 }
-                $engagement = ceil($engagement);
-            $percentCountries[$country->name] = $engagement    ;
+            }
+
+
+            // $engagement =  ($country->engagement * 100) / ($country->total_people * $projectDays);
+            if (($country->people_engaged * $projectDays) > 0) {
+
+                $engagement =  ($country->engagement * 100) / $engajamentoCumulativo;
+                // $engagement =  ($country->engagement * 100) / ($country->people_engaged * $projectDays);
+            }
+            $engagement = ceil($engagement);
+            $percentCountries[$country->name]['engagement'] = $engagement;
+            $proportionRegister = static::getProportionRegisters();
+            $rank = ceil(($proportionRegister / 2) + ($engagement / 2));
+            $percentCountries[$country->name]['rank'] = $rank;
         }
 
         return $percentCountries;
-
     }
-    public static function getCountDaysStartProject(){
+   
+    public static function getProportionRegisters(){
+        $countRegister = static::getCountRegister();
+        $totalPeople = static::getTotalPeople();
+
+        $proportionTotal = ceil(($countRegister * 100) / $totalPeople);
+
+        return $proportionTotal;
+    }
+    public static function getCountDaysStartProject()
+    {
         date_default_timezone_set('America/Sao_Paulo');
         $currentDate = date('Y-m-d');
 
@@ -60,9 +96,9 @@ class Country extends Model
         $countDays = $difference->days;
 
         return $countDays;
-
     }
-    public static function getRegisterPeople(){
+    public static function getRegisterPeople()
+    {
         $countries = self::get();
         $objects = [];
         foreach ($countries as $key => $country) {
@@ -80,10 +116,10 @@ class Country extends Model
                 }
             }
         }
-        return($objects);
-
+        return ($objects);
     }
-    public static function getRegisterPeopleEngaged(){
+    public static function getRegisterPeopleEngaged()
+    {
         $countries = self::get();
         $objects = [];
         foreach ($countries as $key => $country) {
@@ -101,10 +137,10 @@ class Country extends Model
                 }
             }
         }
-        return($objects);
-
+        return ($objects);
     }
-    public static function getEngagement(){
+    public static function getEngagement()
+    {
         $countries = self::get();
         $objects = [];
 
@@ -124,10 +160,11 @@ class Country extends Model
                 }
             }
         }
-        return($objects);
+        return ($objects);
     }
-    
-    public static function getPointsForCountry(){
+
+    public static function getPointsForCountry()
+    {
         $countries = self::get();
         $objects = [];
 
@@ -144,10 +181,10 @@ class Country extends Model
                 }
             }
         }
-        return($objects);
-
+        return ($objects);
     }
-    public static function getPubForCountry(){
+    public static function getPubForCountry()
+    {
         $countries = self::get();
         $objects = [];
 
@@ -164,10 +201,10 @@ class Country extends Model
                 }
             }
         }
-        return($objects);
-
+        return ($objects);
     }
-    public static function getCommentForCountry(){
+    public static function getCommentForCountry()
+    {
         $countries = self::get();
         $objects = [];
 
@@ -184,10 +221,10 @@ class Country extends Model
                 }
             }
         }
-        return($objects);
-
+        return ($objects);
     }
-    public static function getTop10ForCountry(){
+    public static function getTop10ForCountry()
+    {
         $countries = self::get();
         $objects = [];
 
@@ -204,76 +241,83 @@ class Country extends Model
                         'topList' => $topList
                     ];
                 }
-            }else{
+            } else {
                 $objects[$country->name] = [
                     'id_country' => $country->id_country,
                     'topList' => []
                 ];
             }
         }
-        return($objects);
+        return ($objects);
     }
-    public static function getAllPoints(){
-            $sql = "SELECT SUM(score) as score FROM wp_app_user WHERE 1 = 1";
-            $result = Database::getResultFromQuery($sql);
+    public static function getAllPoints()
+    {
+        $sql = "SELECT SUM(score) as score FROM wp_app_user WHERE 1 = 1";
+        $result = Database::getResultFromQuery($sql);
 
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc()['score'];
-                        
-                }
-        return($row);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc()['score'];
+        }
+        return ($row);
     }
-    public static function getCountRegister(){
-            $sql = "SELECT count(*) as records FROM wp_app_user WHERE 1 = 1";
-            $result = Database::getResultFromQuery($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc()['records'];   
-                }
-        return($row);
+    public static function getCountRegister()
+    {
+        $sql = "SELECT count(*) as records FROM wp_app_user WHERE 1 = 1";
+        $result = Database::getResultFromQuery($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc()['records'];
+        }
+        return ($row);
     }
-    public static function getCountRegisterEngaged(){
-            $sql = "SELECT count(*) as records FROM wp_app_user WHERE 1 = 1 AND `score` > 0";
-            $result = Database::getResultFromQuery($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc()['records'];   
-                }
-        return($row);
+    public static function getCountRegisterEngaged()
+    {
+        $sql = "SELECT count(*) as records FROM wp_app_user WHERE 1 = 1 AND `score` > 0";
+        $result = Database::getResultFromQuery($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc()['records'];
+        }
+        return ($row);
     }
-    public static function getCountGuest(){
-            $sql = "SELECT count(*) as records FROM wp_app_guest WHERE 1 = 1";
-            $result = Database::getResultFromQuery($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc()['records'];   
-                }
-        return($row);
+    public static function getCountGuest()
+    {
+        $sql = "SELECT count(*) as records FROM wp_app_guest WHERE 1 = 1";
+        $result = Database::getResultFromQuery($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc()['records'];
+        }
+        return ($row);
     }
-    public static function getCountPub(){
-            $sql = "SELECT count(*) as pub  FROM wp_app_pub WHERE 1 = 1";
-            $result = Database::getResultFromQuery($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc()['pub'];   
-                }
-        return($row);
+    public static function getCountPub()
+    {
+        $sql = "SELECT count(*) as pub  FROM wp_app_pub WHERE 1 = 1";
+        $result = Database::getResultFromQuery($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc()['pub'];
+        }
+        return ($row);
     }
-    public static function getCountComment(){
-            $sql = "SELECT count(*) as comment FROM wp_app_comment WHERE 1 = 1";
-            $result = Database::getResultFromQuery($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc()['comment'];   
-                }
-        return($row);
+    public static function getCountComment()
+    {
+        $sql = "SELECT count(*) as comment FROM wp_app_comment WHERE 1 = 1";
+        $result = Database::getResultFromQuery($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc()['comment'];
+        }
+        return ($row);
     }
-    public static function getTotalPeople(){
-            $sql = "SELECT SUM(total_people) as total_people FROM wp_app_country WHERE 1 = 1";
-            $result = Database::getResultFromQuery($sql);
-            if ($result->num_rows > 0) {
-                $row = $result->fetch_assoc()['total_people'];   
-                }
-        return($row);
+    public static function getTotalPeople()
+    {
+        $sql = "SELECT SUM(total_people) as total_people FROM wp_app_country WHERE 1 = 1";
+        $result = Database::getResultFromQuery($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc()['total_people'];
+        }
+        return ($row);
     }
 
 
-    public static function getTotalPeopleForCountry(){
+    public static function getTotalPeopleForCountry()
+    {
         $countries = self::get();
         $objects = [];
 
@@ -290,11 +334,6 @@ class Country extends Model
                 }
             }
         }
-        return($objects);
-
+        return ($objects);
     }
-   
-    
-        
-
 }

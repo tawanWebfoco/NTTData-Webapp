@@ -16,7 +16,7 @@ $countPub = Country::getCountPub();
 $countComment = Country::getCountComment();
 $totalPeople = Country::getTotalPeople();
 
-$proportionTotal = ceil(($countRegister * 100) / $totalPeople);
+$proportionTotal = Country::getProportionRegisters();
 
 $generalData = [
    'points' => $allPoints,
@@ -51,7 +51,7 @@ foreach ($pointsCountries as $key => $country) {
    $dataCountries[$key] = [
       'id_country' => $country['id_country'],
       'score' => $country['score'],
-      'percent' => $percentCountries[$key],
+      'percent' => $percentCountries[$key]['engagement'],
       'people' => $peopleForCountry[$key]['people'],
       'peopleEngaged' => $peopleForCountryEngaged[$key]['people'],
       'totalPeople' => $totalPeopleForCountry[$key]['total_people'],

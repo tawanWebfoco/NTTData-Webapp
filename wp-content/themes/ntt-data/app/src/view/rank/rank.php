@@ -14,8 +14,8 @@
                 <div class="desc"><?=_t['rank_suapontuacao']?></div>
             </div>
             <div class="yourCountryRank">
-                <div class="boxScore pie animate" style="--p: <?= $percentCountries[strtolower($user->country)] ; ?>">
-                    <div class="number"><?= $percentCountries[strtolower($user->country)] ; ?><span>%</span></div>
+                <div class="boxScore pie animate" style="--p: <?= $percentCountries[strtolower($user->country)]['rank'] ; ?>">
+                    <div class="number"><?= $percentCountries[strtolower($user->country)]['rank'] ; ?><span>%</span></div>
                     <div class="text"><?=_t['rank_pontosmaius']?></div>
                 </div>
                 <div class="desc"><?=_t['rank_taxaseupais']?></div>
@@ -55,8 +55,8 @@
                         if($key == strtolower($user->country))continue;
                     ?>
                         <div class="country">
-                            <div class="boxScore pie animate" style="--p: <?= $percent ?>">
-                                <div class="number"><?= $percent ?><span>%</span></div>
+                            <div class="boxScore pie animate" style="--p: <?= $percent['rank'] ?>">
+                                <div class="number"><?= $percent['rank'] ?><span>%</span></div>
                                 <div class="text"><?=_t[$countryName]?></div>
                             </div>
                         </div>
