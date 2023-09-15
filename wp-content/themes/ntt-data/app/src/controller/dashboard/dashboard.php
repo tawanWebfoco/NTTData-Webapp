@@ -46,7 +46,10 @@ $totalPeopleForCountry = Country::getTotalPeopleForCountry();
 
 $dataCountries = [];
 foreach ($pointsCountries as $key => $country) {
-   $proportionRegisterTotalPeople = ceil(($peopleForCountry[$key]['people'] * 100) / $totalPeopleForCountry[$key]['total_people']);
+   // $proportionRegisterTotalPeople = ceil(($peopleForCountry[$key]['people'] * 100) / $totalPeopleForCountry[$key]['total_people']);
+   $proportionRegisterTotalPeople = Country::getProportionRegisters($key);
+
+   
 
    $dataCountries[$key] = [
       'id_country' => $country['id_country'],
