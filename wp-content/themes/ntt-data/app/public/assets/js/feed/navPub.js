@@ -40,7 +40,7 @@ function navButton(threeDots){
 
 function deletePub(pub){
    const id_pub = pub.getAttribute('a936911a342aacf7e7f4d060df8f53f7');
-   const id_user = pub.getAttribute('2da0641547fff26275f8cd8baeb2403d');
+   let id_user = pub.getAttribute('2da0641547fff26275f8cd8baeb2403d');
    const user_id_user = pub.getAttribute('f49c3c8440f6e6d19158446f7262c7e4');
    
    if(id_pub){
@@ -53,6 +53,7 @@ function deletePub(pub){
       submitData(data,pub);
    }else{
       const id_comment = pub.getAttribute('b0461f23338d5d731f9cbc809012203b');
+      id_user = pub.getAttribute('056289e495a61745984dbbd6a4be9a1c');
       data = {
          type : "deleteComment",
          id_comment,

@@ -1,6 +1,5 @@
 <?php
 require_once(dirname(__FILE__, 4) . '/config/config.php');
-session_start();
 requireValidSession();
 require_once(dirname(__FILE__,9) . '/wp-config.php');
 
