@@ -85,7 +85,7 @@ class Guest extends Model{
         $this->validate();
         $id_guest = parent::register();
 
-         // ATUALIZA SCORE
+         // ATUALIZA SCORE DE QUEM CONVIDOU
          $score = User::getOne(['id_user' => $this->id_user], 'score')->score;
          $score = $score + $this->pointsForInvite;
 

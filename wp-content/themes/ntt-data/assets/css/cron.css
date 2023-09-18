@@ -1097,6 +1097,7 @@ hr {
   letter-spacing: -2px;
   margin: 5px 0 -5px 0;
   font-family: 'Noto Sans';
+  justify-content: center;
   display: flex;
   align-items: center;
   line-height: 3.7rem;
@@ -1111,10 +1112,12 @@ hr {
   font-weight: 400;
   text-align: center;
 }
-.main .rank .content .otherCountryRank .text {
+.main .rank .content .otherCountryRank .text ,
+  .main .rank .content .yourCountryRank .text {
   font-weight: 500;
   font-family: 'Noto Sans';
   text-align: center;
+  font-size: 1.2rem;
 }
 .main .rank .content .otherCountryRank .text {
   font-size: 1.2rem;

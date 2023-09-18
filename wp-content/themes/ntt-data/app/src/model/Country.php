@@ -72,6 +72,7 @@ class Country extends Model
             }
             $engagement = ceil($engagement);
             $percentCountries[$country->name]['engagement'] = $engagement;
+            $percentCountries[$country->name]['name'] = $country->name;
             $proportionRegister = static::getProportionRegisters($country->name);
 
             $rank = ceil(($proportionRegister + $engagement) / 2);
