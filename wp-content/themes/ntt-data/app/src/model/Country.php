@@ -6,6 +6,7 @@ class Country extends Model
     protected static $idTable = 'id_country';
     protected static $projectStartDate = '2023-09-04';
     protected static $countries = [];
+    protected static $daysLast = '-7 day';
 
 
     public static function updateEngagament()
@@ -38,38 +39,54 @@ class Country extends Model
         $objects = [];
         foreach ($countries as $key => $country) {
             $currentDate = new DateTime();
-            $dateLastWeek = $currentDate->modify("-7 day")->format("Y-m-d");
-            $dateLastWeekObj = new DateTime($dateLastWeek);
-            $daysLastWeek = self::getCountDaysStartProject($dateLastWeek);
+            $dateLastEngagement = $currentDate->modify(self::$daysLast)->format("Y-m-d");
+            $dateLastEngagementObj = new DateTime($dateLastEngagement);
+            $daysLastWeek = self::getCountDaysStartProject($dateLastEngagement);
+
             $engagement = 0;
 
-            $engajamentoCumulativo = 0;
+            $maxEngagement = 0;
 
             // Loop para calcular o engajamento diário cumulativo
-            for ($i = 0; $i <= $daysLastWeek; $i++) {
-
-                $dataConsulta = $dateLastWeekObj->modify("+1 day")->format("Y-m-d");
+            for ($i = 0; $i < $daysLastWeek; $i++) {
+                $dateLastEngagementObj->modify("+1 day")->format("Y-m-d");
+                $dataConsulta = $dateLastEngagementObj->format("Y-m-d");
+                // print_r($dataConsulta);
+                // echo '<br>';
 
                 // Consulta SQL para obter o número de usuários cadastrados com pontuação maior que zero para o dia atual
-                $sql = "SELECT COUNT(*) AS registers FROM wp_app_user WHERE DATE(date) < '$dataConsulta' AND `score` > 0 AND `country` = '$country->name'";
-                
+                $sql = "SELECT COUNT(*) AS registers FROM wp_app_user WHERE DATE(date) <= '$dataConsulta' AND `score` > 0 AND `country` = '$country->name' AND wp_app_user.email LIKE '%nttdata%'";
+                // print_r($sql);
+                // echo '<br>';
+                // echo 'Registers<br>';
                 $result = Database::getResultFromQuery($sql);
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
                     $registers = $row["registers"];
-
+                    // print_r($registers);
+                    // echo '<br>';
                     // Adicionar o número de usuários do dia ao engajamento cumulativo
-                    $engajamentoCumulativo += $registers;
+                    $maxEngagement += $registers;
+
                 }
-            }
+                
+            }  
+            // print_r($country->name);
+            // echo '----<br>Engaj';
+            // print_r($maxEngagement);
+            // echo '<br>----';
+            // echo 'eng<br>';
+            // print_r($country->engagement);
+            // echo '<br>----';
 
 
             // $engagement =  ($country->engagement * 100) / ($country->total_people * $projectDays);
             if (($country->people_engaged * $projectDays) > 0) {
 
-                $engagement =  ($country->engagement * 100) / $engajamentoCumulativo;
+                $engagement =  ($country->engagement * 100) / $maxEngagement;
                 // $engagement =  ($country->engagement * 100) / ($country->people_engaged * $projectDays);
             }
+         
             $engagement = ceil($engagement);
             $percentCountries[$country->name]['engagement'] = $engagement;
             $percentCountries[$country->name]['name'] = $country->name;
@@ -156,7 +173,13 @@ class Country extends Model
         $objects = [];
 
         foreach ($countries as $key => $country) {
-            $sql = "SELECT COUNT(*) as engagement FROM (SELECT DISTINCT id_user, DATE(date) as data FROM wp_app_engaged WHERE country = '$country->name')subquery";
+            $currentDate = new DateTime();
+            $dateLastEngagement = $currentDate->modify(self::$daysLast)->format("Y-m-d");
+            $sql = "SELECT COUNT(*) as engagement FROM (SELECT DISTINCT wp_app_engaged.id_user, DATE(wp_app_engaged.date) as data FROM wp_app_engaged LEFT JOIN wp_app_user ON wp_app_user.id_user = wp_app_engaged.id_user WHERE wp_app_engaged.country = '$country->name' AND DATE(wp_app_engaged.date) >= '$dateLastEngagement' AND wp_app_user.email LIKE '%nttdata%' )subquery;";
+
+            // print_r($sql);
+            // echo '<br>';
+            // echo '<br>';
             $result = Database::getResultFromQuery($sql);
 
             if ($result && $result->num_rows > 0) {
