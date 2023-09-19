@@ -37,7 +37,7 @@
             <td><?= $generalData['guest'] ?></td>
          </tr>
          <tr>
-            <th><?=_t['dashboard_guest']?></th>
+            <th><?=_t['dashboard_points']?></th>
             <td><?= $generalData['points'] ?></td>
          </tr>
          <tr>
