@@ -120,13 +120,13 @@ class TimerView {
       this._pauseTimer();
       switch (this.language.toLowerCase()) {
         case 'pt':
-          this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas, clique em salvar tempo.','');
+          this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas, clique em salvar tempo.','','Ok');
           break;
         case 'en':
-          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 4 hours, click on Save Time.','');
+          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 4 hours, click on Save Time.','','Ok');
           break;
         default:
-          this.newBoxAlertConfirm(false,'Has superado el límite diario de 4 horas, haz clic en Ahorrar Tiempo.','');
+          this.newBoxAlertConfirm(false,'Has superado el límite diario de 4 horas, haz clic en Ahorrar Tiempo.','','Ok');
           break;
       }
 
@@ -296,13 +296,13 @@ class TimerView {
         }else{
           switch (this.language.toLowerCase()) {
             case 'pt':
-              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.','');
+              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.','','Ok');
               break;
             case 'en':
-              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.','');
+              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.','','Ok');
               break;
             default:
-              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas','');
+              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas','','Ok');
               break;
           }
         }
@@ -328,13 +328,13 @@ class TimerView {
         }else{
           switch (this.language.toLowerCase()) {
             case 'pt':
-              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.','');
+              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.','','Ok');
               break;
             case 'en':
-              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.','');
+              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.','','Ok');
               break;
             default:
-              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas','');
+              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas','','Ok');
               break;
           }
         }
@@ -466,7 +466,7 @@ class TimerView {
       }
 
      let textBody = '';
-      this.newBoxAlertConfirm(true,textSaveTime,textBody, ()=>{
+      this.newBoxAlertConfirm(true,textSaveTime,textBody,'Cancelar', ()=>{
         this._stopTimer();
       }) 
       })
@@ -531,7 +531,7 @@ class TimerView {
       // console.log('hour',hour);
 
      let textBody= '';
-      this.newBoxAlertConfirm(true,textSaveTime,hour, async ()=>{
+      this.newBoxAlertConfirm(true,textSaveTime,hour,'Cancelar', async ()=>{
         this._saveTimer();
         this.currentTimeFromDb = parseInt(this.currentTimeFromDb) + parseInt(this.scoreInsertDataBase)
         this._resetTimer();
@@ -541,25 +541,25 @@ class TimerView {
         if(this.scoreInsertDataBase > 0){
         switch (this.language.toLowerCase()) {
           case 'pt':
-            this.newBoxAlertConfirm(false,'Tempo salvo com sucesso.','');
+            this.newBoxAlertConfirm(false,'Tempo salvo com sucesso.','','Ok');
             break;
           case 'en':
-            this.newBoxAlertConfirm(false,'Time successfully saved.','');
+            this.newBoxAlertConfirm(false,'Time successfully saved.','','Ok');
             break;
           default:
-            this.newBoxAlertConfirm(false,'Tiempo ahorrado exitosamente.','');
+            this.newBoxAlertConfirm(false,'Tiempo ahorrado exitosamente.','','Ok');
             break;
         }
       }else{
         switch (this.language.toLowerCase()) {
           case 'pt':
-            this.newBoxAlertConfirm(false,'Erro ao salvar o tempo.','');
+            this.newBoxAlertConfirm(false,'Erro ao salvar o tempo.','','Ok');
             break;
           case 'en':
-            this.newBoxAlertConfirm(false,'Error when saving the time.','');
+            this.newBoxAlertConfirm(false,'Error when saving the time.','','Ok');
             break;
           default:
-            this.newBoxAlertConfirm(false,'Error al ahorrar el tiempo.','');
+            this.newBoxAlertConfirm(false,'Error al ahorrar el tiempo.','','Ok');
             break;
         }
       }
@@ -600,7 +600,7 @@ class TimerView {
       currentRestTime
     }
   }
-  newBoxAlertConfirm(confirm,textoHead,textoBody,callback = ()=>{}){
+  newBoxAlertConfirm(confirm,textoHead,textoBody = '',textBtnClose, callback = ()=>{},){
     const bgBoxConfirm = document.createElement("div");
     bgBoxConfirm.id = 'bgBoxConfirm';
 
@@ -636,7 +636,7 @@ class TimerView {
           };
       }
       const btnCancelar = document.createElement("button");
-        btnCancelar.textContent = 'Cancelar';
+        btnCancelar.textContent = textBtnClose;
         btnCancelar.className = 'button light-blue';
         btnCancelar.onclick = function() {
           bgBoxConfirm.parentElement.removeChild(bgBoxConfirm)
