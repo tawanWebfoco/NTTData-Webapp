@@ -117,7 +117,7 @@ inputUploadVideo.addEventListener('change', function() {
 });
 
 function isValidImageType(type) {
-    return /^image\/(jpeg|jpg|png)$/.test(type);
+    return /^image\/(jpeg|jpg|png|hevc|heif|heic|quicktime)$/.test(type);
 }
 
 function isValidVideoType(type) {
