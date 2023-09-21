@@ -123,10 +123,10 @@ class TimerView {
           this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas, clique em salvar tempo.','','Ok');
           break;
         case 'en':
-          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 4 hours, click on Save Time.','','Ok');
+          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 4 hours, click on Save time.','','Ok');
           break;
         default:
-          this.newBoxAlertConfirm(false,'Has superado el límite diario de 4 horas, haz clic en Ahorrar Tiempo.','','Ok');
+          this.newBoxAlertConfirm(false,'Has superado el límite diario de 4 horas, haz clic en Confirma tu tiempo.','','Ok');
           break;
       }
 
@@ -496,7 +496,7 @@ class TimerView {
           textSaveTime = 'Do you want to save the time?';
         break;
         default:
-          textSaveTime = '¿Deseas ahorrar el tiempo?';
+          textSaveTime = '¿Deseas confirmar tu tiempo?';
         break;
       }
 
@@ -547,7 +547,7 @@ class TimerView {
             this.newBoxAlertConfirm(false,'Time successfully saved.','','Ok');
             break;
           default:
-            this.newBoxAlertConfirm(false,'Tiempo ahorrado exitosamente.','','Ok');
+            this.newBoxAlertConfirm(false,'Tiempo confirmado exitosamente.','','Ok');
             break;
         }
       }else{
@@ -559,7 +559,7 @@ class TimerView {
             this.newBoxAlertConfirm(false,'Error when saving the time.','','Ok');
             break;
           default:
-            this.newBoxAlertConfirm(false,'Error al ahorrar el tiempo.','','Ok');
+            this.newBoxAlertConfirm(false,'Error al confirma tu tiempo.','','Ok');
             break;
         }
       }

@@ -26,7 +26,6 @@ uploadVideo.addEventListener('click', function(e) {
 inputUploadImage.addEventListener('change', function() {
     var maxFileSize = 5 * 1024 * 1024; // tamanho maximo de imagem 5mb
     selectedImage = inputUploadImage.files[0];
-    console.log(selectedImage);
 
     if(selectedImage.size > maxFileSize) {
         messageError.textContent = feed_erroimggrande;
@@ -34,12 +33,13 @@ inputUploadImage.addEventListener('change', function() {
         return
     }else{
 
-    if (inputUploadImage.files && selectedImage ) {
+    if (inputUploadImage.files && selectedImage) {
         var reader = new FileReader();
 
         reader.onload = function(event) {
-            console.log(selectedImage);
+            
             textArea.removeAttribute('required');
+            console.log(textArea);
             nameImg.innerHTML = selectedImage.name;
             messageError.textContent = "";
             imageContent.classList.add('active')
@@ -58,6 +58,7 @@ inputUploadVideo.addEventListener('change', function() {
 
     var maxFileSize = 50 * 1024 * 1024; // tamanho maximo de imagem 50 mb
     selectedVideo = inputUploadVideo.files[0];
+    console.log(selectedVideo);
 
     if(selectedVideo.size > maxFileSize) {
         messageError.textContent = feed_errovidgrande;
@@ -116,8 +117,7 @@ inputUploadVideo.addEventListener('change', function() {
 });
 
 function isValidImageType(type) {
-    return /^image\/(jpeg|jpg|png|hevc|heif|heic|quicktime|)$/.test(type);
-    // return false;
+    return /^image\/(jpeg|jpg|png|hevc|heif|heic)$/.test(type);
 }
 
 function isValidVideoType(type) {
@@ -126,6 +126,7 @@ function isValidVideoType(type) {
 
 function deleteAnexo() {
     textArea.setAttribute('required','');
+    console.log(textArea);
     imageContent.classList.remove('active')
     thumbnail.src = "#";
     nameImg.textContent = "";
