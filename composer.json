@@ -1,0 +1,6 @@
+{
+    "require": {
+        "maestroerror/php-heic-to-jpg": "^1.0",
+        "intervention/image": "^2.7"
+    }
+}

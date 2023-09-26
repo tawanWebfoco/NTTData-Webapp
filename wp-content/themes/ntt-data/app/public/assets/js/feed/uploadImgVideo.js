@@ -24,7 +24,7 @@ uploadVideo.addEventListener('click', function(e) {
 
 
 inputUploadImage.addEventListener('change', function() {
-    var maxFileSize = 5 * 1024 * 1024; // tamanho maximo de imagem 5mb
+    var maxFileSize = 30 * 1024 * 1024; // tamanho maximo de imagem 200mb
     selectedImage = inputUploadImage.files[0];
 
     if(selectedImage.size > maxFileSize) {
@@ -39,7 +39,6 @@ inputUploadImage.addEventListener('change', function() {
         reader.onload = function(event) {
             
             textArea.removeAttribute('required');
-            console.log(textArea);
             nameImg.innerHTML = selectedImage.name;
             messageError.textContent = "";
             imageContent.classList.add('active')

@@ -17,7 +17,6 @@ $_SESSION['pubView'] = serialize($latestPub);
 
 $exception = null;
 
-
 switch ($type) {
     case 'pub':
             require(CONTROLLER_PATH . "/$page/pub.php");
