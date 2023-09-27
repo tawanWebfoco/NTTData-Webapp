@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let page = navMenu.id.replace("nav", "");
             let currentUrl = window.location.href;
              currentUrl = currentUrl.split('?')[0];
-            console.log(currentUrl);
+            // console.log(currentUrl);
 
             window.location.href = currentUrl + '?p=' + page;
             

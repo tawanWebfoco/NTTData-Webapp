@@ -14,7 +14,6 @@ $latestPub->setArrayIdPubView($arrayIdPubView);
 
 $_SESSION['pubView'] = serialize($latestPub);
 
-
 $exception = null;
 
 switch ($type) {

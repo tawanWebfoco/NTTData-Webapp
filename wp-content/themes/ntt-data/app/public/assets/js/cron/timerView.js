@@ -418,13 +418,13 @@ class TimerView {
     }
     
     if (btn === this.btnAdd30Minutes && parseInt((sum30Min) / 60000)+1 < (limitInsertDataBase)) {
-      console.log('sumhour',sum30Min / 60000);
+      // console.log('sumhour',sum30Min / 60000);
       this.btnAdd30Minutes.classList.remove('btn-disabled');
       btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
     }
     
     if (btn === this.btnAdd10Minutes && parseInt((sum10Min) / 60000)+1 < (limitInsertDataBase)) {
-      console.log('sum10Min',sum10Min / 60000);
+      // console.log('sum10Min',sum10Min / 60000);
       this.btnAdd10Minutes.classList.remove('btn-disabled');
       btn.addEventListener('click', eventBtnAddTimeOnTimer.bind(this))
     }
@@ -581,15 +581,15 @@ class TimerView {
 
 
 
-    console.log('this.currentTime ',this.currentTime );
-    console.log('currentTime ',scoreCurrent );
-    console.log('sumScoreCurrent ',sumScoreCurrent );
-    console.log('limitDay ',limitDay );
-    console.log('limitTimePerDay ',this.limitTimePerDay );
-    console.log('this.time1minute ',this.time1minute );
-    console.log('this.currentTimeFromDb ',this.currentTimeFromDb );
-    console.log('this.limitInsertDataBase ',limitInsertDataBase );
-    console.log('scoreInsertDataBase ',this.scoreInsertDataBase );
+    // console.log('this.currentTime ',this.currentTime );
+    // console.log('currentTime ',scoreCurrent );
+    // console.log('sumScoreCurrent ',sumScoreCurrent );
+    // console.log('limitDay ',limitDay );
+    // console.log('limitTimePerDay ',this.limitTimePerDay );
+    // console.log('this.time1minute ',this.time1minute );
+    // console.log('this.currentTimeFromDb ',this.currentTimeFromDb );
+    // console.log('this.limitInsertDataBase ',limitInsertDataBase );
+    // console.log('scoreInsertDataBase ',this.scoreInsertDataBase );
 
     const currentTimeLimit = this._convertTimestampInObjectTime(this.scoreInsertDataBase * 60000);
     const currentRestTime = this._convertTimestampInObjectTime(limitInsertDataBase * 60000);

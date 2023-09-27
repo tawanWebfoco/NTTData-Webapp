@@ -29,12 +29,14 @@ class Login extends Model{
             }
 
             if($this->password === $user->password){
+                $user->password = null;
                 return $user;
 
             }
         }elseif($guest){
             
             if($this->password === $guest->password){
+                $guest->password = null;
                 return $guest;
 
             }
