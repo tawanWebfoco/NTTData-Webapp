@@ -680,6 +680,7 @@ div#imageContent > button {
 .receivepubbox .person h2 {
   font-size: 1.2rem;
   margin-bottom: -3px;
+  text-transform: capitalize;
 }
 .receivepubbox .person span {
   margin-top: -10px;
