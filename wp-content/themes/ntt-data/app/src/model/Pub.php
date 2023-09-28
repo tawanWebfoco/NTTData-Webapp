@@ -14,36 +14,36 @@ class Pub extends Model{
     public function getPub($filters = [], $column = '*', $order = '', $offset = '', $limit = '', $exeption = [], $join = '') {
 
         // $objPub = $this->get($filters, $column, $order, $offset, $limit, $this->arrayIdPubView, $join);
-        // $objPub = $this->get($filters, $column, $order, $offset, $limit, $this->arrayIdPubView, $join);
-        $objects = [];
-        $class = get_called_class();
-        $sql = "SELECT wp_app_pub.*
-        FROM wp_app_pub
-        LEFT JOIN wp_app_user ON wp_app_pub.id_user = wp_app_user.id_user
-        WHERE 1 = 1";
-        if($this->arrayIdPubView){
+        $objPub = $this->get($filters, $column, $order, $offset, $limit, $this->arrayIdPubView, $join);
+        // $objects = [];
+        // $class = get_called_class();
+        // $sql = "SELECT wp_app_pub.*
+        // FROM wp_app_pub
+        // LEFT JOIN wp_app_user ON wp_app_pub.id_user = wp_app_user.id_user
+        // WHERE 1 = 1";
+        // if($this->arrayIdPubView){
             
-            $sql .= "id_pub != $this->setArrayIdPubView";
-        }
-        $sql .= " AND wp_app_pub.trash IS NULL
-          AND wp_app_user.email NOT LIKE '%webfoco%'
-        ORDER BY wp_app_pub.id_pub DESC
-        LIMIT 4;";
+        //     $sql .= "id_pub != $this->setArrayIdPubView";
+        // }
+        // $sql .= " AND wp_app_pub.trash IS NULL
+        //   AND wp_app_user.email NOT LIKE '%webfoco%'
+        // ORDER BY wp_app_pub.id_pub DESC
+        // LIMIT 4;";
         
-        print_r($sql);
-        $result = Database::getResultFromQuery($sql);
+        // // print_r($sql);
+        // $result = Database::getResultFromQuery($sql);
         
-        if($result){
-            $class = get_called_class();
-            while($row = $result->fetch_assoc()){
-                array_push($objects, new $class($row));
-            }
-        }
+        // if($result){
+        //     $class = get_called_class();
+        //     while($row = $result->fetch_assoc()){
+        //         array_push($objects, new $class($row));
+        //     }
+        // }
 
-        return $objects;
+        // return $objects;
         
 
-        // return $objPub;
+        return $objPub;
     }
 
 
