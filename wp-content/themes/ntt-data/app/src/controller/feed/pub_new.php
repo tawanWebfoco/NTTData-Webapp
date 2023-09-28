@@ -106,20 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
          $fileExtension = strtolower(pathinfo($imgData['original_filename'], PATHINFO_EXTENSION));
          $convertedImagePath = $imgData['upload_dir']['path'] . '/' . time() . '.jpg';
-         echo '<br>';
-         print_r($convertedImagePath);
-         echo '<br>';
-         
-         echo '<br>';
-         print_r($fileExtension);
-         echo '<br>';
-         echo '<br>';
-         print_r($files['tmp_name']);
-         echo '<br>';
-         echo '<br>';
-         print_r($files);
-         echo '<br>';
-         echo '<br>';
+       
          switch ($fileExtension) {
             case 'heic':
             case 'heif':
@@ -144,10 +131,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
        $publication->insert($user);
 
 
-      //  $url = home_url();
-      //  $url .= '/app?p=feed';
-      //  usleep(500000); // 500000 microssegundos = 500 milissegundos
-      //  header("Location:$url");
+       $url = home_url();
+       $url .= '/app?p=feed';
+       usleep(500000); // 500000 microssegundos = 500 milissegundos
+       header("Location:$url");
 
    } else {
       $errors['arquivo'] = 'Não foi possível enviar sua publicação';
