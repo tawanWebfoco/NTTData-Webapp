@@ -24,9 +24,9 @@ function convertHEIFToJPG($inputPath, $outputPath){
 }
 
 function convertToJPG($inputPath, $outputPath){
-   try {
-      // Abra a imagem PNG de entrada com o Intervention Image
+  
       $image = Image::make($inputPath);
+      
 
       // Converta a imagem PNG para JPG
       $image->encode('jpg', 80); // 100 é a qualidade da imagem (0 a 100)
@@ -35,10 +35,7 @@ function convertToJPG($inputPath, $outputPath){
       $image->destroy();
       resizeImg($outputPath);
 
-      return true;
-   } catch (\Exception $e) {
-      return false;
-   }
+
 }
 
 function resizeImg($inputImagePath, $newWidth = 800){
@@ -104,13 +101,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       if (isset($imgData['upload_file'])) {
 
-         $fileExtension = strtolower(pathinfo($imgData['original_filename'], PATHINFO_EXTENSION));
          $convertedImagePath = $imgData['upload_dir']['path'] . '/' . time() . '.jpg';
        
-         switch ($fileExtension) {
+         switch (strtolower($file_extension)) {
             case 'heic':
             case 'heif':
                convertHEIFToJPG($files['tmp_name'],$convertedImagePath);
+               break;
+            case 'mov':
+            case 'mp4':
+            case 'quicktime':
+            case 'x-ms-wmv':
+            case 'webm':
+               $convertedImagePath = $imgData['upload_file'];
+               $files['typeFile'] = 'Vídeo';
+               move_uploaded_file($files['tmp_name'],$convertedImagePath);
                break;
             default:
                convertToJPG($files['tmp_name'],$convertedImagePath);

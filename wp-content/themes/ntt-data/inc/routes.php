@@ -75,7 +75,7 @@ function register_timer_callback()
   $sql_get_score_from_current_date = "SELECT SUM(score) as score FROM wp_app_time WHERE id_user = $id_user  AND typeUser = '$typeUser' AND DATE(date) = CURDATE();";
   
   $scoreCurrentDay =  Connection::one($sql_get_score_from_current_date)['score'];
-  $limitInsertDataBase = 240 - $scoreCurrentDay;
+  $limitInsertDataBase = 1440 - $scoreCurrentDay;
 
   $scoreInsertDataBase = ($time_score > $limitInsertDataBase) ? $limitInsertDataBase : $time_score;
 

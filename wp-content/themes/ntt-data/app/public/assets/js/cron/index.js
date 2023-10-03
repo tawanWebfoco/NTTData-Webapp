@@ -36,3 +36,20 @@ const timerController = new TimerController({
 });
 
 timerView.timerController = timerController;
+
+// const msg = localStorage.getItem('@webapp-msg')
+// if(!msg){
+//   localStorage.setItem('@webapp-msg', JSON.stringify(true));
+
+// switch (timerView.language.toLowerCase()) {
+//   case 'pt':
+//     timerView.newBoxAlertConfirm(false,'ATENÇÃO','No dia 30/09 tive uma instabilidade para enviar novas publicações','Ok');
+//     break;
+//   case 'en':
+//     timerView.newBoxAlertConfirm(false,'Time successfully saved.','','Ok');
+//     break;
+//   default:
+//     timerView.newBoxAlertConfirm(false,'Tiempo confirmado exitosamente.','','Ok');
+//     break;
+// }
+// }

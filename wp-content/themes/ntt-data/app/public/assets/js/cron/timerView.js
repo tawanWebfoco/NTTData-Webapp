@@ -16,9 +16,10 @@ class TimerView {
   scoreInsertDataBase = 0
 
   // constants values
-  limitTimePerDay = 14400000; // equivalent a 4 hours, 0 minutes, 0 seconds, 0 milliseconds
   // limitTimePerDay = 7200000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
-  limitOneDay = 86400000; // equivalent a 2 hours, 0 minutes, 0 seconds, 0 milliseconds
+  limitOneDay = 86400000; // equivalent a 1 day
+  // limitTimePerDay = 14400000; // equivalent a 4 hours, 0 minutes, 0 seconds, 0 milliseconds
+  limitTimePerDay = 86400000; // equivalent a 4 hours, 0 minutes, 0 seconds, 0 milliseconds
   time1hour = 3600000; // equivalent a 1 hours, 0 minutes, 0 seconds, 0 milliseconds
   time30minutes = 1800000; // equivalent a 0 hours, 30 minutes, 0 seconds, 0 milliseconds
   time10minutes = 600000; // equivalent a 0 hours, 10 minutes, 0 seconds, 0 milliseconds
