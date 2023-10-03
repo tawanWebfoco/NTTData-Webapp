@@ -199,7 +199,7 @@ define('_t', [
 
      'cron_h1' => 'Registre seu tempo aqui',
      'cron_title' => 'Ative o cronômetro quando iniciar sua atividade',
-     'cron_limit_day' => 'LIMITE DIÁRIO DE 4 HORAS EXERCÍCIOS',
+     'cron_limit_day' => 'LIMITE DIÁRIO DE 24 HORAS EXERCÍCIOS',
      'cron_minutes' => 'Minutos',
      'cron_hour' => 'Hora',
      'cron_save_time' => 'Salvar tempo',

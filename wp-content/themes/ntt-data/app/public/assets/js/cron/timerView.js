@@ -121,13 +121,13 @@ class TimerView {
       this._pauseTimer();
       switch (this.language.toLowerCase()) {
         case 'pt':
-          this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas, clique em salvar tempo.','','Ok');
+          this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 24 horas, clique em salvar tempo.','','Ok');
           break;
         case 'en':
-          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 4 hours, click on Save time.','','Ok');
+          this.newBoxAlertConfirm(false,'You have exceeded the daily limit of 24 hours, click on Save time.','','Ok');
           break;
         default:
-          this.newBoxAlertConfirm(false,'Has superado el límite diario de 4 horas, haz clic en Confirma tu tiempo.','','Ok');
+          this.newBoxAlertConfirm(false,'Has superado el límite diario de 24 horas, haz clic en Confirma tu tiempo.','','Ok');
           break;
       }
 
@@ -297,13 +297,13 @@ class TimerView {
         }else{
           switch (this.language.toLowerCase()) {
             case 'pt':
-              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.','','Ok');
+              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 24 horas.','','Ok');
               break;
             case 'en':
-              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.','','Ok');
+              this.newBoxAlertConfirm(false,'You have exceeded the 24 hour daily limit.','','Ok');
               break;
             default:
-              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas','','Ok');
+              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 24 horas','','Ok');
               break;
           }
         }
@@ -329,13 +329,13 @@ class TimerView {
         }else{
           switch (this.language.toLowerCase()) {
             case 'pt':
-              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 4 horas.','','Ok');
+              this.newBoxAlertConfirm(false,'Você excedeu o limite diário de 24 horas.','','Ok');
               break;
             case 'en':
-              this.newBoxAlertConfirm(false,'You have exceeded the 4 hour daily limit.','','Ok');
+              this.newBoxAlertConfirm(false,'You have exceeded the 24 hour daily limit.','','Ok');
               break;
             default:
-              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 4 horas','','Ok');
+              this.newBoxAlertConfirm(false,'Ha excedido el límite diario de 24 horas','','Ok');
               break;
           }
         }

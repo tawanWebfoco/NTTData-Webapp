@@ -199,7 +199,7 @@ define('_t', [
     
     'cron_h1' => 'Register your time here',
     'cron_title' => 'Activate the timer when you start your activity',
-    'cron_limit_day' => 'DAILY 4 HOUR LIMIT EXERCISES',
+    'cron_limit_day' => 'DAILY 24 HOUR LIMIT EXERCISES',
      'cron_minutes' => 'Minutes', 
      'cron_hour' => ' Hour',
      'cron_save_time' => 'Save time',
